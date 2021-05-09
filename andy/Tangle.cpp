@@ -1,0 +1,27 @@
+// Tangle.cpp: implementation of the CTangle class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "cad.h"
+#include "Tangle.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CTangle::CTangle()
+{
+
+}
+
+CTangle::~CTangle()
+{
+
+}

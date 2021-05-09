@@ -1,0 +1,520 @@
+Microsoft HTML Help Compiler 4.72.7352
+
+Compiling c:\My Documents\Andycadhelp\andycad.chm
+
+    HHC3003: Warning: file.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: file.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: menu_draw.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: menu_draw.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: menu_edit.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: menu_edit.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: menu_view.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: menu_view.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1025" width="567" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1031" width="380" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1032" width="34" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1033" width="36" height="28"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1034" width="35" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1036" width="35" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1037" width="34" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1038" width="36" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1039" width="36" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1040" width="37" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1041" width="36" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1042" width="49" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1043" width="230" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1044" width="36" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1045" width="35" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1046" width="34" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1047" width="33" height="30"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1048" width="32" height="30"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1049" width="32" height="31"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1050" width="32" height="26"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1051" align="left" width="446" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1052" width="39" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1053" width="32" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1054" width="38" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1055" width="33" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1056" width="32" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1057" width="38" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1058" width="38" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1059" width="37" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1060" width="34" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1061" width="37" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1062" width="31" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1063" width="36" height="30"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1064" width="36" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1065" width="408" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1077" width="37" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1076" width="37" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1074" width="38" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1075" width="35" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1073" width="34" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1072" width="36" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1071" width="40" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1070" width="37" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1069" width="37" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1068" width="40" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1067" width="35" height="41"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1066" width="33" height="40"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1078" width="331" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1079" width="135" height="31"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1080" width="29" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1081" width="29" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1082" width="30" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1083" width="29" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1084" width="567" height="28"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1085" width="26" height="26"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1086" width="24" height="29"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1087" width="26" height="26"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1088" width="636" height="34"
+    HHC3001: Warning: 
+	The file "c:\My Documents\Andycadhelp\draw reactangle.htm" has a link to a non-existent file: "to_dra1.gif".
+
+Compile time: 0 minutes, 4 seconds
+39	Topics
+30	Local links
+1	Internet link
+143	Graphics
+
+
+Created c:\My Documents\Andycadhelp\andycad.chm, 173,142 bytes
+Compression decreased file by 153,646 bytes.
+Microsoft HTML Help Compiler 4.72.7352
+
+Compiling c:\My Documents\Andycadhelp\andycad.chm
+
+    HHC3003: Warning: file.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: file.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: menu_draw.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: menu_draw.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: menu_edit.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: menu_edit.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: menu_view.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: menu_view.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1025" width="567" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1031" width="380" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1032" width="34" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1033" width="36" height="28"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1034" width="35" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1036" width="35" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1037" width="34" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1038" width="36" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1039" width="36" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1040" width="37" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1041" width="36" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1042" width="49" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1043" width="230" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1044" width="36" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1045" width="35" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1046" width="34" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1047" width="33" height="30"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1048" width="32" height="30"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1049" width="32" height="31"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1050" width="32" height="26"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1051" align="left" width="446" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1052" width="39" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1053" width="32" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1054" width="38" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1055" width="33" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1056" width="32" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1057" width="38" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1058" width="38" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1059" width="37" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1060" width="34" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1061" width="37" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1062" width="31" height="32"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1063" width="36" height="30"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1064" width="36" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1065" width="408" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1077" width="37" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1076" width="37" height="35"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1074" width="38" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1075" width="35" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1073" width="34" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1072" width="36" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1071" width="40" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1070" width="37" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1069" width="37" height="37"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1068" width="40" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1067" width="35" height="41"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1066" width="33" height="40"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1078" width="331" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1079" width="135" height="31"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1080" width="29" height="34"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1081" width="29" height="33"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1082" width="30" height="36"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1083" width="29" height="38"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1084" width="567" height="28"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1085" width="26" height="26"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1086" width="24" height="29"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1087" width="26" height="26"
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "o" has invalid characters appearing before the closing angle bracket:
+ :p
+    HHC3005: Warning: toolbar.htm : 
+	The HTML end tag "</o" has invalid characters before the closing angle bracket (>).
+    HHC3003: Warning: toolbar.htm : 
+	The HTML tag "img" has invalid characters appearing before the closing angle bracket:
+ :shapes="_x0000_i1088" width="636" height="34"
+    HHC3001: Warning: 
+	The file "c:\My Documents\Andycadhelp\draw reactangle.htm" has a link to a non-existent file: "to_dra1.gif".
+
+Compile time: 0 minutes, 4 seconds
+39	Topics
+30	Local links
+1	Internet link
+143	Graphics
+
+
+Created c:\My Documents\Andycadhelp\andycad.chm, 173,142 bytes
+Compression decreased file by 153,646 bytes.

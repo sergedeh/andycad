@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="FrameName" value="ancycad">
+	<param name="WindowName" value="andycad">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value=".bmp">
+		<param name="Name" value=".bmp">
+		<param name="Local" value="creating_and_saving_files.htm">
+		<param name="URL" value="draw_image.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value=".deh">
+		<param name="Name" value=".deh">
+		<param name="Local" value="creating_and_saving_files.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="copy">
+		<param name="Name" value="copy">
+		<param name="Local" value="copying_and_pasting.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="cut">
+		<param name="Name" value="cut">
+		<param name="Local" value="cutting_and_deleting.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="delete">
+		<param name="Name" value="delete">
+		<param name="Local" value="cutting_and_deleting.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="import">
+		<param name="Name" value="importing files">
+		<param name="Local" value="importing_files.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Introduction">
+		<param name="Name" value="Introduction">
+		<param name="Local" value="intro.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="line">
+		<param name="See Also" value="draw line or polyline.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="new">
+		<param name="Name" value="New">
+		<param name="Local" value="creating_and_saving_files.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="open">
+		<param name="Name" value="Open">
+		<param name="Local" value="creating_and_saving_files.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="page setup">
+		<param name="Name" value="Page setup">
+		<param name="Local" value="page_setup.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="select">
+		<param name="Name" value="select">
+		<param name="Local" value="selecting_object.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="draw spline">
+		<param name="Name" value="Draw  spline">
+		<param name="Local" value="draw  Spline.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="draw ellipse">
+		<param name="Name" value="draw ellipse">
+		<param name="Local" value="draw  ellipse.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="paste">
+		<param name="Name" value="paste">
+		<param name="Local" value="copying_and_pasting.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="polyline">
+		<param name="Name" value="Draw Circle from 2 points">
+		<param name="Local" value="draw line or polyline.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="print">
+		<param name="Local" value="printingdrawing.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="print preview">
+		<param name="Name" value="print preview">
+		<param name="Local" value="print_preview.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="print setup">
+		<param name="Name" value="print setup">
+		<param name="Local" value="print_setup.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="redo">
+		<param name="Name" value="redo">
+		<param name="Local" value="undo_or_redo_actions.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="save">
+		<param name="Name" value="Save">
+		<param name="Local" value="creating_and_saving_files.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="save as">
+		<param name="Local" value="creating_and_saving_files.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="text">
+		<param name="Name" value="Draw Arc from center">
+		<param name="Local" value="draw_text.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="undo">
+		<param name="Name" value="undo">
+		<param name="Local" value="undo_or_redo_actions.htm">
+		</OBJECT>
+</UL>
+</BODY></HTML>

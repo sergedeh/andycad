@@ -1,0 +1,354 @@
+# Microsoft Developer Studio Generated Dependency File, included by cad.mak
+
+.\Bezier.cpp : \
+	".\Bezier.h"\
+	".\cad.h"\
+	".\Cercle.h"\
+	".\Draw.h"\
+	".\Figure.h"\
+	".\Inter.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mouse.h"\
+	".\QLine.h"\
+	".\Rectangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\cad.cpp : \
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\Cercle.h"\
+	".\ColorD.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Figure.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Mouse.h"\
+	".\NStatusBar.h"\
+	".\PopBar.h"\
+	".\QLine.h"\
+	".\RecColor.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\SubWnd.h"\
+	".\TextD.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\ZoomD.h"\
+	
+
+!IF  "$(CFG)" == "cad - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "cad - Win32 Debug"
+
+!ENDIF 
+
+.\cad.rc : \
+	".\res\Acrobat38.ico"\
+	".\res\bitmap5.bmp"\
+	".\res\bmp00001.bmp"\
+	".\res\cad.ico"\
+	".\res\cad.rc2"\
+	".\res\cadDoc.ico"\
+	".\res\cer.bmp"\
+	".\res\cur00001.cur"\
+	".\res\cur00002.cur"\
+	".\res\cursor1.cur"\
+	".\res\edit.bmp"\
+	".\res\fonts.bmp"\
+	".\res\ico00001.ico"\
+	".\res\ico00002.ico"\
+	".\res\ico00003.ico"\
+	".\res\ico00004.ico"\
+	".\res\ico00005.ico"\
+	".\res\icon1.ico"\
+	".\res\icon3.ico"\
+	".\res\icon4.ico"\
+	".\res\icon5.ico"\
+	".\res\icon6.ico"\
+	".\res\Toolbar.bmp"\
+	".\res\toolbar1.bmp"\
+	".\res\toolbar2.bmp"\
+	".\res\tran.bmp"\
+	".\res\zi.ico"\
+	
+
+.\cadDoc.cpp : \
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\Cercle.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Figure.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\QLine.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\SubWnd.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\cadView.cpp : \
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\Cercle.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Figure.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\QLine.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\SubWnd.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\Cercle.cpp : \
+	".\Bezier.h"\
+	".\cad.h"\
+	".\Cercle.h"\
+	".\Figure.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\ColorD.cpp : \
+	".\cad.h"\
+	".\ColorD.h"\
+	".\DrawWnd.h"\
+	".\MainFrm.h"\
+	".\NStatusBar.h"\
+	".\PopBar.h"\
+	".\RecColor.h"\
+	".\Ruler1.h"\
+	".\SubWnd.h"\
+	".\TextD.h"\
+	".\ZoomD.h"\
+	
+
+.\Dot.cpp : \
+	".\cad.h"\
+	".\Dot.h"\
+	
+
+.\Draw.cpp : \
+	".\Bezier.h"\
+	".\cad.h"\
+	".\Cercle.h"\
+	".\Draw.h"\
+	".\Figure.h"\
+	".\Inter.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\QLine.h"\
+	".\Rectangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\DrawWnd.cpp : \
+	".\cad.h"\
+	".\DrawWnd.h"\
+	
+
+.\Figure.cpp : \
+	".\cad.h"\
+	".\Figure.h"\
+	".\Mouse.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\Inter.cpp : \
+	".\Bezier.h"\
+	".\cad.h"\
+	".\Cercle.h"\
+	".\Draw.h"\
+	".\Figure.h"\
+	".\Inter.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\QLine.h"\
+	".\Rectangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\LibS.cpp : \
+	".\cad.h"\
+	".\Figure.h"\
+	".\LibS.h"\
+	".\Mouse.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\Line.cpp : \
+	".\cad.h"\
+	".\Figure.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\MainFrm.cpp : \
+	".\cad.h"\
+	".\ColorD.h"\
+	".\DrawWnd.h"\
+	".\MainFrm.h"\
+	".\NStatusBar.h"\
+	".\PopBar.h"\
+	".\RecColor.h"\
+	".\Ruler1.h"\
+	".\SubWnd.h"\
+	".\TextD.h"\
+	".\ZoomD.h"\
+	
+
+.\Matrix1.cpp : \
+	".\cad.h"\
+	".\Matrix1.h"\
+	
+
+.\Mouse.cpp : \
+	".\cad.h"\
+	".\Mouse.h"\
+	
+
+.\NStatusBar.cpp : \
+	".\cad.h"\
+	".\NStatusBar.h"\
+	
+
+.\Operation.cpp : \
+	".\cad.h"\
+	".\Operation.h"\
+	".\Vector.h"\
+	".\Vectorp.h"\
+	".\Vectorv.h"\
+	
+
+.\PopBar.cpp : \
+	".\cad.h"\
+	".\PopBar.h"\
+	
+
+.\QLine.cpp : \
+	".\cad.h"\
+	".\Figure.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\QLine.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\RecColor.cpp : \
+	".\cad.h"\
+	".\ColorD.h"\
+	".\RecColor.h"\
+	
+
+.\Rectangle.cpp : \
+	".\cad.h"\
+	".\Figure.h"\
+	".\Line.h"\
+	".\Mouse.h"\
+	".\Rectangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\Ruler1.cpp : \
+	".\cad.h"\
+	".\Ruler1.h"\
+	
+
+.\StdAfx.cpp : \
+	"..\..\..\microsoft sdk\include\basetsd.h"\
+	"..\..\..\microsoft sdk\include\guiddef.h"\
+	"..\..\..\microsoft sdk\include\propidl.h"\
+	"..\..\..\microsoft sdk\include\reason.h"\
+	"..\..\..\microsoft sdk\include\shldisp.h"\
+	"..\..\..\microsoft sdk\include\shobjidl.h"\
+	"..\..\..\microsoft sdk\include\shtypes.h"\
+	"..\..\..\microsoft sdk\include\stralign.h"\
+	"..\..\..\microsoft sdk\include\tvout.h"\
+	".\StdAfx.h"\
+	
+
+.\SubWnd.cpp : \
+	".\cad.h"\
+	".\DrawWnd.h"\
+	".\Ruler1.h"\
+	".\SubWnd.h"\
+	
+
+.\TextD.cpp : \
+	".\cad.h"\
+	".\TextD.h"\
+	
+
+.\Translate.cpp : \
+	".\cad.h"\
+	".\Translate.h"\
+	".\Vector.h"\
+	
+
+.\TVector.cpp : \
+	".\cad.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	
+
+.\Vector.cpp : \
+	".\cad.h"\
+	".\Vector.h"\
+	
+
+.\Vectorp.cpp : \
+	".\cad.h"\
+	".\Vector.h"\
+	".\Vectorp.h"\
+	
+
+.\Vectorv.cpp : \
+	".\cad.h"\
+	".\Vector.h"\
+	".\Vectorv.h"\
+	
+
+.\ZoomD.cpp : \
+	".\cad.h"\
+	".\ZoomD.h"\
+	
+
+!IF  "$(CFG)" == "cad - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "cad - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "cad - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "cad - Win32 Debug"
+
+!ENDIF 
+

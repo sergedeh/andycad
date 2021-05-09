@@ -1,0 +1,130 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AABB - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\use\LOCALS~1\Temp\RSP130.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/AABB.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\use\My Documents\cadsoftware engine\AddinManager.cpp"
+"C:\Documents and Settings\use\My Documents\cadsoftware engine\Application.cpp"
+"C:\Documents and Settings\use\My Documents\cadsoftware engine\arcprop.cpp"
+"C:\Documents and Settings\use\My Documents\cadsoftware engine\Bezier1.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\use\LOCALS~1\Temp\RSP130.tmp" 
+Creating temporary file "C:\DOCUME~1\use\LOCALS~1\Temp\RSP131.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/AABB.pdb" /debug /machine:I386 /out:"Debug/AABB.exe" /pdbtype:sept 
+".\Debug\AABB.obj"
+".\Debug\AddinManager.obj"
+".\Debug\AddinManager1.obj"
+".\Debug\AddinSettingsDialog1.obj"
+".\Debug\AndyCad.obj"
+".\Debug\AndyCadAddin.obj"
+".\Debug\Application.obj"
+".\Debug\arcprop.obj"
+".\Debug\ArrayAngle.obj"
+".\Debug\barrowc.obj"
+".\Debug\BArrowP.obj"
+".\Debug\Bezier.obj"
+".\Debug\Bezier1.obj"
+".\Debug\cad.obj"
+".\Debug\cad.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\use\LOCALS~1\Temp\RSP131.tmp"
+<h3>Output Window</h3>
+Compiling...
+AddinManager.cpp
+c:\documents and settings\use\my documents\cadsoftware engine\addinmanager.cpp(23) : fatal error C1083: Cannot open include file: 'ProjectFramework.h': No such file or directory
+Application.cpp
+c:\documents and settings\use\my documents\cadsoftware engine\application.h(12) : error C2065: 'CLSID_Application' : undeclared identifier
+c:\documents and settings\use\my documents\cadsoftware engine\application.h(13) : error C2065: 'IApplication' : undeclared identifier
+c:\documents and settings\use\my documents\cadsoftware engine\application.h(13) : error C2065: 'IID_IApplication' : undeclared identifier
+c:\documents and settings\use\my documents\cadsoftware engine\application.h(13) : error C2065: 'LIBID_CadLib' : undeclared identifier
+c:\documents and settings\use\my documents\cadsoftware engine\application.h(14) : fatal error C1903: unable to recover from previous error(s); stopping compilation
+arcprop.cpp
+c:\documents and settings\use\my documents\cadsoftware engine\arcprop.h(21) : error C2065: 'IDD_ARCPROP' : undeclared identifier
+c:\documents and settings\use\my documents\cadsoftware engine\arcprop.h(21) : error C2057: expected constant expression
+Bezier1.cpp
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(161) : warning C4101: 'rsult' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(235) : warning C4101: 'v12' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(235) : warning C4101: 'v22' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(235) : warning C4101: 'v32' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(333) : warning C4101: 'k' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(694) : warning C4101: 'k' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(978) : warning C4101: 'testb' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(978) : warning C4101: 'teste' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1010) : warning C4101: 'rsult' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1109) : error C2039: 'vertex1' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1109) : error C2227: left of '->v' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1110) : error C2039: 'vertex2' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1110) : error C2227: left of '->v' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1111) : error C2039: 'vertex3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1111) : error C2227: left of '->v' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1467) : error C2039: 'vertex1' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1467) : error C2227: left of '->v' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1468) : error C2039: 'vertex2' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1468) : error C2227: left of '->v' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1469) : error C2039: 'vertex3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1469) : error C2227: left of '->v' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1743) : error C2556: 'class std::vector<class CVector,class std::allocator<class CVector> > *__thiscall CBezier::translatep(class CVector,class CVector)' : overloaded function differs only by return type from 'class CFigure *__thiscall CBezier::translatep(class CVector,class CVector)'
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(43) : see declaration of 'translatep'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(1743) : error C2371: 'translatep' : redefinition; different basic types
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(43) : see declaration of 'translatep'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(6266) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(6266) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(6294) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(6294) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(6320) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(6320) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(7179) : error C2511: 'copy' : overloaded member function 'void (class CFigure *)' not found in 'CBezier'
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(21) : see declaration of 'CBezier'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9635) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9635) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9811) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9811) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9911) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9911) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9939) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9939) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9965) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(9965) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(10089) : error C2039: 'edge3' : is not a member of 'CTriangle'
+        c:\documents and settings\use\my documents\cadsoftware engine\triangle.h(28) : see declaration of 'CTriangle'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(10089) : error C2227: left of '->flip' must point to class/struct/union
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(10128) : error C2511: 'cap' : overloaded member function 'void (bool,bool,class CDC *)' not found in 'CBezier'
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(21) : see declaration of 'CBezier'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(10432) : error C2511: 'cap0' : overloaded member function 'void (bool,bool,class CDC *)' not found in 'CBezier'
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(21) : see declaration of 'CBezier'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(10504) : error C2511: 'clipTriangle' : overloaded member function 'bool (class std::vector<class CTriangle *,class std::allocator<class CTriangle *> > &,class CDC *)' not found in 'CBezier'
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(21) : see declaration of 'CBezier'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(10576) : error C2511: 'Clipconfiguration0' : overloaded member function 'void (class CVector *,class CVector *,class CVertex *,class CVertex *,class CVertex *,class CDC *)' not found in 'CBezier'
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(21) : see declaration of 'CBezier'
+c:\documents and settings\use\my documents\cadsoftware engine\bezier1.cpp(10665) : error C2511: 'Clipconfiguration' : overloaded member function 'void (class CVector *,class CVector *,class CVertex *,class CVertex *,class CVertex *,class CDC *)' not found in 'CBezier'
+        c:\documents and settings\use\my documents\cadsoftware engine\bezier.h(21) : see declaration of 'CBezier'
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+AABB.exe - 46 error(s), 9 warning(s)
+</pre>
+</body>
+</html>

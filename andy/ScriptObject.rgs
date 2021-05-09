@@ -1,0 +1,26 @@
+HKCR
+{
+	Unleashed.ScriptObject.1 = s 'ScriptObject Class'
+	{
+		CLSID = s '{2F2C5AF2-ACC0-11D2-8329-E299EDB97E13}'
+	}
+	Unleashed.ScriptObject = s 'ScriptObject Class'
+	{
+		CLSID = s '{2F2C5AF2-ACC0-11D2-8329-E299EDB97E13}'
+		CurVer = s 'Unleashed.ScriptObject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2F2C5AF2-ACC0-11D2-8329-E299EDB97E13} = s 'ScriptObject Class'
+		{
+			ProgID = s 'Unleashed.ScriptObject.1'
+			VersionIndependentProgID = s 'Unleashed.ScriptObject'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{2F2C5AE5-ACC0-11D2-8329-E299EDB97E13}'
+		}
+	}
+}

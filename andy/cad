@@ -1,0 +1,1537 @@
+
+*********************** Stress Log: Begin Header ***********************
+Date: 06/01/104   Time: 22:03:38
+
+Initial State of Resources
+----------------------------
+Global Memory       : 130520.00 KB
+User Heap           :        75 %
+GDI Heap            :        75 %
+Disk Space          :    605.72 MB
+File Handles        :       120 
+Wnd32               :   1994.90 KB
+Menu32              :   1994.17 KB
+GDI32               :   1997.42 KB
+
+*********************** Stress Log: End Header *************************
+
+TIME       LOCATION        TYPE OF ACTION  SPECIFIC DESCRIPTION
+
+22:03:41  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1996.79 KB  Menu32 :  1995.23 KB  GDI32  :  1997.34 KB
+22:03:47  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1996.79 KB  Menu32 :  1995.23 KB  GDI32  :  1997.34 KB
+22:03:52  Global : 130520.00 KB  User   :       78 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2007.74 KB  Menu32 :  2015.47 KB  GDI32  :  2001.97 KB
+22:03:57  Global : 130520.00 KB  User   :       76 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2005.15 KB  Menu32 :  2014.40 KB  GDI32  :  2001.08 KB
+22:04:03  Global : 130520.00 KB  User   :       76 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2005.15 KB  Menu32 :  2014.40 KB  GDI32  :  2001.57 KB
+22:04:08  Global : 130520.00 KB  User   :       76 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2005.15 KB  Menu32 :  2014.40 KB  GDI32  :  2001.57 KB
+22:04:14  Global : 130520.00 KB  User   :       76 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2005.15 KB  Menu32 :  2014.40 KB  GDI32  :  2001.57 KB
+22:04:19  Global : 130520.00 KB  User   :       76 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2005.15 KB  Menu32 :  2014.35 KB  GDI32  :  2001.70 KB
+22:04:24  Global : 130520.00 KB  User   :       76 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2005.43 KB  Menu32 :  2014.35 KB  GDI32  :  2001.56 KB
+22:04:30  Global : 130520.00 KB  User   :       78 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2007.99 KB  Menu32 :  2015.47 KB  GDI32  :  2001.80 KB
+22:04:35  Global : 130520.00 KB  User   :       78 %   GDI    :       80 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  2007.99 KB  Menu32 :  2015.47 KB  GDI32  :  2001.80 KB
+22:04:41  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.27 KB
+22:04:46  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.34 KB
+22:04:51  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.35 KB
+22:04:57  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.30 KB
+22:05:02  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.30 KB
+22:05:08  Global : 130520.00 KB  User   :       73 %   GDI    :       74 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1994.46 KB  Menu32 :  1994.16 KB  GDI32  :  1996.52 KB
+22:05:13  Global : 130520.00 KB  User   :       73 %   GDI    :       74 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1994.46 KB  Menu32 :  1994.16 KB  GDI32  :  1996.61 KB
+22:05:19  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.52 KB
+22:05:24  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.54 KB
+22:05:30  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.54 KB
+22:05:35  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.57 KB
+22:05:41  Global : 130520.00 KB  User   :       75 %   GDI    :       75 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.57 KB
+22:05:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.48 KB
+22:05:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.49 KB
+22:05:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.48 KB
+22:06:02  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.41 KB
+22:06:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   605.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.27 KB
+22:06:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   601.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.03 KB
+22:06:18  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   601.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.20 KB
+22:06:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   601.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.25 KB
+22:06:29  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   601.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1996.29 KB
+22:06:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.14 KB
+22:06:40  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:06:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.04 KB
+22:06:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:06:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:02  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.08 KB
+22:07:40  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:07:56  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:08:02  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:08:07  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1997.02 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:08:12  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.09 KB
+22:08:18  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.12 KB
+22:08:23  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:08:28  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.01 KB
+22:08:34  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.01 KB
+22:08:39  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:08:44  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:08:49  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:08:55  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:00  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:05  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:11  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:16  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:22  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:27  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:32  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:38  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:43  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:54  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:09:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:10:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:10:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:10:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.83 KB
+22:10:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.25 KB
+22:10:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:10:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:10:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:10:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:10:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:10:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:10:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:11:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:11:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:11:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:11:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:11:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.95 KB
+22:11:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:11:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.00 KB
+22:11:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.98 KB
+22:11:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.88 KB
+22:11:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.63 KB
+22:11:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.63 KB
+22:12:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.63 KB
+22:12:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.63 KB
+22:12:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.80 KB
+22:12:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.16 KB
+22:12:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.72 MB
+          Wnd32  :  1996.50 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:12:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:12:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:12:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.79 KB
+22:12:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.79 KB
+22:12:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.79 KB
+22:12:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.79 KB
+22:13:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.79 KB
+22:13:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.79 KB
+22:13:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:13:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:13:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:13:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:13:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:13:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.82 KB
+22:13:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:13:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.17 KB
+22:13:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.61 KB
+22:14:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:14:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.13 KB
+22:14:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:14:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:14:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:14:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:14:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:14:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:14:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:14:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.17 KB
+22:14:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:15:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.10 KB
+22:15:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.70 KB
+22:15:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.70 KB
+22:15:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.70 KB
+22:15:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.10 KB
+22:15:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:15:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:15:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:15:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:15:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:15:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:16:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:16:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:16:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:16:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.97 KB
+22:16:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.45 KB
+22:16:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:16:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:16:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:16:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:16:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:16:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.92 KB
+22:17:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.89 KB
+22:17:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.88 KB
+22:17:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.88 KB
+22:18:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.73 KB
+22:18:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.59 KB
+22:18:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.56 KB
+22:18:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.10 KB
+22:19:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:19:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:19:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.10 KB
+22:19:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:19:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:19:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:19:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:19:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:19:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:19:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:19:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.94 KB
+22:20:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.14 KB
+22:20:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:20:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:21:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:21:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:21:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:21:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:21:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:21:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:21:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:21:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:21:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:21:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:21:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:22:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:23:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:23:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.69 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:23:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:23:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.81 KB
+22:23:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:23:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:23:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:23:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:23:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:23:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:23:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:32  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:43  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:24:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:32  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:43  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:25:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.89 KB
+22:25:54  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:25:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:05  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:16  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:27  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:32  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:38  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:43  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:49  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:26:54  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:27:00  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.77 KB
+22:27:05  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:11  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:16  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:22  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:27  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:33  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:38  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:44  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:49  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:27:55  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:28:00  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:28:06  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.91 KB
+22:28:11  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.89 KB
+22:28:16  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:28:22  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:28:27  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:28:33  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:28:38  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:28:44  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:28:49  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:28:55  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:29:00  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.65 KB
+22:29:06  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.47 KB
+22:29:11  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.55 KB
+22:29:17  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:29:22  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:29:28  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:29:33  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:29:39  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:29:44  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:29:50  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:29:55  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:01  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:06  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:12  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:17  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:23  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:28  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:34  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:39  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:45  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.90 KB
+22:30:50  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:30:56  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:31:01  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:31:07  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:31:12  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:31:18  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:31:23  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:31:28  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.62 KB
+22:31:34  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:31:39  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:31:45  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:31:50  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:31:56  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:01  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:07  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:12  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:18  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:23  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:29  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:34  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:40  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:45  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:32:56  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:33:02  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:33:07  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:33:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:33:18  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:33:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.71 KB
+22:33:29  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:33:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:33:40  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:33:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:33:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:33:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:34:02  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:34:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:34:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:34:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:34:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.66 KB
+22:34:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.11 KB
+22:34:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:34:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.68 KB
+22:34:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.63 KB
+22:34:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.63 KB
+22:34:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.63 KB
+22:35:02  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.80 KB
+22:35:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.80 KB
+22:35:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1997.16 KB
+22:35:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:35:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:35:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:35:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:35:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:35:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:35:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:35:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:36:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:36:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.76 KB
+22:36:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:36:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.75 KB
+22:36:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.74 KB
+22:36:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:36:35  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:36:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:36:46  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:36:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:36:57  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:08  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:19  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:30  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:41  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.66 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.93 KB
+22:37:52  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:37:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.78 KB
+22:38:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.95 KB
+22:38:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.61 KB
+22:38:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.61 KB
+22:39:03  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.54 KB
+22:39:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:14  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:25  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:36  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:47  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:39:58  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:40:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:40:09  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:40:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.69 KB
+22:40:20  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.88 KB
+22:40:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:40:31  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:40:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:40:42  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:40:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:40:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:40:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:32  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:43  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:53  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:41:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:04  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:15  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:26  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:32  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:37  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:43  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:48  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:54  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:42:59  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:05  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:10  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:16  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:27  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:32  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:38  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:43  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:49  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:43:54  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:00  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:05  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:11  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:16  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:21  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:27  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:33  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:38  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:44  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:49  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:44:55  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:00  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:05  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:11  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:17  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:22  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:28  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:33  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:39  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:44  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:49  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:45:55  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:01  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:06  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:12  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:17  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:22  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:28  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:33  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:39  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:45  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:50  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:46:56  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:01  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:06  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:12  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:17  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:23  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:29  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:34  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:40  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:45  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:50  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:47:56  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:01  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:07  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:18  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:24  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:29  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:34  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:40  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:45  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:51  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:48:56  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:49:02  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:49:07  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:49:13  Global : 130520.00 KB  User   :       75 %   GDI    :       74 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  1996.60 KB  Menu32 :  1995.23 KB  GDI32  :  1996.72 KB
+22:49:18  Global : 130520.00 KB  User   :       75 %   GDI    :       76 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  2000.89 KB  Menu32 :  2002.30 KB  GDI32  :  2014.70 KB
+22:49:24  Global : 130520.00 KB  User   :       78 %   GDI    :       83 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  2011.86 KB  Menu32 :  2022.54 KB  GDI32  :  2020.03 KB
+22:49:29  Global : 130520.00 KB  User   :       86 %   GDI    :       95 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  2027.04 KB  Menu32 :  2037.20 KB  GDI32  :  2023.43 KB
+22:49:35  Global : 130520.00 KB  User   :       86 %   GDI    :       95 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  2027.30 KB  Menu32 :  2036.15 KB  GDI32  :  2023.68 KB
+22:49:40  Global : 130520.00 KB  User   :       86 %   GDI    :       95 %
+          Handles:      120     Disk   :   597.63 MB
+          Wnd32  :  2027.30 KB  Menu32 :  2036.15 KB  GDI32  :  2023.68 KB

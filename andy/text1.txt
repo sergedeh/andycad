@@ -1,0 +1,1450 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\cad.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\cad.ico"
+IDR_CADTYPE             ICON    DISCARDABLE     "res\\cadDoc.ico"
+IDI_ZO                  ICON    DISCARDABLE     "res\\ico00001.ico"
+IDI_ICON1               ICON    DISCARDABLE     "res\\ico00002.ico"
+IDI_ICON2               ICON    DISCARDABLE     "res\\Acrobat38.ico"
+IDI_AL1                 ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_ICON3               ICON    DISCARDABLE     "res\\icon3.ico"
+IDI_ICON4               ICON    DISCARDABLE     "res\\icon4.ico"
+IDI_ICON5               ICON    DISCARDABLE     "res\\icon5.ico"
+IDI_ZIn12               ICON    DISCARDABLE     "res\\zi.ico"
+IDI_T1                  ICON    DISCARDABLE     "res\\icon6.ico"
+IDI_T2                  ICON    DISCARDABLE     "res\\ico00003.ico"
+IDI_T3                  ICON    DISCARDABLE     "res\\ico00004.ico"
+IDI_TA                  ICON    DISCARDABLE     "res\\ico00005.ico"
+IDI_ICON6               ICON    DISCARDABLE     "res\\ico00006.ico"
+#if defined(APSTUDIO_INVOKED) || defined(T)
+#if defined(APSTUDIO_INVOKED)
+IDI_ICON7$(T)           ICON    DISCARDABLE     "res\\icon7.ico"
+#else
+IDI_ICON7               ICON    DISCARDABLE     "res\\icon7.ico"
+#endif
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+#if defined(APSTUDIO_INVOKED) || !defined(TEST)
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+#endif
+IDB_BITMAP5             BITMAP  DISCARDABLE     "res\\bitmap5.bmp"
+IDR_ZOOM                BITMAP  DISCARDABLE     "res\\toolbar2.bmp"
+IDR_TEXT                BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+IDR_CER                 BITMAP  DISCARDABLE     "res\\cer.bmp"
+IDR_EDIT                BITMAP  DISCARDABLE     "res\\edit.bmp"
+IDR_LINESTYLE           BITMAP  DISCARDABLE     "res\\linestyl.bmp"
+IDR_ZOOMBAR             BITMAP  DISCARDABLE     "res\\zoombar.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\hg1.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\hg3.bmp"
+IDB_LSTYLE              BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
+IDR_SNAPPING            BITMAP  DISCARDABLE     "res\\snapping.bmp"
+#if defined(APSTUDIO_INVOKED) || defined(TEST)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAINFRAME$(TEST)    BITMAP  MOVEABLE PURE   "res\\mainfram.bmp"
+#else
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\mainfram.bmp"
+#endif
+#endif
+IDR_TOOLBAR1            BITMAP  DISCARDABLE     "res\\toolbar4.bmp"
+IDR_DIMENSION           BITMAP  DISCARDABLE     "res\\dimensio.bmp"
+IDR_TRAN                BITMAP  DISCARDABLE     "res\\tran.bmp"
+IDR_LS                  BITMAP  DISCARDABLE     "res\\bmp00009.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+#if defined(APSTUDIO_INVOKED) || !defined(TEST)
+IDR_MAINFRAME TOOLBAR MOVEABLE PURE  40, 19
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    BUTTON      ID_EDIT_CUT
+    SEPARATOR
+    BUTTON      AFX_ID_PREVIEW_PRINT
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_CONTEXT_HELP
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+#endif
+
+IDR_ZOOM TOOLBAR DISCARDABLE  25, 25
+BEGIN
+   BUTTON      ID_EFFECT_ZOOMOUT
+   BUTTON      ID_EFFECT_ZOOMIN
+   BUTTON      ID_EFFECT_ZOOMIN
+END
+
+IDR_TEXT TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_Text
+    BUTTON      ID_ALLEFT
+    SEPARATOR
+    BUTTON      ID_ALCENT
+    BUTTON      ID_ALIGNRIGHT
+    BUTTON      ID_DIALOG_FONT
+END
+
+IDR_CER TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_FREECIRC
+    BUTTON      ID_3CERCLE
+    BUTTON      ID_2CERCLE
+    BUTTON      ID_ECLIPSE
+    BUTTON      ID_ARC
+    BUTTON      ID_3ARCCLOSE
+    BUTTON      ID_3ARCOPEN
+END
+
+IDR_EDIT TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_Taddnode
+    SEPARATOR
+    BUTTON      ID_Tdeletenode
+    SEPARATOR
+    BUTTON      ID_Tbreakcurve
+    BUTTON      ID_Tclosecurve
+    BUTTON      ID_GROUP
+    BUTTON      ID_GROUPUP
+    SEPARATOR
+    BUTTON      ID_SENDTOFRONT
+    BUTTON      ID_SENDTOBACKGRD
+    BUTTON      ID_SENDFORWARD
+    BUTTON      ID_SENDBACKWARD
+END
+
+IDR_LINESTYLE TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_LINESYTLE
+    SEPARATOR
+    BUTTON      ID_PAtTERN
+END
+
+IDR_ZOOMBAR TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_EFFECT_ZOOMIN
+    BUTTON      ID_BPERCENT
+    BUTTON      ID_EFFECT_ZOOMOUT
+    BUTTON      ID_NPAGE
+    BUTTON      ID_FITPAGE
+END
+
+IDR_SNAPPING TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_SNAPMIDPOINT
+    BUTTON      ID_SNAPENDPOINT
+    BUTTON      ID_SNAPPEN
+    BUTTON      ID_INTERSETPT
+    BUTTON      ID_SNAPCTR
+    BUTTON      ID_SNAPNEAR
+    BUTTON      ID_SNAPTAN
+    BUTTON      ID_SNAPQUAD
+    BUTTON      ID_SNAPON
+    BUTTON      ID_SNAPOFF
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(TEST)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAINFRAME$(TEST) TOOLBAR MOVEABLE PURE  22, 19
+#else
+IDR_MAINFRAME TOOLBAR MOVEABLE PURE  22, 19
+#endif
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    BUTTON      AFX_IDD_PREVIEW_TOOLBAR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_CONTEXT_HELP
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+#endif
+
+IDR_TOOLBAR1 TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_LINE
+    BUTTON      ID_RECTANGLE
+    SEPARATOR
+    BUTTON      ID_SQLINE
+    BUTTON      ID_RECTANGLEFREE
+    BUTTON      ID_POLYB
+    SEPARATOR
+    BUTTON      ID_CERCLE
+    SEPARATOR
+    BUTTON      ID_Text
+    BUTTON      ID_TBSELECT
+    BUTTON      ID_TBROTATE
+    BUTTON      ID_PERP
+    BUTTON      ID_TGLINE
+END
+
+IDR_DIMENSION TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_DIMHO
+    BUTTON      ID_DIMVERT
+    BUTTON      ID_DIML
+    SEPARATOR
+    BUTTON      ID_DIM1FREE
+    SEPARATOR
+    BUTTON      ID_DimA
+    BUTTON      ID_DIMTXT
+    BUTTON      ID_DIMRAD
+    BUTTON      ID_DIMCDIA
+END
+
+IDR_TRAN TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_TBMIRROR
+    SEPARATOR
+    BUTTON      ID_MIRRORNOCOPY
+    BUTTON      D_COPYLINE
+    BUTTON      ID_ANGCOPY
+    BUTTON      ID_COPYRAL
+    BUTTON      ID_RECARRAYCOPY
+    BUTTON      ID_COPYBYCENTER
+    SEPARATOR
+    BUTTON      ID_FLIH
+    BUTTON      ID_FILPVERT
+    BUTTON      ID_SLIDE
+END
+
+IDR_LS TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_BL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Export ",                     ID_FILE_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "Page Setup",                  ID_PAGE_SETUP
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "Redo",                        ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Paste Special",               ID_EDIT_PASTE_SPECIAL
+        MENUITEM SEPARATOR
+        MENUITEM "Select",                      ID_TBSELECT
+        MENUITEM "Select All",                  ID_TBSELECT
+        MENUITEM SEPARATOR
+        MENUITEM "Delete",                      ID_EDIT_CLEAR
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Toolbar"
+        BEGIN
+            MENUITEM "2D Drawing",                  ID_VIEW_TOOLBAR_2DDRAWING
+
+            MENUITEM "Zooming",                     32842
+            MENUITEM "Transform",                   ID_ClLOSEDBSPLINE
+            MENUITEM "Selection",                   32840
+            MENUITEM "Line Edit ",                  32843
+            MENUITEM SEPARATOR
+            MENUITEM "Show ToolBar",                32853
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Zoom ",                       32824
+        MENUITEM "Zoom In",                     ID_EFFECT_ZOOMIN, CHECKED
+        MENUITEM "Zoom Out",                    ID_EFFECT_ZOOMOUT, CHECKED
+        MENUITEM "Normal Size",                 ID_2CERCLE
+        MENUITEM "Fit in window",               32829
+        MENUITEM SEPARATOR
+        MENUITEM "Ruler",                       32810
+        MENUITEM "Grid",                        ID_TOOLS_GRID
+        MENUITEM SEPARATOR
+        MENUITEM "Background ",                 32811
+    END
+    POPUP "Draw"
+    BEGIN
+        POPUP "Line"
+        BEGIN
+            MENUITEM "PolyLine",                    ID_DRAW_POLYLINE
+            MENUITEM "Square Line",                 ID_DRAW_SQUARELINE
+            MENUITEM "Vertilcal Line",              ID_DRAW_RECTANGLE
+            MENUITEM "Horizointal Line",            ID_DRAW_LINE_HORIZOINTALLINE
+
+        END
+        MENUITEM "Rectangle",                   ID_RECTANGLE
+        MENUITEM "Spline",                      ID_SQLINE
+        MENUITEM "Closed B-Spline",             ID_ClLOSEDBSPLINE
+        MENUITEM SEPARATOR
+        MENUITEM "Circle",                      ID_CERCLE
+        MENUITEM "Circle 2 point",              ID_2CERCLE
+        MENUITEM "Circle 3 point",              ID_3CERCLE
+        MENUITEM SEPARATOR
+        MENUITEM "Arc from center",             ID_ARC
+        MENUITEM "Arc 2 point",                 ID_3ARCCLOSE
+        MENUITEM "Arc 3 point",                 ID_3ARCOPEN
+        MENUITEM SEPARATOR
+        POPUP "Text"
+        BEGIN
+            MENUITEM "Draw Text",                   ID_Text
+            MENUITEM "Font",                        ID_DIALOG_FONT
+        END
+        MENUITEM SEPARATOR
+        POPUP "Insert &Object"
+        BEGIN
+            MENUITEM "Insert Object",               ID_INSERTOBJECT
+            MENUITEM "Object from file",            174
+            MENUITEM "Insert Bitmap",               ID_EFFECT_INSERTOBJECT_INSERTBITMAP
+
+            MENUITEM "Date and Time",               ID_EFFECT_INSERTOBJECT_DATEANDTIME
+
+        END
+    END
+    POPUP "Dimension"
+    BEGIN
+        MENUITEM "Smart Dimesion",              ID_DIM1FREE
+        MENUITEM SEPARATOR
+        MENUITEM "Horizontal",                  ID_DIMHO
+        MENUITEM "Vertical",                    ID_DIMVERT
+        MENUITEM SEPARATOR
+        MENUITEM "Angular",                     ID_DimA
+        MENUITEM "Radial",                      ID_DIMRAD
+        MENUITEM "Diameter",                    ID_DIMCDIA
+        MENUITEM SEPARATOR
+        MENUITEM "Outer Arrow",                 ID_DIML
+        MENUITEM SEPARATOR
+        MENUITEM "Text Annotation",             ID_DIMTXT
+    END
+    POPUP "Transform"
+    BEGIN
+        MENUITEM "Move",                        ID_TBSELECT
+        MENUITEM "Slide",                       ID_SLIDE
+        MENUITEM SEPARATOR
+        MENUITEM "Insert Node",                 ID_Taddnode
+        MENUITEM "Delete Node",                 ID_Tdeletenode
+        MENUITEM "Break Curve or Line",         ID_Tbreakcurve
+        MENUITEM "Close Curve or Line",         ID_Tclosecurve
+        MENUITEM SEPARATOR
+        MENUITEM "Rotate",                      ID_TBROTATE
+        MENUITEM "Flip horizontally",           ID_FLIH
+        MENUITEM "Flip Vertically",             ID_FILPVERT
+        MENUITEM SEPARATOR
+        MENUITEM "Mirror",                      ID_TBMIRROR
+        MENUITEM "Mirror without copy",         ID_MIRRORNOCOPY
+        MENUITEM SEPARATOR
+        MENUITEM "Copy",                        ID_EDIT_COPY
+        MENUITEM "Polar copy",                  ID_COPYRAL
+        MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+        MENUITEM SEPARATOR
+        MENUITEM "Angular Array copy",          ID_ANGCOPY
+        MENUITEM "Rectangular Array copy",      ID_RECARRAYCOPY
+    END
+    POPUP "&Arrange"
+    BEGIN
+        MENUITEM "Group",                       ID_GROUP
+        MENUITEM "Ungroup",                     ID_GROUPUP
+        MENUITEM SEPARATOR
+        MENUITEM "Send Forward",                ID_SENDFORWARD
+        MENUITEM "Send Backward",               ID_SENDBACKWARD
+        MENUITEM "Send to &Front",              ID_SENDTOFRONT
+        MENUITEM "Send to &Back",               ID_SENDTOBACKGRD
+        MENUITEM SEPARATOR
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "Grid",                        ID_TOOLS_GRID
+        MENUITEM "Paper",                       ID_TOOLS_PAPER
+        MENUITEM SEPARATOR
+        MENUITEM "Line Color",                  ID_TOOLS_LCOLOR
+        POPUP "Line Style"
+        BEGIN
+            MENUITEM "Solid",                       ID_EEE_SOLID
+            MENUITEM "Dot",                         ID__DOT
+            MENUITEM "Dash",                        ID__DASH
+            MENUITEM "Double Dot",                  ID__DOUBLEDOT
+        END
+        POPUP "Line Width"
+        BEGIN
+            MENUITEM "Normal",                      ID__LINEWIDTH_NORMAL
+            MENUITEM "Thin",                        ID__LINEWIDTH_THIN
+            MENUITEM "Thick",                       ID__LINEWIDTH_THICK
+            MENUITEM "Custom",                      ID__LINEWIDTH_CUSTOM
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Macro",                      32851
+        MENUITEM SEPARATOR
+        MENUITEM "&Customize",                  ID_TOOL_CUSTOM
+        MENUITEM "&Option",                     ID_TOOL_OPTION
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "Registration",                ID_HELP_REGISTRATION
+        MENUITEM "www.andycad.com",             ID_HELP_WWWANDYCADCOM
+        MENUITEM SEPARATOR
+        MENUITEM "&About cad...",               ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_POPUP_EDIT MENU DISCARDABLE 
+BEGIN
+    MENUITEM "Select",                      ID_TBSELECT
+    MENUITEM "&Copy",                       ID_EDIT_COPY
+    MENUITEM "&Paste",                      ID_PASTE
+    MENUITEM "&Cut",                        ID_EDIT_COPY
+    MENUITEM SEPARATOR
+    MENUITEM "&Rotate",                     ID_TBROTATE
+    MENUITEM "&Mirror",                     ID_TBMIRROR
+    MENUITEM "Angular Copy",                ID_ANGCOPY
+    MENUITEM "Polar Copy",                  ID_COPYRAL
+    MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+    MENUITEM "Symmetric copy",              D_COPYLINE
+    MENUITEM SEPARATOR
+    POPUP ""
+    BEGIN
+        MENUITEM "Copy",                        ID_POPUPITEM1
+        MENUITEM "popup item 4",                ID_POPUPITEM4
+        MENUITEM "popup item 1",                ID_POPUPITEM1
+        MENUITEM "popup item 1",                ID_POPUPITEM3
+        MENUITEM "popup item 1",                ID_POPUPITEM3
+        MENUITEM SEPARATOR
+        MENUITEM "&Rotate",                     ID_TBROTATE
+        MENUITEM "&Mirror",                     ID_TBMIRROR
+        MENUITEM "Angular Copy",                ID_ANGCOPY
+        MENUITEM "Polar Copy",                  ID_COPYRAL
+    END
+END
+
+#if defined(APSTUDIO_INVOKED) || !defined(R)
+IDR_MENU_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Se&lect",                     ID_TBSELECT
+        MENUITEM "Move",                        ID_TBSELECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Cut",                        ID_CUT
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "&Paste",                      ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Insert Node",                 ID_Taddnode
+        MENUITEM "Delete Node",                 ID_Tdeletenode
+        MENUITEM "Break Curve or Line",         ID_Tbreakcurve
+        MENUITEM "Close Curve or Line",         ID_Tclosecurve
+        MENUITEM SEPARATOR
+        POPUP "Line Style"
+        BEGIN
+            MENUITEM "Solid",                       ID_EEE_SOLID
+            MENUITEM "Dot",                         ID__DOT
+            MENUITEM "Dash",                        ID__DASH
+            MENUITEM "Double Dot",                  ID__DOUBLEDOT
+        END
+        POPUP "Line Width"
+        BEGIN
+            MENUITEM "Normal",                      ID__LINEWIDTH_NORMAL
+            MENUITEM "Thin",                        ID__LINEWIDTH_THIN
+            MENUITEM "Thick",                       ID__LINEWIDTH_THICK
+            MENUITEM "Custom",                      ID__LINEWIDTH_CUSTOM
+        END
+        POPUP "Arrow Style"
+        BEGIN
+            MENUITEM "Rounded",                     ID__ARROWSTYLE_ROUNDED
+            MENUITEM "Diamond",                     ID__ARROWSTYLE_DIAMOND
+            MENUITEM "Rectangle",                   ID__ARROWSTYLE_RECTANGLE
+        END
+        MENUITEM SEPARATOR
+        POPUP "Draw"
+        BEGIN
+            POPUP "Line"
+            BEGIN
+                MENUITEM "Line",                        ID_LINE
+                MENUITEM "PolyLine",                    ID_DRAW_POLYLINE
+                MENUITEM "Square Line",                 ID_DRAW_SQUARELINE
+                MENUITEM "Vertilcal Line",              ID_DRAW_RECTANGLE
+                MENUITEM "Horizointal Line",            ID_DRAW_LINE_HORIZOINTALLINE
+
+            END
+            MENUITEM "Rectangle",                   ID_RECTANGLE
+            MENUITEM "Spline",                      ID_SQLINE
+            MENUITEM "Closed B-Spline",             ID_ClLOSEDBSPLINE
+            MENUITEM SEPARATOR
+            MENUITEM "Circle",                      ID_CERCLE
+            MENUITEM "Circle 2 point",              ID_2CERCLE
+            MENUITEM "Circle 3 point",              ID_3CERCLE
+            MENUITEM SEPARATOR
+            MENUITEM "Arc from center",             ID_ARC
+            MENUITEM "Arc 2 point",                 ID_3ARCCLOSE
+            MENUITEM "Arc 3 point",                 ID_3ARCOPEN
+            MENUITEM SEPARATOR
+            MENUITEM "Text",                        ID_Text
+            MENUITEM SEPARATOR
+        END
+        MENUITEM SEPARATOR
+    END
+    POPUP ""
+    BEGIN
+        MENUITEM "Copy",                        ID_POPUPITEM1
+        MENUITEM "popup item 4",                ID_POPUPITEM4
+        MENUITEM "popup item 1",                ID_POPUPITEM1
+        MENUITEM "popup item 1",                ID_POPUPITEM3
+        MENUITEM "popup item 1",                ID_POPUPITEM3
+        MENUITEM SEPARATOR
+        MENUITEM "&Rotate",                     ID_TBROTATE
+        MENUITEM "&Mirror",                     ID_TBMIRROR
+        MENUITEM "Angular Copy",                ID_ANGCOPY
+        MENUITEM "Polar Copy",                  ID_COPYRAL
+    END
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(R)
+#if defined(APSTUDIO_INVOKED)
+IDR_MENU_POPUP$(R) MENU DISCARDABLE 
+#else
+IDR_MENU_POPUP MENU DISCARDABLE 
+#endif
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Copy",                        ID_POPUPITEM1
+        MENUITEM "popup item 4",                ID_POPUPITEM4
+        MENUITEM "popup item 1",                ID_POPUPITEM1
+        MENUITEM "popup item 1",                ID_POPUPITEM3
+        MENUITEM "popup item 1",                ID_POPUPITEM3
+        MENUITEM SEPARATOR
+        MENUITEM "&Rotate",                     ID_TBROTATE
+        MENUITEM "&Mirror",                     ID_TBMIRROR
+        MENUITEM "Angular Copy",                ID_ANGCOPY
+        MENUITEM "Polar Copy",                  ID_COPYRAL
+    END
+END
+#endif
+
+IDR_MENU_Line MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Solid",                       ID_EEE_SOLID
+        MENUITEM "Dot",                         ID__DOT
+        MENUITEM "Dash",                        ID__DASH
+        MENUITEM "Dash Dot",                    ID__DASHDOT
+        MENUITEM "Dash Dot Dot",                ID__DOUBLEDOT
+    END
+END
+
+IDR_MENU_Rotate MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Se&lect",                     ID_TBSELECT
+        MENUITEM "Move",                        ID_TBSELECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "&Rotate",                     ID_TBROTATE
+        MENUITEM "&Mirror",                     ID_TBMIRROR
+        MENUITEM SEPARATOR
+        MENUITEM "Angular Copy",                ID_ANGCOPY
+        MENUITEM "Polar Copy",                  ID_COPYRAL
+        MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+        MENUITEM SEPARATOR
+    END
+END
+
+IDR_MENUDRW MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Select",                      ID_TBSELECT
+        POPUP "Line"
+        BEGIN
+            MENUITEM "PolyLine",                    ID_DRAW_POLYLINE
+            MENUITEM "Square Line",                 ID_DRAW_SQUARELINE
+            MENUITEM "Vertilcal Line",              ID_DRAW_RECTANGLE
+            MENUITEM "Horizointal Line",            ID_DRAW_LINE_HORIZOINTALLINE
+
+        END
+        MENUITEM "Rectangle",                   ID_RECTANGLE
+        MENUITEM "Spline",                      ID_SQLINE
+        MENUITEM "Closed B-Spline",             ID_ClLOSEDBSPLINE
+        MENUITEM SEPARATOR
+        MENUITEM "Circle",                      ID_CERCLE
+        MENUITEM "Circle 2 point",              ID_2CERCLE
+        MENUITEM "Circle 3 point",              ID_3CERCLE
+        MENUITEM SEPARATOR
+        MENUITEM "Arc from center",             ID_ARC
+        MENUITEM "Arc 2 point",                 ID_3ARCCLOSE
+        MENUITEM "Arc 3 point",                 ID_3ARCOPEN
+        MENUITEM SEPARATOR
+        MENUITEM "Se&lect",                     ID_TBSELECT
+        MENUITEM "Move",                        ID_TBSELECT
+        POPUP "Line Width"
+        BEGIN
+            MENUITEM "Normal",                      ID__LINEWIDTH_NORMAL
+            MENUITEM "Thick",                       ID__LINEWIDTH_THICK
+            MENUITEM "Thin",                        ID__LINEWIDTH_THIN
+        END
+        POPUP "Line Style"
+        BEGIN
+            MENUITEM "Solid",                       ID_EEE_SOLID
+            MENUITEM "Dot",                         ID__DOT
+            MENUITEM "Dash",                        ID__DASH
+            MENUITEM "Double Dot",                  ID__DOUBLEDOT
+        END
+        POPUP "Text"
+        BEGIN
+            MENUITEM "Font",                        ID_DIALOG_FONT
+        END
+        MENUITEM SEPARATOR
+        POPUP "Modify "
+        BEGIN
+            MENUITEM "Insert Node",                 ID_Taddnode
+            MENUITEM "Delete Node",                 ID_Tdeletenode
+            MENUITEM "Break Curve or Line",         ID_Tbreakcurve
+            MENUITEM "Close Curve or Line",         ID_Tclosecurve
+            MENUITEM SEPARATOR
+            MENUITEM "&Cut",                        ID_CUT
+            MENUITEM "&Paste",                      ID_EDIT_PASTE
+            MENUITEM "&Copy",                       ID_EDIT_COPY
+            MENUITEM SEPARATOR
+            MENUITEM "&Mirror",                     ID_TBMIRROR
+            MENUITEM "Angular Copy",                ID_ANGCOPY
+            MENUITEM "&Rotate",                     ID_TBROTATE
+            MENUITEM "Polar Copy",                  ID_COPYRAL
+            MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+            MENUITEM SEPARATOR
+            MENUITEM SEPARATOR
+        END
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT
+    VK_F1,          ID_HELP,                VIRTKEY 
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About cad"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "cad Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2003",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_DIALOGBAR3 DIALOG DISCARDABLE  0, 0, 402, 19
+STYLE WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_ZOOM DIALOG DISCARDABLE  0, 0, 91, 26
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_TEXT DIALOG DISCARDABLE  0, 0, 120, 24
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_CERC DIALOG DISCARDABLE  0, 0, 205, 16
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_EDIT DIALOG DISCARDABLE  0, 0, 330, 16
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "TODO: layout dialog bar",IDC_STATIC,126,4,77,8
+END
+
+IDD_DIALOGPAPERSET DIALOGEX 0, 0, 253, 241
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_POPUP | WS_CAPTION
+CAPTION "Paper Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,26,220,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,220,50,14
+    GROUPBOX        "Paper Size",IDC_STATIC,13,7,199,74
+    CONTROL         "A    8.5'' x 11""",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,25,26,73,8
+    CONTROL         "B    11"" x  17"" ",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,25,37,67,8
+    CONTROL         "C    17""  x 22"" ",IDC_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON,25,49,68,8
+    CONTROL         "D    22""  x 34"" -",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON,25,60,81,8
+    CONTROL         "E    34""  x 44""",IDC_RADIO5,"Button",
+                    BS_AUTORADIOBUTTON,25,70,84,8
+    CONTROL         "A1       594x841",IDC_RADIO6,"Button",
+                    BS_AUTORADIOBUTTON,118,63,66,10
+    CONTROL         "A2       420x594",IDC_RADIO7,"Button",
+                    BS_AUTORADIOBUTTON,118,51,66,10
+    CONTROL         "A3       297x420",IDC_RADIO8,"Button",
+                    BS_AUTORADIOBUTTON,118,39,66,10
+    CONTROL         "A4       210x297",IDC_RADIO9,"Button",
+                    BS_AUTORADIOBUTTON,118,27,66,10
+    GROUPBOX        "Custom paper setting",IDC_STATIC,13,84,198,32
+    EDITTEXT        IDC_EDIT1,51,95,36,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,157,95,39,13,ES_AUTOHSCROLL
+    LTEXT           "Height:",IDC_STATIC,24,97,24,8
+    LTEXT           "Width:",IDC_STATIC,129,99,22,8
+    GROUPBOX        "Paper orientation",IDC_STATIC,14,127,199,81
+    EDITTEXT        IDC_EDIT3,33,140,42,49,ES_READONLY | NOT WS_BORDER | NOT 
+                    WS_TABSTOP,WS_EX_STATICEDGE,HIDC_EDIT3
+    EDITTEXT        IDC_EDIT4,137,150,67,33,ES_READONLY | NOT WS_BORDER | 
+                    NOT WS_TABSTOP,WS_EX_STATICEDGE
+    CONTROL         "Portrait",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,31,192,38,10
+    CONTROL         "Landscape",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,144,
+                    195,50,8
+    DEFPUSHBUTTON   "Apply",ID_APPLY,185,220,50,14
+END
+
+IDD_DIALOG_GRID DIALOG DISCARDABLE  0, 0, 237, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Grid"
+MENU IDR_MAINFRAME
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,173,18,50,14,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,173,38,50,14
+    GROUPBOX        "Grid settings",IDC_STATIC,13,1,156,70
+    CONTROL         "Show Grid",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,23,16,70,11
+    EDITTEXT        IDC_EDIT1,83,31,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,82,49,66,12,ES_AUTOHSCROLL
+    LTEXT           "Horizontal spacing",IDC_STATIC,15,33,59,8
+    LTEXT           "Vertical  spacing",IDC_STATIC,15,49,53,8
+END
+
+IDD_LINES DIALOG DISCARDABLE  0, 0, 275, 17
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_LDIALOG DIALOG DISCARDABLE  0, 0, 142, 22
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_LCOMBO,3,4,62,14,CBS_DROPDOWN | 
+                    CBS_OWNERDRAWVARIABLE | CBS_SORT | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_DIALOGLI DIALOG DISCARDABLE  0, 0, 142, 28
+STYLE WS_CHILD | WS_VISIBLE | WS_BORDER
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_COMBO,7,7,96,15,CBS_DROPDOWN | CBS_OWNERDRAWFIXED | 
+                    CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DIALOG3 DIALOG DISCARDABLE  0, 0, 127, 33
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Custom Width"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,57,7,49,13,ES_AUTOHSCROLL
+    LTEXT           "Enter Width",IDC_STATIC,9,10,38,8
+END
+
+IDD_GRID DIALOG DISCARDABLE  0, 0, 237, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Grid"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,173,18,50,14,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,173,38,50,14
+    GROUPBOX        "Grid settings",IDC_STATIC,13,1,156,70
+    CONTROL         "Show Grid",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,23,16,70,11
+    EDITTEXT        IDC_EDIT1,83,31,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,82,49,66,12,ES_AUTOHSCROLL
+    LTEXT           "Horizontal spacing",IDC_STATIC,15,33,59,8
+    LTEXT           "Vertical  spacing",IDC_STATIC,15,49,53,8
+END
+
+IDD_Arraycopy DIALOG DISCARDABLE  0, 0, 152, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose Angle"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,22,58,50,13,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,77,58,50,13,BS_FLAT
+    LTEXT           "Angle of  Rotation:",IDC_STATIC,8,14,60,8
+    EDITTEXT        IDC_EDIT1,76,9,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,76,31,35,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Number of copies:",IDC_STATIC,7,34,60,13
+    LTEXT           "degree",IDC_STATIC,111,14,23,8
+END
+
+IDD_NCOPY DIALOG DISCARDABLE  0, 0, 92, 38
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Number of Copies"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Copies:",IDC_STATIC,7,15,24,8
+    EDITTEXT        IDC_EDIT1,35,12,44,13,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "cad MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "cad\0"
+            VALUE "LegalCopyright", "Copyright (C) 2003\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "cad.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "cad Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOGBAR3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 395
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 11
+    END
+
+    IDD_ZOOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 84
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 19
+    END
+
+    IDD_TEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 113
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 17
+    END
+
+    IDD_CERC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_EDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_DIALOGPAPERSET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_DIALOG_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_LINES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 10
+    END
+
+    IDD_LDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 135
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 13
+    END
+
+    IDD_DIALOGLI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 134
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 19
+    END
+
+    IDD_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 120
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 26
+    END
+
+    IDD_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_Arraycopy, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 145
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_NCOPY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 85
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 31
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_RESIZE              CURSOR  DISCARDABLE     "res\\cursor1.cur"
+IDC_CURSOR_MIRROR       CURSOR  DISCARDABLE     "res\\cur00001.cur"
+IDC_RESIZEHAND          CURSOR  DISCARDABLE     "res\\cur00002.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "cad\n\nCad\n\n\nCad.Document\nCad Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "AndyCAD: An  Handy and easy CAD Program."
+    AFX_IDS_IDLEMESSAGE     "For Help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Opens Help\nHelp Topics"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+    ID_HELP_USING           "Display instructions about how to use help\nHelp"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
+    ID_HELP                 "Display help for current task or command\nHelp"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+    IDS_Linestyle           "Line Sytle"
+    IDS_L1                  "1pt"
+    IDS_L2                  "Pt2"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_LINESYTLE            "select line style\nLine style"
+    ID_NormalPage           "Fit to page view \nFit to page"
+    ID_RECTANGLE            "Draw a Rectangle or any Derived shape by mdofiying the points\nRectangle (Reshape-able Rectangle"
+    ID_CERCLE               "Create a Circle from center\n Circle from center"
+    ID_LINE                 "Draw line from 2 points or Ployline\nLine 2 points or PolyLine"
+    ID_Text                 "Create Text\nText"
+    ID_Taddnode             "Add node or a point\nAdd node"
+    ID_Tdeletenode          "Delete a node\nDelete node"
+    ID_Tbreakcurve          "break lines or curves\nBreak Curve"
+    ID_Tclosecurve          "Close curve or line\nClose curve or Line"
+    ID_TBROTATE             "Rotate object freely \n Free Rotate "
+    ID_TBSELECT             "Select an Object\nRectangle Selection"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FITPAGE              "Normal  page view \nNormal page"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_RECTANGLEFREE        "Reshapable Rectangle\nFree Shape Rectangle"
+    D_COPYLINE              "Create a Symmetric copy\n Symmetric copy"
+    ID_ANGCOPY              "Copy on an angle\nAngular copy"
+    ID_COPYRAL              "Create a Polar Copy\nPolar Copy"
+    ID_COPYBYCENTER         "Create a Parallel Copy\nParallel Copy"
+    ID_EFFECT_TRANSFORM_SYMETRICMIRROR "Symetric mirroring\n Symmetric mirror"
+    32812                   "Gorup Object together\\Object grouping"
+    ID_EFFECT_TRANSFORM_SYMMETRICCOPY "Symmteric copy\nsymetric copy"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    160                     "All menu has the same border\nSame border"
+    162                     "This is the next starting type of the menu style\nNext menu style"
+    163                     "Enable or disable special menu border\nMenu border"
+    165                     "Enable or disable menu selection\nMenu selection"
+    170                     "Select filling color\nFill color"
+    171                     "Select line color\nLine color"
+    172                     "Object to bottom layer\nBottom layer"
+    173                     "One layer down\nLayer down"
+    174                     "Object to top layer\nTop layer"
+    175                     "One layer up\nLayer up"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EFFECT_ROTATE_FLIPHORIZONTALLY "Flip horizontally\nFlip horizontally"
+    ID_EFFECT_ROTATE_FLIPVERTICALLY "Flip Vertically\nFlip Vertically"
+    ID_EFFECT_ROTATE_FREEROTATE 
+                            "Choose a center of rotation and Rotate\nFree Rotation"
+    ID_EFFECT_ROTATE_180DEGREES "/n Rotate  180 degrees"
+    ID_EFFECT_ROTATE_270DEGREES "\nRotate 270 Degrees"
+    ID_EFFECT_COLORANDLINE_LINESTYLE "\nLine style"
+    ID_EFFECT_INSERTOBJECT_INSERTBITMAP "\n Insert Bitmap"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_2CERCLE              "Draw a Circle  from 2 point\nCircle 2 point"
+    ID_3CERCLE              "Snap OBjects begin or endpoint\nsSnap to endpoint or Begin Point"
+    ID_ARC                  "Draw an arc form the center\nArcform Center "
+    ID_3ARCOPEN             "Draw an arc with 2 point\nArc 2 point"
+    ID_3ARCCLOSE            "Draw an arc with 3 point\nArc 3 point"
+    ID_ECLIPSE              "Draw Eclipse"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_POLYB                "Draw B-Spline\nB-Spline"
+    ID_ClLOSEDBSPLINE       "Draw a Closed B-Spline"
+    32846                   "\nUngroup Object"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_HELP_WWWANDYCADCOM   "Link to our Website"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VERTLINE             "Draw a vertical line\nVertical line"
+    ID_HORZLINE             "Draw Horizontal line\nHorizontal line"
+    ID_MULTLINE             "Draw multiple line\nMultiple line"
+    ID_FREECIRC             "\nNURBS Circle"
+    ID_SQLINE               "Draw Vertical line ,Horizontal line or any Shape from their combination.\nDraw Vertical line ,Horizontal line or their combination"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_COPY                 "Copy object\nCopy"
+    ID_PASTE                "Paste\nPaste"
+    ID_CUT                  "Cut\nCut"
+    ID_DIALOG_FONT          "Change Text  font sytle and color\n Font sytle and color"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FITWNDBTN            "Fit to window\n Fit to Window"
+    ID_EFFECT_ZOOMOUT       "\nZoom out"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PAtTERN              "\n Pattern styles"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_GROUP                "Group selected object\nGroup"
+    ID_GROUPUP              "Ungroup selected object\nUngroup"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MIDPOINT             "Snap objects midpoint\nMidpoint"
+    ID_ENDBEGIPT            "Snap OBjects begin or endpoint\nsSnap to endpoint or Begin Point"
+    ID_INTERSETPT           "Snap to point of intersection\\Point of intersection"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_DIMHO                "Horizontal Dimension\nHorizontal Dimension"
+    ID_DIML                 "Draw Outer arrow dimension\nOuter arrow with extension Dimension"
+    ID_DimA                 "Angular Dimension\nAngular Dimension"
+    ID_DIMVERT              "Vertical Dimension\nVertical Dimension"
+    ID_DIM1FREE             "Angled or Free Dimension\nSmart dimension"
+    ID_DIMCDIA              "Draw  the diameter  dimension\nDiameter Dimension"
+    ID_DIMRAD               "Draw  radius dimension\nRadius Dimension"
+    ID_DIMTXT               "Draw  a text dimension\nText  Annotation"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SNAPON               "Set snapping on\nSet snapping on"
+    ID_SNAPCTR              "\nCenter Snap"
+    ID_SNAPNEAR             "Snap OBjects begin or endpoint\nsSnap to closest point"
+    ID_SNAPTAN              "Snap OBjects begin or endpoint\nsSnap to tangent"
+    ID_SNAPQUAD             "Snap OBjects to Quadrant point\nsSnap to Quadrant"
+    ID_SNAPPEN              "Snap object perpendicular\nPerpendicular snap"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SNAPMIDPOINT         "set midpoint snapping  \nMidpoint"
+    ID_SNAPOFF              "Set snapping off\nSet snapping off"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SENDTOBACKGRD        "\n Send to the backgroud"
+    ID_SENDBACKWARD         "Send one step backward\n Send backward"
+    ID_FILPVERT             "/nFlip vertical"
+    ID_FLIH                 "Rotate Horizontal at 90 degree\nFlip Horizontal"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_RECARRAYCOPY         "Rectangular Array copy\n Rectangular Array copy"
+    ID_MIRRORNOCOPY         "Mirror without copying \nMirror without copy"
+    ID_BUTTON33053          "\nline style"
+    ID_BL                   "\nLine style"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\cad.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

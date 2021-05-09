@@ -1,0 +1,58 @@
+%define namespace "dxf"
+%language "C++" 
+%{
+#include <malloc.h>
+#define alloc _alloc
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
+
+vector<CVector> pvec;
+CString out,com;
+CCadDoc* pDoc;
+CCadView *pView;
+CVector cv;
+
+
+yyerror (char* s)  /* Called by yyparse on error */
+{
+ // printf ("%s\n", s);
+  CString f(s);
+  out+=f;
+}
+%}
+/* Digital electronic simulator. */
+%token HEADER_START SECTION_END EOL VAR_NAME VALUE GROUP_CODE TABLE_END
+%token TABLE_START TABLE_ENTRY TABLE_ENTRY_DATA1 CLASS_ENTRY CLASS_START error2
+
+%% /* Grammar rules and actions follow */
+
+input:    /* empty */
+        | HEADER CLASSES TABLES 
+
+HEADER:  /* empty */
+		| HEADER_START HEADER_VARS SECTION_END
+		    { 
+			}
+HEADER_VAR: "9" EOL VAR_NAME GROUP_CODE VALUE {out+="Catching an Header variable \n"}
+HEADER_VARS: HEADER_VAR
+		| HEADER_VAR HEADER_VARS
+CLASSES:  /* empty */
+		| CLASS_START CLASS_ENTRIES SECTION_END
+		    { 
+			}
+CLASS_ENTRIES: CLASS_ENTRY		
+		| CLASS_ENTRY CLASS_ENTRIES
+TABLES:  /* empty */
+		| TABLE_START TABLE_ENTRIES SECTION_END
+		    { 
+			}
+TABLE_ENTRY1: TABLE_ENTRY TABLE_ENTRY_DATA  TABLE_END
+TABLE_ENTRIES: TABLE_ENTRY1
+		| TABLE_ENTRY1 TABLE_ENTRIES
+
+TABLE_ENTRY_DATA: TABLE_ENTRY_DATA1
+		| TABLE_ENTRY_DATA1 TABLE_ENTRY_DATA
+
+%%       

@@ -1,0 +1,27 @@
+// FloatP.cpp: implementation of the CFloatP class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "cad.h"
+#include "FloatP.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CFloatP::CFloatP()
+{
+
+}
+
+CFloatP::~CFloatP()
+{
+
+}

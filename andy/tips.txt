@@ -1,0 +1,45 @@
+A Simple user friendly interface making it easy to learn and use    
+
+        Tool tips as On-Screen instructions help guide the user.
+
+ Save your drawing as .BMP files and view your drawings with MSPaint.
+	or any drawing tool.
+	 
+Draw Circles, Free Circle, Circle with 2 points, and Circle from 3 Points.
+
+Draw Arc from center, Arc 2 point, and Arc 3 points, Ellipse.
+
+You can create Interpolation through points using B-Spline.
+
+Reshape objects easily by clicking on the edge.
+Change or fill Color easily, click on any color on the ColorBar to change the line color or filling by right clicking on the color of your choice.
+ 
+You  can Rotate any object at various axes or freely,  
+
+You can mirror an object or grouped of objects.
+
+Select an object copy and decide where you wish to paste.
+
+Using Polar Copy,  Parallel Copy, Rectangler array copy or  Angular copy you make copies of a selected object or group of objects.
+
+Easily  Flip objects  vertically or horizontally, 
+
+Reorganize your objects using send to the background, forward,  backward  or front functions.
+
+You can Import .BMP files (Bitmap) and photos to your drawing. 
+
+You can Insert node, Remove/Delete Nodes in lines or curves.
+
+Using Close Curves/Lines segments you can fill shape with desired color.
+
+Easily create Chamfer or Fillet  on objects.
+Easily Trim objects, select the bounding object and  trim as desired.
+
+Move an object by selecting the object holding down the mouse and displace as desired.
+
+You can Undo or Redo previous action. 
+
+Print Preview (WYSIWYG) shows what the print will look like.  
+
+Create your own library using the group and ungroup functions.
+ 
