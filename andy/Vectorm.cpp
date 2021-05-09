@@ -1,0 +1,27 @@
+// Vectorm.cpp: implementation of the CVectorm class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "cad.h"
+#include "Vectorm.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CVectorm::CVectorm()
+{
+
+}
+
+CVectorm::~CVectorm()
+{
+
+}

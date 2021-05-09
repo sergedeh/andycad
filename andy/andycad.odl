@@ -1,0 +1,42 @@
+// andycad.odl : type library source for andycad.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (andycad.tlb).
+
+[ uuid(F21AB90F-F5E6-4E25-8502-0686A870534D), version(1.0) ]
+library Andycad
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CAndycadDoc
+	
+	[ uuid(D317EA42-ABD0-4D24-9986-49B635AC27AF) ]
+	dispinterface IAndycad
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CAndycadDoc)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CAndycadDoc)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CAndycadDoc
+	
+	[ uuid(FEEFC0CD-B0BB-443F-9597-012B5F438E8D) ]
+	coclass Andycad
+	{
+		[default] dispinterface IAndycad;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

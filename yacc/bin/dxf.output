@@ -1,0 +1,975 @@
+Terminals unused in grammar
+
+   EOL
+   VAR_NAME
+   VALUE
+   GROUP_CODE
+   error2
+   LINE_GROUP_CODE
+
+
+State 33 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: input $end
+
+    1 input: /* empty */
+    2      | input HEADER
+    3      | input CLASSES
+    4      | input TABLES
+    5      | input BLOCKS
+    6      | input ENTITIES
+
+    7 $@1: /* empty */
+
+    8 HEADER: HEADER_START $@1 HEADER_VARS SECTION_END
+
+    9 HEADER_VARS: /* empty */
+
+   10 $@2: /* empty */
+
+   11 HEADER_VARS: HEADER_VAR $@2 HEADER_VARS
+
+   12 $@3: /* empty */
+
+   13 CLASSES: CLASS_START $@3 CLASS_ENTRIES SECTION_END
+
+   14 CLASS_ENTRIES: /* empty */
+
+   15 $@4: /* empty */
+
+   16 CLASS_ENTRIES: CLASS_ENTRY $@4 CLASS_ENTRIES
+
+   17 $@5: /* empty */
+
+   18 $@6: /* empty */
+
+   19 TABLES: TABLE_START $@5 TABLE_ENTRIES SECTION_END $@6
+
+   20 $@7: /* empty */
+
+   21 TABLE_ENTRY1: TABLE_ENTRY $@7 TABLE_ENTRY_DATA TABLE_END
+
+   22 TABLE_ENTRIES: TABLE_ENTRY1
+   23              | TABLE_ENTRIES TABLE_ENTRY1
+
+   24 TABLE_ENTRY_DATA: /* empty */
+
+   25 $@8: /* empty */
+
+   26 TABLE_ENTRY_DATA: TABLE_CMN_GROUP $@8 TABLE_ENTRY_DATA1
+
+   27 $@9: /* empty */
+
+   28 TABLE_ENTRY_DATA: TABLE_ENTRY_DATA TABLE_CMN_GROUP $@9 TABLE_ENTRY_DATA1
+
+   29 TABLE_ENTRY_DATA1: APPID_ENTRY
+   30                  | BLOCK_RECORD_ENTRY
+   31                  | DIMSTYLE_ENTRY
+   32                  | LAYER_ENTRY
+   33                  | LTYPE_ENTRY
+   34                  | STYLE_ENTRY
+   35                  | UCS_ENTRY
+   36                  | VIEW_ENTRY
+   37                  | VPORT_ENTRY
+
+   38 $@10: /* empty */
+
+   39 BLOCKS: BLOCK_START $@10 BLOCK_ENTRIES SECTION_END
+
+   40 BLOCK_ENTRIES: BLOCK_ENTRY1
+   41              | BLOCK_ENTRIES BLOCK_ENTRY1
+
+   42 $@11: /* empty */
+
+   43 BLOCK_ENTRY1: BLOCK_ENTRY $@11 BLOCKEND_ENTRY
+
+   44 $@12: /* empty */
+
+   45 BLOCK_ENTRY1: BLOCK_ENTRY $@12 ENTITY_ENTRIES BLOCKEND_ENTRY
+
+   46 ENTITY_ENTRIES: ENTITY_ENTRY1
+   47               | ENTITY_ENTRIES ENTITY_ENTRY1
+
+   48 $@13: /* empty */
+
+   49 ENTITY_ENTRY1: ENTITY_CMN_GROUP $@13 ENTITY_ENTRY_DATA1
+
+   50 DIMENSION: DIMENSION_ENTRY ALDIMENSION_ENTRY
+   51          | DIMENSION_ENTRY LRDIMENSION_ENTRY
+   52          | DIMENSION_ENTRY RDIMENSION_ENTRY
+   53          | DIMENSION_ENTRY ANDIMENSION_ENTRY
+   54          | DIMENSION_ENTRY ODIMENSION_ENTRY
+
+   55 ENTITY_ENTRY_DATA1: /* empty */
+   56                   | ARC_ENTRY
+   57                   | CIRCLE_ENTRY
+   58                   | LINE_ENTRY
+   59                   | LWPOLYLINE_ENTRY
+   60                   | SPLINE_ENTRY
+   61                   | VIEWPORT_ENTRY
+   62                   | MTEXT_ENTRY
+   63                   | TEXT_ENTRY
+   64                   | INSERT_ENTRY
+   65                   | DIMENSION
+
+   66 $@14: /* empty */
+
+   67 ENTITIES: ENTITY_START $@14 ENTITY_ENTRIES SECTION_END
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+HEADER_START (258) 8
+HEADER_VAR (259) 11
+SECTION_END (260) 8 13 19 39 67
+EOL (261)
+VAR_NAME (262)
+VALUE (263)
+GROUP_CODE (264)
+TABLE_END (265) 21
+TABLE_CMN_GROUP (266) 26 28
+TABLE_START (267) 19
+TABLE_ENTRY (268) 21
+CLASS_ENTRY (269) 16
+CLASS_START (270) 13
+error2 (271)
+BLOCK_START (272) 39
+BLOCK_ENTRY (273) 43 45
+BLOCKEND_ENTRY (274) 43 45
+APPID_ENTRY (275) 29
+BLOCK_RECORD_ENTRY (276) 30
+DIMSTYLE_ENTRY (277) 31
+LAYER_ENTRY (278) 32
+LTYPE_ENTRY (279) 33
+STYLE_ENTRY (280) 34
+UCS_ENTRY (281) 35
+VIEW_ENTRY (282) 36
+VPORT_ENTRY (283) 37
+ENTITY_CMN_GROUP (284) 49
+ENTITY_START (285) 67
+LINE_GROUP_CODE (286)
+DIMENSION_ENTRY (287) 50 51 52 53 54
+ALDIMENSION_ENTRY (288) 50
+LRDIMENSION_ENTRY (289) 51
+RDIMENSION_ENTRY (290) 52
+ANDIMENSION_ENTRY (291) 53
+ODIMENSION_ENTRY (292) 54
+ARC_ENTRY (293) 56
+CIRCLE_ENTRY (294) 57
+LINE_ENTRY (295) 58
+SPLINE_ENTRY (296) 60
+TEXT_ENTRY (297) 63
+MTEXT_ENTRY (298) 62
+VIEWPORT_ENTRY (299) 61
+LWPOLYLINE_ENTRY (300) 59
+INSERT_ENTRY (301) 64
+
+
+Nonterminals, with rules where they appear
+
+$accept (47)
+    on left: 0
+input (48)
+    on left: 1 2 3 4 5 6, on right: 0 2 3 4 5 6
+HEADER (49)
+    on left: 8, on right: 2
+$@1 (50)
+    on left: 7, on right: 8
+HEADER_VARS (51)
+    on left: 9 11, on right: 8 11
+$@2 (52)
+    on left: 10, on right: 11
+CLASSES (53)
+    on left: 13, on right: 3
+$@3 (54)
+    on left: 12, on right: 13
+CLASS_ENTRIES (55)
+    on left: 14 16, on right: 13 16
+$@4 (56)
+    on left: 15, on right: 16
+TABLES (57)
+    on left: 19, on right: 4
+$@5 (58)
+    on left: 17, on right: 19
+$@6 (59)
+    on left: 18, on right: 19
+TABLE_ENTRY1 (60)
+    on left: 21, on right: 22 23
+$@7 (61)
+    on left: 20, on right: 21
+TABLE_ENTRIES (62)
+    on left: 22 23, on right: 19 23
+TABLE_ENTRY_DATA (63)
+    on left: 24 26 28, on right: 21 28
+$@8 (64)
+    on left: 25, on right: 26
+$@9 (65)
+    on left: 27, on right: 28
+TABLE_ENTRY_DATA1 (66)
+    on left: 29 30 31 32 33 34 35 36 37, on right: 26 28
+BLOCKS (67)
+    on left: 39, on right: 5
+$@10 (68)
+    on left: 38, on right: 39
+BLOCK_ENTRIES (69)
+    on left: 40 41, on right: 39 41
+BLOCK_ENTRY1 (70)
+    on left: 43 45, on right: 40 41
+$@11 (71)
+    on left: 42, on right: 43
+$@12 (72)
+    on left: 44, on right: 45
+ENTITY_ENTRIES (73)
+    on left: 46 47, on right: 45 47 67
+ENTITY_ENTRY1 (74)
+    on left: 49, on right: 46 47
+$@13 (75)
+    on left: 48, on right: 49
+DIMENSION (76)
+    on left: 50 51 52 53 54, on right: 65
+ENTITY_ENTRY_DATA1 (77)
+    on left: 55 56 57 58 59 60 61 62 63 64 65, on right: 49
+ENTITIES (78)
+    on left: 67, on right: 6
+$@14 (79)
+    on left: 66, on right: 67
+
+
+state 0
+
+    0 $accept: . input $end
+
+    $default  reduce using rule 1 (input)
+
+    input  go to state 1
+
+
+state 1
+
+    0 $accept: input . $end
+    2 input: input . HEADER
+    3      | input . CLASSES
+    4      | input . TABLES
+    5      | input . BLOCKS
+    6      | input . ENTITIES
+
+    $end          shift, and go to state 2
+    HEADER_START  shift, and go to state 3
+    TABLE_START   shift, and go to state 4
+    CLASS_START   shift, and go to state 5
+    BLOCK_START   shift, and go to state 6
+    ENTITY_START  shift, and go to state 7
+
+    HEADER    go to state 8
+    CLASSES   go to state 9
+    TABLES    go to state 10
+    BLOCKS    go to state 11
+    ENTITIES  go to state 12
+
+
+state 2
+
+    0 $accept: input $end .
+
+    $default  accept
+
+
+state 3
+
+    8 HEADER: HEADER_START . $@1 HEADER_VARS SECTION_END
+
+    $default  reduce using rule 7 ($@1)
+
+    $@1  go to state 13
+
+
+state 4
+
+   19 TABLES: TABLE_START . $@5 TABLE_ENTRIES SECTION_END $@6
+
+    $default  reduce using rule 17 ($@5)
+
+    $@5  go to state 14
+
+
+state 5
+
+   13 CLASSES: CLASS_START . $@3 CLASS_ENTRIES SECTION_END
+
+    $default  reduce using rule 12 ($@3)
+
+    $@3  go to state 15
+
+
+state 6
+
+   39 BLOCKS: BLOCK_START . $@10 BLOCK_ENTRIES SECTION_END
+
+    $default  reduce using rule 38 ($@10)
+
+    $@10  go to state 16
+
+
+state 7
+
+   67 ENTITIES: ENTITY_START . $@14 ENTITY_ENTRIES SECTION_END
+
+    $default  reduce using rule 66 ($@14)
+
+    $@14  go to state 17
+
+
+state 8
+
+    2 input: input HEADER .
+
+    $default  reduce using rule 2 (input)
+
+
+state 9
+
+    3 input: input CLASSES .
+
+    $default  reduce using rule 3 (input)
+
+
+state 10
+
+    4 input: input TABLES .
+
+    $default  reduce using rule 4 (input)
+
+
+state 11
+
+    5 input: input BLOCKS .
+
+    $default  reduce using rule 5 (input)
+
+
+state 12
+
+    6 input: input ENTITIES .
+
+    $default  reduce using rule 6 (input)
+
+
+state 13
+
+    8 HEADER: HEADER_START $@1 . HEADER_VARS SECTION_END
+
+    HEADER_VAR  shift, and go to state 18
+
+    $default  reduce using rule 9 (HEADER_VARS)
+
+    HEADER_VARS  go to state 19
+
+
+state 14
+
+   19 TABLES: TABLE_START $@5 . TABLE_ENTRIES SECTION_END $@6
+
+    TABLE_ENTRY  shift, and go to state 20
+
+    TABLE_ENTRY1   go to state 21
+    TABLE_ENTRIES  go to state 22
+
+
+state 15
+
+   13 CLASSES: CLASS_START $@3 . CLASS_ENTRIES SECTION_END
+
+    CLASS_ENTRY  shift, and go to state 23
+
+    $default  reduce using rule 14 (CLASS_ENTRIES)
+
+    CLASS_ENTRIES  go to state 24
+
+
+state 16
+
+   39 BLOCKS: BLOCK_START $@10 . BLOCK_ENTRIES SECTION_END
+
+    BLOCK_ENTRY  shift, and go to state 25
+
+    BLOCK_ENTRIES  go to state 26
+    BLOCK_ENTRY1   go to state 27
+
+
+state 17
+
+   67 ENTITIES: ENTITY_START $@14 . ENTITY_ENTRIES SECTION_END
+
+    ENTITY_CMN_GROUP  shift, and go to state 28
+
+    ENTITY_ENTRIES  go to state 29
+    ENTITY_ENTRY1   go to state 30
+
+
+state 18
+
+   11 HEADER_VARS: HEADER_VAR . $@2 HEADER_VARS
+
+    $default  reduce using rule 10 ($@2)
+
+    $@2  go to state 31
+
+
+state 19
+
+    8 HEADER: HEADER_START $@1 HEADER_VARS . SECTION_END
+
+    SECTION_END  shift, and go to state 32
+
+
+state 20
+
+   21 TABLE_ENTRY1: TABLE_ENTRY . $@7 TABLE_ENTRY_DATA TABLE_END
+
+    $default  reduce using rule 20 ($@7)
+
+    $@7  go to state 33
+
+
+state 21
+
+   22 TABLE_ENTRIES: TABLE_ENTRY1 .
+
+    $default  reduce using rule 22 (TABLE_ENTRIES)
+
+
+state 22
+
+   19 TABLES: TABLE_START $@5 TABLE_ENTRIES . SECTION_END $@6
+   23 TABLE_ENTRIES: TABLE_ENTRIES . TABLE_ENTRY1
+
+    SECTION_END  shift, and go to state 34
+    TABLE_ENTRY  shift, and go to state 20
+
+    TABLE_ENTRY1  go to state 35
+
+
+state 23
+
+   16 CLASS_ENTRIES: CLASS_ENTRY . $@4 CLASS_ENTRIES
+
+    $default  reduce using rule 15 ($@4)
+
+    $@4  go to state 36
+
+
+state 24
+
+   13 CLASSES: CLASS_START $@3 CLASS_ENTRIES . SECTION_END
+
+    SECTION_END  shift, and go to state 37
+
+
+state 25
+
+   43 BLOCK_ENTRY1: BLOCK_ENTRY . $@11 BLOCKEND_ENTRY
+   45             | BLOCK_ENTRY . $@12 ENTITY_ENTRIES BLOCKEND_ENTRY
+
+    ENTITY_CMN_GROUP  reduce using rule 44 ($@12)
+    $default          reduce using rule 42 ($@11)
+
+    $@11  go to state 38
+    $@12  go to state 39
+
+
+state 26
+
+   39 BLOCKS: BLOCK_START $@10 BLOCK_ENTRIES . SECTION_END
+   41 BLOCK_ENTRIES: BLOCK_ENTRIES . BLOCK_ENTRY1
+
+    SECTION_END  shift, and go to state 40
+    BLOCK_ENTRY  shift, and go to state 25
+
+    BLOCK_ENTRY1  go to state 41
+
+
+state 27
+
+   40 BLOCK_ENTRIES: BLOCK_ENTRY1 .
+
+    $default  reduce using rule 40 (BLOCK_ENTRIES)
+
+
+state 28
+
+   49 ENTITY_ENTRY1: ENTITY_CMN_GROUP . $@13 ENTITY_ENTRY_DATA1
+
+    $default  reduce using rule 48 ($@13)
+
+    $@13  go to state 42
+
+
+state 29
+
+   47 ENTITY_ENTRIES: ENTITY_ENTRIES . ENTITY_ENTRY1
+   67 ENTITIES: ENTITY_START $@14 ENTITY_ENTRIES . SECTION_END
+
+    SECTION_END       shift, and go to state 43
+    ENTITY_CMN_GROUP  shift, and go to state 28
+
+    ENTITY_ENTRY1  go to state 44
+
+
+state 30
+
+   46 ENTITY_ENTRIES: ENTITY_ENTRY1 .
+
+    $default  reduce using rule 46 (ENTITY_ENTRIES)
+
+
+state 31
+
+   11 HEADER_VARS: HEADER_VAR $@2 . HEADER_VARS
+
+    HEADER_VAR  shift, and go to state 18
+
+    $default  reduce using rule 9 (HEADER_VARS)
+
+    HEADER_VARS  go to state 45
+
+
+state 32
+
+    8 HEADER: HEADER_START $@1 HEADER_VARS SECTION_END .
+
+    $default  reduce using rule 8 (HEADER)
+
+
+state 33
+
+   21 TABLE_ENTRY1: TABLE_ENTRY $@7 . TABLE_ENTRY_DATA TABLE_END
+
+    TABLE_CMN_GROUP  shift, and go to state 46
+
+    TABLE_CMN_GROUP  [reduce using rule 24 (TABLE_ENTRY_DATA)]
+    $default         reduce using rule 24 (TABLE_ENTRY_DATA)
+
+    TABLE_ENTRY_DATA  go to state 47
+
+
+state 34
+
+   19 TABLES: TABLE_START $@5 TABLE_ENTRIES SECTION_END . $@6
+
+    $default  reduce using rule 18 ($@6)
+
+    $@6  go to state 48
+
+
+state 35
+
+   23 TABLE_ENTRIES: TABLE_ENTRIES TABLE_ENTRY1 .
+
+    $default  reduce using rule 23 (TABLE_ENTRIES)
+
+
+state 36
+
+   16 CLASS_ENTRIES: CLASS_ENTRY $@4 . CLASS_ENTRIES
+
+    CLASS_ENTRY  shift, and go to state 23
+
+    $default  reduce using rule 14 (CLASS_ENTRIES)
+
+    CLASS_ENTRIES  go to state 49
+
+
+state 37
+
+   13 CLASSES: CLASS_START $@3 CLASS_ENTRIES SECTION_END .
+
+    $default  reduce using rule 13 (CLASSES)
+
+
+state 38
+
+   43 BLOCK_ENTRY1: BLOCK_ENTRY $@11 . BLOCKEND_ENTRY
+
+    BLOCKEND_ENTRY  shift, and go to state 50
+
+
+state 39
+
+   45 BLOCK_ENTRY1: BLOCK_ENTRY $@12 . ENTITY_ENTRIES BLOCKEND_ENTRY
+
+    ENTITY_CMN_GROUP  shift, and go to state 28
+
+    ENTITY_ENTRIES  go to state 51
+    ENTITY_ENTRY1   go to state 30
+
+
+state 40
+
+   39 BLOCKS: BLOCK_START $@10 BLOCK_ENTRIES SECTION_END .
+
+    $default  reduce using rule 39 (BLOCKS)
+
+
+state 41
+
+   41 BLOCK_ENTRIES: BLOCK_ENTRIES BLOCK_ENTRY1 .
+
+    $default  reduce using rule 41 (BLOCK_ENTRIES)
+
+
+state 42
+
+   49 ENTITY_ENTRY1: ENTITY_CMN_GROUP $@13 . ENTITY_ENTRY_DATA1
+
+    DIMENSION_ENTRY   shift, and go to state 52
+    ARC_ENTRY         shift, and go to state 53
+    CIRCLE_ENTRY      shift, and go to state 54
+    LINE_ENTRY        shift, and go to state 55
+    SPLINE_ENTRY      shift, and go to state 56
+    TEXT_ENTRY        shift, and go to state 57
+    MTEXT_ENTRY       shift, and go to state 58
+    VIEWPORT_ENTRY    shift, and go to state 59
+    LWPOLYLINE_ENTRY  shift, and go to state 60
+    INSERT_ENTRY      shift, and go to state 61
+
+    $default  reduce using rule 55 (ENTITY_ENTRY_DATA1)
+
+    DIMENSION           go to state 62
+    ENTITY_ENTRY_DATA1  go to state 63
+
+
+state 43
+
+   67 ENTITIES: ENTITY_START $@14 ENTITY_ENTRIES SECTION_END .
+
+    $default  reduce using rule 67 (ENTITIES)
+
+
+state 44
+
+   47 ENTITY_ENTRIES: ENTITY_ENTRIES ENTITY_ENTRY1 .
+
+    $default  reduce using rule 47 (ENTITY_ENTRIES)
+
+
+state 45
+
+   11 HEADER_VARS: HEADER_VAR $@2 HEADER_VARS .
+
+    $default  reduce using rule 11 (HEADER_VARS)
+
+
+state 46
+
+   26 TABLE_ENTRY_DATA: TABLE_CMN_GROUP . $@8 TABLE_ENTRY_DATA1
+
+    $default  reduce using rule 25 ($@8)
+
+    $@8  go to state 64
+
+
+state 47
+
+   21 TABLE_ENTRY1: TABLE_ENTRY $@7 TABLE_ENTRY_DATA . TABLE_END
+   28 TABLE_ENTRY_DATA: TABLE_ENTRY_DATA . TABLE_CMN_GROUP $@9 TABLE_ENTRY_DATA1
+
+    TABLE_END        shift, and go to state 65
+    TABLE_CMN_GROUP  shift, and go to state 66
+
+
+state 48
+
+   19 TABLES: TABLE_START $@5 TABLE_ENTRIES SECTION_END $@6 .
+
+    $default  reduce using rule 19 (TABLES)
+
+
+state 49
+
+   16 CLASS_ENTRIES: CLASS_ENTRY $@4 CLASS_ENTRIES .
+
+    $default  reduce using rule 16 (CLASS_ENTRIES)
+
+
+state 50
+
+   43 BLOCK_ENTRY1: BLOCK_ENTRY $@11 BLOCKEND_ENTRY .
+
+    $default  reduce using rule 43 (BLOCK_ENTRY1)
+
+
+state 51
+
+   45 BLOCK_ENTRY1: BLOCK_ENTRY $@12 ENTITY_ENTRIES . BLOCKEND_ENTRY
+   47 ENTITY_ENTRIES: ENTITY_ENTRIES . ENTITY_ENTRY1
+
+    BLOCKEND_ENTRY    shift, and go to state 67
+    ENTITY_CMN_GROUP  shift, and go to state 28
+
+    ENTITY_ENTRY1  go to state 44
+
+
+state 52
+
+   50 DIMENSION: DIMENSION_ENTRY . ALDIMENSION_ENTRY
+   51          | DIMENSION_ENTRY . LRDIMENSION_ENTRY
+   52          | DIMENSION_ENTRY . RDIMENSION_ENTRY
+   53          | DIMENSION_ENTRY . ANDIMENSION_ENTRY
+   54          | DIMENSION_ENTRY . ODIMENSION_ENTRY
+
+    ALDIMENSION_ENTRY  shift, and go to state 68
+    LRDIMENSION_ENTRY  shift, and go to state 69
+    RDIMENSION_ENTRY   shift, and go to state 70
+    ANDIMENSION_ENTRY  shift, and go to state 71
+    ODIMENSION_ENTRY   shift, and go to state 72
+
+
+state 53
+
+   56 ENTITY_ENTRY_DATA1: ARC_ENTRY .
+
+    $default  reduce using rule 56 (ENTITY_ENTRY_DATA1)
+
+
+state 54
+
+   57 ENTITY_ENTRY_DATA1: CIRCLE_ENTRY .
+
+    $default  reduce using rule 57 (ENTITY_ENTRY_DATA1)
+
+
+state 55
+
+   58 ENTITY_ENTRY_DATA1: LINE_ENTRY .
+
+    $default  reduce using rule 58 (ENTITY_ENTRY_DATA1)
+
+
+state 56
+
+   60 ENTITY_ENTRY_DATA1: SPLINE_ENTRY .
+
+    $default  reduce using rule 60 (ENTITY_ENTRY_DATA1)
+
+
+state 57
+
+   63 ENTITY_ENTRY_DATA1: TEXT_ENTRY .
+
+    $default  reduce using rule 63 (ENTITY_ENTRY_DATA1)
+
+
+state 58
+
+   62 ENTITY_ENTRY_DATA1: MTEXT_ENTRY .
+
+    $default  reduce using rule 62 (ENTITY_ENTRY_DATA1)
+
+
+state 59
+
+   61 ENTITY_ENTRY_DATA1: VIEWPORT_ENTRY .
+
+    $default  reduce using rule 61 (ENTITY_ENTRY_DATA1)
+
+
+state 60
+
+   59 ENTITY_ENTRY_DATA1: LWPOLYLINE_ENTRY .
+
+    $default  reduce using rule 59 (ENTITY_ENTRY_DATA1)
+
+
+state 61
+
+   64 ENTITY_ENTRY_DATA1: INSERT_ENTRY .
+
+    $default  reduce using rule 64 (ENTITY_ENTRY_DATA1)
+
+
+state 62
+
+   65 ENTITY_ENTRY_DATA1: DIMENSION .
+
+    $default  reduce using rule 65 (ENTITY_ENTRY_DATA1)
+
+
+state 63
+
+   49 ENTITY_ENTRY1: ENTITY_CMN_GROUP $@13 ENTITY_ENTRY_DATA1 .
+
+    $default  reduce using rule 49 (ENTITY_ENTRY1)
+
+
+state 64
+
+   26 TABLE_ENTRY_DATA: TABLE_CMN_GROUP $@8 . TABLE_ENTRY_DATA1
+
+    APPID_ENTRY         shift, and go to state 73
+    BLOCK_RECORD_ENTRY  shift, and go to state 74
+    DIMSTYLE_ENTRY      shift, and go to state 75
+    LAYER_ENTRY         shift, and go to state 76
+    LTYPE_ENTRY         shift, and go to state 77
+    STYLE_ENTRY         shift, and go to state 78
+    UCS_ENTRY           shift, and go to state 79
+    VIEW_ENTRY          shift, and go to state 80
+    VPORT_ENTRY         shift, and go to state 81
+
+    TABLE_ENTRY_DATA1  go to state 82
+
+
+state 65
+
+   21 TABLE_ENTRY1: TABLE_ENTRY $@7 TABLE_ENTRY_DATA TABLE_END .
+
+    $default  reduce using rule 21 (TABLE_ENTRY1)
+
+
+state 66
+
+   28 TABLE_ENTRY_DATA: TABLE_ENTRY_DATA TABLE_CMN_GROUP . $@9 TABLE_ENTRY_DATA1
+
+    $default  reduce using rule 27 ($@9)
+
+    $@9  go to state 83
+
+
+state 67
+
+   45 BLOCK_ENTRY1: BLOCK_ENTRY $@12 ENTITY_ENTRIES BLOCKEND_ENTRY .
+
+    $default  reduce using rule 45 (BLOCK_ENTRY1)
+
+
+state 68
+
+   50 DIMENSION: DIMENSION_ENTRY ALDIMENSION_ENTRY .
+
+    $default  reduce using rule 50 (DIMENSION)
+
+
+state 69
+
+   51 DIMENSION: DIMENSION_ENTRY LRDIMENSION_ENTRY .
+
+    $default  reduce using rule 51 (DIMENSION)
+
+
+state 70
+
+   52 DIMENSION: DIMENSION_ENTRY RDIMENSION_ENTRY .
+
+    $default  reduce using rule 52 (DIMENSION)
+
+
+state 71
+
+   53 DIMENSION: DIMENSION_ENTRY ANDIMENSION_ENTRY .
+
+    $default  reduce using rule 53 (DIMENSION)
+
+
+state 72
+
+   54 DIMENSION: DIMENSION_ENTRY ODIMENSION_ENTRY .
+
+    $default  reduce using rule 54 (DIMENSION)
+
+
+state 73
+
+   29 TABLE_ENTRY_DATA1: APPID_ENTRY .
+
+    $default  reduce using rule 29 (TABLE_ENTRY_DATA1)
+
+
+state 74
+
+   30 TABLE_ENTRY_DATA1: BLOCK_RECORD_ENTRY .
+
+    $default  reduce using rule 30 (TABLE_ENTRY_DATA1)
+
+
+state 75
+
+   31 TABLE_ENTRY_DATA1: DIMSTYLE_ENTRY .
+
+    $default  reduce using rule 31 (TABLE_ENTRY_DATA1)
+
+
+state 76
+
+   32 TABLE_ENTRY_DATA1: LAYER_ENTRY .
+
+    $default  reduce using rule 32 (TABLE_ENTRY_DATA1)
+
+
+state 77
+
+   33 TABLE_ENTRY_DATA1: LTYPE_ENTRY .
+
+    $default  reduce using rule 33 (TABLE_ENTRY_DATA1)
+
+
+state 78
+
+   34 TABLE_ENTRY_DATA1: STYLE_ENTRY .
+
+    $default  reduce using rule 34 (TABLE_ENTRY_DATA1)
+
+
+state 79
+
+   35 TABLE_ENTRY_DATA1: UCS_ENTRY .
+
+    $default  reduce using rule 35 (TABLE_ENTRY_DATA1)
+
+
+state 80
+
+   36 TABLE_ENTRY_DATA1: VIEW_ENTRY .
+
+    $default  reduce using rule 36 (TABLE_ENTRY_DATA1)
+
+
+state 81
+
+   37 TABLE_ENTRY_DATA1: VPORT_ENTRY .
+
+    $default  reduce using rule 37 (TABLE_ENTRY_DATA1)
+
+
+state 82
+
+   26 TABLE_ENTRY_DATA: TABLE_CMN_GROUP $@8 TABLE_ENTRY_DATA1 .
+
+    $default  reduce using rule 26 (TABLE_ENTRY_DATA)
+
+
+state 83
+
+   28 TABLE_ENTRY_DATA: TABLE_ENTRY_DATA TABLE_CMN_GROUP $@9 . TABLE_ENTRY_DATA1
+
+    APPID_ENTRY         shift, and go to state 73
+    BLOCK_RECORD_ENTRY  shift, and go to state 74
+    DIMSTYLE_ENTRY      shift, and go to state 75
+    LAYER_ENTRY         shift, and go to state 76
+    LTYPE_ENTRY         shift, and go to state 77
+    STYLE_ENTRY         shift, and go to state 78
+    UCS_ENTRY           shift, and go to state 79
+    VIEW_ENTRY          shift, and go to state 80
+    VPORT_ENTRY         shift, and go to state 81
+
+    TABLE_ENTRY_DATA1  go to state 84
+
+
+state 84
+
+   28 TABLE_ENTRY_DATA: TABLE_ENTRY_DATA TABLE_CMN_GROUP $@9 TABLE_ENTRY_DATA1 .
+
+    $default  reduce using rule 28 (TABLE_ENTRY_DATA)

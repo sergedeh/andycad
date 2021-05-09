@@ -1,0 +1,3339 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\cad.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\cad.ico"
+IDR_CADTYPE             ICON    DISCARDABLE     "res\\cadDoc.ico"
+IDI_AL1                 ICON    DISCARDABLE     "res\\cadd.ico"
+IDI_ICON4               ICON    DISCARDABLE     "res\\icon4.ico"
+IDI_ICON6               ICON    DISCARDABLE     "res\\ico00006.ico"
+IDI_ICON5               ICON    DISCARDABLE     "res\\icon5.ico"
+IDR_CADTYPE1            ICON    DISCARDABLE     "res\\idr_cadt.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_TEXT                BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_CER$(FF)            BITMAP  DISCARDABLE     "res\\cer.bmp"
+#else
+IDR_CER                 BITMAP  DISCARDABLE     "res\\cer.bmp"
+#endif
+#endif
+IDR_LINESTYLE           BITMAP  DISCARDABLE     "res\\linestyl.bmp"
+#if defined(APSTUDIO_INVOKED) || !defined(Y)
+IDR_SNAPPING            BITMAP  DISCARDABLE     "res\\snapping.bmp"
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_TOOLBAR1$(FF)       BITMAP  DISCARDABLE     "res\\toolbar4.bmp"
+#else
+IDR_TOOLBAR1            BITMAP  DISCARDABLE     "res\\toolbar4.bmp"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(FR)
+IDR_DIMENSION           BITMAP  DISCARDABLE     "res\\dimensio.bmp"
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_TRAN$(FF)           BITMAP  DISCARDABLE     "res\\tran.bmp"
+#else
+IDR_TRAN                BITMAP  DISCARDABLE     "res\\tran.bmp"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_ZOOMBAR$(FF)        BITMAP  DISCARDABLE     "res\\zoombars.bmp"
+#else
+IDR_ZOOMBAR             BITMAP  DISCARDABLE     "res\\zoombars.bmp"
+#endif
+#endif
+IDB_LIGHTBULB           BITMAP  DISCARDABLE     "res\\litebulb.bmp"
+IDB_SPLASH              BITMAP  DISCARDABLE     "res\\andycads.bmp"
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_EDIT$(FF)           BITMAP  DISCARDABLE     "res\\edit.bmp"
+#else
+IDR_EDIT                BITMAP  DISCARDABLE     "res\\edit.bmp"
+#endif
+#endif
+IDB_ABOUT               BITMAP  DISCARDABLE     "res\\about.bmp"
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAINFRAME$(FF)      BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+#else
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+#endif
+#endif
+IDR_LIBIM               BITMAP  DISCARDABLE     "res\\libim.bmp"
+IDB_BITMAP11            BITMAP  DISCARDABLE     "res\\bitmap11.bmp"
+IDB_SPLASH1             BITMAP  DISCARDABLE     "res\\splash.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\hg4.bmp"
+#if defined(APSTUDIO_INVOKED) || defined(Y)
+#if defined(APSTUDIO_INVOKED)
+IDR_SNAPPING$(Y)        BITMAP  DISCARDABLE     "res\\bmp00016.bmp"
+#else
+IDR_SNAPPING            BITMAP  DISCARDABLE     "res\\bmp00016.bmp"
+#endif
+#endif
+IDR_MAINFRAME22         BITMAP  MOVEABLE PURE   "res\\mainfram.bmp"
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_CER                 BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(FR)
+#if defined(APSTUDIO_INVOKED)
+IDR_DIMENSION$(FR)      BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
+#else
+IDR_DIMENSION           BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_EDIT                BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_TOOLBAR1            BITMAP  DISCARDABLE     "res\\toolbar1.bmp"
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_TRAN                BITMAP  DISCARDABLE     "res\\bmp00003.bmp"
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_ZOOMBAR             BITMAP  DISCARDABLE     "res\\zoombar.bmp"
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\bmp00006.bmp"
+#endif
+IDR_CAMERA              BITMAP  DISCARDABLE     "res\\camera.bmp"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bmp00007.bmp"
+IDR_SHAPE               BITMAP  DISCARDABLE     "res\\bmp00010.bmp"
+IDR_SOLID               BITMAP  DISCARDABLE     "res\\bmp00008.bmp"
+IDR_TOOLBAR3            BITMAP  DISCARDABLE     "res\\bmp00011.bmp"
+IDR_TRANSFILL           BITMAP  DISCARDABLE     "res\\bmp00012.bmp"
+IDR_RENDER              BITMAP  DISCARDABLE     "res\\bmp00013.bmp"
+IDR_SURFACE             BITMAP  DISCARDABLE     "res\\surface.bmp"
+IDR_SURFACE000          BITMAP  DISCARDABLE     "res\\surface0.bmp"
+IDB_BITMAP13            BITMAP  DISCARDABLE     "res\\andcad2.bmp"
+#if defined(APSTUDIO_INVOKED) || defined(COPY)
+#if defined(APSTUDIO_INVOKED)
+IDR_LAYTOO$(COPY)       BITMAP  DISCARDABLE     "res\\laytoo.bmp"
+#else
+IDR_LAYTOO              BITMAP  DISCARDABLE     "res\\laytoo.bmp"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || !defined(COPY)
+IDR_LAYTOO              BITMAP  DISCARDABLE     "res\\toolbar3.bmp"
+#endif
+IDR_LAYDI               BITMAP  DISCARDABLE     "res\\laydi.bmp"
+IDR_SNAPOPTIONS         BITMAP  DISCARDABLE     "res\\snapopti.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_SRVR_INPLACE TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+    BUTTON      ID_CONTEXT_HELP
+END
+
+IDR_TEXT TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_DIALOG_FONT
+    BUTTON      ID_BUTTONLEFT
+    BUTTON      ID_BUTTONCENTER
+    BUTTON      ID_BUTTONRIGHT
+    BUTTON      ID_BUTTONJUST
+    SEPARATOR
+    BUTTON      ID_BUTTON40292
+    BUTTON      ID_BUTTON40293
+    SEPARATOR
+    BUTTON      ID_BUTTON40294
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_CER$(FF) TOOLBAR DISCARDABLE  25, 25
+#else
+IDR_CER TOOLBAR DISCARDABLE  25, 25
+#endif
+BEGIN
+    BUTTON      ID_3CERCLE
+    BUTTON      ID_2CERCLE
+    BUTTON      ID_ECLIPSE
+    BUTTON      ID_ARC
+    BUTTON      ID_3ARCCLOSE
+    BUTTON      ID_3ARCOPEN
+END
+#endif
+
+IDR_LINESTYLE TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_LINESYTLE
+    BUTTON      ID_BUTTON40214
+    BUTTON      ID_BUTTON40215
+    BUTTON      ID_BUTTON40216
+END
+
+#if defined(APSTUDIO_INVOKED) || !defined(Y)
+IDR_SNAPPING TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_SNAPON
+    BUTTON      ID_SNAPFRONT
+    BUTTON      ID_SNAPLEFT
+    BUTTON      ID_SNAPTOP
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_TOOLBAR1$(FF) TOOLBAR DISCARDABLE  25, 25
+#else
+IDR_TOOLBAR1 TOOLBAR DISCARDABLE  25, 25
+#endif
+BEGIN
+    BUTTON      ID_LINE
+    BUTTON      ID_RECTANGLE
+    SEPARATOR
+    BUTTON      ID_SQLINE
+    BUTTON      ID_POLYB
+    BUTTON      ID_CERCLE
+    SEPARATOR
+    BUTTON      ID_Text
+    BUTTON      ID_IMAGE
+    BUTTON      ID_TBSELECT
+    SEPARATOR
+    BUTTON      ID_TBROTATE
+    BUTTON      ID_PERP
+    BUTTON      ID_TGLINE
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(FR)
+IDR_DIMENSION TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_DIMHO
+    BUTTON      ID_DIMVERT
+    BUTTON      ID_DIM1FREE
+    BUTTON      ID_DIML
+    BUTTON      ID_DIMLH
+    BUTTON      ID_DIMLV
+    SEPARATOR
+    BUTTON      ID_DimA
+    BUTTON      ID_DIMRAD
+    BUTTON      ID_DIMCDIA
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_TRAN$(FF) TOOLBAR DISCARDABLE  25, 25
+#else
+IDR_TRAN TOOLBAR DISCARDABLE  25, 25
+#endif
+BEGIN
+    BUTTON      ID_TBMIRROR
+    BUTTON      ID_MIRRORNOCOPY
+    BUTTON      ID_COPYLINENOCOPY
+    BUTTON      ID_COPYLINE
+    SEPARATOR
+    BUTTON      ID_ANGCOPY
+    BUTTON      ID_COPYRAL
+    BUTTON      ID_RECARRAYCOPY
+    SEPARATOR
+    BUTTON      ID_COPYBYCENTER
+    BUTTON      ID_OFFSET
+    SEPARATOR
+    BUTTON      ID_FLIH
+    BUTTON      ID_FILPVERT
+    BUTTON      ID_SLIDE
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_ZOOMBAR$(FF) TOOLBAR DISCARDABLE  25, 25
+#else
+IDR_ZOOMBAR TOOLBAR DISCARDABLE  25, 25
+#endif
+BEGIN
+    BUTTON      ID_NPAGE
+    BUTTON      ID_EFFECT_ZOOMOUT
+    BUTTON      ID_EFFECT_ZOOMIN
+    BUTTON      ID_FITPAGE
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_EDIT$(FF) TOOLBAR DISCARDABLE  25, 25
+#else
+IDR_EDIT TOOLBAR DISCARDABLE  25, 25
+#endif
+BEGIN
+    BUTTON      ID_Taddnode
+    BUTTON      ID_Tdeletenode
+    BUTTON      ID_Tbreakcurve
+    SEPARATOR
+    BUTTON      ID_Tclosecurve
+    BUTTON      ID_GROUP
+    BUTTON      ID_GROUPUP
+    SEPARATOR
+    BUTTON      ID_SENDTOFRONT
+    BUTTON      ID_SENDTOBACKGRD
+    BUTTON      ID_SENDFORWARD
+    BUTTON      ID_SENDBACKWARD
+    SEPARATOR
+    BUTTON      ID_FILLET
+    BUTTON      ID_CHAMFER
+    BUTTON      ID_TRIM
+    BUTTON      ID_DIALOG_FONT
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(FF)
+#if defined(APSTUDIO_INVOKED)
+IDR_MAINFRAME$(FF) TOOLBAR MOVEABLE PURE  40, 19
+#else
+IDR_MAINFRAME TOOLBAR MOVEABLE PURE  40, 19
+#endif
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_DEL
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    BUTTON      ID_EDIT_DEL
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+#endif
+
+IDR_LIBIM TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_BUTTON40080
+    BUTTON      ID_BUTTON40076
+    BUTTON      ID_BUTTON40077
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(Y)
+#if defined(APSTUDIO_INVOKED)
+IDR_SNAPPING$(Y) TOOLBAR DISCARDABLE  25, 25
+#else
+IDR_SNAPPING TOOLBAR DISCARDABLE  25, 25
+#endif
+BEGIN
+    BUTTON      ID_SNAPMIDPOINT
+    BUTTON      ID_SNAPENDPOINT
+    BUTTON      ID_SNAPPEN
+    BUTTON      ID_INTERSETPT
+    BUTTON      ID_SNAPCTR
+    BUTTON      ID_SNAPNEAR
+    BUTTON      ID_SNAPTAN
+    BUTTON      ID_SNAPQUAD
+END
+#endif
+
+IDR_MAINFRAME22 TOOLBAR MOVEABLE PURE  22, 19
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    BUTTON      AFX_IDD_PREVIEW_TOOLBAR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_CONTEXT_HELP
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_CER TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_3CERCLE
+    BUTTON      ID_2CERCLE
+    BUTTON      ID_ECLIPSE
+    BUTTON      ID_ARC
+    BUTTON      ID_3ARCCLOSE
+    BUTTON      ID_3ARCOPEN
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(FR)
+#if defined(APSTUDIO_INVOKED)
+IDR_DIMENSION$(FR) TOOLBAR DISCARDABLE  25, 25
+#else
+IDR_DIMENSION TOOLBAR DISCARDABLE  25, 25
+#endif
+BEGIN
+    BUTTON      ID_DIMHO
+    BUTTON      ID_DIMVERT
+    BUTTON      ID_DIM1FREE
+    BUTTON      ID_DIML
+    BUTTON      ID_DIMLH
+    BUTTON      ID_DIMLV
+    SEPARATOR
+    BUTTON      ID_DimA
+    BUTTON      ID_DIMRAD
+    BUTTON      ID_DIMCDIA
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_EDIT TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_Taddnode
+    BUTTON      ID_Tdeletenode
+    BUTTON      ID_Tbreakcurve
+    SEPARATOR
+    BUTTON      ID_Tclosecurve
+    BUTTON      ID_GROUP
+    BUTTON      ID_GROUPUP
+    SEPARATOR
+    BUTTON      ID_SENDTOFRONT
+    BUTTON      ID_SENDTOBACKGRD
+    BUTTON      ID_SENDFORWARD
+    BUTTON      ID_SENDBACKWARD
+    SEPARATOR
+    BUTTON      ID_FILLET
+    BUTTON      ID_CHAMFER
+    BUTTON      ID_TRIM
+    BUTTON      ID_DIALOG_FONT
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_TOOLBAR1 TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_LINE
+    BUTTON      ID_RECTANGLE
+    BUTTON      ID_SQLINE
+    BUTTON      ID_POLYB
+    BUTTON      ID_CERCLE
+    BUTTON      ID_PERP
+    SEPARATOR
+    BUTTON      ID_Text
+    BUTTON      ID_IMAGE
+    BUTTON      ID_TBSELECT
+    BUTTON      ID_PTSELECT
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_TRAN TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_TBROTATE
+    BUTTON      ID_TBSCALE
+    SEPARATOR
+    BUTTON      ID_TBMIRROR
+    BUTTON      ID_MIRRORNOCOPY
+    BUTTON      ID_COPYLINENOCOPY
+    BUTTON      ID_COPYLINE
+    SEPARATOR
+    BUTTON      ID_ANGCOPY
+    BUTTON      ID_COPYRAL
+    BUTTON      ID_RECARRAYCOPY
+    BUTTON      ID_COPYBYCENTER
+    SEPARATOR
+    BUTTON      ID_FLIH
+    BUTTON      ID_FILPVERT
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_ZOOMBAR TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_NPAGE
+    BUTTON      ID_EFFECT_ZOOMOUT
+    BUTTON      ID_EFFECT_ZOOMIN
+    BUTTON      ID_FITPAGE
+    BUTTON      ID_CAMPAD
+    BUTTON      ID_CAMROT
+    BUTTON      ID_CAMSWIV
+    BUTTON      ID_BUTTON40142
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(FF)
+IDR_MAINFRAME TOOLBAR MOVEABLE PURE  22, 19
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    BUTTON      ID_EDIT_DEL
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_EDIT_LAYER
+    BUTTON      ID_LIBRARY
+    BUTTON      ID_PROPERTIES
+    BUTTON      ID_APP_ABOUT
+END
+#endif
+
+IDR_CAMERA TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_TOPVIEW
+    SEPARATOR
+    BUTTON      ID_BOTTOMVIEW
+    BUTTON      ID_FRONTVIEW
+    BUTTON      ID_BACKVIEW
+    BUTTON      ID_LEFTVIEW
+    BUTTON      ID_RIGHTVIEW
+    BUTTON      ID_SOUTHEASTVIEW
+    BUTTON      ID_SOUTHWESTVIEW
+    BUTTON      ID_NORTHWESTVIEW
+    BUTTON      ID_NORTHEAST
+    SEPARATOR
+    BUTTON      ID_BUTTON40142
+    BUTTON      ID_FITPAGE
+    BUTTON      ID_EDIT_CAMERA
+END
+
+IDR_SHAPE TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_SHAPE2DWIRED
+    BUTTON      ID_SHAPE3DWIRE
+    BUTTON      ID_BUTTON40182
+    BUTTON      ID_SHAPEFLAT
+    BUTTON      ID_SHAPEGOURAND
+    BUTTON      ID_SHAPEFLATEDGEON
+    BUTTON      ID_SHAPEGOURANDEDGEON
+END
+
+IDR_SOLID TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_BUTTON40254
+    BUTTON      ID_SOLIDCONE
+    BUTTON      ID_SOLIDCYLINDER
+END
+
+IDR_TOOLBAR3 TOOLBAR DISCARDABLE  76, 25
+BEGIN
+    BUTTON      ID_BUTTON40198
+END
+
+IDR_TRANSFILL TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_BUCKETFILL
+    BUTTON      ID_TRANSPARENCY
+    BUTTON      ID_EDIT_LIGHT
+    BUTTON      ID_EDIT_SMOOTH
+END
+
+IDR_RENDER TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_RENDER
+    BUTTON      ID_EDIT_LIGHT
+    BUTTON      ID_FOG
+    SEPARATOR
+    BUTTON      ID_RENDERPREFER
+    BUTTON      ID_BUTTON40256
+    BUTTON      ID_EDIT_SMOOTH
+END
+
+IDR_SURFACE TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_Surfa
+    BUTTON      ID_surfext
+    BUTTON      ID_suftext2
+    BUTTON      ID_surfext3
+    BUTTON      ID_surfrev
+END
+
+IDR_SURFACE000 TOOLBAR DISCARDABLE  22, 19
+BEGIN
+    BUTTON      ID_SURFACEBOX
+    BUTTON      ID_SOLIDCYLINDER
+    BUTTON      ID_SURFACECONE
+    BUTTON      ID_SURFACEDISH
+    BUTTON      ID_SOLIDSHPERE
+    SEPARATOR
+    BUTTON      ID_Surfa
+    SEPARATOR
+    BUTTON      ID_surfext
+    BUTTON      ID_surfrev
+    BUTTON      ID_surfcoon
+    SEPARATOR
+    BUTTON      ID_BUTTON40142
+    BUTTON      ID_camera
+    BUTTON      ID_camera
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(COPY)
+#if defined(APSTUDIO_INVOKED)
+IDR_LAYTOO$(COPY) TOOLBAR DISCARDABLE  16, 15
+#else
+IDR_LAYTOO TOOLBAR DISCARDABLE  16, 15
+#endif
+BEGIN
+    BUTTON      ID_BUTTON40125
+    BUTTON      ID_BUTTON40126
+    BUTTON      ID_BUTTON40128
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(COPY)
+IDR_LAYTOO TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_BUTTON40125
+    BUTTON      ID_BUTTON40128
+    BUTTON      ID_BUTTON40310
+    BUTTON      40126
+    BUTTON      ID_BUTTON40323
+    BUTTON      ID_BUTTON40324
+    BUTTON      ID_BUTTON40311
+    BUTTON      ID_BUTTON40302
+END
+#endif
+
+IDR_LAYDI TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_BUTTON40122
+    BUTTON      ID_BUTTON40127
+    SEPARATOR
+    BUTTON      ID_BUTTON40306
+    BUTTON      ID_BUTTON40303
+    BUTTON      ID_BUTTON40123
+    BUTTON      ID_BUTTON40305
+END
+
+IDR_SNAPOPTIONS TOOLBAR DISCARDABLE  25, 25
+BEGIN
+    BUTTON      ID_SNAPTOGRID
+    BUTTON      ID_SNAPMIDPOINT
+    BUTTON      ID_SNAPENDPOINT
+    BUTTON      ID_SNAPPEN
+    BUTTON      ID_INTERSETPT
+    BUTTON      ID_SNAPCTR
+    BUTTON      ID_SNAPNEAR
+    BUTTON      ID_SNAPTAN
+    BUTTON      ID_SNAPQUAD
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Import",                      ID_FILE_IMPORT
+        MENUITEM SEPARATOR
+        MENUITEM "Page Setup",                  ID_PAGE_SETUP
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "Redo",                        ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Delete",                      ID_EDIT_CLEAR
+        MENUITEM "Paste Special",               ID_EDIT_PASTE_SPECIAL
+        MENUITEM SEPARATOR
+        MENUITEM "Select",                      ID_TBSELECT
+        MENUITEM "Modify Selected Object",      ID_PTSELECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Layer\tCtrl+L",              ID_EDIT_LAYER
+        MENUITEM SEPARATOR
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "Zoom"
+        BEGIN
+            MENUITEM "Zoom In",                     ID_EFFECT_ZOOMIN
+            MENUITEM "Zoom Out",                    ID_EFFECT_ZOOMOUT
+            MENUITEM "Normal Size",                 ID_NPAGE
+        END
+        POPUP "Pan"
+        BEGIN
+            MENUITEM "Left  \t Left Arrow Key",     ID_VIEW_PAN_LEFT
+            MENUITEM "Right\t Right Arrow Key",     ID_VIEW_PAN_RIGHT
+            MENUITEM "Up\t Up Arrow key",           ID_VIEW_PAN_UP
+            MENUITEM "Down\t Down Arrow key",       ID_VIEW_PAN_DOWN
+        END
+        MENUITEM SEPARATOR
+        POPUP "3D Views"
+        BEGIN
+            MENUITEM "Top",                         ID_TOPVIEW
+            MENUITEM "Bottom",                      ID_BOTTOMVIEW
+            MENUITEM "Left",                        ID_LEFTVIEW
+            MENUITEM "Right",                       ID_RIGHTVIEW
+            MENUITEM "Front",                       ID_FRONTVIEW
+            MENUITEM "Back",                        ID_BACKVIEW
+        END
+        POPUP "Isometric Views"
+        BEGIN
+            MENUITEM "SouthEast View  (SE)",        ID_SOUTHEASTVIEW, HELP
+            MENUITEM "SouthWest View  (SW)",        ID_SOUTHWESTVIEW
+            MENUITEM "NorthEast View  (NE)",        ID_NORTHEAST
+            MENUITEM "NorthWest View  (NW)",        ID_NORTHWESTVIEW
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Camera Setting",              ID_EDIT_CAMERA
+        POPUP "Camera"
+        BEGIN
+            MENUITEM "Rotation",                    ID_CAMROT
+            MENUITEM "Walk in",                     ID_CAMPAD
+            MENUITEM "Swivel",                      ID_CAMSWIV
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Reintialize All",             ID_FITPAGE
+        MENUITEM SEPARATOR
+    END
+    POPUP "D&raw"
+    BEGIN
+        MENUITEM "PolyLine",                    ID_LINE
+        MENUITEM "Square Line",                 ID_SQLINE
+        MENUITEM "Perpendicular ",              ID_PERP
+        MENUITEM "Multiline",                   ID_DRAW_MULTILINE
+        MENUITEM SEPARATOR
+        MENUITEM "Rectangle",                   ID_RECTANGLE
+        MENUITEM SEPARATOR
+        MENUITEM "Ellipse",                     ID_ECLIPSE
+        MENUITEM "Circle",                      ID_CERCLE
+        MENUITEM "Circle 2 point",              ID_2CERCLE
+        MENUITEM "Circle 3 point",              ID_3CERCLE
+        MENUITEM SEPARATOR
+        MENUITEM "Arc from center",             ID_ARC
+        MENUITEM "Arc 2 point",                 ID_3ARCCLOSE
+        MENUITEM "Arc start end center",        ID_3ARCOPEN
+        MENUITEM "Arc start center end",        ID_DRAW_ARCSTARTCENTEREND
+        MENUITEM SEPARATOR
+        MENUITEM "Spline",                      ID_POLYB
+        MENUITEM SEPARATOR
+        MENUITEM "Text",                        ID_Text
+        MENUITEM SEPARATOR
+        MENUITEM "Box",                         ID_DRAW_BOX
+        MENUITEM "Sphere",                      ID_DRAW_SOLID_SPHERE
+        POPUP "Surface"
+        BEGIN
+            MENUITEM "Revolved Surface",            ID_surfrev
+            MENUITEM "Loft Surface",                ID_Surfa
+            MENUITEM "Extrusion Surface",           ID_surfext
+            MENUITEM "Revolved Surface 2",          ID_surfcoon
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Insert Image",                ID_IMAGE
+        MENUITEM "Plane",                       ID_DRAW_PLANE
+    END
+    POPUP "F&ormat"
+    BEGIN
+        POPUP "&Line Style"
+        BEGIN
+            MENUITEM "Solid",                       ID_EEE_SOLID
+            MENUITEM "Dot",                         ID__DOT
+            MENUITEM "Dash",                        ID__DASH
+            MENUITEM "Dash_dot",                    ID_DASH_DOT
+            MENUITEM "Dash-dot-dot",                ID_DASHDOTDOT
+        END
+        POPUP "Line Width"
+        BEGIN
+            MENUITEM "Normal",                      ID__LINEWIDTH_NORMAL
+            MENUITEM "Thin",                        ID__LINEWIDTH_THIN
+            MENUITEM "Thick",                       ID__LINEWIDTH_THICK
+            MENUITEM "Custom",                      ID__LINEWIDTH_CUSTOM
+        END
+    END
+    POPUP "&Dimension"
+    BEGIN
+        MENUITEM "Free Dimension",              ID_DIM1FREE
+        MENUITEM SEPARATOR
+        MENUITEM "Horizontal",                  ID_DIMHO
+        MENUITEM "Vertical",                    ID_DIMVERT
+        MENUITEM SEPARATOR
+        MENUITEM "Angular",                     ID_DimA
+        MENUITEM "Radial",                      ID_DIMRAD
+        MENUITEM "Diameter",                    ID_DIMCDIA
+        MENUITEM SEPARATOR
+        MENUITEM "Outer Arrow",                 ID_DIML
+        MENUITEM "Inner Arrow",                 ID_DIM1FREE
+        MENUITEM SEPARATOR
+        MENUITEM "Leader",                      ID_DIMENSION_LEADER
+    END
+    POPUP "&Arrange"
+    BEGIN
+        MENUITEM "Group",                       ID_GROUP
+        MENUITEM "Ungroup",                     ID_GROUPUP
+        MENUITEM SEPARATOR
+        MENUITEM "Send Forward",                ID_SENDFORWARD
+        MENUITEM "Send Backward",               ID_SENDBACKWARD
+        MENUITEM "Send to &Front",              ID_SENDTOFRONT
+        MENUITEM "Send to &Back",               ID_SENDTOBACKGRD
+        MENUITEM SEPARATOR
+    END
+    POPUP "&Transform"
+    BEGIN
+        MENUITEM "Move",                        ID_TBSELECT
+        MENUITEM "Slide",                       ID_SLIDE
+        MENUITEM SEPARATOR
+        MENUITEM "Insert Node",                 ID_Taddnode
+        MENUITEM "Delete Node",                 ID_Tdeletenode
+        MENUITEM "Break Curve or Line",         ID_Tbreakcurve
+        MENUITEM "Close Curve or Line",         ID_Tclosecurve
+        MENUITEM SEPARATOR
+        MENUITEM "Rotate",                      ID__DOT
+        MENUITEM "Flip horizontally",           ID_FLIH
+        MENUITEM "Flip Vertically",             ID_FILPVERT
+        MENUITEM SEPARATOR
+        MENUITEM "Mirror",                      ID_TBMIRROR
+        MENUITEM "Mirror without copy",         ID_MIRRORNOCOPY
+        MENUITEM SEPARATOR
+        MENUITEM "Copy",                        ID_EDIT_COPY
+        MENUITEM "Polar copy",                  ID_COPYRAL
+        MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+        MENUITEM SEPARATOR
+        MENUITEM "Angular Array copy",          ID_ANGCOPY
+        MENUITEM "Rectangular Array copy",      ID_RECARRAYCOPY
+    END
+    POPUP "Modify"
+    BEGIN
+        MENUITEM "Modify Select",               ID_PTSELECT
+        MENUITEM "Trim",                        ID_TRIM
+        MENUITEM "Chamfer",                     ID_CHAMFER
+        MENUITEM "Fillet",                      ID_FILLET
+        MENUITEM "Flood Fill",                  ID_MODIFY_FLOODFILL
+        MENUITEM "Extend",                      ID_MODIFY_JOIN
+        MENUITEM "Clip Shape",                  ID_MODIFY_CLIPSHAPE
+        MENUITEM SEPARATOR
+        MENUITEM "Surface Smoothing",           ID_EDIT_SMOOTH
+        MENUITEM "Surface cap",                 ID_MODIFY_SURFACECAP
+        MENUITEM "Transparency",                ID_FILE_CLOSE
+        MENUITEM "Luminosity",                  ID_EDIT_LIGHT
+        MENUITEM SEPARATOR
+        POPUP "Free Form Deformer FFD"
+        BEGIN
+            MENUITEM "2x2x2",                       ID_TRANSFORM_FFD_2X2X2
+            MENUITEM "3x3x3",                       ID_TRANSFORM_FFD_3X3X3
+            MENUITEM "4x4x4",                       ID_TRANSFORM_FFD_4X4X4
+        END
+        MENUITEM "NURBS Direct Manipulation",   ID_MODIFY_NURBSDIRECTMANIPULATION
+        , GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Point Constraint",            ID_MODIFY_POINTCONSTRAINT
+        POPUP "Constraint Segments"
+        BEGIN
+            MENUITEM "Vector Constraint",           ID_MODIFY_VECTORCONSTRAINT
+
+            MENUITEM "Parallel",                    ID_MODIFY_CONSTRAINTLINES_PARALLEL
+
+            MENUITEM "Perpendicular",               ID_MODIFY_CONSTRAINTLINES_PERPENDICULAR
+
+            MENUITEM "Horizontal",                  ID_MODIFY_CONSTRAINTLINES_HORIZONTAL
+
+            MENUITEM "Vertical",                    ID_MODIFY_CONSTRAINTSEGMENTS_VERTICAL
+
+            MENUITEM "Colinear",                    ID_MODIFY_CONSTRAINTLINES_COLINEAR
+
+            MENUITEM "Equal",                       ID_MODIFY_CONSTRAINTLINES_EQUAL
+
+            MENUITEM "Angular",                     ID_MODIFY_CONSTRAINTLINES_ANGULAR
+
+        END
+    END
+    POPUP "Tools"
+    BEGIN
+        POPUP "&ToolBars"
+        BEGIN
+            MENUITEM "Standard  Bar",               ID_VIEW_TOOLBAR_STANDARDBAR
+            , HELP
+            MENUITEM SEPARATOR
+            MENUITEM "Drawing  Bar",                ID_VIEW_TOOLBAR_DRAWINGBAR
+
+            MENUITEM "Create Surface Bar",          ID_TOOLS_TOOLBARS_CREATESURFACEBAR
+
+            MENUITEM SEPARATOR
+            MENUITEM "Modifying Bar",               ID_VIEW_TOOLBAR_MODIFYINGBAR
+
+            MENUITEM "Transformation Bar",          ID_VIEW_TOOLBAR_TRANSFORMATIONBAR
+
+            MENUITEM "Text Editing Bar",            ID_VIEW_TOOLBAR_TEXTBAR
+            MENUITEM "Surface Editing 1 Bar",       ID_TOOLS_TOOLBARS_SMOOTHINGLIGHTBAR
+
+            MENUITEM SEPARATOR
+            MENUITEM "Dimension Bar",               ID_VIEW_TOOLBAR_DIMENSIONBAR
+
+            MENUITEM "Snapping Bar",                ID_VIEW_TOOLBAR_SHOWSNAP
+            MENUITEM "&Information Bar",            ID_VIEW_TOOLBAR_INFORMATIONBAR
+
+            MENUITEM SEPARATOR
+            MENUITEM "Library",                     ID_VIEW_TOOLBAR_SHOWLIBBAR
+            , HELP
+            MENUITEM "Layer",                       ID_VIEW_TOOLBAR_SHOWLAY
+            , HELP
+            MENUITEM "Command",                     ID_VIEW_TOOLBAR_SHOWCMDBAR
+            , HELP
+            MENUITEM SEPARATOR
+            MENUITEM "Color Bar",                   ID_VIEW_TOOLBAR_COLORBAR
+            , HELP
+            MENUITEM "Pattern -Texture Bar",        ID_TOOLS_TOOLBARS_PATTERNTEXTUREBAR
+
+            MENUITEM SEPARATOR
+            MENUITEM "&Zoom Bar",                   ID_VIEW_TOOLBAR_ZOOMBAR
+            MENUITEM "View Bar",                    ID_TOOLS_TOOLBARS_VIEWBAR
+
+            MENUITEM SEPARATOR
+            MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+            MENUITEM "&Show ToolBars",              ID_VIEW_TOOLBAR_SHOWTOOLBARS
+
+        END
+        MENUITEM "Addin Settings",              ID_ADDIN_ADDINSETTINGS
+        POPUP "Macro"
+        BEGIN
+            MENUITEM "New...",                      ID_TOOLS_MACRO_NEW
+            MENUITEM "Edit",                        ID_TOOLS_MACRO_EDIT
+            MENUITEM "Run",                         ID_TOOLS_MACRO_RUN
+        END
+        MENUITEM "Snap",                        ID_TOOLS_SNAP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "Tip of the Day...",           ID_HELP_TIPOFTHEDAY
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "AndyCAD Pro Online",          ID_HELP_WWWANDYCADCOM
+        MENUITEM SEPARATOR
+        MENUITEM "&About AndyCad...",           ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_POPUP_EDIT MENU DISCARDABLE 
+BEGIN
+    MENUITEM "Select",                      ID_TBSELECT
+    MENUITEM SEPARATOR
+    MENUITEM "&Copy",                       ID_EDIT_COPY
+    MENUITEM "&Paste",                      ID_PASTE
+    MENUITEM "&Cut",                        ID_EDIT_COPY
+    MENUITEM SEPARATOR
+    MENUITEM "&Rotate",                     ID_TBROTATE
+    MENUITEM "&Mirror",                     ID_TBMIRROR
+    MENUITEM "Angular Copy",                ID_ANGCOPY
+    MENUITEM "Polar Copy",                  ID_COPYRAL
+    MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+    MENUITEM "Symmetric copy",              ID_COPYLINE
+    MENUITEM SEPARATOR
+END
+
+#if defined(APSTUDIO_INVOKED) || !defined(R)
+IDR_MENU_POPUP MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Se&lect",                     ID_TBSELECT
+        MENUITEM "Move",                        ID_TBSELECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Cut",                        ID_CUT
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "&Paste",                      ID_EDIT_PASTE
+        MENUITEM "Delete",                      ID_EDIT_CUT
+        MENUITEM SEPARATOR
+        MENUITEM "Insert Node",                 ID_Taddnode
+        MENUITEM "Delete Node",                 ID_Tdeletenode
+        MENUITEM "Break Curve or Line",         ID_Tbreakcurve
+        MENUITEM "Close Curve or Line",         ID_Tclosecurve
+        MENUITEM SEPARATOR
+        POPUP "Line Style"
+        BEGIN
+            MENUITEM "Solid",                       ID_EEE_SOLID
+            MENUITEM "Dot",                         ID__DOT
+            MENUITEM "Dash",                        ID__DASH
+            MENUITEM "Dash_dot",                    ID_DASH_DOT
+            MENUITEM "Dash-dot-dot",                ID_DASHDOTDOT
+        END
+        POPUP "Line Width"
+        BEGIN
+            MENUITEM "Normal",                      ID__LINEWIDTH_NORMAL
+            MENUITEM "Thin",                        ID__LINEWIDTH_THIN
+            MENUITEM "Thick",                       ID__LINEWIDTH_THICK
+            MENUITEM "Custom",                      ID__LINEWIDTH_CUSTOM
+        END
+        MENUITEM SEPARATOR
+        POPUP "Draw"
+        BEGIN
+            POPUP "Line"
+            BEGIN
+                MENUITEM "Line",                        ID_LINE
+                MENUITEM "PolyLine",                    ID_LINE
+                MENUITEM "Square Line",                 ID_SQLINE
+                MENUITEM "Vertilcal Line",              ID_SQLINE
+                MENUITEM "Horizointal Line",            ID_SQLINE
+            END
+            MENUITEM "Rectangle",                   ID_DRAW_SQUARELINE
+            MENUITEM "Spline",                      ID_POLYB
+            MENUITEM SEPARATOR
+            MENUITEM "Circle",                      ID_CERCLE
+            MENUITEM "Circle 2 point",              ID_2CERCLE
+            MENUITEM "Circle 3 point",              ID_3CERCLE
+            MENUITEM SEPARATOR
+            MENUITEM "Arc from center",             ID_ARC
+            MENUITEM "Arc 2 point",                 ID_3ARCCLOSE
+            MENUITEM "Arc 3 point",                 ID_3ARCOPEN
+            MENUITEM SEPARATOR
+            MENUITEM "Text",                        ID_Text
+            MENUITEM SEPARATOR
+        END
+        POPUP "&Arrange"
+        BEGIN
+            MENUITEM "Group",                       ID_GROUP
+            MENUITEM "Ungroup",                     ID_GROUPUP
+            MENUITEM SEPARATOR
+            MENUITEM "Send Forward",                ID_SENDFORWARD
+            MENUITEM "Send Backward",               ID_SENDBACKWARD
+            MENUITEM "Send to &Front",              ID_SENDTOFRONT
+            MENUITEM "Send to &Back",               ID_SENDTOBACKGRD
+            MENUITEM SEPARATOR
+        END
+        POPUP "Transform"
+        BEGIN
+            MENUITEM SEPARATOR
+            MENUITEM "Rotate",                      ID__DOT
+            MENUITEM "Flip horizontally",           ID_FLIH
+            MENUITEM "Flip Vertically",             ID_FILPVERT
+            MENUITEM SEPARATOR
+            MENUITEM "Mirror",                      ID_TBMIRROR
+            MENUITEM "Mirror without copy",         ID_MIRRORNOCOPY
+            MENUITEM SEPARATOR
+            MENUITEM "Copy",                        ID_EDIT_COPY
+            MENUITEM "Polar copy",                  ID_COPYRAL
+            MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+            MENUITEM SEPARATOR
+            MENUITEM "Angular Array copy",          ID_ANGCOPY
+            MENUITEM "Rectangular Array copy",      ID_RECARRAYCOPY
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Properties...",               ID_PROPERTIES
+    END
+    POPUP ""
+    BEGIN
+        MENUITEM "&Rotate",                     ID__DOT
+        MENUITEM "&Mirror",                     ID_TBMIRROR
+        MENUITEM "Angular Copy",                ID_ANGCOPY
+        MENUITEM "Polar Copy",                  ID_COPYRAL
+        POPUP "Camera"
+        BEGIN
+            MENUITEM "Rotation",                    ID_CAMROT
+            MENUITEM "Walk in",                     ID_CAMPAD
+            MENUITEM "Swivel",                      ID_CAMSWIV
+        END
+        POPUP "Views"
+        BEGIN
+            MENUITEM "Orthongonal",                 ID_FRONTVIEW
+            MENUITEM "Perspective",                 ID_BUTTON40142
+        END
+    END
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(R)
+#if defined(APSTUDIO_INVOKED)
+IDR_MENU_POPUP$(R) MENU DISCARDABLE 
+#else
+IDR_MENU_POPUP MENU DISCARDABLE 
+#endif
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&Rotate",                     ID_TBROTATE
+        MENUITEM "&Mirror",                     ID_TBMIRROR
+        MENUITEM "Angular Copy",                ID_ANGCOPY
+        MENUITEM "Polar Copy",                  ID_COPYRAL
+    END
+END
+#endif
+
+IDR_MENU_LINE MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Solid",                       ID_EEE_SOLID
+        MENUITEM "Dot",                         ID__DOT
+        MENUITEM "Dash",                        ID__DASH
+        MENUITEM "Dash Dot",                    ID__DASHDOT
+        MENUITEM "Dash Dot Dot",                ID__DOUBLEDOT
+        MENUITEM "Geometry...",                 ID__GEOMETRY, INACTIVE
+    END
+END
+
+IDR_MENU_ROTATE MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Se&lect",                     ID_TBSELECT
+        MENUITEM "Move",                        ID_TBSELECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "&Rotate",                     ID_TBROTATE
+        MENUITEM "&Mirror",                     ID_TBMIRROR
+        MENUITEM SEPARATOR
+        MENUITEM "Angular Copy",                ID_ANGCOPY
+        MENUITEM "Polar Copy",                  ID_COPYRAL
+        MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+        MENUITEM SEPARATOR
+    END
+END
+
+IDR_MENUDRW MENU DISCARDABLE 
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Select",                      ID_TBSELECT
+        POPUP "Line"
+        BEGIN
+            MENUITEM "Line",                        ID_LINE
+            MENUITEM "PolyLine",                    ID_LINE
+            MENUITEM "Square Line",                 ID_SQLINE
+            MENUITEM "Vertilcal Line",              ID_SQLINE
+            MENUITEM "Horizointal Line",            ID_SQLINE
+            MENUITEM "Perpendicular ",              ID_PERP
+            MENUITEM "Tangent",                     ID_TGLINE
+        END
+        MENUITEM "Rectangle",                   ID_DRAW_SQUARELINE
+        MENUITEM "Spline",                      ID_POLYB
+        MENUITEM SEPARATOR
+        MENUITEM "Circle",                      ID_CERCLE
+        MENUITEM "Circle 2 point",              ID_2CERCLE
+        MENUITEM "Circle 3 point",              ID_3CERCLE
+        MENUITEM SEPARATOR
+        MENUITEM "Ellipse",                     ID_ECLIPSE
+        MENUITEM SEPARATOR
+        MENUITEM "Arc from center",             ID_ARC
+        MENUITEM "Arc 2 point",                 ID_3ARCCLOSE
+        MENUITEM "Arc 3 point",                 ID_3ARCOPEN
+        MENUITEM SEPARATOR
+        POPUP "Line Style"
+        BEGIN
+            MENUITEM "Solid",                       ID_EEE_SOLID
+            MENUITEM "Dot",                         ID__DOT
+            MENUITEM "Dash",                        ID__DASH
+            MENUITEM "Dash_dot",                    ID_DASH_DOT
+            MENUITEM "Dash-dot-dot",                ID_DASHDOTDOT
+        END
+        POPUP "Line Width"
+        BEGIN
+            MENUITEM "Normal",                      ID__LINEWIDTH_NORMAL
+            MENUITEM "Thin",                        ID__LINEWIDTH_THIN
+            MENUITEM "Thick",                       ID__LINEWIDTH_THICK
+            MENUITEM "Custom",                      ID__LINEWIDTH_CUSTOM
+        END
+        MENUITEM "Text",                        ID_Text
+        MENUITEM SEPARATOR
+        POPUP "Modify "
+        BEGIN
+            MENUITEM "Insert Node",                 ID_Taddnode
+            MENUITEM "Delete Node",                 ID_Tdeletenode
+            MENUITEM "Break Curve or Line",         ID_Tbreakcurve
+            MENUITEM "Close Curve or Line",         ID_Tclosecurve
+            MENUITEM SEPARATOR
+            MENUITEM "&Cut",                        ID_CUT
+            MENUITEM "&Paste",                      ID_EDIT_PASTE
+            MENUITEM "&Copy",                       ID_EDIT_COPY
+            MENUITEM SEPARATOR
+            MENUITEM "&Mirror",                     ID_TBMIRROR
+            MENUITEM "Angular Copy",                ID_ANGCOPY
+            MENUITEM "&Rotate",                     ID__DOT
+            MENUITEM "Polar Copy",                  ID_COPYRAL
+            MENUITEM "Parallel Copy",               ID_COPYBYCENTER
+            MENUITEM SEPARATOR
+            MENUITEM SEPARATOR
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Geometry...",                 ID_GEOMETRY, GRAYED
+    END
+END
+
+IDR_MENUText MENU DISCARDABLE 
+BEGIN
+    POPUP "Font"
+    BEGIN
+        MENUITEM "Change Font",                 ID_DIALOG_FONT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "B",            ID_BACKVIEW,            VIRTKEY, CONTROL, ALT, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "E",            ID_NORTHEAST,           VIRTKEY, CONTROL, ALT, NOINVERT
+    "F",            ID_FRONTVIEW,           VIRTKEY, CONTROL, ALT, NOINVERT
+    "L",            ID_EDIT_LIGHT,          VIRTKEY, SHIFT, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_NORTHWESTVIEW,       VIRTKEY, CONTROL, ALT, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_RIGHTVIEW,           VIRTKEY, CONTROL, ALT, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_SOUTHEASTVIEW,       VIRTKEY, CONTROL, ALT, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_DEL,            VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "W",            ID_SOUTHWESTVIEW,       VIRTKEY, CONTROL, ALT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 265, 164
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About  AndyCAD"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "AndyCAD Version 0.91",IDC_STATIC,98,103,73,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2019  EmuSoft.  All rights reserved.",
+                    IDC_STATIC,59,124,153,8
+    DEFPUSHBUTTON   "OK",IDOK,107,143,50,14,WS_GROUP
+    LTEXT           "This software is protected by  International Copyrights  Law.",
+                    IDC_STATIC,35,113,190,8
+    CONTROL         207,IDC_STATIC,"Static",SS_BITMAP,12,8,247,87
+END
+
+IDD_DIALOGBAR_PARSE DIALOGEX 0, 0, 285, 169
+STYLE WS_CHILD | WS_CLIPCHILDREN | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_LOG,7,10,271,124,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_COMMAND,7,147,271,14,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
+END
+
+IDD_ZOOM DIALOG DISCARDABLE  0, 0, 91, 26
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_TEXT DIALOG DISCARDABLE  0, 0, 120, 24
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_CERC DIALOG DISCARDABLE  0, 0, 205, 16
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_EDIT DIALOG DISCARDABLE  0, 0, 330, 16
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "TODO: layout dialog bar",IDC_STATIC,126,4,77,8
+END
+
+IDD_DIALOGPAPERSET DIALOG DISCARDABLE  0, 0, 208, 203
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_POPUP | WS_CAPTION
+CAPTION "Paper Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,60,182,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,123,182,50,14
+    EDITTEXT        IDC_EDITWU,37,66,34,13,ES_AUTOHSCROLL
+    LTEXT           "World Unit",IDC_STATICUNITY,76,67,33,11
+    EDITTEXT        IDC_EDITPU,132,65,34,13,ES_AUTOHSCROLL
+    LTEXT           "units",IDC_STATICUNITY2,173,66,17,11
+    LTEXT           "=",IDC_STATIC,119,67,8,9
+    CONTROL         "Metric(mm)",IDC_RADIOMETRIC,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,36,28,49,15
+    CONTROL         "Imperial(inch)",IDC_RADIOIMPERIAL,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,103,28,61,15
+    GROUPBOX        "Scale",IDC_STATIC,7,55,190,40
+    LTEXT           "Length",IDC_STATIC,7,107,30,12
+    LTEXT           "Precision",IDC_STATIC,62,129,36,11
+    COMBOBOX        IDC_LENGTH_TYPE2,39,103,76,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_LENGTH_TYPE3,121,103,76,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_LENGTH_TYPE4,103,127,95,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_LENGTH_TYPE_ANGLE,35,152,76,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Angle",IDC_STATIC,7,154,30,12
+    COMBOBOX        IDC_LENGTH_TYPE6,118,152,76,95,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Fit To Screen",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,38,82,84,9
+END
+
+IDD_DIALOG_GRID DIALOG DISCARDABLE  0, 0, 237, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Grid"
+MENU IDR_MAINFRAME
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,83,31,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,82,49,66,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",IDOK,173,18,50,14,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,173,38,50,14
+    GROUPBOX        "Grid settings",IDC_STATIC,13,1,156,70
+    CONTROL         "Show Grid",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,23,16,70,11
+    LTEXT           "Horizontal spacing",IDC_STATIC,15,33,59,8
+    LTEXT           "Vertical  spacing",IDC_STATIC,15,49,53,8
+END
+
+IDD_LINES DIALOG DISCARDABLE  0, 0, 275, 17
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_DIALOG3 DIALOG DISCARDABLE  0, 0, 127, 33
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Custom Width"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,57,7,49,13,ES_AUTOHSCROLL
+    LTEXT           "Enter Width",IDC_STATIC,9,10,38,8
+END
+
+IDD_GRID DIALOG DISCARDABLE  0, 0, 237, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Grid"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,173,18,50,14,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,173,38,50,14
+    GROUPBOX        "Grid settings",IDC_STATIC,13,1,156,70
+    CONTROL         "Show Grid",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,23,16,70,11
+    EDITTEXT        IDC_EDIT1,83,31,65,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,82,49,66,12,ES_AUTOHSCROLL
+    LTEXT           "Horizontal spacing",IDC_STATIC,15,33,59,8
+    LTEXT           "Vertical  spacing",IDC_STATIC,15,49,53,8
+END
+
+#if defined(APSTUDIO_INVOKED) || !defined(FR)
+IDD_ARRAYCOPY DIALOG DISCARDABLE  0, 0, 152, 142
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose Angle"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_ANGLEROT,76,9,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NBCOPY,76,31,35,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_NBLEVEL,77,53,35,13,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_DLEVEL,78,74,35,13,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Cancel",IDCANCEL,77,111,50,13,BS_FLAT
+    DEFPUSHBUTTON   "OK",IDOK,22,112,50,13,BS_FLAT
+    LTEXT           "Angle of  Rotation:",IDC_STATIC,8,14,60,8
+    LTEXT           "Number of copies:",IDC_STATIC,7,34,60,13
+    LTEXT           "degree",IDC_STATIC,111,14,23,8
+    LTEXT           "Number of levels:",IDC_STATIC,9,56,60,13
+    LTEXT           "Distance between levels",IDC_STATIC,10,77,60,20
+END
+#endif
+
+IDD_NCOPY DIALOG DISCARDABLE  0, 0, 126, 38
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Offset"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Offset Distance:",IDC_STATIC,7,15,52,8
+    EDITTEXT        IDC_EDIT1,64,12,44,13,ES_AUTOHSCROLL
+END
+
+IDD_TIP DIALOG DISCARDABLE  0, 0, 231, 164
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tip of the Day"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,12,11,207,123
+    LTEXT           "Some String",IDC_TIPSTRING,28,63,177,60
+    CONTROL         "&Show Tips on StartUp",IDC_STARTUP,"Button",
+                    BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,13,146,85,10
+    PUSHBUTTON      "&Next Tip",IDC_NEXTTIP,109,143,50,14,WS_GROUP
+    DEFPUSHBUTTON   "&Close",IDOK,168,143,50,14,WS_GROUP
+    CONTROL         "",IDC_BULB,"Static",SS_BITMAP,20,17,190,111
+END
+
+CG_IDD_MOUSEPOSITION DIALOG DISCARDABLE  0, 0, 200, 19
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "X:",IDC_STATIC,5,6,8,8
+    EDITTEXT        IDC_EDIT1,17,3,34,14,ES_AUTOHSCROLL
+    LTEXT           "Y:",IDC_STATIC,57,7,8,8
+    EDITTEXT        IDC_EDIT2,67,3,34,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 155, 73
+STYLE WS_POPUP
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,7,7,134,58,ES_AUTOHSCROLL
+END
+
+IDD_ELLIPSCIRPRP DIALOG DISCARDABLE  0, 0, 276, 103
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+MENU IDR_MENUText
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,219,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,219,24,50,14
+END
+
+IDD_ARCPROP DIALOGEX 0, 0, 80, 191
+STYLE WS_POPUP
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         131,IDC_STATIC,"Static",SS_BITMAP,7,12,32,30
+    LTEXT           "Radius:",IDC_STATIC,18,44,25,8
+    EDITTEXT        IDC_EDIT1,43,42,30,15,ES_AUTOHSCROLL
+    CONTROL         132,IDC_STATIC,"Static",SS_BITMAP,7,77,32,30
+    LTEXT           "Angle:",IDC_STATIC,16,110,21,8
+    EDITTEXT        IDC_EDIT2,41,109,29,15,ES_AUTOHSCROLL
+    CONTROL         146,IDC_STATIC,"Static",SS_BITMAP,7,134,32,30
+    LTEXT           "Area:",IDC_STATIC,7,174,18,8
+    EDITTEXT        IDC_EDIT3,27,170,46,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+END
+
+IDD_DPAGESPLINE DIALOG DISCARDABLE  0, 0, 89, 197
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,44,47,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,44,70,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,44,138,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,44,158,38,14,ES_AUTOHSCROLL
+    LTEXT           "Angle:",IDC_STATIC,22,50,21,8
+    LTEXT           "Magnitude:",IDC_STATIC,7,73,36,8
+    LTEXT           "Angle:",IDC_STATIC,22,141,21,8
+    LTEXT           "Magnitude:",IDC_STATIC,7,161,36,8
+    LTEXT           "Begin  Tangent:",IDC_STATIC,8,10,52,8
+    LTEXT           "End  Tangent:",IDC_STATIC,7,95,46,8
+    CONTROL         130,IDC_STATIC,"Static",SS_BITMAP,7,106,32,30
+    CONTROL         IDR_CADTYPE,IDC_STATIC,"Static",SS_BITMAP,7,20,33,27
+END
+
+IDD_DPAGECERC DIALOG DISCARDABLE  0, 0, 92, 229
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         133,IDC_STATIC,"Static",SS_BITMAP,7,21,32,30
+    EDITTEXT        IDC_EDIT1,40,56,32,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,40,118,32,16,ES_AUTOHSCROLL
+    LTEXT           "Radius:",IDC_STATIC,13,58,25,8
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP,7,87,34,30
+    LTEXT           "Diameter:",IDC_STATIC,7,122,31,8
+END
+
+IDD_PROPERTY DIALOGEX 0, 0, 314, 17
+STYLE WS_CHILD
+EXSTYLE WS_EX_TRANSPARENT
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_PROPPAGE_MEDIUM DIALOG DISCARDABLE  0, 0, 210, 154
+STYLE WS_CHILD | WS_DISABLED | WS_BORDER
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_DBPROPERTY DIALOGEX 0, 0, 129, 233
+STYLE WS_CHILD
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_DIALOG DIALOG DISCARDABLE  0, 0, 112, 215
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_DIALOG5 DIALOG DISCARDABLE  0, 0, 90, 205
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_DIALOG6 DIALOGEX 0, 0, 137, 181
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         142,IDC_STATIC,"Static",SS_BITMAP,7,14,32,30
+    LTEXT           "Area:",IDC_STATIC,7,49,20,9
+    EDITTEXT        IDC_EDIT1,86,58,44,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+END
+
+#if defined(APSTUDIO_INVOKED) || !defined(FR)
+CG_IDD_MYDIALOGBAR DIALOG DISCARDABLE  0, 0, 595, 20
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_MOUSX,12,4,72,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_MOUSEY,97,3,72,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_MOUSEZ,186,4,72,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_OBLENGTH,297,4,74,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_OBANGLE,395,4,80,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_OBAREA,497,4,83,12,ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "X:",IDC_STATIC,4,6,8,8
+    LTEXT           "Y:",IDC_STATIC,89,6,8,8
+    LTEXT           "Zoom",IDC_STATIC,267,7,19,8
+    LTEXT           "Object",IDC_STATIC,374,7,22,8
+    LTEXT           "Area:",IDC_STATIC,479,7,18,8
+    LTEXT           "Z:",IDC_STATIC,178,7,8,8
+END
+#endif
+
+IDD_MYDRAW DIALOG DISCARDABLE  0, 0, 202, 23
+STYLE WS_POPUP
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_MYDRAW,7,7,88,12,CBS_DROPDOWN | 
+                    CBS_OWNERDRAWVARIABLE | CBS_SORT | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,109,7,86,12,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_RECARRAY DIALOG DISCARDABLE  0, 0, 250, 127
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rectangular array copy"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_RNB,79,12,35,16,ES_NUMBER
+    EDITTEXT        IDC_DY,195,12,35,16
+    EDITTEXT        IDC_CNB,79,35,35,16,ES_NUMBER
+    EDITTEXT        IDC_DX,195,36,35,16
+    EDITTEXT        IDC_NBL,79,58,35,16,ES_NUMBER
+    EDITTEXT        IDC_LSP,195,59,35,16
+    DEFPUSHBUTTON   "OK",IDOK,59,95,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,139,97,50,14
+    LTEXT           "Number of Row(s):",IDC_STATIC,7,14,60,8
+    LTEXT           "Number of Column(s):",IDC_STATIC,7,39,68,8
+    LTEXT           "Column Spacing:",IDC_STATIC,133,38,62,8
+    LTEXT           "Row Spacing:",IDC_STATIC,133,15,53,8
+    LTEXT           "Number of Level(s):",IDC_STATIC,7,61,62,8
+    LTEXT           "Levels Spacing:",IDC_STATIC,133,61,62,8
+END
+
+IDD_CHAMF DIALOG DISCARDABLE  0, 0, 119, 50
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Chamfer/Fillet Length"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Enter Length:",IDC_STATIC,15,19,44,8
+    EDITTEXT        IDC_CHLGTH,62,16,41,15
+END
+
+IDD_LAYDIA DIALOGEX 0, 0, 131, 190
+STYLE DS_3DLOOK | WS_CHILD | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_LIB DIALOG DISCARDABLE  0, 0, 101, 190
+STYLE WS_CHILD | WS_THICKFRAME
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tree1",IDC_LIBT1,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
+                    TVS_INFOTIP | WS_BORDER | WS_TABSTOP,4,11,90,175
+    CONTROL         "Predefined Library",IDC_STATIC,"Static",SS_SIMPLE | 
+                    SS_CENTERIMAGE | WS_GROUP,4,1,68,8
+END
+
+IDD_REGISTER DIALOG DISCARDABLE  0, 0, 257, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Register"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,100,59,50,14
+    LTEXT           "To register your copy of AndyCAD go to our website www.andycad.com \nRegistering entitles you to a lot of advantage and will help us improve AndyCAD.\n\n\t\t\tThank you for your support! ",
+                    IDC_STATIC,7,7,243,44,SS_SUNKEN
+END
+
+IDD_HELPREG DIALOG DISCARDABLE  0, 0, 257, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Register"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,93,59,50,14
+    LTEXT           "To register your copy of AndyCAD go to our website www.andycad.com \nRegistering entitles you to a lot of advantage and will help us improve AndyCAD.\n\n\t\t\tThank you for your support! ",
+                    IDC_STATIC,7,7,243,44,SS_SUNKEN
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(FR)
+#if defined(APSTUDIO_INVOKED)
+CG_IDD_MYDIALOGBAR$(FR) DIALOG DISCARDABLE  0, 0, 603, 20
+#else
+CG_IDD_MYDIALOGBAR DIALOG DISCARDABLE  0, 0, 603, 20
+#endif
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_MOUSX,12,4,72,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_MOUSEY,97,3,72,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_OBJECT,199,3,76,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_OBLENGTH,309,3,74,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_OBANGLE,413,3,80,12,ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_OBAREA,518,3,83,12,ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "X:",IDC_STATIC,4,6,8,8
+    LTEXT           "Y:",IDC_STATIC,89,6,8,8
+    LTEXT           "Length:",IDC_STATIC,283,5,25,8
+    LTEXT           "Angle:",IDC_STATIC,391,5,21,8
+    LTEXT           "Area:",IDC_STATIC,500,5,18,8
+    LTEXT           "Object:",IDC_STATIC,175,5,24,8
+END
+#endif
+
+IDD_LAYADD DIALOG DISCARDABLE  0, 0, 186, 61
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Layer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDITLAYADD,34,14,101,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,40,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,66,40,50,14
+    LTEXT           "Name",IDC_STATIC,7,16,24,10
+END
+
+IDD_OBJEDIT DIALOG DISCARDABLE  0, 0, 186, 158
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_OBJEDITNAME,61,13,77,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJEDITDESC,61,34,77,28,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_OBJEDITAUTH,61,78,77,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJEDITCOST,61,102,77,12,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Cancel",IDCANCEL,87,137,50,14
+    DEFPUSHBUTTON   "OK",IDOK,23,137,50,14
+    LTEXT           "Name",IDC_OBJEDIT,7,14,32,11
+    LTEXT           "Description",IDC_OBJDESC,7,39,43,18
+    LTEXT           "Author",IDC_OBJSTATICAUT,7,81,42,9
+    LTEXT           "Estimated Cost",IDC_OBJSTATICCOST,7,103,50,10
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(FR)
+#if defined(APSTUDIO_INVOKED)
+IDD_ARRAYCOPY$(FR) DIALOG DISCARDABLE  0, 0, 152, 86
+#else
+IDD_ARRAYCOPY DIALOG DISCARDABLE  0, 0, 152, 86
+#endif
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose Angle"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,22,58,50,13,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,77,58,50,13,BS_FLAT
+    LTEXT           "Angle of  Rotation:",IDC_STATIC,8,14,60,8
+    EDITTEXT        IDC_ANGLEROT,76,9,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NBCOPY,76,31,35,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Number of copies:",IDC_STATIC,7,34,60,13
+    LTEXT           "degree",IDC_STATIC,111,14,23,8
+END
+#endif
+
+IDD_TRANSDIALOG DIALOGEX 0, 0, 186, 41
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Transparency"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Slider1",IDC_TSLIDER,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,7,10,149,11
+    EDITTEXT        IDC_TEDIT,159,7,20,14,ES_NUMBER
+    CTEXT           "0%",IDC_STATIC,7,21,16,13
+    CTEXT           "100%",IDC_STATIC,143,21,16,13
+END
+
+IDD_DIALOGPATTERN DIALOG DISCARDABLE  0, 0, 203, 16
+STYLE WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_TABCONTROL DIALOG DISCARDABLE  0, 0, 262, 205
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tab1",IDC_TAB1,"SysTabControl32",0x0,7,7,248,191
+    CONTROL         "Tree1",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,
+                    52,43,99,87
+END
+
+IDD_PROGRESS DIALOGEX 0, 0, 265, 24
+STYLE WS_CHILD
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    7,7,251,10
+END
+
+IDD_DIALOGTHICK DIALOG DISCARDABLE  0, 0, 145, 103
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Thickness/Cap"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,14,82,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,80,82,50,14
+    LTEXT           "Thickness",IDC_STATIC,14,25,38,12
+    EDITTEXT        IDC_EDITTHICK,59,23,56,13,ES_AUTOHSCROLL
+    CONTROL         "Top",IDC_CHECKCAPTOP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,60,54,25,15
+    CONTROL         "Bottom",IDC_CHECKCAPBOT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,95,54,36,15
+    LTEXT           "Cap(s)",IDC_STATIC,14,57,36,13
+    LTEXT           "Extrusion:",IDC_STATIC_EXT,14,43,34,10,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_EXT,59,40,56,13,ES_AUTOHSCROLL | NOT WS_VISIBLE
+END
+
+IDD_DIALOG_SMOOTH DIALOG DISCARDABLE  0, 0, 154, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Smooth"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,19,61,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,85,61,50,14
+    LTEXT           "U direction",IDC_STATIC,20,9,50,10
+    LTEXT           "V direction",IDC_STATIC,20,25,50,10
+    LTEXT           "W direction",IDC_STATIC,21,41,50,10
+    EDITTEXT        IDC_EDITUS,82,6,46,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITVS,82,23,46,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITWS,82,41,46,13,ES_AUTOHSCROLL
+END
+
+IDD_DIALOGLIGHT DIALOG DISCARDABLE  0, 0, 181, 322
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Light"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,20,290,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,101,290,50,14
+    LTEXT           "Specular:",IDC_STATIC,5,13,34,9
+    CONTROL         "Slider1",IDC_SLIDER_SR,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,26,126,10
+    CONTROL         "Slider1",IDC_SLIDER_SG,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,44,126,10
+    CONTROL         "",IDC_STATIC_SPECLIGHT,"Static",SS_BLACKFRAME,5,28,38,
+                    30
+    LTEXT           "Intensity:",IDC_STATIC,65,18,29,8
+    LTEXT           "Glossiness:",IDC_STATIC,63,36,35,8
+    LTEXT           "Ambient:",IDC_STATIC,5,67,34,9
+    CONTROL         "Slider1",IDC_SLIDER_AR,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,79,126,10
+    CONTROL         "Slider1",IDC_SLIDER_AG,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,98,126,10
+    CONTROL         "Slider1",IDC_SLIDER_AB,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,121,126,10
+    CONTROL         "",IDC_STATIC_AMBIENTLIGHT,"Static",SS_BLACKFRAME,5,82,
+                    38,30
+    LTEXT           "R",IDC_STATIC,102,71,8,8
+    LTEXT           "G",IDC_STATIC,102,90,8,8
+    LTEXT           "B",IDC_STATIC,102,113,8,8
+    LTEXT           "R",IDC_STATIC_SR,112,18,30,10
+    LTEXT           "G",IDC_STATIC_SG,112,36,37,10
+    LTEXT           "R",IDC_STATIC_AR,112,71,38,8
+    LTEXT           "G",IDC_STATIC_AG,112,90,33,8
+    LTEXT           "B",IDC_STATIC_AB,112,113,33,8
+    LTEXT           "Light source:",IDC_STATIC,5,230,46,10
+    LTEXT           "X:",IDC_STATIC,28,253,10,9
+    EDITTEXT        IDC_EDIT_LX,38,251,31,12,ES_AUTOHSCROLL
+    LTEXT           "Y:",IDC_STATIC,81,253,10,9
+    EDITTEXT        IDC_EDIT_LY,91,251,31,12,ES_AUTOHSCROLL
+    LTEXT           "Z:",IDC_STATIC,132,253,10,9
+    EDITTEXT        IDC_EDIT_LZ,142,251,31,12,ES_AUTOHSCROLL
+    LTEXT           "Diffuse:",IDC_STATIC,5,143,34,9
+    CONTROL         "Slider1",IDC_SLIDER_AR2,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,154,126,10
+    CONTROL         "Slider1",IDC_SLIDER_AG2,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,173,126,10
+    CONTROL         "Slider1",IDC_SLIDER_AB2,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,48,197,126,10
+    CONTROL         "",IDC_STATIC_AMBIENTLIGHT2,"Static",SS_BLACKFRAME,5,157,
+                    38,30
+    LTEXT           "R",IDC_STATIC,102,146,8,8
+    LTEXT           "G",IDC_STATIC,102,165,8,8
+    LTEXT           "B",IDC_STATIC,102,189,8,8
+    LTEXT           "R",IDC_STATIC_AR2,112,146,38,8
+    LTEXT           "G",IDC_STATIC_AG2,112,165,33,8
+    LTEXT           "B",IDC_STATIC_AB2,112,189,33,8
+END
+
+IDD_DIALOGCAMERA DIALOG DISCARDABLE  0, 0, 198, 206
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Camera"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,21,185,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,105,185,50,14
+    LTEXT           "Camera position",IDC_STATICAM,11,21,52,10
+    LTEXT           "Target point",IDC_STATICTA,12,55,46,10
+    EDITTEXT        IDC_EDITXP,35,33,39,12,ES_AUTOHSCROLL
+    LTEXT           "X:",IDC_STATIC,27,34,8,8
+    EDITTEXT        IDC_EDITYP,93,32,39,12,ES_AUTOHSCROLL
+    LTEXT           "Y:",IDC_STATIC,85,35,8,8
+    EDITTEXT        IDC_EDITZP,145,33,39,12,ES_AUTOHSCROLL
+    LTEXT           "Z:",IDC_STATIC,137,36,8,8
+    EDITTEXT        IDC_EDITXT,35,71,39,12,ES_AUTOHSCROLL
+    LTEXT           "X:",IDC_STATIC,27,72,8,8
+    EDITTEXT        IDC_EDITYT,93,70,39,12,ES_AUTOHSCROLL
+    LTEXT           "Y:",IDC_STATIC,85,72,8,8
+    EDITTEXT        IDC_EDITZT,145,71,39,12,ES_AUTOHSCROLL
+    LTEXT           "Z:",IDC_STATIC,137,73,8,8
+    LTEXT           "Far plane",IDC_STATIC,15,116,34,8
+    LTEXT           "Near plane",IDC_STATIC,102,115,39,8
+    EDITTEXT        IDC_EDITFPLANE,53,114,39,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITNPLANE,146,112,39,12,ES_AUTOHSCROLL
+    LTEXT           "FOV",IDC_STATIC,16,144,18,8
+    CONTROL         "Slider1",IDC_SLIDERFOV,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,54,148,129,10
+    LTEXT           "0",IDC_STATIC,55,139,8,10
+    LTEXT           "180",IDC_STATIC,174,139,17,10
+    GROUPBOX        "Camera Setting",IDC_STATICCS,7,99,184,67
+    GROUPBOX        "Look At",IDC_STATIC,7,7,184,84
+    LTEXT           "Hello",IDC_STATICFOV,105,137,22,9
+END
+
+IDD_DIALOG_CAP DIALOG DISCARDABLE  0, 0, 184, 78
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Cap"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,27,57,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,89,57,50,14
+    LTEXT           "Position",IDC_STATIC,15,13,29,8
+    CONTROL         "Top",IDC_CHECK_TOP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,69,13,29,11
+    CONTROL         "Bottom",IDC_CHECK_BOT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,118,13,39,11
+    LTEXT           "Method",IDC_STATIC,13,39,30,9
+    CONTROL         "Grid",IDC_RADIO_GRID,"Button",BS_AUTORADIOBUTTON,69,36,
+                    29,12
+    CONTROL         "Polygon",IDC_RADIO_POLY,"Button",BS_AUTORADIOBUTTON,118,
+                    34,38,14
+END
+
+IDD_DIALOG_TEXT DIALOG DISCARDABLE  0, 0, 186, 182
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter your text"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,32,155,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,155,50,14
+    EDITTEXT        IDC_EDIT1,7,11,172,131,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN
+END
+
+IDD_DIALOGBAR DIALOG DISCARDABLE  0, 0, 330, 16
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_DIALOG_ADDIN_SETTINGS DIALOG DISCARDABLE  0, 0, 186, 174
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,20,147,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,84,147,50,14
+    LISTBOX         IDC_LIST_ADDIN,7,17,172,116,LBS_SORT | 
+                    LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Select the Addin",IDC_STATIC,7,7,172,135
+END
+
+IDD_BYLAYER DIALOG DISCARDABLE  0, 0, 247, 19
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_COLORBYLAYER,2,2,73,14,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_BYLAYERLINEWEIGHT,84,1,75,16,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CHECK1,167,1,71,16,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DIALOGBARGRID DIALOG DISCARDABLE  0, 0, 206, 20
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Show Grid",IDC_SHOWGRID,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,4,4,46,12
+    LTEXT           "X-Spacing",IDC_STATIC,62,5,34,8
+    LTEXT           "Y-Spacing",IDC_STATIC,131,4,36,14
+    COMBOBOX        IDC_XSPACING,97,3,32,15,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_YSPACING,168,2,34,16,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_MOVEANDROTATE_DIALOGBAR DIALOGEX 0, 0, 355, 20
+STYLE WS_CHILD | WS_THICKFRAME
+MENU IDR_MAINFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Angle:",IDC_STATIC,0,6,21,8,0,0,HIDC_STATIC
+    EDITTEXT        IDC_angle,22,4,33,13
+    GROUPBOX        "Number of copies",IDC_STATIC,61,0,220,20
+    CONTROL         "Delete Orginal",IDC_Deleteoriginal,"Button",
+                    BS_AUTORADIOBUTTON,62,7,65,11
+    CONTROL         "Keep orginal",IDC_Keeporginal,"Button",
+                    BS_AUTORADIOBUTTON,126,7,57,13
+    CONTROL         "Mutiple copies",IDC_Mutiplecopies,"Button",
+                    BS_AUTORADIOBUTTON,183,8,54,11
+    EDITTEXT        IDC_Copies,243,6,35,13,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "Use Current Layer",IDC_USECLAYER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,283,8,72,10
+END
+
+IDD_FILEMACRO DIALOG DISCARDABLE  0, 0, 184, 55
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Macro"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Edit",IDOK,37,35,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,97,35,50,14
+    LTEXT           "Which &macro would you like to edit?",IDC_STATIC,5,5,
+                    175,8
+    COMBOBOX        IDC_MACROCOMBO,5,15,175,50,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_NEWMACRO DIALOG DISCARDABLE  0, 0, 186, 135
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "New macro"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Save",IDOK,37,115,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,115,50,14
+    LTEXT           "Macro &name:",IDC_STATIC,5,5,175,8
+    EDITTEXT        IDC_NAMEEDIT,10,15,170,14,ES_AUTOHSCROLL
+    LTEXT           "Macro &text:",IDC_STATIC,5,35,175,8
+    EDITTEXT        IDC_TEXTEDIT,10,45,170,60,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,110,175,1
+END
+
+IDD_RUNMACRO DIALOG DISCARDABLE  0, 0, 169, 125
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Run Macro"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Run",IDOK,5,105,50,14,WS_DISABLED
+    PUSHBUTTON      "&Cancel",IDCANCEL,115,105,50,14
+    LISTBOX         IDC_MACROLIST,5,15,160,85,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "&Available macros:",IDC_STATIC,5,5,160,8
+    PUSHBUTTON      "&Edit",IDC_EDIT_RUN,60,105,50,14,WS_DISABLED
+END
+
+IDD_EDITMACRO DIALOG DISCARDABLE  0, 0, 209, 134
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Macro"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Save",IDOK,49,115,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,109,115,50,14
+    LTEXT           "Macro:",IDC_STATIC,5,5,25,8
+    LTEXT           "(none)",IDC_MACRONAMETXT,30,5,175,10,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    EDITTEXT        IDC_TEXTEDIT,5,30,200,80,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    LTEXT           "Macro &text:",IDC_STATIC,5,20,175,8
+END
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 229, 196
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,67,175,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,132,175,50,14
+    CONTROL         "Tab1",IDC_SNAP,"SysTabControl32",0x0,7,7,215,161
+END
+
+IDD_PROPPAGE_OBJECTSNAP DIALOG DISCARDABLE  0, 0, 249, 154
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Object Snap"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Object Snap",IDC_STATIC,13,29,175,109
+    CONTROL         "EndPoint",IDC_CHECKENDPOINT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,28,44,51,13
+    CONTROL         "MidPoint",IDC_CHECKMIDPOINT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,28,60,51,13
+    CONTROL         "Intersection",IDC_CHECKINTER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,28,92,51,13
+    CONTROL         "Center",IDC_CHECKCENTER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,28,76,51,13
+    CONTROL         "Extension",IDC_CHECKEXTEN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,28,108,51,13
+    CONTROL         "Perpendicular",IDC_CHECKPERP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,101,45,51,13
+    CONTROL         "Parallel",IDC_CHECKPARA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,101,61,51,13
+    CONTROL         "Nearest",IDC_CHECKNEAREST,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,101,77,51,13
+    CONTROL         "Tangent",IDC_CHECKTANGENT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,101,93,51,13
+    CONTROL         "Aparent Intersection",IDC_CHECKAPPINT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,101,109,79,13
+    PUSHBUTTON      "Select All",IDC_BUTTONSELECTALL,194,36,48,16
+    PUSHBUTTON      "Cancel All",IDC_BUTTONCANCELALL,194,60,48,16
+    CONTROL         "Object Snap On",IDC_CHECKSNAPON,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,7,75,16
+    CONTROL         "Object Snap Tracking On",IDC_CHECKTRACKINGON,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,93,7,106,16
+END
+
+IDD_PROPPAGE_POLARTRACK DIALOG DISCARDABLE  0, 0, 295, 196
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Polar Tracking"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Polar Tracking On",IDC_CHECKPOLARTRACKON,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,15,90,15
+    GROUPBOX        "Polar Angle Setting",IDC_STATIC,7,41,140,107
+    COMBOBOX        IDC_COMBOINCANGLE,11,65,82,13,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Increment Angle :",IDC_STATIC,12,56,85,9
+    CONTROL         "Additional Angle",IDC_CHECKADDANGLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,83,76,15
+    LISTBOX         IDC_LISTANGLE,11,100,76,37,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "New",IDC_BUTTONNEWANGLE,97,100,38,11
+    PUSHBUTTON      "Delete",IDC_BUTTONDELANGLE,98,116,38,11
+    GROUPBOX        "Object Snap Tracking Setting",IDC_STATIC,157,41,126,64
+    CONTROL         "Track Orthogonally Only",IDC_RADIOORTHOTRACK,"Button",
+                    BS_AUTORADIOBUTTON,161,59,122,14
+    CONTROL         "Track Using All polar setting",IDC_RADIOALLPOLARTRACK,
+                    "Button",BS_AUTORADIOBUTTON,161,78,122,14
+    GROUPBOX        "Polar Angle Measurement",IDC_STATIC,157,106,126,64
+    CONTROL         "Absolute",IDC_RADIOABSOLUTEANGLE,"Button",
+                    BS_AUTORADIOBUTTON,161,124,122,14
+    CONTROL         "Relative to last Segment",IDC_RADIORELATIVEANGLE,"Button",
+                    BS_AUTORADIOBUTTON,161,143,122,14
+END
+
+IDD_PROPPAGE_SNAP DIALOG DISCARDABLE  0, 0, 270, 194
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Snap And Grid"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Snap On",IDC_CHECKSNAPON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,17,15,53,13
+    CONTROL         "Grid On",IDC_CHECKGRIDON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,118,15,45,18
+    LTEXT           "Snap X spacing:",IDC_STATIC,19,47,54,11
+    LTEXT           "Snap Y spacing:",IDC_STATIC,18,64,54,11
+    LTEXT           "Angle:",IDC_STATIC,19,83,40,11
+    LTEXT           "X Base:",IDC_STATIC,18,100,48,11
+    LTEXT           "Y Base:",IDC_STATIC,17,118,50,11
+    LTEXT           "Polar distance:",IDC_STATIC,19,157,53,11
+    LTEXT           "Grid X Spacing:",IDC_STATIC,151,47,49,11
+    LTEXT           "Grid Y Spacing:",IDC_STATIC,151,64,50,11
+    CONTROL         "Grid Snap",IDC_RADIOGRIDSNAP,"Button",
+                    BS_AUTORADIOBUTTON,160,97,56,15
+    CONTROL         "Rectangular Snap",IDC_RADIORECTSNAP,"Button",
+                    BS_AUTORADIOBUTTON,168,110,70,15
+    CONTROL         "Isometric Snap",IDC_RADIOISOSNAP,"Button",
+                    BS_AUTORADIOBUTTON,168,123,70,15
+    CONTROL         "Polar Snap",IDC_RADIOPOLSNAP,"Button",
+                    BS_AUTORADIOBUTTON,160,137,70,15
+    EDITTEXT        IDC_EDITXSPACING,75,47,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITYSPACING,76,62,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITANGLE,76,80,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITXBASE,75,98,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITYBASE,75,115,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITPOLARDISTANCE,76,155,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITGRIDXSPACING,205,44,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITGRIDYSPACING,206,62,51,14,ES_AUTOHSCROLL
+    GROUPBOX        "Snap",IDC_STATIC,7,36,132,101
+    GROUPBOX        "Grid",IDC_STATIC,148,37,115,47
+    GROUPBOX        "Snap Type and Style",IDC_STATIC,149,90,114,65
+    GROUPBOX        "Polar Spacing",IDC_STATIC,7,148,130,26
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Emusoft Inc\0"
+            VALUE "FileDescription", "AndyCad document\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "cad\0"
+            VALUE "LegalCopyright", "Copyright © 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "cad.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "intell cad\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "EMUSOFT\0"
+            VALUE "FileDescription", "AndyCAD\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "cad\0"
+            VALUE "LegalCopyright", "Copyright (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "cad.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "AndyCAD\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200, 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+
+    IDD_DIALOGBAR_PARSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 278
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_DIALOGPAPERSET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_DIALOG_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_GRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_ARRAYCOPY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 145
+        BOTTOMMARGIN, 135
+    END
+
+    IDD_NCOPY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 119
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 31
+    END
+
+    IDD_TIP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+
+    CG_IDD_MOUSEPOSITION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+    END
+
+    "IDD_DIALOG2", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 148
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    "IDD_ELLIPSCIRPRP", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 269
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    "IDD_ARCPROP", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 73
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    "IDD_DPAGESPLINE", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 82
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 190
+    END
+
+    "IDD_DPAGECERC", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 79
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 222
+    END
+
+    IDD_PROPERTY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 307
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 10
+    END
+
+    "IDD_PROPPAGE_MEDIUM", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    "IDD_DBPROPERTY", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 226
+    END
+
+    IDD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 105
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 208
+    END
+
+    IDD_DIALOG5, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 83
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    "IDD_DIALOG6", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 130
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
+    END
+
+    CG_IDD_MYDIALOGBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 588
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 13
+    END
+
+    "IDD_MYDRAW", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_RECARRAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_CHAMF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 112
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 43
+    END
+
+    IDD_LAYDIA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 117
+        TOPMARGIN, 12
+        BOTTOMMARGIN, 183
+    END
+
+    IDD_LIB, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 94
+        TOPMARGIN, 11
+        BOTTOMMARGIN, 186
+    END
+
+    IDD_REGISTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 250
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_HELPREG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 250
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    "CG_IDD_MYDIALOGBAR$(FR)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 596
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 13
+    END
+
+    IDD_LAYADD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_OBJEDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    "IDD_ARRAYCOPY$(FR)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 145
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_TRANSDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDD_DIALOGPATTERN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 8
+    END
+
+    IDD_TABCONTROL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 17
+    END
+
+    IDD_DIALOGTHICK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_DIALOG_SMOOTH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 147
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_DIALOGLIGHT, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 315
+    END
+
+    IDD_DIALOGCAMERA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 191
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+
+    IDD_DIALOG_CAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 71
+    END
+
+    IDD_DIALOG_TEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+
+    IDD_DIALOGBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_DIALOG_ADDIN_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 167
+    END
+
+    IDD_BYLAYER, DIALOG
+    BEGIN
+        RIGHTMARGIN, 244
+        BOTTOMMARGIN, 17
+    END
+
+    IDD_DIALOGBARGRID, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 204
+        BOTTOMMARGIN, 18
+    END
+
+    IDD_MOVEANDROTATE_DIALOGBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        HORZGUIDE, 6
+    END
+
+    IDD_FILEMACRO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_NEWMACRO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_RUNMACRO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 162
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_EDITMACRO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 127
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+
+    IDD_PROPPAGE_OBJECTSNAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_PROPPAGE_POLARTRACK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 288
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+
+    IDD_PROPPAGE_SNAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 263
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DIALOGBARGRID DLGINIT
+BEGIN
+    IDC_YSPACING, 0x403, 23, 0
+0x7561, 0x6f74, 0x202c, 0x2e30, 0x3130, 0x202c, 0x2e30, 0x2c31, 0x3120, 
+0x202c, 0x3031, "\000" 
+    0
+END
+
+IDD_BYLAYER DLGINIT
+BEGIN
+    IDC_COLORBYLAYER, 0x403, 6, 0
+0x6548, 0x6c6c, 0x006f, 
+    IDC_COLORBYLAYER, 0x403, 12, 0
+0x6f48, 0x2077, 0x7261, 0x2065, 0x6f79, 0x0075, 
+    0
+END
+
+IDD_DIALOGPAPERSET DLGINIT
+BEGIN
+    IDC_LENGTH_TYPE2, 0x403, 8, 0
+0x6544, 0x6963, 0x616d, 0x006c, 
+    IDC_LENGTH_TYPE2, 0x403, 14, 0
+0x7241, 0x6863, 0x7469, 0x6365, 0x7574, 0x6172, 0x006c, 
+    IDC_LENGTH_TYPE2, 0x403, 12, 0
+0x6e45, 0x6967, 0x656e, 0x7265, 0x6e69, 0x0067, 
+    IDC_LENGTH_TYPE2, 0x403, 11, 0
+0x7246, 0x6361, 0x6974, 0x6e6f, 0x6c61, "\000" 
+    IDC_LENGTH_TYPE3, 0x403, 7, 0
+0x6e49, 0x6863, 0x7365, "\000" 
+    IDC_LENGTH_TYPE3, 0x403, 5, 0
+0x6546, 0x7465, "\000" 
+    IDC_LENGTH_TYPE3, 0x403, 11, 0
+0x694d, 0x6c6c, 0x6d69, 0x7465, 0x7265, "\000" 
+    IDC_LENGTH_TYPE3, 0x403, 11, 0
+0x6543, 0x746e, 0x6d69, 0x7465, 0x7265, "\000" 
+    IDC_LENGTH_TYPE3, 0x403, 6, 0
+0x654d, 0x6574, 0x0072, 
+    IDC_LENGTH_TYPE3, 0x403, 7, 0
+0x6f50, 0x6e69, 0x7374, "\000" 
+    IDC_LENGTH_TYPE4, 0x403, 7, 0
+0x6e49, 0x6863, 0x7365, "\000" 
+    IDC_LENGTH_TYPE4, 0x403, 5, 0
+0x6546, 0x7465, "\000" 
+    IDC_LENGTH_TYPE4, 0x403, 11, 0
+0x694d, 0x6c6c, 0x6d69, 0x7465, 0x7265, "\000" 
+    IDC_LENGTH_TYPE4, 0x403, 11, 0
+0x6543, 0x746e, 0x6d69, 0x7465, 0x7265, "\000" 
+    IDC_LENGTH_TYPE4, 0x403, 6, 0
+0x654d, 0x6574, 0x0072, 
+    IDC_LENGTH_TYPE4, 0x403, 7, 0
+0x6f50, 0x6e69, 0x7374, "\000" 
+    IDC_LENGTH_TYPE_ANGLE, 0x403, 8, 0
+0x6152, 0x6964, 0x6e61, 0x0073, 
+    IDC_LENGTH_TYPE_ANGLE, 0x403, 8, 0
+0x6544, 0x7267, 0x6565, 0x0073, 
+    IDC_LENGTH_TYPE6, 0x403, 8, 0
+0x6544, 0x6963, 0x616d, 0x006c, 
+    IDC_LENGTH_TYPE6, 0x403, 14, 0
+0x7241, 0x6863, 0x7469, 0x6365, 0x7574, 0x6172, 0x006c, 
+    IDC_LENGTH_TYPE6, 0x403, 12, 0
+0x6e45, 0x6967, 0x656e, 0x7265, 0x6e69, 0x0067, 
+    IDC_LENGTH_TYPE6, 0x403, 11, 0
+0x7246, 0x6361, 0x6974, 0x6e6f, 0x6c61, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_REGISTRY1           REGISTRY DISCARDABLE    "res\\registry.bin"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "AndyCAD\n\nADC\nAndyCad files(*.aff)\n.aff\nAndyCad.Document\nAndyCAD Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    CG_IDS_TIPOFTHEDAYMENU  "Ti&p of the Day..."
+    CG_IDS_TIPOFTHEDAY      "Displays a Tip of the Day."
+    CG_IDS_DIDYOUKNOW       "Did you know..."
+    CG_IDS_FILE_ABSENT      "Tips file does not exist in the prescribed directory"
+    CG_IDP_FILE_CORRUPT     "Trouble reading the tips file"
+    CG_IDS_TIPOFTHEDAYHELP  "&Help"
+    CG_IDS_PHYSICAL_MEM     "%lu KB"
+    CG_IDS_DISK_SPACE       "%lu KB Free on %c:"
+    CG_IDS_DISK_SPACE_UNAVAIL "Unavailable"
+    CG_ID_VIEW_MOUSEPOSITION 
+                            "Show or hide Mouse Position\nToggle Mouse Position"
+    CG_ID_VIEW_MYDIALOGBAR  "Show or hide My Dialog Bar\nToggle My Dialog Bar"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    ID_GROUPUP              "Ungroup selected object\nUngroup"
+    ID_SENDTOBACKGRD        "Send to the backgroud\n Send selected object to the backgroud"
+    ID_SENDFORWARD          "Send forward\n Send selected object forward"
+    ID_SENDBACKWARD         "Send backward\nSend selected object one step backward"
+    ID_LINESYTLE            "select line style\nLine style"
+    ID_PAtTERN              "\n Pattern styles"
+    ID_INDICATOR_DATE       "Date"
+    ID_NPAGE                "Normal  page view \nNormal page"
+    ID_FITPAGE              "Reintialize All \nReintialize All"
+    ID_SNAPMIDPOINT         "set midpoint snapping  \nMidpoint"
+    ID_SNAPENDPOINT         "Snap to end or begin-point\nBegin-point/End-point"
+    ID_SNAPPEN              "Snap object perpendicular\nPerpendicular snap"
+    ID_INTERSETPT           "Snap to point of intersection\nPoint of intersection"
+    ID_SNAPCTR              "\nCenter Snap"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    ID_SNAPNEAR             "Snap OBjects begin or endpoint\nSnap to closest point"
+    ID_SNAPTAN              "Snap OBjects begin or endpoint\nSnap to tangent"
+    ID_SNAPQUAD             "Snap OBjects to Quadrant point\nsSnap to Quadrant"
+    ID_SNAPON               "Set snapping on\nSnapping on"
+    ID_SNAPOFF              "Set snapping off\nSnapping off"
+    ID_LINE                 "Draw line from 2 points or Ployline\nLine 2 points or PolyLine"
+    ID_RECTANGLE            "Draw a Rectangle or any Derived shape by mdofiying the points\nRectangle (Reshape-able Rectangle"
+    ID_SQLINE               "Draw Vertical line ,Horizontal line or orthogonal  line\nOrthogonal  line"
+    ID_RECTANGLEFREE        "Reshapable Rectangle\nFree Shape Rectangle"
+    ID_POLYB                "Draw B-Spline\nB-Spline"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "AndyCAD: An  Handy and easy CAD Program."
+    AFX_IDS_IDLEMESSAGE     "For Help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Opens Help\nHelp Topics"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+    ID_HELP_USING           "Display instructions about how to use help\nHelp"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
+    ID_HELP                 "Display help for current task or command\nHelp"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut\n Cut selected object"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo  previous action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_Linestyle           "Line Sytle"
+    IDS_L1                  "1pt"
+    IDS_L2                  "Pt2"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PASTE                "Paste\nPaste"
+    ID_INDICATOR_TIME       "Time"
+    ID_COPYLINE             "Create a Symmetric copy\n Symmetric copy"
+    ID_ANGCOPY              "Copy on an angle\nAngular copy"
+    ID_COPYRAL              "Create a Polar Copy\nPolar Copy"
+    ID_COPYBYCENTER         "Create a Parallel Copy\nParallel Copy"
+    ID_SLIDE                "Displace select centering on a eslected bounding object \nSlide"
+    ID_TBMIRROR             "Mirror selected object and display a symmetric copy \nMirror with copy"
+    ID_NormalPage           "Fit to page view \nFit to page"
+    ID_EFFECT_TRANSFORM_SYMETRICMIRROR "Symetric mirroring\n Symmetric mirror"
+    ID_EFFECT_TRANSFORM_SYMMETRICCOPY "Symmteric copy\nSymmetric copy"
+    ID_EFFECT_ROTATE_FLIPHORIZONTALLY "Flip horizontally\nFlip horizontally"
+    ID_EFFECT_ROTATE_FLIPVERTICALLY "Flip Vertically\nFlip Vertically"
+    ID_EFFECT_ROTATE_FREEROTATE 
+                            "Choose a center of rotation and Rotate\nFree Rotation"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_Text                 "Create Text\nText"
+    ID_Taddnode             "Add node or a point\nAdd node"
+    ID_Tdeletenode          "Delete a node\nDelete node"
+    ID_Tbreakcurve          "break lines or curves\nBreak Curve"
+    ID_Tclosecurve          "Close curve or line\nClose curve or Line"
+    ID_GROUP                "Group selected object\nGroup"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_CERCLE               "Create a Circle from center\n Circle from center"
+    ID_TBSELECT             "Select an Object\nRectangle Selection"
+    ID_TBROTATE             "Rotate object freely \n Free Rotate "
+    ID_HELP_WWWANDYCADCOM   "Link to our Website"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EFFECT_ROTATE_180DEGREES "/n Rotate  180 degrees"
+    ID_EFFECT_ROTATE_270DEGREES "\nRotate 270 Degrees"
+    ID_EFFECT_COLORANDLINE_LINESTYLE "\nLine style"
+    ID_EFFECT_INSERTOBJECT_INSERTBITMAP "\n Insert Bitmap"
+    ID_2CERCLE              "Draw a Circle  from 2 point\nCircle 2 point"
+    ID_3CERCLE              "Snap Objects begin or endpoint\nsSnap to endpoint or Begin Point"
+    ID_ARC                  "Draw an arc form the center\nArcform Center "
+    ID_3ARCOPEN             "Draw an arc with 2 point\nArc 2 point"
+    ID_3ARCCLOSE            "Draw an arc with 3 point\nArc 3 point"
+    ID_ECLIPSE              "Draw Ellipse"
+    ID_COPY                 "Copy object\nCopy"
+    ID_CUT                  "Cut\nCut"
+    ID_DIALOG_FONT          "Change Text  font sytle and color\n Font sytle and color"
+    ID_FITWNDBTN            "Fit to window\n Fit to Window"
+    ID_EFFECT_ZOOMOUT       "Zoom out\nZoom out"
+    ID_EFFECT_ZOOMIN        "Zoom in\nZoom in"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    32812                   "Gorup Object together\\Object grouping"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    1160                    "All menu has the same border\nSame border"
+    1162                    "This is the next starting type of the menu style\nNext menu style"
+    1163                    "Enable or disable special menu border\nMenu border"
+    1165                    "Enable or disable menu selection\nMenu selection"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    1170                    "Select filling color\nFill color"
+    1171                    "Select line color\nLine color"
+    1172                    "Object to bottom layer\nBottom layer"
+    1173                    "One layer down\nLayer down"
+    1174                    "Object to top layer\nTop layer"
+    1175                    "One layer up\nLayer up"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_BL                   "\nLine style"
+    ID_COLORBAR             "Color Bar\n  Show or hide ColorBar"
+    ID_INFOBAR              "Information Bar\n Information Bar"
+    ID_DASHDOTDOT           "Dash dot-dot  line style"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    32846                   "\nUngroup Object"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MIDPOINT             "Snap objects midpoint\nMidpoint"
+    ID_ENDBEGIPT            "Snap OBjects begin or endpoint\nsSnap to endpoint or Begin Point"
+    ID_DIMHO                "Horizontal Dimension\nHorizontal Dimension"
+    ID_DIML                 "Draw Outer arrow dimension\nOuter arrow with extension Dimension"
+    ID_DimA                 "Angular Dimension\nAngular Dimension"
+    ID_DIMVERT              "Vertical Dimension\nVertical Dimension"
+    ID_DIM1FREE             "Angled or Free Dimension\n Free Dimension"
+    ID_DIMCDIA              "Create Diameteric  Dimension of an object\nDiameter Dimension"
+    ID_DIMRAD               "Draw  radius dimension\nRadius Dimension"
+    ID_DIMTXT               "Draw  a text dimension\nText  Annotation"
+    ID_FILPVERT             "Rotate vertically at 90 degree/nFlip vertical"
+    ID_FLIH                 "Rotate Horizontally at 90 degree\nFlip Horizontal"
+    ID_RECARRAYCOPY         "Rectangular Array copy\n Rectangular Array copy"
+    ID_MIRRORNOCOPY         "Mirror without copying \nMirror without copy"
+    ID_BUTTON33053          "\nline style"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_GEOMETRY             "Geomerical properties"
+    ID_FILLET               "Fillet \n Create a  Fillet"
+    ID_CHAMFER              "Chamfer/n Create Chamfer"
+    ID_DIMLV                "Vertically  Outer Arrow\n Vertical Outer Arrow Dimension"
+    ID_DIMLH                " Horizontal Outer Arrow\n Horizontal Outer Arrow Dimension"
+    ID_COPYLINENOCOPY       "Symmetric copy\nSymmetric copy"
+    ID_BUTTON40034          "Offset\n"
+    ID_DIMENSION_INNERARROW "Inner Arrow\nInner Arrow"
+    ID_EDIT_LAYER           "Layer\nLayer"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR_DRAWINGBAR "Drawing Bar\n  Show or Hide  Drawing Bar"
+    ID_HELP_TIPOFTHEDAY     "Display a Tip of the  Day"
+    ID_VIEW_TOOLBAR_SHOWTOOLBARS "Show ToolBars\nShow or hide  all ToolBars"
+    ID_VIEW_TOOLBAR_HIDETOOLBARS "Hide ToolBars\nHide all Toolbars"
+    ID_TRIM                 "Trim \n Trim objetcs or entities"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_IMAGE                "Insert Image\nInsert Image"
+    ID_EDIT_DEL             "Delete selected object\nDelete"
+    ID_ZOOM                 "Zoom Bar\n  Show or hide  Zoom Bar"
+    ID_BACKGRD              "Background color\n  Change background color"
+    ID_VIEW_TOOLBAR_TRANSFORMATIONBAR 
+                            "Transformation Bar\n  Show or hide Transformation Bar"
+    ID_VIEW_TOOLBAR_ZOOMBAR "Zoom Bar\n  Show or hide  Zoom Bar"
+    ID_VIEW_TOOLBAR_DIMENSIONBAR "Dimension Bar\n  Show or hide Dimension Bar"
+    ID_VIEW_TOOLBAR_COLORBAR "Color Bar\n  Show or Hide ColorBar"
+    ID_VIEW_TOOLBAR_INFORMATIONBAR 
+                            "Information Bar\n Show or Hide Information Bar"
+    ID_VIEW_TOOLBAR_STANDARDBAR "Standard Bar\n  Show or hide Standard Bar"
+    ID_VIEW_TOOLBAR_EDITINGBAR "Editing Bar\n  Show or hide  Modifying Bar"
+    ID_VIEW_TOOLBAR_MODIFYINGBAR 
+                            "Modifying Bar\n  Show or Hide  Modifying Bar"
+    ID_VIEW_TOOLBAR_TEXTBAR "Text Editing  Bar\n  Show or hide  Text Editing  Bar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    32853                   "Standard Bar\n  Show or hide Standard Bar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_CAMPAD               "Walk in and out of Object using the Arrow keys, Page Down and Page Up"
+    ID_CAMROT               "Select Object  and Rotate  Use the Arrow Keys, page up and Page Down to Navigate\nCamera Rotation"
+    ID_Surfa                "Loft Surface\nLoft Surface"
+    ID_surfrev              "Surface of revolution\nRevolved Surface "
+    ID_surfext              "Extrude Curve\nExtrude Curve"
+    ID_BUTTON40137          "4 curves surface"
+    ID_surfcoon             "General Extrusion Surface\nGeneral Extrusion  Surface"
+    ID_VOL                  "Draw a volume from a surface"
+    ID_BUTTON40142          "Perspective View\nPerspective"
+    ID_PTSELECT             "Modify Selected Object"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_TOPVIEW              "Top View\nTop View"
+    ID_BOTTOMVIEW           "Bottom View\nBottom View"
+    ID_FRONTVIEW            "Front View\nFront View"
+    ID_BACKVIEW             "Back View\nBack View"
+    ID_LEFTVIEW             "Left View\nLeft View"
+    ID_RIGHTVIEW            "Right View\nRight View"
+    ID_BUTTON40153          "South East Isometric View\nSE Isometric View"
+    ID_BUTTON40154          "South WestIsometric View\nSW Isometric View"
+    ID_BUTTON40155          "North WestIsometric View\nNW Isometric View"
+    ID_NORTHEAST            "North East Isometric View\nNorth East Isometric View"
+    ID_FREECAMERA           "Camera\nCamera"
+    ID_NORTHWESTVIEW        "North West Isometric View\nNorth West Isometric View"
+    ID_SOUTHWESTVIEW        "South West  Isometric View\nSW Isometric View"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SOUTHEASTVIEW        "South East Isometric View\nSE Isometric View"
+    ID_SURFACEDISH          "Dish\nDish"
+    ID_SURFACEBOX           "Box\nBox"
+    ID_SURFACEWEDGE         "Wedge\nWedge"
+    ID_SURFACECONE          "Cone\nCone"
+    ID_SURFACESPYRAMID      "Pyramid\nPyramid"
+    ID_SURFACEDOME          "Dome\nCreate Dome"
+    ID_SURAFCE2DSOLID       "2D Solid\n2D Solid"
+    ID_SURFACESPHERE        "Sphere\nSphere"
+    ID_SURFACETORUS         "Torus\nTorus"
+    ID_SURFACEEDGE          "Edge\nEdge"
+    ID_SURFACE3DMESH        "3D  MesH\n 3D Mesh"
+    ID_SURFACE3D            "Surface\nSurface"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SURFACERULED         "Ruled Surface\nRuled Surface"
+    ID_SURFACETABULATED     "Tabulated Surface"
+    ID_SURFACEREVOLVED      "Revolved Surface\nRevolved Surface"
+    ID_SHAPE2DWIRED         "2D Wireframe\n2D Wireframe"
+    ID_SHAPE3DWIRED         "3D Wireframe"
+    ID_SHAPE3DWIRE          "3D Wireframe\n3D Wireframe"
+    ID_SHAPEGOURAND         "Gourand \nGourand"
+    ID_SHAPEGOURANDSHADEDEDGEON "Flat Shaded Edge ON\\Flat Shaded Edge ON"
+    ID_SHAPEFLAT            "Flat Shaded \n Flat Shaded "
+    ID_SHAPEGOURANDEDGEON   "Gourand Edges On\nGourand Edges On"
+    ID_SOLIDBOX             "Box\nBox"
+    ID_SOLIDSHPERE          "Sphere\nSphere"
+    ID_SOLIDCYLINDER        "Cylinder\\Cylinder"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SOLIDCONE            "Solid Cone\nCone"
+    ID_SOLIDWEDGE           "Wedge\nWedge"
+    ID_SOLIDRORUS           "Solid Torus\nSolid Torus"
+    ID_CAMERAROTATION       "Camera Rotate\nCamera Rotate"
+    ID_BUCKETFILL           "Fill \nFill"
+    ID_TRANSPARENCY         "Transparency\nTransparency"
+    ID_RENDER               "Render\nRender"
+    ID_LIGHT                "Light\nLight"
+    ID_FOG                  "Fog\nFog"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_RENDERPREFER         "Render Setting\nRender Settings"
+    ID_SNAPFRONT            "Snap to front plane\nSnap to front plane"
+    ID_SNAPLEFT             "Snap to left plane\nSnap to left plane"
+    ID_SNAPTOP              "Snap to top plane\nSnap to top plane"
+    ID_TRANSFORM_FFD_2X2X2  "2x2x2 FFD"
+    ID_TRANSFORM_FFD_3X3X3  "3x3x3 FFD"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_TRANSFORM_FFD_4X4X4  "4x4x4 FFD"
+    ID_VIEW_PAN_LEFT        "Using the Left Arrow Key\nPan  Left"
+    ID_VIEW_PAN_RIGHT       " Use the Left , Right, Up and Down Arrow keys \nPan Right"
+    ID_VIEW_PAN_UP          " Use the Left , Right, Up and Down Arrow keys \nPan Up"
+    ID_VIEW_PAN_DOWN        "Use the Left , Right, Up and Down Arrow keys \nPan Down"
+    ID_EDIT_SMOOTH          "Surface Smoothing\nSurface Smoothing"
+    ID_EDIT_CAMERA          "Camera Look At/Field of VIew"
+    ID_SPHERE               "Sphere\nCreate Sphere"
+    ID_CONE                 "Cone\nCreate Cone"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_LIBRARY              "Objects Library\nObjects Library"
+    ID_PROPERTIES           "Selected Objects Properties\nSelected Objects Properties"
+    ID_suftext2             "extrude following a curve"
+    ID_surfext3             "Create general cylinder\nGeneral cylinder"
+    ID_MODIFY               "Camera swivel -  Use the Arrow keys, Page Down and Page Up to turn around as desire\nSwivel"
+    ID__CAMERA_CAMERAWALKIN "Walk in and out of Object using the Arrow keys, Page Down and Page Up"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_DOME                 "Dome\nCreate Dome"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_TBSCALE              "Scale object freely \n Free Scale "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_TOOLS_TOOLBARS_PATTERNTEXTUREBAR 
+                            "Show or Hide Pattern Bar\nShow or Hide Pattern Bar"
+    ID_TOOLS_TOOLBARS_VIEWBAR 
+                            "Toggle on and View Bar\nToggle on and View Bar\n"
+    ID_TOOLS_TOOLBARS_CREATESURFACEBAR 
+                            "Toggle on and off Create Surface Bar\nToggle on and off Create Surface Bar"
+    ID_ADDIN_ADDINSETTINGS  "Invoke the addin settings"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// French (Belgium) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRB)
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH_BELGIAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_REGDIALOG DIALOG DISCARDABLE  0, 0, 332, 209
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "AndyCAD Registration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT,116,142,125,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,263,139,50,14
+    PUSHBUTTON      "Register",IDC_ASKCODE,263,60,50,14
+    PUSHBUTTON      "Continue unregistered",IDCANCEL,213,178,107,14
+    LTEXT           "",IDC_STATIC1,117,18,202,33
+    GROUPBOX        "Registration",IDC_STATIC,112,8,213,73
+    GROUPBOX        "Registration Code",IDC_STATIC,112,92,213,67
+    LTEXT           "When you receive Registration Code please enter it here and press OK button. ",
+                    IDC_STATIC,118,111,193,16
+    PUSHBUTTON      "End Session",IDCLOSE,110,178,66,14
+    CONTROL         260,IDC_STATIC,"Static",SS_BITMAP,7,8,100,235
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_REGDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 325
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 202
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // French (Belgium) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\andycad.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

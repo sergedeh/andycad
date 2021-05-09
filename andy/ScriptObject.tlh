@@ -1,0 +1,80 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (22d04e3b).
+//
+// ScriptObject.tlh
+//
+// C++ source equivalent of Win32 type library ScriptObject.tlb
+// compiler-generated file created 12/29/18 at 20:15:18 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ ScriptObject;
+struct __declspec(uuid("2f2c5af1-acc0-11d2-8329-e299edb97e13"))
+/* dual interface */ IScriptObject;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IScriptObject, __uuidof(IScriptObject));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("2f2c5af2-acc0-11d2-8329-e299edb97e13"))
+ScriptObject;
+    // [ default ] interface IScriptObject
+
+struct __declspec(uuid("2f2c5af1-acc0-11d2-8329-e299edb97e13"))
+IScriptObject : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT AddObject (
+        _bstr_t bstrObjName,
+        IUnknown * lpUnk );
+    HRESULT ParseScript (
+        _bstr_t bstrScript,
+        _bstr_t bstrContext );
+    HRESULT Reset ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_AddObject (
+        BSTR bstrObjName,
+        IUnknown * lpUnk ) = 0;
+    virtual HRESULT __stdcall raw_ParseScript (
+        BSTR bstrScript,
+        BSTR bstrContext ) = 0;
+    virtual HRESULT __stdcall raw_Reset ( ) = 0;
+};
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_SCRIPTOBJECTLib =
+    {0x2f2c5ae5,0xacc0,0x11d2,{0x83,0x29,0xe2,0x99,0xed,0xb9,0x7e,0x13}};
+extern "C" const GUID __declspec(selectany) CLSID_ScriptObject =
+    {0x2f2c5af2,0xacc0,0x11d2,{0x83,0x29,0xe2,0x99,0xed,0xb9,0x7e,0x13}};
+extern "C" const GUID __declspec(selectany) IID_IScriptObject =
+    {0x2f2c5af1,0xacc0,0x11d2,{0x83,0x29,0xe2,0x99,0xed,0xb9,0x7e,0x13}};
+
+//
+// Wrapper method implementations
+//
+
+#include "ScriptObject.tli"
+
+#pragma pack(pop)

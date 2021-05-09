@@ -1,0 +1,30 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (22d04e3b).
+//
+// ScriptObject.tli
+//
+// Wrapper implementations for Win32 type library ScriptObject.tlb
+// compiler-generated file created 12/29/18 at 20:15:18 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IScriptObject wrapper method implementations
+//
+
+inline HRESULT IScriptObject::AddObject ( _bstr_t bstrObjName, IUnknown * lpUnk ) {
+    HRESULT _hr = raw_AddObject(bstrObjName, lpUnk);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IScriptObject::ParseScript ( _bstr_t bstrScript, _bstr_t bstrContext ) {
+    HRESULT _hr = raw_ParseScript(bstrScript, bstrContext);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IScriptObject::Reset ( ) {
+    HRESULT _hr = raw_Reset();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

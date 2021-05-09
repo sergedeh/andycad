@@ -1,0 +1,202 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: cad - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\use\LOCALS~1\Temp\RSP2CA.bat" with contents
+[
+@echo off
+start /wait hcw /C /E /M "hlp\cad.hpj"
+if errorlevel 1 goto :Error
+if not exist "hlp\cad.hlp" goto :Error
+copy "hlp\cad.hlp" .\Debug
+goto :done
+:Error
+echo hlp\cad.hpj(1) : error:
+type "hlp\cad.log"
+:done
+]
+Creating command line "C:\DOCUME~1\use\LOCALS~1\Temp\RSP2CA.bat"
+Creating temporary file "C:\DOCUME~1\use\LOCALS~1\Temp\RSP2CB.tmp" with contents
+[
+/nologo /subsystem:windows /pdb:none /debug /machine:I386 /out:"Debug/cad.exe" 
+".\Debug\AABB.obj"
+".\Debug\AddinManager1.obj"
+".\Debug\AddinSettingsDialog1.obj"
+".\Debug\AndyCad.obj"
+".\Debug\AndyCadAddin.obj"
+".\Debug\ArrayAngle.obj"
+".\Debug\BArrowC.obj"
+".\Debug\BArrowP.obj"
+".\Debug\Bezier.obj"
+".\Debug\BoolP.obj"
+".\Debug\cad.obj"
+".\Debug\CadAutoCamera.obj"
+".\Debug\CadAutoCanvas.obj"
+".\Debug\CadAutoCollection.obj"
+".\Debug\CadAutoDrawing.obj"
+".\Debug\CadAutoDrawingCollection.obj"
+".\Debug\CadAutoEdit.obj"
+".\Debug\CAdAutoShape.obj"
+".\Debug\CadAutoSurface.obj"
+".\Debug\CadAutoTransform.obj"
+".\Debug\CadAutoUtils.obj"
+".\Debug\CadAutoVector.obj"
+".\Debug\CadAutoWnd.obj"
+".\Debug\cadDoc.obj"
+".\Debug\cadView.obj"
+".\Debug\CAM.obj"
+".\Debug\CameraDlg.obj"
+".\Debug\Cercle.obj"
+".\Debug\ChamfD.obj"
+".\Debug\Chamfer.obj"
+".\Debug\ChFi.obj"
+".\Debug\Click.obj"
+".\Debug\CLineSty.obj"
+".\Debug\ColorD.obj"
+".\Debug\Command.obj"
+".\Debug\CPaperSize.obj"
+".\Debug\CustomSheet.obj"
+".\Debug\CustomWidth.obj"
+".\Debug\CVector.obj"
+".\Debug\Dim.obj"
+".\Debug\DimA.obj"
+".\Debug\DimL.obj"
+".\Debug\DlgCap.obj"
+".\Debug\Dot.obj"
+".\Debug\Draw.obj"
+".\Debug\DrawWnd.obj"
+".\Debug\Edge.obj"
+".\Debug\EditMacroDlg.obj"
+".\Debug\EditParse.obj"
+".\Debug\Face.obj"
+".\Debug\FFD.obj"
+".\Debug\Figure.obj"
+".\Debug\FileMacroDlg.obj"
+".\Debug\FilenameEdit.obj"
+".\Debug\FloatP.obj"
+".\Debug\font.obj"
+".\Debug\geometry.obj"
+".\Debug\GridPag.obj"
+".\Debug\GridPage.obj"
+".\Debug\Image.obj"
+".\Debug\Imagex.obj"
+".\Debug\InfoBar.obj"
+".\Debug\Inter.obj"
+".\Debug\IntP.obj"
+".\Debug\LayBar.obj"
+".\Debug\Layerad.obj"
+".\Debug\LayerD.obj"
+".\Debug\LayList.obj"
+".\Debug\LComboBox.obj"
+".\Debug\Libdialog.obj"
+".\Debug\LibS.obj"
+".\Debug\LightD.obj"
+".\Debug\Line.obj"
+".\Debug\LineAgain.obj"
+".\Debug\LineBar.obj"
+".\Debug\Linestyle.obj"
+".\Debug\MacroManager.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Matrix1.obj"
+".\Debug\MClick.obj"
+".\Debug\mdccombo.obj"
+".\Debug\Memento.obj"
+".\Debug\Mesh.obj"
+".\Debug\Mouse.obj"
+".\Debug\MultVar.obj"
+".\Debug\NewMacroDlg.obj"
+".\Debug\NumCopy.obj"
+".\Debug\OBJEdit.obj"
+".\Debug\Observer.obj"
+".\Debug\Operation.obj"
+".\Debug\Optionsheet.obj"
+".\Debug\OwnCombo.obj"
+".\Debug\OwnList.obj"
+".\Debug\PaperPag.obj"
+".\Debug\PaperPage.obj"
+".\Debug\ParseDlg.obj"
+".\Debug\Parser.obj"
+".\Debug\ParserFloat.obj"
+".\Debug\ParserObject.obj"
+".\Debug\ParserVar.obj"
+".\Debug\ParserVerb.obj"
+".\Debug\Pattern.obj"
+".\Debug\PGrid.obj"
+".\Debug\picture.obj"
+".\Debug\Plane.obj"
+".\Debug\PolarTrackDlg.obj"
+".\Debug\PopBar.obj"
+".\Debug\Property.obj"
+".\Debug\QLine.obj"
+".\Debug\QuadTree.obj"
+".\Debug\Quaternion.obj"
+".\Debug\Ray.obj"
+".\Debug\RecArray.obj"
+".\Debug\RecColor.obj"
+".\Debug\RecPattern.obj"
+".\Debug\Rectangle.obj"
+".\Debug\RegDialog.obj"
+".\Debug\Register.obj"
+".\Debug\Render.obj"
+".\Debug\RTFACTN.OBJ"
+".\Debug\Rtfreadr.obj"
+".\Debug\Ruler1.obj"
+".\Debug\RunMacroDlg.obj"
+".\Debug\SmoothD.obj"
+".\Debug\Snap.obj"
+".\Debug\SnapDlg.obj"
+".\Debug\SnapGridDlg.obj"
+".\Debug\SnapObject.obj"
+".\Debug\SnapObjectDlg.obj"
+".\Debug\Splash.obj"
+".\Debug\Spline.obj"
+".\Debug\State.obj"
+".\Debug\StdAfx.obj"
+".\Debug\StringP.obj"
+".\Debug\Subject.obj"
+".\Debug\SubWnd.obj"
+".\Debug\TextCad.obj"
+".\Debug\textd.obj"
+".\Debug\TextDi.obj"
+".\Debug\ThickD.obj"
+".\Debug\TipDlg.obj"
+".\Debug\TransDlg.obj"
+".\Debug\Translate.obj"
+".\Debug\Triangle.obj"
+".\Debug\TVector.obj"
+".\Debug\TxtED.obj"
+".\Debug\Unclick.obj"
+".\Debug\Undo.obj"
+".\Debug\Vector.obj"
+".\Debug\Vectorm.obj"
+".\Debug\Vectorp.obj"
+".\Debug\Vectorv.obj"
+".\Debug\Verb.obj"
+".\Debug\Vertex.obj"
+".\Debug\Zoombar.obj"
+".\Debug\ZoomD.obj"
+".\Debug\cad.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\use\LOCALS~1\Temp\RSP2CB.tmp"
+Making help file...
+hlp\cad.hpj(1) : error:
+Microsoft (R) Help Compiler
+HCRTF 4.03.0002
+Copyright (c) Microsoft Corp 1990 - 1995. All rights reserved.
+cad.hpj
+    HC5011: Error: cad.hpj : 
+ Cannot open the file "D:\Program Files\Microsoft Visual Studio\VC98\MFC\include\afxhelp.hm."
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+cad.exe - 2 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Figure - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\use\LOCALS~1\Temp\RSP294.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Figure.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\use\My Documents\cadsoftware engine\Figure.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\use\LOCALS~1\Temp\RSP294.tmp" 
+<h3>Output Window</h3>
+Compiling...
+Figure.cpp
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(731) : warning C4101: 'bonbon' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(1009) : warning C4101: 'coreite' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(1400) : warning C4101: 'text' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(1555) : warning C4101: 'c' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(1568) : warning C4101: 'c' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(1577) : warning C4101: 'c' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(1586) : warning C4101: 'c' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(1703) : warning C4101: 'presult' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(2783) : warning C4101: 'testb' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(2783) : warning C4101: 'teste' : unreferenced local variable
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(3396) : error C2065: 'snapmode' : undeclared identifier
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(3396) : error C2446: '==' : no conversion from 'char *' to 'int'
+        This conversion requires a reinterpret_cast, a C-style cast or function-style cast
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(3396) : error C2040: '==' : 'int' differs in levels of indirection from 'char [9]'
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(3418) : error C2446: '==' : no conversion from 'char *' to 'int'
+        This conversion requires a reinterpret_cast, a C-style cast or function-style cast
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(3418) : error C2040: '==' : 'int' differs in levels of indirection from 'char [9]'
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(3435) : error C2446: '==' : no conversion from 'char *' to 'int'
+        This conversion requires a reinterpret_cast, a C-style cast or function-style cast
+c:\documents and settings\use\my documents\cadsoftware engine\figure.cpp(3435) : error C2040: '==' : 'int' differs in levels of indirection from 'char [8]'
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+Figure.obj - 7 error(s), 10 warning(s)
+</pre>
+</body>
+</html>

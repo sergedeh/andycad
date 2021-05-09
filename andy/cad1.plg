@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: cad1 - Win32 Debug--------------------
+</h3>
+
+
+Microsoft (R) Program Maintenance Utility   Version 6.00.8168.0
+Copyright (C) Microsoft Corp 1988-1998. All rights reserved.
+
+No configuration specified. Defaulting to cad - Win32 Debug.
+ tempfile.bat 
+hlp\cad.hpj(1) : error: 
+Microsoft (R) Help Compiler
+HCRTF 4.03.0002
+Copyright (c) Microsoft Corp 1990 - 1995. All rights reserved.
+cad.hpj 
+    HC5011: Error: cad.hpj  : 
+ Cannot open the file "D:\Program Files\Microsoft Visual Studio\VC98\MFC\include\afxhelp.hm."
+ tempfile.bat 
+        1 file(s) copied.
+NMAKE : fatal error U1073: don't know how to make '"..\..\..\microsoft sdk\include\basetsd.h"'
+Stop.
+Error executing NMAKE.
+
+
+
+<h3>Results</h3>
+cad1.exe - 3 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

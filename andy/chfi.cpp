@@ -1,0 +1,42 @@
+// ChFi.cpp: implementation of the CChFi class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "cad.h"
+#include "ChFi.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CChFi::CChFi()
+{
+
+}
+
+CChFi::~CChFi()
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
