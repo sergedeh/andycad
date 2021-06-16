@@ -1,0 +1,22 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+HKEY_CLASSES_ROOT\.dycad = AndyCAD.Document
+HKEY_CLASSES_ROOT\AndyCAD.Document\shell\open\command = AndyCADMFC.EXE %1
+HKEY_CLASSES_ROOT\AndyCAD.Document\shell\open\ddeexec = [open("%1")]
+HKEY_CLASSES_ROOT\AndyCAD.Document\shell\open\ddeexec\application = AndyCADMFC
+    ; note: the application is optional
+    ;  (it defaults to the app name in "command")
+
+HKEY_CLASSES_ROOT\AndyCAD.Document = AndyCAD.Document
+
+
+HKEY_CLASSES_ROOT\AndyCAD.Document\CLSID = {1c9a84ac-1cb5-4fdb-8d8d-a790eaa9d743}
+
+HKEY_CLASSES_ROOT\CLSID\{1c9a84ac-1cb5-4fdb-8d8d-a790eaa9d743} = AndyCAD.Document
+HKEY_CLASSES_ROOT\CLSID\{1c9a84ac-1cb5-4fdb-8d8d-a790eaa9d743}\ProgId = AndyCAD.Document
+
+HKEY_CLASSES_ROOT\CLSID\{1c9a84ac-1cb5-4fdb-8d8d-a790eaa9d743}\LocalServer32 = AndyCADMFC.EXE

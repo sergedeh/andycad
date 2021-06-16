@@ -1,0 +1,29 @@
+// AndyCADMFC.idl : type library source for AndyCADMFC.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (AndyCADMFC.tlb).
+
+[ uuid(39473e66-79b7-41b4-9131-186ae4fd8df3), version(1.0) ]
+library AndyCADMFC
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CAndyCADMFCDoc
+
+	[ uuid(3b01f89c-d2ca-419c-a126-5836138a9b71) ]
+	dispinterface IAndyCADMFC
+	{
+		properties:
+
+		methods:
+	};
+
+	//  Class information for CAndyCADMFCDoc
+
+	[ uuid(1c9a84ac-1cb5-4fdb-8d8d-a790eaa9d743) ]
+	coclass CAndyCADMFCDoc
+	{
+		[default] dispinterface IAndyCADMFC;
+	};
+};
