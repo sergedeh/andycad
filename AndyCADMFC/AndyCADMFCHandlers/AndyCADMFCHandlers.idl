@@ -1,0 +1,52 @@
+// AndyCADMFCHandlers.idl : IDL source for AndyCADMFCHandlers
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AndyCADMFCHandlers.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(df2e3311-0108-439c-bcd8-98c96edb40a3),
+	pointer_default(unique)
+]
+interface IPreview : IUnknown
+{
+};
+
+[
+	object,
+	uuid(ad4c740e-c730-4a0a-9125-f4284e5597a3),
+	pointer_default(unique)
+]
+interface IThumbnail : IUnknown
+{
+};
+
+[
+	uuid(39473e66-79b7-41b4-9131-186ae4fd8df3),
+	version(1.0),
+]
+library AndyCADMFCHandlersLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(0828f1c3-ecfc-4c3a-8407-9e303d23c467)
+	]
+	coclass Preview
+	{
+		[default] interface IPreviewHandler;
+	};
+	[
+		uuid(079d0216-7987-4ffb-ac51-d72815ae8ffe)
+	]
+	coclass Thumbnail
+	{
+		[default] interface IThumbnailProvider;
+	};
+};
+
+import "shobjidl.idl";
+import "thumbcache.idl";

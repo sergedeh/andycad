@@ -1,0 +1,456 @@
+// cad.odl : type library source for cad.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (cad.tlb).
+
+[ uuid(827F2798-67DF-4396-AEF1-83E2938B5356), version(1.0) ]
+library Cad
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CCadDoc
+	
+	[ uuid(AD3DA4F5-9353-44E5-BB40-D3CBA5B83F86) ]
+	dispinterface ICad
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadDoc)
+			[id(1)] IDispatch* Window;
+			[id(2)] IDispatch* Canvas;
+			[id(3)] IDispatch* Utils;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadDoc)
+			[id(4)] void Quit();
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadDoc
+	
+	[ uuid(3D3D1503-7A2F-4608-A563-100B1747CB9C) ]
+	coclass Document
+	{
+		[default] dispinterface ICad;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoWnd
+	
+	[ uuid(6CE928A1-E790-4E91-AFCC-0E22993746F0) ]
+	dispinterface ICadAutoWnd
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoWnd)
+			[id(1)] boolean Visible;
+			[id(2)] IDispatch* camera;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoWnd)
+			[id(3)] void Refresh();
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoWnd
+
+	[ uuid(343F6C50-8F61-4375-9B4A-A4D80BD3E3CE) ]
+	coclass Window
+	{
+		[default] dispinterface ICadAutoWnd;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoCanvas
+	
+	[ uuid(49302417-D30F-4DA6-B973-8F65E12E9223) ]
+	dispinterface ICadAutoCanvas
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoCanvas)
+			[id(1)] IDispatch* Drawing;
+			[id(2)] IDispatch* Edit;
+			[id(3)] IDispatch* Transform;
+			[id(4)] IDispatch* Surface;
+			[id(5)] IDispatch* Shape;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoCanvas)
+			[id(6)] boolean Save(BSTR pszPath);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoCanvas
+
+	[ uuid(DB23BECE-E5FB-48C2-9B9C-525DDE4CE8EB) ]
+	coclass CadAutoCanvas
+	{
+		[default] dispinterface ICadAutoCanvas;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoDrawing
+	
+	[ uuid(980538BD-C145-4413-B2D2-B314017871A1) ]
+	dispinterface ICadAutoDrawing
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoDrawing)
+			[id(1)] IDispatch* DrawingCollection;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoDrawing)
+			[id(2)] void AddLine(float left, float top, float right, float bottom);
+			[id(3)] void AddRectangle(float left, float top, float right, float bottom);
+			[id(4)] void AddLinev(IDispatch* p1, IDispatch* p2);
+			[id(5)] void AddRectanglev(IDispatch* p1, IDispatch* p2);
+			[id(6)] void AddCircle(IDispatch* center, float radius);
+			[id(7)] void AddCirclev(IDispatch* center, IDispatch* rvec);
+			[id(8)] void AddSpline(IDispatch* ponts);
+			[id(9)] void AddPolyLine(IDispatch* points);
+			[id(10)] void AddCircle3(IDispatch* p1, IDispatch* p2, IDispatch* p3);
+			[id(11)] void AddArc(IDispatch* center, float radius);
+			[id(12)] void AddArc2(IDispatch* p1, IDispatch* p2);
+			[id(13)] void AddArc3(IDispatch* p1, IDispatch* p2, IDispatch* p3);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoDrawing
+
+	[ uuid(96BE50F4-201C-4F20-B6DF-C0F36777E89F) ]
+	coclass CadAutoDrawing
+	{
+		[default] dispinterface ICadAutoDrawing;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoUtils
+	
+	[ uuid(6C92039F-CB9A-42DB-B245-B1808E87FCA2) ]
+	dispinterface ICadAutoUtils
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoUtils)
+			[id(1)] IDispatch* Vector;
+			[id(2)] IDispatch* Collection;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoUtils)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoUtils
+
+	[ uuid(FEDF4497-243E-4E4B-867A-3504FC734C1C) ]
+	coclass CadAutoUtils
+	{
+		[default] dispinterface ICadAutoUtils;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoVector
+	
+	[ uuid(14A4B89B-0C9A-43D5-A875-CCBF6E652716) ]
+	dispinterface ICadAutoVector
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoVector)
+			[id(1)] float x;
+			[id(2)] float y;
+			[id(3)] float z;
+			[id(4)] VARIANT v;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoVector)
+			[id(5)] void Init(float x, float y, [optional,defaultvalue(0)]float z);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoVector
+
+	[ uuid(E3D9A88F-A045-4FB5-BD40-0D6999C29DA1) ]
+	coclass CadAutoVector
+	{
+		[default] dispinterface ICadAutoVector;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoCollection
+	
+	[ uuid(016DF3A9-1221-4263-8F09-890A79F35F56) ]
+	dispinterface ICadAutoCollection
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoCollection)
+			[id(1)] short Count;
+			[id(2)] IDispatch** begin;
+			[id(3)] IDispatch** end;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoCollection)
+			[id(4)] void Add(IDispatch* item);
+			[id(5)] void Clear();
+			[id(6)] IDispatch* Item(short index);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoCollection
+
+	[ uuid(06DB5DC7-A5D7-420D-AE56-E66FA5171FA8) ]
+	coclass CadAutoCollection
+	{
+		[default] dispinterface ICadAutoCollection;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoEdit
+	
+	[ uuid(0F6000FC-1C78-4F7F-9A12-94B592ADEA01) ]
+	dispinterface ICadAutoEdit
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoEdit)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoEdit)
+			[id(1)] void Select(IDispatch* object);
+			[id(2)] void Group(IDispatch* object1, IDispatch* object2);
+			[id(3)] void SelectNode(IDispatch* object, short i);
+			[id(4)] void Close(IDispatch* object);
+			[id(5)] void Move(IDispatch* object, IDispatch* v);
+			[id(6)] void MoveNode(IDispatch* object, short node, IDispatch* v);
+			[id(7)] void Chamfer(IDispatch* f1, float u1, IDispatch* f2, float u2, float length);
+			[id(8)] void Fillet(IDispatch* f1, float u1, IDispatch* f2, float u2, float l);
+			[id(9)] boolean Trim(IDispatch* obj_to_trim, IDispatch* obj_trim, IDispatch* point);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoEdit
+
+	[ uuid(1AC877AB-56D3-4E03-B69D-1E1C251B38B4) ]
+	coclass CadAutoEdit
+	{
+		[default] dispinterface ICadAutoEdit;
+	};
+
+
+	//  Primary dispatch interface for CCAdAutoShape
+	
+	[ uuid(C38283A1-8AAE-4CDA-9B74-88BE60301D93) ]
+	dispinterface ICAdAutoShape
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCAdAutoShape)
+			[id(1)] VARIANT figure;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCAdAutoShape)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCAdAutoShape
+
+	[ uuid(EAC43A93-64DF-4109-8A22-FE2D3F036813) ]
+	coclass CAdAutoShape
+	{
+		[default] dispinterface ICAdAutoShape;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoDrawingCollection
+	
+	[ uuid(4AA11FC0-F053-40D0-AD60-2B0B2DD3F342) ]
+	dispinterface ICadAutoDrawingCollection
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoDrawingCollection)
+			[id(1)] short Count;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoDrawingCollection)
+			[id(2)] IDispatch* Item(short i);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoDrawingCollection
+
+	[ uuid(12858D08-AC5B-49E5-B66A-093F36EC5C13) ]
+	coclass CadAutoDrawingCollection
+	{
+		[default] dispinterface ICadAutoDrawingCollection;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoTransform
+	
+	[ uuid(EB970C20-A88E-4440-BA4B-A2F7476B3079) ]
+	dispinterface ICadAutoTransform
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoTransform)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoTransform)
+			[id(1)] void Rotate(float u, short axis);
+			[id(2)] void Scale(float u, short axis);
+			[id(3)] void AngCopy(float u, short nb, short level, float dst);
+			[id(4)] void PolarCopy(float u, short nb, short level, float dst);
+			[id(5)] void ArrayCopy(short rows, float r_space, short column, float c_space, short level, float l_spacing);
+			[id(6)] void Flip(short dir);
+			[id(7)] void Mirror(IDispatch* figure);
+			[id(8)] void Mirror2(IDispatch* figure);
+			[id(9)] void Copy(IDispatch* figure);
+			[id(10)] void Copy2(IDispatch* figure);
+			[id(11)] void Scale2(float u);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoTransform
+
+	[ uuid(B78C5E30-D664-47CA-A82F-0336B47733A6) ]
+	coclass CadAutoTransform
+	{
+		[default] dispinterface ICadAutoTransform;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoSurface
+	
+	[ uuid(164D0D08-3145-4901-BE22-84C48469A330) ]
+	dispinterface ICadAutoSurface
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoSurface)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoSurface)
+			[id(1)] void Loft(float thick, short cap);
+			[id(2)] void Extrude(float thick, short cap, float extr);
+			[id(3)] void Extrude2(float thick, short cap);
+			[id(4)] void gCylinder(float thick, short cap);
+			[id(5)] void Revolve(float thick, short cap);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoSurface
+
+	[ uuid(0E4E8E5D-7983-42FB-A92E-8AE0A95C838F) ]
+	coclass CadAutoSurface
+	{
+		[default] dispinterface ICadAutoSurface;
+	};
+
+
+	//  Primary dispatch interface for CCadAutoCamera
+	
+	[ uuid(7822402F-3215-4B6C-8B6E-EB9DB14EA2D3) ]
+	dispinterface ICadAutoCamera
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CCadAutoCamera)
+			[id(1)] float fPlane;
+			[id(2)] float nPlane;
+			[id(3)] float FOV;
+			[id(4)] short View;
+			[id(5)] short Perspective;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CCadAutoCamera)
+			[id(6)] void Zoom(float u);
+			[id(7)] void Rotate(float angle, short axis);
+			[id(8)] void LooktAt(IDispatch* cam_pos, IDispatch* target_pos);
+			[id(9)] void Init();
+			[id(10)] void Translate(IDispatch* v);
+			[id(11)] void Swivel(float angle, short axis);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CCadAutoCamera
+
+	[ uuid(8957AC98-8D97-4A7E-BE5D-BDFC28C0F1C6) ]
+	coclass CadAutoCamera
+	{
+		[default] dispinterface ICadAutoCamera;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

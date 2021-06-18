@@ -31,3 +31,10 @@
 *.out
 *.app
 .vscode/settings.json
+/andy/.vs
+/andy/Debug
+/.vs
+/AndyCADMFC/x64/Debug
+/andy/x64/Debug
+/AndyCADMFC/.vs
+/AndyCADMFC/Debug

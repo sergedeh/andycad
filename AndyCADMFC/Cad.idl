@@ -1,0 +1,21 @@
+
+	// Cad.idl : IDL source for Cad.exe
+//
+// This file will be processed by the MIDL tool to
+// produce the type library (Cad.tlb) and marshalling code.
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(AC66CEFA-BF47-4F75-9C68-BB4C9C81C6DC),
+	version(1.0),
+	helpstring("Cad 1.0 Type Library")
+]
+library CadLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+};
+
+	

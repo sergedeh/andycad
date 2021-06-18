@@ -1,0 +1,55 @@
+
+
+<ProjectFrameworkAddin>
+	<AppVer>2</AppVer>
+	<AddinName> Sales Settings </AddinName>
+	<ToobarButtonCount> 3 </ToobarButtonCount>	
+	<MainMenu>
+		<Name>Report Addin</Name>
+		<ShortcutKeyIndex>2</ShortcutKeyIndex>
+			<SubMenu>
+				<Name>Sales Report </Name>
+				<ShortcutKeyIndex>2</ShortcutKeyIndex>
+				<LeafMenu>
+					<Name>Todays sales report</Name>
+					<FunctionName> Function2 </FunctionName>
+					<HelpString> List Todays sales</HelpString>
+					<ToolTip> Todays sales </ToolTip>
+					<ToolBarIndex> 2</ToolBarIndex>
+					<ShortCutKey> Ctrl+B </ShortCutKey>	
+				</LeafMenu>
+				
+				<LeafMenu>
+					<Name>Canceled sales</Name>
+					<ShortcutKeyIndex>2</ShortcutKeyIndex>
+					<FunctionName> Function3 </FunctionName>
+					<HelpString> List Canceled sales</HelpString>
+					<ToolTip> Canceled sales </ToolTip>
+					<ToolBarIndex> 1</ToolBarIndex>	
+				</LeafMenu>
+
+			</SubMenu>
+
+	</MainMenu>
+	
+	<MainMenu>
+		<Name>Settings</Name>
+			<SubMenu>
+				<Name>Sales Settings </Name>
+				<SubMenu>
+					<Name>Sales Master </Name>
+					<LeafMenu>
+						<Name>Manage Sales</Name>
+						<FunctionName> Function1 </FunctionName>
+						<HelpString>Manage all Sales</HelpString>
+						<ToolTip> Manage Sales </ToolTip>
+						<ToolBarIndex> 0</ToolBarIndex>	
+					</LeafMenu>
+				</SubMenu>
+				
+			</SubMenu>
+
+	</MainMenu>
+	
+</ProjectFrameworkAddin>
+

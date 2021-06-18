@@ -1,0 +1,13 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+HKEY_CLASSES_ROOT\.aff = AndyCad.Document
+HKEY_CLASSES_ROOT\AndyCad.Document = AndyCad Document
+HKEY_CLASSES_ROOT\AndyCad.Document\CLSID = {E8559014-9D11-4C7B-B17A-1C966E9A13DA}
+
+HKEY_CLASSES_ROOT\CLSID\{E8559014-9D11-4C7B-B17A-1C966E9A13DA} = AndyCad Document
+HKEY_CLASSES_ROOT\CLSID\{E8559014-9D11-4C7B-B17A-1C966E9A13DA}\ProgId = AndyCad.Application
+HKEY_CLASSES_ROOT\CLSID\{E8559014-9D11-4C7B-B17A-1C966E9A13DA}\LocalServer32 = Cad.EXE

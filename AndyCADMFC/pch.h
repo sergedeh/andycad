@@ -9,5 +9,7 @@
 
 // add headers that you want to pre-compile here
 #include "framework.h"
+const double pi = 3.14159265358979;
+#define WIDTHBYTES(bits) ((((bits)+31)/32)*4)
 
 #endif //PCH_H

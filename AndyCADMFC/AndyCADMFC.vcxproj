@@ -200,11 +200,14 @@
     <ClInclude Include="AndyCADMFCView.h" />
     <ClInclude Include="calendarbar.h" />
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="CVector.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="StdAfx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AndyCADMFC.cpp" />
@@ -212,6 +215,7 @@
     <ClCompile Include="AndyCADMFCView.cpp" />
     <ClCompile Include="calendarbar.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="CVector.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -219,6 +223,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="AndyCADMFC.idl" />

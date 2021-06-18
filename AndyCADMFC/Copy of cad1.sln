@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Copy of cad1", "Copy of cad1.vcxproj", "{E34AFEB4-E763-40AC-BEC6-1F17CC5A4E01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E34AFEB4-E763-40AC-BEC6-1F17CC5A4E01}.Debug|x86.ActiveCfg = Debug|Win32
+		{E34AFEB4-E763-40AC-BEC6-1F17CC5A4E01}.Debug|x86.Build.0 = Debug|Win32
+		{E34AFEB4-E763-40AC-BEC6-1F17CC5A4E01}.Release|x86.ActiveCfg = Release|Win32
+		{E34AFEB4-E763-40AC-BEC6-1F17CC5A4E01}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7026B621-BB1B-4754-B0E4-27FE170C9BC3}
+	EndGlobalSection
+EndGlobal
