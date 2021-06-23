@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "AABB.h"
 #include "Vector.h"
 //#include "Vectorm.h"
@@ -648,39 +648,39 @@ void CAABB::draw(CDC *hdc)
 
 	hdc->MoveTo(corner(0));
 	CPoint p0(corner(0));
-	hdc->TextOut(p0.x,p0.y,"0");
+	hdc->TextOut(p0.x,p0.y,(_T("0")));
 	
 	hdc->LineTo(corner(1));
 	CPoint p1(corner(1));
-	hdc->TextOut(p1.x,p1.y,"1");
+	hdc->TextOut(p1.x,p1.y,(_T("1")));
 	
 	hdc->LineTo(corner(3));
 	CPoint p3(corner(3));
-	hdc->TextOut(p3.x,p3.y,"3");
+	hdc->TextOut(p3.x,p3.y,(_T("3")));
 	
 	hdc->LineTo(corner(2));
 	CPoint p2(corner(2));
-	hdc->TextOut(p2.x,p2.y,"2");
+	hdc->TextOut(p2.x,p2.y,(_T("2")));
 	
 	hdc->LineTo(corner(0));
 	if(corner(0)!=corner(4))
 	{
 	hdc->LineTo(corner(4));
 	CPoint p4(corner(4));
-	hdc->TextOut(p4.x,p4.y,"4");
+	hdc->TextOut(p4.x,p4.y,(_T("4")));
 
 	hdc->LineTo(corner(5));
 	CPoint p5(corner(5));
-	hdc->TextOut(p5.x,p5.y,"5");
+	hdc->TextOut(p5.x,p5.y,(_T("5")));
 
 	hdc->MoveTo(corner(2));
 	hdc->LineTo(corner(6));
 	CPoint p6(corner(6));
-	hdc->TextOut(p6.x,p6.y,"6");
+	hdc->TextOut(p6.x,p6.y,(_T("6")));
 
 	hdc->LineTo(corner(7));
 	CPoint p7(corner(7));
-	hdc->TextOut(p7.x,p7.y,"7");
+	hdc->TextOut(p7.x,p7.y,(_T("7")));
 
 	hdc->LineTo(corner(3));
 	hdc->MoveTo(corner(4));
