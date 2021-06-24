@@ -420,6 +420,7 @@ type "hlp\%(Filename).log"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\grace\ParticleTest\memdc.h" />
+    <ClInclude Include="..\andy\resource.h" />
     <ClInclude Include="AABB.h" />
     <ClInclude Include="AddinManager1.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

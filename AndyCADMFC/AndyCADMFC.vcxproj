@@ -198,21 +198,31 @@
     <ClInclude Include="AndyCADMFC.h" />
     <ClInclude Include="AndyCADMFCDoc.h" />
     <ClInclude Include="AndyCADMFCView.h" />
+    <ClInclude Include="Bezier.h" />
     <ClInclude Include="calendarbar.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="CVector.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="mytest\DEdit.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Textcad.h" />
+    <ClInclude Include="Textcad1.h" />
+    <ClInclude Include="Textcad_2.h" />
+    <ClInclude Include="textd.h" />
+    <ClInclude Include="TextDi.h" />
+    <ClInclude Include="texts.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AndyCADMFC.cpp" />
     <ClCompile Include="AndyCADMFCDoc.cpp" />
     <ClCompile Include="AndyCADMFCView.cpp" />
+    <ClCompile Include="Bezier.cpp" />
     <ClCompile Include="calendarbar.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="CVector.cpp" />
@@ -223,6 +233,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Textcad.cpp" />
+    <ClCompile Include="Textcad1.cpp" />
+    <ClCompile Include="Textcad_2.cpp" />
+    <ClCompile Include="textd.cpp" />
+    <ClCompile Include="TextDi.cpp" />
+    <ClCompile Include="texts.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>

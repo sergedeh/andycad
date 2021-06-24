@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "TextCad.h"
 #include "bezier.h"
 #include "textdi.h"
@@ -11,6 +11,8 @@
 #include "libs.h"
 #include "Cadview.h"
 #include "Caddoc.h"
+
+
 
 
 
@@ -40,14 +42,14 @@ CTextCad::CTextCad()
 	LOGFONT systemFont;
 	VERIFY(::GetObject(hSystemFont,sizeof(LOGFONT),(void*)&systemFont));
 
-	TCHAR nd[32]="Times New Roman";
+	TCHAR nd[32]=(_T("Times New Roman"));
 	liter=0;
 	LOGFONT font;memset(&font,0,sizeof(LOGFONT));
 //	font.lfOrientation=0;
 	font.lfCharSet=DEFAULT_CHARSET;
 //	font.lfClipPrecision=CLIP_LH_ANGLES;
 //	font.lfEscapement=0;
-	strcpy(font.lfFaceName,"Times New Roman");
+	lstrcpy(font.lfFaceName, _T("Times New Roman"));
 	font.lfHeight=systemFont.lfHeight;//-21;
 //	font.lfItalic=FALSE;
 //	font.lfOutPrecision=OUT_TT_PRECIS;
@@ -191,7 +193,7 @@ void CTextCad::create(CVector pos)
 }
 struct Tselected 
 	{
-	operator()(tpair t)
+	auto operator()(tpair t)
 		  {
 			return t.second.s;
 		  }
@@ -383,6 +385,7 @@ CPoint CTextCad::drawtext(CDC *hdc, UINT nchar)
 	mytext2 t;
 
 	itmap i1,i2;
+	itmap i;
 	if(sbiter!=seiter)
 		{
 		int k=seiter;
@@ -391,7 +394,7 @@ CPoint CTextCad::drawtext(CDC *hdc, UINT nchar)
 		k=seiter>sbiter?seiter:sbiter;
 		itmap i0=ltext.find(j);
 		itmap i1=ltext.find(k);
-		for(itmap i=i0;i1!=ltext.end();i++,i1++)
+		for(i=i0;i1!=ltext.end();i++,i1++)
 			{
 			i->second=i1->second;
 			}
@@ -490,7 +493,8 @@ CPoint CTextCad::deleteback(CDC *hdc)
 		k=seiter>sbiter?seiter:sbiter;
 		itmap i0=ltext.find(j);
 		itmap i1=ltext.find(k);
-		for(itmap i=i0;i1!=ltext.end();i++,i1++)
+		itmap i;
+		for(i=i0;i1!=ltext.end();i++,i1++)
 			{
 			i->second=i1->second;
 			}
@@ -508,7 +512,8 @@ CPoint CTextCad::deleteback(CDC *hdc)
 		{
 		int k;
 		char c;
-		for(itmap o=i;o!=ltext.end();o++)
+		itmap o;
+		for(o=i;o!=ltext.end();o++)
 			{
 				k=o->first;
 				c=o->second.c;
@@ -730,7 +735,7 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				j=sbiter;
 				j=seiter>sbiter?sbiter:seiter;
 				k=seiter>sbiter?seiter:sbiter;
-				for(l=j;l<k;l++)
+				for(int l=j;l<k;l++)
 				{
 					ltext[l].s=true;
 				}
@@ -779,7 +784,7 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				j=sbiter;
 				j=seiter>sbiter?sbiter:seiter;
 				k=seiter>sbiter?seiter:sbiter;
-				for(l=j;l<k;l++)
+				for(int l=j;l<k;l++)
 				{
 					ltext[l].s=true;
 				}
@@ -863,7 +868,7 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				j=sbiter;
 				j=seiter>sbiter?sbiter:seiter;
 				k=seiter>sbiter?seiter:sbiter;
-				for(l=j;l<k;l++)
+				for(int l=j;l<k;l++)
 				{
 					ltext[l].s=true;
 				}
@@ -909,7 +914,7 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				j=sbiter;
 				j=seiter>sbiter?sbiter:seiter;
 				k=seiter>sbiter?seiter:sbiter;
-				for(l=j;l<k;l++)
+				for(int l=j;l<k;l++)
 				{
 					ltext[l].s=true;
 				}
@@ -966,7 +971,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 					k=seiter>sbiter?seiter:sbiter;
 					itmap i0=ltext.find(j);
 					itmap i1=ltext.find(k);
-					for(itmap i=i0;i1!=ltext.end();i++,i1++)
+					itmap i;
+					for(i=i0;i1!=ltext.end();i++,i1++)
 						{
 						i->second=i1->second;
 						}
@@ -983,7 +989,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				{
 				int k;
 				char c;
-				for(itmap o=i;o!=ltext.end();o++)
+				itmap o;
+				for(o=i;o!=ltext.end();o++)
 					{
 						k=o->first;
 						c=o->second.c;
@@ -1280,7 +1287,7 @@ void CTextCad::draw3D(CDC *hdc)
 	
 	if(rich->m_hWnd==NULL){
 		hdc->LPtoDP(rt2);
-		b1=rich->Create(ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_VISIBLE|WS_BORDER|WS_OVERLAPPED|WS_CHILD,*rt2,wd,ID_RICHT);
+		b1 = rich->Create(ES_LEFT | ES_MULTILINE | ES_WANTRETURN | WS_VISIBLE | WS_BORDER | WS_OVERLAPPED | WS_CHILD, *rt2, wd, ID_RICHT);
 //		rich->SetRect(rt2);
 		rhdc=rich->GetDC();
 		rhdc->SetMapMode(hdc->GetMapMode());
@@ -1298,7 +1305,7 @@ void CTextCad::draw3D(CDC *hdc)
 		cf.yOffset=0;
 		cf.crTextColor=0;
 		cf.bPitchAndFamily='"';
-		strcpy(cf.szFaceName,"Tahoma");
+		lstrcpy(cf.szFaceName,(_T("Tahoma")));
 		rich->SetDefaultCharFormat(cf);
 		CPoint pyheight=CVector(cf.yHeight,0);
 		CPoint pyheight1=CVector(0,0);
@@ -1386,7 +1393,7 @@ void CTextCad::draw3D(CDC *hdc)
 		double u=-ang*1800/pi;
 		pol=po;
 		hdc->DPtoLP(&pol);
-		for(i=0;i<length;i++)
+		for(int i=0;i<length;i++)
 		{
 			rich->SetSel(i,i+1);
 			_pi=rich->GetCharPos(i);
@@ -1402,7 +1409,7 @@ void CTextCad::draw3D(CDC *hdc)
 		CVector v00,v01;
 		CTVector vt;
 //		hdc->BeginPath();
-		for(i=0;i<length;i++)
+		for(int i=0;i<length;i++)
 		{
 			vpi=mvec[i];
 			_pi=vpi;
@@ -1431,7 +1438,7 @@ void CTextCad::draw3D(CDC *hdc)
 			brush.CreateSolidBrush(cf.crTextColor);
 			ob=hdc->SelectObject(&brush);
 			
-			hdc->TextOut(_pi.x,_pi.y,&cc,1);//&cc,1);
+			hdc->TextOut((int)_pi.x,(int)_pi.y,CString(cc),1);//&cc,1);
 			hdc->SelectObject(oldfont);
 			hdc->SelectObject(ob);
 		}
@@ -1510,7 +1517,7 @@ void CTextCad::draw3D(CDC *hdc)
 	CLine::draw(hdc);
 
 	if(rich->m_hWnd==NULL){
-		rich->Create(ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_CHILD,rt,(CWnd*)::AfxGetMainWnd(),ID_RICHT);
+		rich->Create(ES_LEFT | ES_MULTILINE | ES_WANTRETURN | WS_CHILD, rt, (CWnd*)::AfxGetMainWnd(),ID_RICHT);
 		rich->ShowWindow(SW_SHOWNORMAL);
 	}
 	
@@ -1529,7 +1536,8 @@ void CTextCad::draw3D(CDC *hdc)
 	ifmap mb=fmap.begin();
 	ifmap me=fmap.end();
 	pfmap.clear();
-		for(ifmap l=mb;l!=me;l++)
+	ifmap l;
+		for(l=mb;l!=me;l++)
 		{
 			LOGFONT* ft= new LOGFONT;;
 			l->first->GetLogFont(ft);
@@ -1628,7 +1636,7 @@ void CTextCad::draw3D(CDC *hdc)
 //			CBrush *bold=hdc->SelectObject(&b);
 
 			CPoint v((*i).second.v);
-			hdc->TextOut(v.x,v.y,&(*i).second.c,1);
+			hdc->TextOut(v.x,v.y,CString((*i).second.c),1);
 
 			//i->first->Detach();
 			//i->first->CreateFontIndirect((*i).second.pf);
@@ -2035,30 +2043,29 @@ void CTextCad::savefiledxf(CStdioFile& file)
 	rich->GetWindowText(vis);
 	if(n<255)
 	{
-		file.WriteString("  0");file.WriteString("\n");
-		file.WriteString("TEXT");file.WriteString("\n");
-		file.WriteString("  5");file.WriteString("\n");
-		file.WriteString(gethandle().c_str());file.WriteString("\n");
-		file.WriteString("330");file.WriteString("\n");
-		file.WriteString("1F");file.WriteString("\n");
-		file.WriteString("100");file.WriteString("\n");
-		file.WriteString("AcDbEntity");file.WriteString("\n");
-		file.WriteString("  8");file.WriteString("\n");
-		file.WriteString(getLayer().name);file.WriteString("\n");
-		file.WriteString("100");file.WriteString("\n");
-		file.WriteString("AcDbText");file.WriteString("\n");
-		file.WriteString(" 10");file.WriteString("\n");
+		file.WriteString(_T("  0"));file.WriteString(_T("\n"));
+		file.WriteString(_T("TEXT"));file.WriteString(_T("\n"));
+		file.WriteString(_T("  5"));file.WriteString(_T("\n"));
+		file.WriteString(LPCTSTR(gethandle().c_str()));file.WriteString(_T("\n"));
+		file.WriteString(_T("330"));file.WriteString(_T("\n"));
+		file.WriteString(_T("1F"));file.WriteString(_T("\n"));
+		file.WriteString(_T("100"));file.WriteString(_T("\n"));
+		file.WriteString(_T("AcDbEntity"));file.WriteString(_T("\n"));
+		file.WriteString(_T("  8"));file.WriteString(_T("\n"));
+		file.WriteString(getLayer().name);file.WriteString(_T("\n"));
+		file.WriteString(_T("100"));file.WriteString(_T("\n"));
+		file.WriteString(_T("AcDbText"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 10"));file.WriteString(_T("\n"));
 		CVector v=mesh.getVector(0);
 		CString ps;
 		ps.Format(_T("%f"),v.x);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 20");file.WriteString("\n");
-		ps.Format(_T("%f"),v.y);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 30");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 20")); file.WriteString(_T("\n"));
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 30"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),v.z);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 40");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 40"));file.WriteString(_T("\n"));
 		CHARFORMAT cf;
 		getfont(cf);		
 		CDC dc;
@@ -2067,28 +2074,28 @@ void CTextCad::savefiledxf(CStdioFile& file)
 		LONG yPerInch=1;
 		float yheight=(float)(cf.yHeight*yPerInch)/(1440*1);//fstyle->width_factor);
 		ps.Format(_T("%f"),yheight);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString("  1");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T("  1"));file.WriteString(_T("\n"));
 		rich->GetWindowText(ps);
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString("  7");file.WriteString("\n");
-		file.WriteString(cf.szFaceName/*fstyle->name.c_str()*/);file.WriteString("\n");
-		file.WriteString(" 72");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T("  7"));file.WriteString(_T("\n"));
+		file.WriteString(cf.szFaceName/*fstyle->name.c_str()*/);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 72"));file.WriteString(_T("\n"));
 		PARAFORMAT m_paraformat;
 		rich->GetParaFormat(m_paraformat);
 		if(m_paraformat.wAlignment==PFA_LEFT)
 		{
-			file.WriteString("     0");file.WriteString("\n");
+			file.WriteString(_T("     0"));file.WriteString(_T("\n"));
 		}
 		else
 		if(m_paraformat.wAlignment==PFA_CENTER)
 		{
-			file.WriteString("     1");file.WriteString("\n");
+			file.WriteString(_T("     1" ));file.WriteString(_T("\n"));
 		}
 		else
 		if(m_paraformat.wAlignment==PFA_RIGHT)
 		{
-			file.WriteString("     2");file.WriteString("\n");
+			file.WriteString(_T("     2"));file.WriteString(_T("\n"));
 		}
 
 		if(m_paraformat.wAlignment!=PFA_LEFT)
@@ -2096,41 +2103,41 @@ void CTextCad::savefiledxf(CStdioFile& file)
 		CVector v=mesh.getVector(1);
 		CString ps;
 		ps.Format(_T("%f"),v.x);	
-		file.WriteString(" 11");file.WriteString("\n");
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 21");file.WriteString("\n");
-		ps.Format(_T("%f"),v.y);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 31");file.WriteString("\n");
+		file.WriteString(_T(" 11"));file.WriteString(_T("\n"));
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 21"));file.WriteString(_T("\n"));
+		ps.Format(_T("%f"),v.y);
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 31"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),v.z);	
-		file.WriteString(ps);file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
 		}
 	}else
 	{
-		file.WriteString("  0");file.WriteString("\n");
-		file.WriteString("MTEXT");file.WriteString("\n");
-		file.WriteString("  5");file.WriteString("\n");
-		file.WriteString(gethandle().c_str());file.WriteString("\n");
-		file.WriteString("330");file.WriteString("\n");
-		file.WriteString("1F");file.WriteString("\n");
-		file.WriteString("100");file.WriteString("\n");
-		file.WriteString("AcDbEntity");file.WriteString("\n");
-		file.WriteString("  8");file.WriteString("\n");
-		file.WriteString(getLayer().name);file.WriteString("\n");
-		file.WriteString("100");file.WriteString("\n");
-		file.WriteString("AcDbMText");file.WriteString("\n");
-		file.WriteString(" 10");file.WriteString("\n");
+		file.WriteString(_T("  0"));file.WriteString(_T("\n"));
+		file.WriteString(_T("MTEXT"));file.WriteString(_T("\n"));
+		file.WriteString(_T("  5"));file.WriteString(_T("\n"));
+		file.WriteString(LPCTSTR(gethandle().c_str()));file.WriteString(_T("\n"));
+		file.WriteString(_T("330"));file.WriteString(_T("\n"));
+		file.WriteString(_T("1F"));file.WriteString(_T("\n"));
+		file.WriteString(_T("100"));file.WriteString(_T("\n"));
+		file.WriteString(_T("AcDbEntity"));file.WriteString(_T("\n"));
+		file.WriteString(_T("  8"));file.WriteString(_T("\n"));
+		file.WriteString(getLayer().name);file.WriteString(_T("\n"));
+		file.WriteString(_T("100"));file.WriteString(_T("\n"));
+		file.WriteString(_T("AcDbMText"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 10"));file.WriteString(_T("\n"));
 		CVector v=mesh.getVector(0);
 		CString ps;
 		ps.Format(_T("%f"),v.x);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 20");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 20"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),v.y);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 30");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 30"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),v.z);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 40");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 40"));file.WriteString(_T("\n"));
 		CHARFORMAT cf;
 		getfont(cf);		
 		CDC dc;
@@ -2139,14 +2146,15 @@ void CTextCad::savefiledxf(CStdioFile& file)
 		LONG yPerInch=1;
 		float yheight=cf.yHeight*yPerInch/(1440*1);//fstyle->width_factor);
 		ps.Format(_T("%f"),yheight);	
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 41");file.WriteString("\n");
-		file.WriteString("6.843161446901433");file.WriteString("\n");
-		file.WriteString(" 71");file.WriteString("\n");
-		file.WriteString("     1");file.WriteString("\n");
-		file.WriteString(" 72");file.WriteString("\n");
-		file.WriteString("     5");file.WriteString("\n");
-		for(int i=0;(i<n)&&((n-i)>=255);i+=255)
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 41"));file.WriteString(_T("\n"));
+		file.WriteString(_T("6.843161446901433"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 71"));file.WriteString(_T("\n"));
+		file.WriteString(_T("     1"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 72"));file.WriteString(_T("\n"));
+		file.WriteString(_T("     5"));file.WriteString(_T("\n"));
+		int i = 0;
+		for(i=0;(i<n)&&((n-i)>=255);i+=255)
 		{
 			CString ty;
 			for(int j=i;j<i+255;j++)
@@ -2154,28 +2162,28 @@ void CTextCad::savefiledxf(CStdioFile& file)
 				ty+=vis[j];
 			}
 		
-		file.WriteString("  3");file.WriteString("\n");
-		file.WriteString(ty);file.WriteString("\n");
+		file.WriteString(_T("  3"));file.WriteString(_T("\n"));
+		file.WriteString(ty);file.WriteString(_T("\n"));
 		}
 		CString ty;
 		for(int j=i;j<n;j++)
 		{
 			ty+=vis[i];
 		}
-		file.WriteString("  1");file.WriteString("\n");
-		file.WriteString(ty);file.WriteString("\n");
-		file.WriteString("  7");file.WriteString("\n");
-		file.WriteString(cf.szFaceName/*fstyle->name.c_str()*/);file.WriteString("\n");
-		file.WriteString(" 11");file.WriteString("\n");
-		file.WriteString("0.0000000000000001");file.WriteString("\n");
-		file.WriteString(" 21");file.WriteString("\n");
-		file.WriteString("1.0");file.WriteString("\n");
-		file.WriteString(" 31");file.WriteString("\n");
-		file.WriteString("0.0");file.WriteString("\n");
-		file.WriteString(" 73");file.WriteString("\n");
-		file.WriteString("     1");file.WriteString("\n");
-		file.WriteString(" 44");file.WriteString("\n");
-		file.WriteString("1.0");file.WriteString("\n");
+		file.WriteString(_T("  1"));file.WriteString(_T("\n"));
+		file.WriteString(ty);file.WriteString(_T("\n"));
+		file.WriteString(_T("  7"));file.WriteString(_T("\n"));
+		file.WriteString(cf.szFaceName/*fstyle->name.c_str()*/);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 11"));file.WriteString(_T("\n"));
+		file.WriteString(_T("0.0000000000000001"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 21"));file.WriteString(_T("\n"));
+		file.WriteString(_T("1.0"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 31"));file.WriteString(_T("\n"));
+		file.WriteString(_T("0.0"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 73"));file.WriteString(_T("\n"));
+		file.WriteString(_T("     1"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 44"));file.WriteString(_T("\n"));
+		file.WriteString(_T("1.0"));file.WriteString(_T("\n"));
 
 	}
 }
@@ -2210,7 +2218,7 @@ void CTextCad::savefile(CFile &file)
 	file.Write(&m_paraformat.wAlignment,sizeof(WORD));
 
 	
-	for(i=0;i<length;i++)
+	for(int i=0;i<length;i++)
 	{
 		rich->SetSel(i,i+1);
 		CHARFORMAT cf;
@@ -2271,7 +2279,7 @@ void CTextCad::openfile(CFile &file,CDC* hdc)
 	file.Read(&m_paraformat.dxOffset,sizeof(LONG));
 	file.Read(&m_paraformat.wAlignment,sizeof(WORD));
 	
-	for(i=0;i<length;i++)
+	for(int i=0;i<length;i++)
 	{
 		CHARFORMAT cf;
 		rich->SetSel(i,i+1);
@@ -2315,9 +2323,9 @@ DWORD CALLBACK EditStreamCallBack(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *
 	{
 
 		if (ar.IsStoring())
-			ar.GetFile()->WriteHuge(pbBuff, cb);
+			ar.GetFile()->Write(pbBuff, cb);
 		else
-			*pcb = ar.GetFile()->ReadHuge(pbBuff, cb);
+			*pcb = ar.GetFile()->Read(pbBuff, cb);
 	}
 	CATCH(CFileException, e)
 	{
@@ -2392,7 +2400,7 @@ void CTextCad::assign(CDC *hdc,CVector p,CString s,CHARFORMAT* _cf)
 	cf.yOffset=0;
 	cf.crTextColor=0;
 	cf.bPitchAndFamily='"';
-	strcpy(cf.szFaceName,"Tahoma");
+	lstrcpy(cf.szFaceName,(_T("Tahoma")));
 	_cf=&cf;	
 	}
 
@@ -2454,7 +2462,7 @@ void CTextCad::assign(CDC *hdc,CVector p,CString s,CHARFORMAT* _cf)
 	if(rich->m_hWnd==NULL){
 		hdc->LPtoDP(rt2);
 		
-		rich->Create(ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_VISIBLE|WS_BORDER|WS_OVERLAPPED|WS_CHILD,rt2,wd,ID_RICHT);
+		rich->Create(ES_LEFT | ES_MULTILINE | ES_WANTRETURN | WS_VISIBLE | WS_BORDER | WS_OVERLAPPED | WS_CHILD, rt2, wd, ID_RICHT);
 		rich->SetOptions(ECOOP_OR,ECO_AUTOWORDSELECTION);
 		PARAFORMAT2 pf;
 		pf.cbSize = sizeof(PARAFORMAT2);
@@ -2468,7 +2476,7 @@ void CTextCad::assign(CDC *hdc,CVector p,CString s,CHARFORMAT* _cf)
 		cf.yOffset=0;
 		cf.crTextColor=0;
 		cf.bPitchAndFamily='"';
-		strcpy(cf.szFaceName,"Tahoma");
+		lstrcpy(cf.szFaceName,(_T("Tahoma")));
 		rich->SetDefaultCharFormat(cf);
 	
 //		rich->MoveWindow(rt);
@@ -2716,7 +2724,7 @@ void CTextCad::Stream(CArchive& ar, BOOL bSelection)
 	EDITSTREAM es;
 	es.dwCookie=0;
 	es.dwError= 0;
-	es.pfnCallback=EditStreamCallBack;
+	//es.pfnCallback = EditStreamCallBack; error:return 0 for no error, otherwise return none.
 	_afxRichEditCookie cookie(ar);
 	es.dwCookie = (DWORD)&cookie;
 	int nFormat = SF_RTF;// GetDocument()->GetStreamFormat();
