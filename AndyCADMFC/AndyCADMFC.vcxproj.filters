@@ -51,9 +51,6 @@
     <ClInclude Include="Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StdAfx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="mytest\DEdit.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -66,12 +63,6 @@
     <ClInclude Include="Textcad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Textcad_2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Textcad1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="textd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,6 +70,30 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="texts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chamfd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chamfer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chfi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Clipper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CntrItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Colord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,12 +134,6 @@
     <ClCompile Include="Textcad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Textcad_2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Textcad1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="textd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -132,6 +141,33 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="texts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chamfd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chamfer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chfi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clinesty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Clipper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CntrItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Colord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Constraint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

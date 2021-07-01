@@ -2338,7 +2338,7 @@ DWORD CALLBACK EditStreamCallBack(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *
 	AND_CATCH_ALL(e)
 	{
 		*pcb = 0;
-		pCookie->m_dwError = (DWORD)CFileException::generic;
+		pCookie->m_dwError = (DWORD)CFileException::generic; //clashes with future language
 		dw = 1;
 //		DELETE_EXCEPTION(e);
 	}
