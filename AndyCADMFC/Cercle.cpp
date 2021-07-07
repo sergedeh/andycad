@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "Cercle.h"
 #include "plane.h"
 #include <math.h>
@@ -505,7 +505,7 @@ bool CCercle::DrawEllipse(bool fPrevB,CDC *hdc, CVector p)
 
      CPoint *Pt=new CPoint[N+1];
    int ss;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   ss=iter;
@@ -546,7 +546,7 @@ bool CCercle::DrawEllipse(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=ss;i++)
+	for (int i=0; i<=ss;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -718,7 +718,7 @@ bool CCercle::DrawCircle(bool fPrevB,CDC *hdc, CVector p)
 
    CPoint *Pt=new CPoint[N+1];
    int s;//=0;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   s=iter;
@@ -760,7 +760,7 @@ bool CCercle::DrawCircle(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=s;i++)
+	for (int i=0; i<=s;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -812,7 +812,7 @@ bool CCercle::DrawArc(bool fPrevB,CDC *hdc, CVector p)
 	   control2.snaptoplane(control1);
 	   control2.snaptoplane(pt);
 */
-	 CString fg=control1.setplanesnap("front");
+	 CString fg=control1.setplanesnap(_T("front"));
 
 	 alpha = pi/4;
 	 r=control2-Ct;
@@ -905,7 +905,7 @@ bool CCercle::DrawArc(bool fPrevB,CDC *hdc, CVector p)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			vector<CVector>::iterator n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -1116,7 +1116,7 @@ end= lh;
    
    CPoint *Pt=new CPoint[N+1];
    int s=0;
-   for(iter=lk;iter<=lh;iter++)
+   for(int iter=lk;iter<=lh;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -1149,7 +1149,7 @@ end= lh;
 	hdc->MoveTo(control1);
 	hdc->LineTo(Mr[lh]);
 
-	for (i=0; i<=N;i++)
+	for (int i=0; i<=N;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -1332,7 +1332,7 @@ bool CCercle::Draw2DotCircle(bool fPrevB,CDC *hdc, CVector p)
   
    CPoint *Pt=new CPoint [N+1];
    int s;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   s=iter;
@@ -1374,7 +1374,7 @@ bool CCercle::Draw2DotCircle(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=s;i++)
+	for (int i=0; i<=s;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -1668,7 +1668,7 @@ bool CCercle::Draw2DotArc(bool fPrevB,CDC *hdc, CVector p)
 */
    CPoint *Pt=new CPoint[N+1];
    int s=0;
-   for(iter=0;iter<=lh;iter++)
+   for(int iter=0;iter<=lh;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -1697,7 +1697,7 @@ bool CCercle::Draw2DotArc(bool fPrevB,CDC *hdc, CVector p)
 	hdc->SelectObject(oldp);
 	hdc->SelectObject(oldb);
 
-	for (i=0; i<=lh;i++)
+	for (int i=0; i<=lh;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -1968,7 +1968,7 @@ bool CCercle::Draw3DotCircle(bool fPrevB,CDC *hdc, CVector p)
    int ss;
    lk=0;
    lh=N;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   ss=iter;
@@ -2009,7 +2009,7 @@ bool CCercle::Draw3DotCircle(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=ss;i++)
+	for (int i=0; i<=ss;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -2069,7 +2069,7 @@ bool CCercle::Draw3DotArc(bool fPrevB,CDC *hdc, CVector p)
 	 CVector b1,b2,bi,ba,l1,l2;
 	 CVector t1(-400,0),t2(600,0),t3(-500,80);
 
-	 CString fg=b1.setplanesnap("front");
+	 CString fg=b1.setplanesnap(_T("front"));
 	 CVector v2=control1-control2;
 	 CVector vt=pt-control2;
 	 CVector vc=v2*vt;
@@ -2181,7 +2181,7 @@ bool CCercle::Draw3DotArc(bool fPrevB,CDC *hdc, CVector p)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			vector<CVector>::iterator n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -2245,7 +2245,7 @@ end= lh;
 
    CPoint *Pt=new CPoint[N+1];
 
-   for(iter=lk;iter<=lh;iter++)
+   for(int iter=lk;iter<=lh;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -2273,7 +2273,7 @@ end= lh;
  	hdc->Polyline(&Pt[start],ss);
     hdc->Rectangle(CRect(Ct,CSize(10,10)));
 
-	for (i=lk; i<=lh;i++)
+	for (int i=lk; i<=lh;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -2462,7 +2462,7 @@ bool CCercle::Draw3DotArc2(bool fPrevB,CDC *hdc, CVector p)
 
    CPoint *Pt=new CPoint[N+1];
    int ss=0;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -2507,7 +2507,7 @@ bool CCercle::Draw3DotArc2(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=N;i++)
+	for (int i=0; i<=N;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -3182,7 +3182,7 @@ void CCercle::drawArc(CVector center, CVector startpoint, double angle)
 		Kn[10]=1;
 		Kn[11]=1;
 
-	 CString fg=control1.setplanesnap("front");
+	 CString fg=control1.setplanesnap(_T("front"));
 
 	 alpha = pi/4;
 	 r=control2-Ct;
@@ -3360,7 +3360,7 @@ void CCercle::drawArc(CVector center, CVector startpoint, double angle)
    Para_universp(0,1,N,Para);
 
    int s=N-1,e=0;
-   for(iter=0;iter<N;iter++)
+   for(int iter=0;iter<N;iter++)
    {
 	   Mr[iter]=NURBS(deg,CP,ncp,Para[iter],Kn);
 	   CVector ve(Mr[iter],endpoint);
@@ -3697,7 +3697,7 @@ void* CCercle::Trim(vector<CVector> vec)
 	}
 
 	int indexpetit;
-	for(j=0;j<indexvec.size();j++)
+	for(int j=0;j<indexvec.size();j++)
 	{
 		if(indexvec[j]==petit)
 		{
@@ -3720,8 +3720,8 @@ void* CCercle::Trim(vector<CVector> vec)
 	cl=false;
 	//prevref=indexvec[indexpetit+1];
 	bs->copy(*this);
-	bs->setType("Arc");
-	setType("Arc");
+	bs->setType(_T("Arc"));
+	setType(_T("Arc"));
 	int s=0;
 	int g;
 		for(int iter=0;iter<=ncp+deg+1;iter++)
@@ -3736,7 +3736,7 @@ void* CCercle::Trim(vector<CVector> vec)
 				Bohms(Para[indexvec[indexpetit-1]], deg,Kn,CP,ncp);	
 			}
 	s=0;
-		for(iter=0;iter<=ncp+deg+1;iter++)
+		for(int iter=0;iter<=ncp+deg+1;iter++)
 		{
 			if(Kn[iter]==Para[indexvec[indexpetit+1]])
 			{
@@ -4194,31 +4194,31 @@ void CCercle::savefiledxf(CStdioFile& file)
 		file.WriteString(ps);file.WriteString("\n");*/
 	}else
 	{
-		file.WriteString("  0");file.WriteString("\n");
-		file.WriteString("CIRCLE");file.WriteString("\n");
-		file.WriteString("  5");file.WriteString("\n");
-		file.WriteString(gethandle().c_str());file.WriteString("\n");
-		file.WriteString("330");file.WriteString("\n");
-		file.WriteString("1F");file.WriteString("\n");
-		file.WriteString("100");file.WriteString("\n");
-		file.WriteString("AcDbEntity");file.WriteString("\n");
-		file.WriteString("  8");file.WriteString("\n");
-		file.WriteString(getLayer().name);file.WriteString("\n");
-		file.WriteString("100");file.WriteString("\n");
-		file.WriteString("AcDbCircle");file.WriteString("\n");
-		file.WriteString(" 10");file.WriteString("\n");
+		file.WriteString(_T("  0"));file.WriteString(_T("\n"));
+		file.WriteString(_T("CIRCLE"));file.WriteString(_T("\n"));
+		file.WriteString(_T("  5"));file.WriteString(_T("\n"));
+		file.WriteString(LPCTSTR(gethandle().c_str()));file.WriteString(_T("\n"));
+		file.WriteString(_T("330"));file.WriteString(_T("\n"));
+		file.WriteString(_T("1F"));file.WriteString(_T("\n"));
+		file.WriteString(_T("100"));file.WriteString(_T("\n"));
+		file.WriteString(_T("AcDbEntity"));file.WriteString(_T("\n"));
+		file.WriteString(_T("  8"));file.WriteString(_T("\n"));
+		file.WriteString(LPCTSTR(getLayer().name));file.WriteString(_T("\n"));
+		file.WriteString(_T("100"));file.WriteString(_T("\n"));
+		file.WriteString(_T("AcDbCircle"));file.WriteString(_T("\n"));
+		file.WriteString(_T(" 10"));file.WriteString(_T("\n"));
 		CString ps;
 		ps.Format(_T("%f"),Ct.x);
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 20");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 20"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),Ct.y);
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 30");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 30"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),Ct.z);
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 40");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 40"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),absc(Ct-ContP[0]));
-		file.WriteString(ps);file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
 	}
 
 }
@@ -4319,14 +4319,14 @@ return;
 			}
 	s=0;
 
-			for(iter=0;iter<=ncp+deg+1;iter++)
+			for(int iter=0;iter<=ncp+deg+1;iter++)
 			{
 				if(Kn[iter]==Para[prevstart])
 				{
 					s++;
 				}
 			}
-			for(g=0;g<deg-s;g++)
+			for(int g=0;g<deg-s;g++)
 			{
 				Bohms(Para[prevstart], deg,Kn,CP,ncp);	
 			}
@@ -4579,7 +4579,7 @@ void CCercle::drawArc(CVector start, CVector mid, CVector end)
 	 CVector b1,b2,bi,ba,l1,l2;
 	 CVector t1(-400,0),t2(600,0),t3(-500,80);
 
-	 CString fg=b1.setplanesnap("front");
+	 CString fg=b1.setplanesnap(_T("front"));
 	 CVector v2=control1-control2;
 	 CVector vt=pt-control2;
 	 CVector vc=v2*vt;
@@ -4691,7 +4691,7 @@ void CCercle::drawArc(CVector start, CVector mid, CVector end)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			vector<CVector>::iterator n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -4773,8 +4773,7 @@ void CCercle::drawArc2(CVector center, CVector vstart, CVector vend)
 	   control2.snaptoplane(control1);
 	   control2.snaptoplane(pt);
 */
-	 CString fg=control1.setplanesnap("front");
-
+	 CString fg=control1.setplanesnap(_T("front"));
 	 alpha = pi/4;
 	 r=control2-Ct;
 	 CVector r2= pt - Ct;
@@ -4867,7 +4866,7 @@ void CCercle::drawArc2(CVector center, CVector vstart, CVector vend)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			vector<CVector>::iterator n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -5485,13 +5484,13 @@ void CCercle::setArc(CVector v1, CVector v2)
 
 	int s = count(Kn.begin(),Kn.begin()+deg+ncp+2, f1);
 	CVector mn= NURBS(deg,CP,ncp,f1,Kn);
-	for(g=0;g<deg-s;g++)
+	for(int g=0;g<deg-s;g++)
 	{
 		Bohms(f1, deg,Kn,CP,ncp);	
 	}
 	if(s==0)
 	{
-		for(g=0;g<=ncp;g++)
+		for(int g=0;g<=ncp;g++)
 		{
 //			if(absc(CP[g]-mn)<5)
 //					CP[g]=v2;	
@@ -5512,7 +5511,7 @@ void CCercle::setArc(CVector v1, CVector v2)
 	}
 	f1 = fmod(f1,2*pi);
 	f1 = (f1)/(2*pi);
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(int g=0;g!=ncp + deg + 2;g++)
 	{
 		av = f1-Kn[g] >0 ? f1-Kn[g]:Kn[g] -f1;
 		if(av <1E-2)
@@ -5523,13 +5522,13 @@ void CCercle::setArc(CVector v1, CVector v2)
 	}
 	CVector mn1= NURBS(deg,CP,ncp,f1,Kn);
  	s = count(Kn.begin(),Kn.begin()+deg +ncp+2, f1);
-	for(g=0;g<deg-s;g++)
+	for(int g=0;g<deg-s;g++)
 	{
 		Bohms(f1, deg,Kn,CP,ncp);	
 	}
 	if(s==0)
 	{
-		for(g=0;g<=ncp;g++)
+		for(int g=0;g<=ncp;g++)
 		{
 //			if(absc(CP[g]-mn1)<5)
 //				CP[g]=v1;	
@@ -5563,7 +5562,7 @@ void CCercle::setArc(CVector v1, CVector v2)
 
 	int s2 = count(Kn.begin(),Kn.begin()+deg +ncp+2, f2);
 	s=find(Kn.begin(),Kn.begin()+deg +ncp+2,f2) - Kn.begin();
-	for(g=0;g<=deg+1-s2;g++)
+	for(int g=0;g<=deg+1-s2;g++)
 	{
 		Kn.insert(Kn.begin()+s,Kn[s]);
 	}
@@ -5574,7 +5573,7 @@ void CCercle::setArc(CVector v1, CVector v2)
 	CP.resize(ncp);
 	if(f1!=f2)
 	{
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(int g=0;g!=ncp + deg + 2;g++)
 	{
 		Kn[g]=(Kn[g]-f1)/(f2-f1);
 	}
@@ -5612,13 +5611,13 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 
 	int s = count(Kn.begin(),Kn.begin()+deg+ncp+2, f1);
 	CVector mn= NURBS(deg,CP,ncp,f1,Kn);
-	for(g=0;g<deg-s;g++)
+	for(int g=0;g<deg-s;g++)
 	{
 		Bohms(f1, deg,Kn,CP,ncp);	
 	}
 	if(s==0)
 	{
-	for(g=0;g<=ncp;g++)
+	for(int g=0;g<=ncp;g++)
 	{
 		if(CP[g]==mn)
 			CP[g]=v2;	
@@ -5639,7 +5638,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 	}
 //		f1 = fmod(f1,2*pi);
 	f1 = (f1)/(2*pi);
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(int g=0;g!=ncp + deg + 2;g++)
 	{
 		av = f1-Kn[g] >0 ? f1-Kn[g]:Kn[g] -f1;
 		if(av <1E-2)
@@ -5650,13 +5649,13 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 	}
 	CVector mn1= NURBS(deg,CP,ncp,f1,Kn);
  	s = count(Kn.begin(),Kn.begin()+deg +ncp+2, f1);
-	for(g=0;g<deg-s;g++)
+	for(int g=0;g<deg-s;g++)
 	{
 		Bohms(f1, deg,Kn,CP,ncp);	
 	}
 	if(s==0)
 	{
-	for(g=0;g<=ncp;g++)
+	for(int g=0;g<=ncp;g++)
 	{
 		if(CP[g]==mn1)
 			CP[g]=v1;	
@@ -5676,7 +5675,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 
 //		f3=f3 + pi;
 	f3 = (f3)/(2*pi);
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(int g=0;g!=ncp + deg + 2;g++)
 	{
 		av = f3-Kn[g] >0 ? f3-Kn[g]:Kn[g] -f3;
 		if(av <1E-2)
@@ -5686,7 +5685,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 		}
 	}
 	s = count(Kn.begin(),Kn.begin()+deg +ncp+2, f3);
-	for(g=0;g<deg-s;g++)
+	for(int g=0;g<deg-s;g++)
 	{
 		Bohms(f3, deg,Kn,CP,ncp);	
 	}
@@ -5711,7 +5710,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 
 	int s2 = count(Kn.begin(),Kn.begin()+deg +ncp+2, f2);
 	s=find(Kn.begin(),Kn.begin()+deg +ncp+2,f2) - Kn.begin();
-	for(g=0;g<deg+1-s2;g++)
+	for(int g=0;g<deg+1-s2;g++)
 	{
 		Kn.insert(Kn.begin()+s,Kn[s]);
 	}
@@ -5721,7 +5720,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 
 	if(f1!=f2)
 	{
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(int g=0;g!=ncp + deg + 2;g++)
 	{
 		Kn[g]=(Kn[g]-f1)/(f2-f1);
 	}

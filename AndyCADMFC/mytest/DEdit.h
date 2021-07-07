@@ -1,3 +1,4 @@
+#include <WinUser.h>
 #if !defined(AFX_DEDIT_H__C6889EF8_1146_422D_A7BA_90B27DF95048__INCLUDED_)
 #define AFX_DEDIT_H__C6889EF8_1146_422D_A7BA_90B27DF95048__INCLUDED_
 
@@ -34,10 +35,10 @@ public:
 	// Generated message map functions
 protected:
 	//{{AFX_MSG(CDEdit)
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg; int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	//}}AFX_MSG
 
-	DECLARE_MESSAGE_MAP()
+	void DECLARE_MESSAGE_MAP();
 };
 
 /////////////////////////////////////////////////////////////////////////////

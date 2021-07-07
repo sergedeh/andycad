@@ -16,7 +16,7 @@ class CEdge
 public:
 	void setVector(CVector v,int i=-1);
 	CVector getVector(int i=-1);
-	operator =(CEdge e);
+	void operator =(CEdge e);
 	void RemoveAdjT(CTriangle* t);
 	void savefile(CFile &file);
 	void openfile(CFile &file);

@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "PCH.h"
+#include "AndyCADMFC.h"
 #include "CVector.h"
 #include "Bezier.h"
 #include "Matrix1.h"

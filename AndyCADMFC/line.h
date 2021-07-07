@@ -32,7 +32,7 @@ using namespace std;
 		double dv;
 		double v_top,v_bottom;
 		double u_top,u_bottom;
-		operator =(Edges v)
+		void operator =(Edges v)  // Joshua made changes line 35
 		{
 			e=v.e;
 			b=v.b;
@@ -90,10 +90,10 @@ using namespace std;
 			else
 				return CVector(e.u,e.v,r.bottom);
 		}
-		operator ==(Edges v){
+		bool operator ==(Edges v){ // Joshua made changes line 93
 		return ((e==v.e)&&(b==v.b)&&(r==v.r));
 		};
-		operator ==(Edges* v){
+		bool operator ==(Edges* v){ // Joshua made changes line 96
 		return ((e==v->e)&&(b==v->b)&&(r==v->r));
 		};
 	}; 

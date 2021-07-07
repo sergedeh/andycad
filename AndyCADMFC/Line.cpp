@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "Line.h"
 #include <math.h>
 #include <stack>
@@ -15,7 +15,7 @@
 #include "mesh.h"
 #include "Cadview.h"
 #include "rectangle.h"
-#include "ximage.h"
+#include "cximage\ximage.h"
 
 
 #ifdef _DEBUG
@@ -77,7 +77,7 @@ CLine::CLine(vector<CVector> v)
 
 		mesh.empty();
 		int i=0;
-		for(piterbex=v.begin();piterbex!=v.end();piterbex++)
+		for(vector<CVector>::iterator piterbex=v.begin();piterbex!=v.end();piterbex++)
 		{
 		CVector uv=box.getParam(*piterbex);
 		mesh.addVertex(new CVertex(*piterbex,i,0));//uv.y));
@@ -161,7 +161,7 @@ void CLine::draw(CDC *hdc)
 	DWORD ptickc=GetTickCount()-tick;
 	DWORD tickc=GetTickCount();
 	CString sc;
-	sc.Format("time spend to Copy a line:%d \n",ptickc);
+	sc.Format(_T("time spend to Copy a line:%d \n"),ptickc); //MAde correction (_T)
 	TRACE(sc);
 	CVector v0,v1,v2,v3;
 	v0=v0.sgetscrb();
@@ -182,7 +182,7 @@ void CLine::draw(CDC *hdc)
 //	clipshape.erase(std::find(clipshape.begin(),clipshape.end(),&r));
 	DWORD ptickcc=GetTickCount()-tickc;
 	CString scc;
-	scc.Format("time spend to Clip a line:%d \n",ptickcc);
+	scc.Format(_T("time spend to Clip a line:%d \n"),ptickcc); //MAde correction (_T)
 	TRACE(scc);
 
 	CPen pen;
@@ -243,7 +243,7 @@ void CLine::draw(CDC *hdc)
 
 	DWORD ptick=GetTickCount()-tick;
 	CString s;
-	s.Format("time spend to Draw a line:%d \n",ptick);
+	s.Format(_T("time spend to Draw a line:%d \n"),ptick); //MAde correction (_T)
 	TRACE(s);
 //	}
 	//rotateSM(hdc,);
@@ -379,94 +379,96 @@ void CLine::savefiledxf(CStdioFile& file)
 	int e=mesh.Ecount();
 	if(n==2)
 	{
-	file.WriteString("  0");file.WriteString("\n");
-	file.WriteString("LINE");file.WriteString("\n");
-	file.WriteString("  5");file.WriteString("\n");
-	file.WriteString(gethandle().c_str());file.WriteString("\n");
-	file.WriteString("330");file.WriteString("\n");
-	file.WriteString("78");file.WriteString("\n");
-	file.WriteString("100");file.WriteString("\n");
-	file.WriteString("AcDbEntity");file.WriteString("\n");
-	file.WriteString(" 67");file.WriteString("\n");
-	file.WriteString("     1");file.WriteString("\n");
-	file.WriteString("  8");file.WriteString("\n");
-	file.WriteString(getLayer().name);file.WriteString("\n");
-	file.WriteString("  6");file.WriteString("\n");
-	file.WriteString("LT_0");file.WriteString("\n");
-	file.WriteString(" 62");file.WriteString("\n");
-	file.WriteString("   178");file.WriteString("\n");
-	file.WriteString("420");file.WriteString("\n");
-	file.WriteString("        0");file.WriteString("\n");
-	file.WriteString("440");file.WriteString("\n");
-	file.WriteString(" 33554687");file.WriteString("\n");
-	file.WriteString(" 48");file.WriteString("\n");
-	file.WriteString("0.5");file.WriteString("\n");
-	file.WriteString("370");file.WriteString("\n");
-	file.WriteString("    15");file.WriteString("\n");
-	file.WriteString("100");file.WriteString("\n");
-	file.WriteString("AcDbLine");file.WriteString("\n");
-	file.WriteString(" 10");file.WriteString("\n");
+	file.WriteString(_T("  0"));file.WriteString(_T("\n"));
+	file.WriteString(_T("LINE"));file.WriteString(_T("\n"));
+	file.WriteString(_T("  5"));file.WriteString(_T("\n"));
+	file.WriteString(LPCTSTR(gethandle().c_str()));
+	file.WriteString(_T("\n"));
+	file.WriteString(_T("330"));file.WriteString(_T("\n"));
+	file.WriteString(_T("78"));file.WriteString(_T("\n"));
+	file.WriteString(_T("100"));file.WriteString(_T("\n"));
+	file.WriteString(_T("AcDbEntity"));file.WriteString(_T("\n"));
+	file.WriteString(_T(" 67"));file.WriteString(_T("\n"));
+	file.WriteString(_T("     1"));file.WriteString(_T("\n"));
+	file.WriteString(_T("  8"));file.WriteString(_T("\n"));
+	file.WriteString(getLayer().name);file.WriteString(_T("\n"));
+	file.WriteString(_T("  6"));file.WriteString(_T("\n"));
+	file.WriteString(_T("LT_0"));file.WriteString(_T("\n"));
+	file.WriteString(_T(" 62"));file.WriteString(_T("\n"));
+	file.WriteString(_T("   178"));file.WriteString(_T("\n"));
+	file.WriteString(_T("420"));file.WriteString(_T("\n"));
+	file.WriteString(_T("        0"));file.WriteString(_T("\n"));
+	file.WriteString(_T("440"));file.WriteString(_T("\n"));
+	file.WriteString(_T(" 33554687"));file.WriteString(_T("\n"));
+	file.WriteString(_T(" 48"));file.WriteString(_T("\n"));
+	file.WriteString(_T("0.5"));file.WriteString(_T("\n"));
+	file.WriteString(_T("370"));file.WriteString(_T("\n"));
+	file.WriteString(_T("    15"));file.WriteString(_T("\n"));
+	file.WriteString(_T("100"));file.WriteString(_T("\n"));
+	file.WriteString(_T("AcDbLine"));file.WriteString(_T("\n"));
+	file.WriteString(_T(" 10"));file.WriteString(_T("\n"));
 	CString ps;
 	ps.Format(_T("%f"),ptbegin[0].x);
-	file.WriteString(ps);file.WriteString("\n");
-	file.WriteString(" 20");file.WriteString("\n");
+	file.WriteString(ps);file.WriteString(_T("\n"));
+	file.WriteString(_T(" 20"));file.WriteString(_T("\n"));
 	ps.Format(_T("%f"),ptbegin[0].y);
-	file.WriteString(ps);file.WriteString("\n");
-	file.WriteString(" 30");file.WriteString("\n");
+	file.WriteString(ps);file.WriteString(_T("\n"));
+	file.WriteString(_T(" 30"));file.WriteString(_T("\n"));
 	ps.Format(_T("%f"),ptbegin[0].z);
-	file.WriteString(ps);file.WriteString("\n");
-	file.WriteString(" 11");file.WriteString("\n");
+	file.WriteString(ps);file.WriteString(_T("\n"));
+	file.WriteString(_T(" 11"));file.WriteString(_T("\n"));
 	ps.Format(_T("%f"),ptbegin[1].x);
-	file.WriteString(ps);file.WriteString("\n");
-	file.WriteString(" 21");file.WriteString("\n");
+	file.WriteString(ps);file.WriteString(_T("\n"));
+	file.WriteString(_T(" 21"));file.WriteString(_T("\n"));
 	ps.Format(_T("%f"),ptbegin[1].y);
-	file.WriteString(ps);file.WriteString("\n");
-	file.WriteString(" 31");file.WriteString("\n");
+	file.WriteString(ps);file.WriteString(_T("\n"));
+	file.WriteString(_T(" 31"));file.WriteString(_T("\n"));
 	ps.Format(_T("%f"),ptbegin[1].z);
-	file.WriteString(ps);file.WriteString("\n");
+	file.WriteString(ps);file.WriteString(_T("\n"));
 	}else
 	{
-	file.WriteString("  0");file.WriteString("\n");
-	file.WriteString("LWPOLYLINE");file.WriteString("\n");
-	file.WriteString("  5");file.WriteString("\n");
-	file.WriteString(gethandle().c_str());file.WriteString("\n");
-	file.WriteString("330");file.WriteString("\n");
-	file.WriteString("1F");file.WriteString("\n");
-	file.WriteString("100");file.WriteString("\n");
-	file.WriteString("AcDbEntity");file.WriteString("\n");
-	file.WriteString("  8");file.WriteString("\n");
-	file.WriteString(getLayer().name);file.WriteString("\n");
-	file.WriteString("100");file.WriteString("\n");
-	file.WriteString("AcDbPolyline");file.WriteString("\n");
-	file.WriteString(" 90");file.WriteString("\n");
+	file.WriteString(_T("  0"));file.WriteString(_T("\n"));
+	file.WriteString(_T("LWPOLYLINE"));file.WriteString(_T("\n"));
+	file.WriteString(_T("  5"));file.WriteString(_T("\n"));
+	file.WriteString(LPCTSTR(gethandle().c_str()));
+	file.WriteString(_T("\n"));
+	file.WriteString(_T("330"));file.WriteString(_T("\n"));
+	file.WriteString(_T("1F"));file.WriteString(_T("\n"));
+	file.WriteString(_T("100"));file.WriteString(_T("\n"));
+	file.WriteString(_T("AcDbEntity"));file.WriteString(_T("\n"));
+	file.WriteString(_T("  8"));file.WriteString(_T("\n"));
+	file.WriteString(getLayer().name);file.WriteString(_T("\n"));
+	file.WriteString(_T("100"));file.WriteString(_T("\n"));
+	file.WriteString(_T("AcDbPolyline"));file.WriteString(_T("\n"));
+	file.WriteString(_T(" 90"));file.WriteString(_T("\n"));
 	CString ps;
 	ps.Format(_T("%i"),e+1);
-	file.WriteString(ps);file.WriteString("\n");
-	file.WriteString(" 70");file.WriteString("\n");
-	file.WriteString("   128");file.WriteString("\n");
-	file.WriteString(" 43");file.WriteString("\n");
-	file.WriteString("0.0");file.WriteString("\n");
+	file.WriteString(ps);file.WriteString(_T("\n"));
+	file.WriteString(_T(" 70"));file.WriteString(_T("\n"));
+	file.WriteString(_T("   128"));file.WriteString(_T("\n"));
+	file.WriteString(_T(" 43"));file.WriteString(_T("\n"));
+	file.WriteString(_T("0.0"));file.WriteString(_T("\n"));
 	vector<CVector> vf=mesh.getVectors();
 	for(piterb=vf.begin();piterb!=vf.end();piterb++)
 	{
-		file.WriteString(" 10");file.WriteString("\n");
+		file.WriteString(_T(" 10"));file.WriteString(_T("\n"));
 		CString ps;
 		ps.Format(_T("%f"),piterb->x);
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 20");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 20"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),piterb->y);
-		file.WriteString(ps);file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
 	}
 	if(e==n)
 	{
 		piterb=vf.begin();
-		file.WriteString(" 10");file.WriteString("\n");
+		file.WriteString(_T(" 10"));file.WriteString(_T("\n"));
 		CString ps;
 		ps.Format(_T("%f"),piterb->x);
-		file.WriteString(ps);file.WriteString("\n");
-		file.WriteString(" 20");file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
+		file.WriteString(_T(" 20"));file.WriteString(_T("\n"));
 		ps.Format(_T("%f"),piterb->y);
-		file.WriteString(ps);file.WriteString("\n");
+		file.WriteString(ps);file.WriteString(_T("\n"));
 	}
 	}
 
@@ -1286,7 +1288,7 @@ void CLine::RegisterInterest(CObserver *obs)
 		void*param[2];
 		param[0]=&ptbegin;
 		param[1]=&ptend;
-		(*i)->SendNotify("vertices",param);
+		(*i)->SendNotify(_T("vertices"),param);
 	}
 
 }

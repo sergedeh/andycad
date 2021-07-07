@@ -1,8 +1,8 @@
 // Texts.cpp : implementation file
 //
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "Texts.h"
 
 #ifdef _DEBUG
@@ -30,7 +30,7 @@ BEGIN_MESSAGE_MAP(CTexts, CRichEditCtrl)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CTexts message handlers
+// CTexts message handle`rs
 
 int CTexts::DrawText( )
 {

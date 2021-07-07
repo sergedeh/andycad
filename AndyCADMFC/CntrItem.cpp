@@ -1,8 +1,8 @@
 // CntrItem.cpp : implementation of the CAndycadCntrItem class
 //
 
-#include "stdafx.h"
-#include "andycad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 
 #include "andycadDoc.h"
 #include "andycadView.h"

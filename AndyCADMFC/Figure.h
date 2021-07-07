@@ -20,7 +20,7 @@
 #include "Ray.h"	// Added by ClassView
 #include "AABB.h"	// Added by ClassView
 #include "mesh.h"	// Added by ClassView
-#include "ximage.h"
+#include "cximage/ximage.h"
 #include "constraint.h"
 
 using namespace std;
@@ -126,7 +126,7 @@ public:
 	virtual void UpdateMesh();
 	virtual void setbox(CAABB b);
 	virtual CFigure* generateCopy();
-	operator =(const CFigure& f);
+	void operator = (const CFigure& f);
 	CFigure(const CFigure& f);
 	void createobj(CMesh* m);
 	void setDir(float u1,float u2);

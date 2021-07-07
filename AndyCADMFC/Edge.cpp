@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "Edge.h"
 #include "triangle.h"
 #include "mesh.h"
@@ -450,7 +450,7 @@ CMesh* CEdge::getMesh()
 {
 	return mesh;
 }
-CEdge::operator =(CEdge e)
+void CEdge::operator =(CEdge e)
 {
 	it=e.it;
 	v0_cur=e.v0_cur;

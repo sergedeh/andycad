@@ -1,8 +1,8 @@
 // TextDi.cpp : implementation file
 //
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "TextDi.h"
 
 #ifdef _DEBUG
@@ -59,7 +59,7 @@ BOOL CTextDi::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
+	// TODO: Add extra initialization her
 	if(pnew)
 		UpdateData(FALSE);
 	
