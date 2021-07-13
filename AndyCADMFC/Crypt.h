@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <wincrypt.h>
 #if !defined(AFX_CRYPT_H__BACFF3D4_1705_48C1_A2B7_23FC98A5F2D3__INCLUDED_)
 #define AFX_CRYPT_H__BACFF3D4_1705_48C1_A2B7_23FC98A5F2D3__INCLUDED_
 

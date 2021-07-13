@@ -1,8 +1,8 @@
 // CPaperSize.cpp : implementation file
 //
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "CPaperSize.h"
 
 #ifdef _DEBUG

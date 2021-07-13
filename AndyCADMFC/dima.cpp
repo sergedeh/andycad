@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "DimA.h"
 #include "ray.h"
 
@@ -74,7 +74,7 @@ bool CDimA::getCharge(CDC *hdc)
 	{
 	CVector vv(center,linesel[1]);
 
-	pline.setType("Arc");
+	pline.setType(_T("Arc"));
 	pline.drawArc2(center,linesel[4],linesel[1]);//argu(vv));
 	sp.Format(_T("%.3f"),(360*argu(vv))/(2*pi));//*delta);
 	}
@@ -85,7 +85,7 @@ bool CDimA::getCharge(CDC *hdc)
 
 	CVector vv(center,linesel[4]);
 	CVector vv1(center,linesel[1]);
-	pline.setType("Arc");
+	pline.setType(_T("Arc"));
 	pline.drawArc2(center,linesel[4],linesel[1]);//argu(vv));
 		
 	double g=pline.computeAngle();
@@ -396,7 +396,7 @@ bool CDimA::getChargeFilt(CCercle *pl)
 		r2=absc(l2-center2);
 
 		pl->setRadius(v12);
-		pl->setType("Arc");
+		pl->setType(_T("Arc"));
 
 		CVector vv1(center2,l1);
 		CVector vv2(center2,l2);
