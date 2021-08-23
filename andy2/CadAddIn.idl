@@ -1,0 +1,87 @@
+// CadAddIn.idl : IDL source for CadAddIn.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CadAddIn.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(0A7F1349-F18E-43D0-BD22-774DB132B966),
+		dual,
+		helpstring("IAndyCad Interface"),
+		pointer_default(unique)
+	]
+	interface IAndyCad : IDispatch
+	{
+		[id(1), helpstring("method LoadAllAdins")] HRESULT LoadAllAdins(BSTR strAddinLoadingInfo);
+		[propget, id(2), helpstring("property MainWindow")] HRESULT MainWindow([out, retval] long *pVal);
+		[id(3), helpstring("method SendStatus")] HRESULT SendStatus(BSTR strStatus);
+		[id(4), helpstring("method SetAddInInfo")] HRESULT SetAddInInfo(long lSessionID, long lInstanceHandle, BSTR strXMLMenuToolbarIDCmdInfo, long lToobarRes);
+		[id(5), helpstring("method SetAddinToolbar")] HRESULT SetAddinToolbar(long lAddinIndex, VARIANT varValue);
+		[id(6), helpstring("method SetViewHeading")] HRESULT SetViewHeading(BSTR strHeading1, BSTR strHeading2,BSTR strHeading3);
+	};
+
+[
+	uuid(DFA3EF53-6256-4A0A-A626-6F6286CD8312),
+	version(1.0),
+	helpstring("CadAddIn 1.0 Type Library")
+]
+library CADADDINLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(53D2ED37-09C2-437D-8DED-1D4D70C47D28),
+		helpstring("_IAndyCadEvents Interface")
+	]
+	dispinterface _IAndyCadEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("method NotifyStatus")] HRESULT NotifyStatus(BSTR strStatus);
+	};
+	[
+		object,
+		uuid(A29432CA-CD10-412D-BA94-40EF2D528921),
+		dual,
+		helpstring("IAndyCadAddin Interface"),
+		pointer_default(unique)
+	]
+	interface IAndyCadAddin : IDispatch
+	{
+		[id(1), helpstring("method Initialize")] HRESULT Initialize(long lSessionID, IAndyCad *pApp, VARIANT bFirstTime);
+		[id(2), helpstring("method Uninitialize")] HRESULT Uninitialize(long lSessionID);
+	};
+
+	[
+		uuid(243E5A7B-E5AD-4337-9C3F-44E27D554E24),
+		helpstring("AndyCad Class")
+	]
+	coclass AndyCad
+	{
+		[default] interface IAndyCad;
+		[default, source] dispinterface _IAndyCadEvents;
+	};
+	[
+		uuid(6D929F85-25BA-475D-BB9F-9F12D2F699D3),
+		helpstring("_IAndyCadAddinEvents Interface")
+	]
+	dispinterface _IAndyCadAddinEvents
+	{
+		properties:
+		methods:
+	};
+
+	[
+		uuid(B34E1702-B70A-48EB-AAAD-473E634680B0),
+		helpstring("AndyCadAddin Class")
+	]
+	coclass AndyCadAddin
+	{
+		[default] interface IAndyCadAddin;
+		[default, source] dispinterface _IAndyCadAddinEvents;
+	};
+};

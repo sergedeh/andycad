@@ -1,0 +1,4844 @@
+# Microsoft Developer Studio Generated Dependency File, included by andycad.mak
+
+.\AABB.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Matrix1.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	
+
+!IF  "$(CFG)" == "cad - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "cad - Win32 Debug"
+
+!ENDIF 
+
+.\AndyCadAddin.cpp : \
+	".\AndyCadAddin.h"\
+	".\cadaddin.h"\
+	
+
+.\ArrayAngle.cpp : \
+	".\ArrayAngle.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	
+
+.\BArrowC.cpp : \
+	".\BArrowC.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\ColorD.h"\
+	".\RecColor.h"\
+	
+
+.\BArrowP.cpp : \
+	".\BArrowP.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Observer.h"\
+	".\Pattern.h"\
+	".\RecPattern.h"\
+	".\Subject.h"\
+	
+
+.\Bezier.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\FFD.h"\
+	".\Figure.h"\
+	".\geometry.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Plane.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Render.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\BoolP.cpp : \
+	".\BoolP.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Property.h"\
+	
+
+.\cad.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadaddin_i.c"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\Crypto1.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\RegDialog.h"\
+	".\Ruler1.h"\
+	".\scriptobject.tlb"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+!IF  "$(CFG)" == "cad - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "cad - Win32 Debug"
+
+!ENDIF 
+
+.\CadAutoCamera.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CadAutoCanvas.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CAdAutoShape.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CadAutoCollection.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCollection.h"\
+	
+
+.\CadAutoDrawing.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CadAutoDrawingCollection.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CAdAutoShape.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CadAutoEdit.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CAdAutoShape.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAdAutoShape.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CadAutoSurface.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoSurface.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CadAutoTransform.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoTransform.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CadAutoUtils.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\Vector.h"\
+	
+
+.\CadAutoVector.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoVector.h"\
+	".\Vector.h"\
+	
+
+.\CadAutoWnd.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\cadDoc.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\cadView.cpp : \
+	".\AABB.h"\
+	".\ArrayAngle.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\CameraDlg.h"\
+	".\Cercle.h"\
+	".\ChamfD.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CustomWidth.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\DlgCap.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\GridPag.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\LightD.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\NumCopy.h"\
+	".\OBJEdit.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\PaperPag.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\PolarTrackDlg.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecArray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Register.h"\
+	".\Ruler1.h"\
+	".\scriptobject.tlb"\
+	".\SmoothD.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapDlg.h"\
+	".\SnapEndP.h"\
+	".\SnapGridDlg.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapObject.h"\
+	".\SnapObjectDlg.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\TextDi.h"\
+	".\ThickD.h"\
+	".\TransDlg.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+.\CAM.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Quaternion.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CameraDlg.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\CameraDlg.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Property.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Cercle.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Cercle.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\FFD.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Plane.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\ChamfD.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\ChamfD.h"\
+	
+
+.\Chamfer.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Chamfer.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Verb.h"\
+	".\Vertex.h"\
+	
+
+.\ChFi.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Cercle.h"\
+	".\ChFi.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Click.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Click.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\MClick.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\State.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CLineSty.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CLineSty.h"\
+	
+
+.\Clipper.cpp : \
+	".\Clipper.h"\
+	
+
+.\ColorD.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\scriptobject.tlb"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+.\Command.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Command.h"\
+	
+
+.\Constraint.cpp : \
+	".\AABB.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\CPaperSize.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CPaperSize.h"\
+	".\mdccombo.h"\
+	".\OwnCombo.h"\
+	
+
+.\Crypto1.cpp : \
+	".\Crypto1.h"\
+	
+
+.\CustomSheet.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CustomSheet.h"\
+	".\GridPag.h"\
+	".\PaperPag.h"\
+	
+
+.\CustomWidth.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CustomWidth.h"\
+	
+
+.\CVector.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CVector.h"\
+	
+
+.\demo.rc : \
+	".\res\about.bmp"\
+	".\res\andcad2.bmp"\
+	".\res\andycad.rc2"\
+	".\res\andycads.bmp"\
+	".\res\bitmap11.bmp"\
+	".\res\bmp00001.bmp"\
+	".\res\bmp00003.bmp"\
+	".\res\bmp00006.bmp"\
+	".\res\bmp00007.bmp"\
+	".\res\bmp00008.bmp"\
+	".\res\bmp00010.bmp"\
+	".\res\bmp00011.bmp"\
+	".\res\bmp00012.bmp"\
+	".\res\bmp00013.bmp"\
+	".\res\bmp00016.bmp"\
+	".\res\cad.ico"\
+	".\res\cadd.ico"\
+	".\res\cadDoc.ico"\
+	".\res\cer.bmp"\
+	".\res\edit.bmp"\
+	".\res\hg4.bmp"\
+	".\res\ico00006.ico"\
+	".\res\icon4.ico"\
+	".\res\icon5.ico"\
+	".\res\idr_cadt.ico"\
+	".\res\laytoo.bmp"\
+	".\res\libim.bmp"\
+	".\res\linestyl.bmp"\
+	".\res\litebulb.bmp"\
+	".\res\mainfram.bmp"\
+	".\res\registry.bin"\
+	".\res\snapopti.bmp"\
+	".\res\splash.bmp"\
+	".\res\surface.bmp"\
+	".\res\surface0.bmp"\
+	".\res\Toolbar.bmp"\
+	".\res\toolbar1.bmp"\
+	".\res\zoombar.bmp"\
+	".\res\zoombars.bmp"\
+	".\resource.hm"\
+	
+
+.\Dim.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Cercle.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimArrow.h"\
+	".\DimText.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\DimA.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Cercle.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\DimA.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\DimArrow.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\DimArrow.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\DimL.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\DimText.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\DimText.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\DlgCap.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\DlgCap.h"\
+	
+
+.\Dot.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Dot.h"\
+	
+
+.\Draw.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\dxf_file.cpp"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Render.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Spline.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\DrawWnd.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\DrawWnd.h"\
+	
+
+.\DxfArrayScanner.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\DxfArrayScanner.h"\
+	
+
+.\DxfParser.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\DxfArrayScanner.h"\
+	".\DxfParser.h"\
+	
+
+.\Edge.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CVector.h"\
+	".\Edge.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Triangle.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\EditMacroDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\EditMacroDlg.h"\
+	".\FilenameEdit.h"\
+	
+
+.\EditParse.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Face.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CVector.h"\
+	".\Face.h"\
+	".\Vector.h"\
+	".\Vertex.h"\
+	
+
+.\FFD.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\FFD.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Figure.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Property.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\State.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Unclick.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\FileMacroDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\FileMacroDlg.h"\
+	
+
+.\FilenameEdit.cpp : \
+	".\FilenameEdit.h"\
+	
+
+.\FloatP.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\FloatP.h"\
+	".\Property.h"\
+	
+
+.\font.cpp : \
+	".\font.h"\
+	
+
+.\geometry.cpp : \
+	".\geometry.h"\
+	".\Vector.h"\
+	
+
+.\GridPag.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\GridPag.h"\
+	
+
+.\GridPage.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\GridPage.h"\
+	
+
+.\Image.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Imagex.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Imagex.h"\
+	
+
+.\InfoBar.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\scriptobject.tlb"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+.\Inter.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Cercle.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\IntP.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\IntP.h"\
+	".\Property.h"\
+	
+
+.\LayBar.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\LayBar.h"\
+	".\LayList.h"\
+	
+
+.\Layerad.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Layerad.h"\
+	
+
+.\LayerD.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\Layerad.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\scriptobject.tlb"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+.\LayList.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\LayList.h"\
+	
+
+.\LComboBox.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\LComboBox.h"\
+	
+
+.\Libdialog.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\scriptobject.tlb"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+.\LibS.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Cercle.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\LightD.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\LightD.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Property.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Line.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Plane.h"\
+	".\Property.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\LineAgain.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\LineAgain.h"\
+	
+
+.\LineBar.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\LineBar.h"\
+	
+
+.\Linestyle.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\LComboBox.h"\
+	".\Linestyle.h"\
+	
+
+.\MainFrm.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditMacroDlg.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\FileMacroDlg.h"\
+	".\FilenameEdit.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\NewMacroDlg.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\RunMacroDlg.h"\
+	".\scriptobject.tlb"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+.\Matrix1.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Matrix1.h"\
+	".\Vector.h"\
+	
+
+.\MClick.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Click.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\MClick.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\State.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Unclick.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\mdccombo.cpp : \
+	".\font.h"\
+	".\mdccombo.h"\
+	".\picture.h"\
+	
+
+.\Memento.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Mesh.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Clipper.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Render.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Mouse.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Mouse.h"\
+	
+
+.\MultVar.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\MultVar.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	
+
+.\NewMacroDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\FilenameEdit.h"\
+	".\NewMacroDlg.h"\
+	
+
+.\NumCopy.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\NumCopy.h"\
+	
+
+.\OBJEdit.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\OBJEdit.h"\
+	".\Vector.h"\
+	
+
+.\Observer.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Observer.h"\
+	
+
+.\Operation.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Operation.h"\
+	".\Vector.h"\
+	".\Vectorp.h"\
+	".\Vectorv.h"\
+	
+
+.\Optionsheet.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Optionsheet.h"\
+	
+
+.\OwnCombo.cpp : \
+	".\OwnCombo.h"\
+	
+
+.\OwnList.cpp : \
+	".\OwnList.h"\
+	
+
+.\PaperPag.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\PaperPag.h"\
+	
+
+.\PaperPage.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\PaperPage.h"\
+	
+
+.\ParseDlg.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Parser.cpp : \
+	".\AABB.h"\
+	".\andy.cc"\
+	".\andy_tab.cc"\
+	".\andy_tab.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Verb.h"\
+	".\Vertex.h"\
+	
+
+.\ParserDXF.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\dxf.c"\
+	".\dxf_tab.c"\
+	".\dxf_tab.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\ParserFloat.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	
+
+.\ParserObject.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\ParserObject.h"\
+	
+
+.\ParserVar.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	
+
+.\ParserVerb.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Chamfer.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Verb.h"\
+	".\Vertex.h"\
+	
+
+.\Pattern.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\BArrowP.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\cmoveandrotatebar.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\DrawWnd.h"\
+	".\Edge.h"\
+	".\EditParse.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\InfoBar.h"\
+	".\Inter.h"\
+	".\LayerD.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\MainFrm.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\ParseDlg.h"\
+	".\Parser.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Pattern.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Ruler1.h"\
+	".\scriptobject.tlb"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Splash.h"\
+	".\Subject.h"\
+	".\SubWnd.h"\
+	".\TextCad.h"\
+	".\TextD.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	".\Zoombar.h"\
+	".\ZoomD.h"\
+	
+
+.\PGrid.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\PGrid.h"\
+	
+
+.\picture.cpp : \
+	".\picture.h"\
+	
+
+.\Plane.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Plane.h"\
+	".\Ray.h"\
+	".\Vector.h"\
+	
+
+.\PolarTrackDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\PolarTrackDlg.h"\
+	".\Property.h"\
+	
+
+.\PopBar.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\PopBar.h"\
+	
+
+.\Property.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Property.h"\
+	
+
+.\QLine.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\QuadTree.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CVector.h"\
+	".\Edge.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Triangle.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Quaternion.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Quaternion.h"\
+	".\Vector.h"\
+	
+
+.\Ray.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Ray.h"\
+	".\Vector.h"\
+	
+
+.\RecArray.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\RecArray.h"\
+	
+
+.\RecColor.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\RecPattern.cpp : \
+	".\AABB.h"\
+	".\BArrowC.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\ColorD.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\RecColor.h"\
+	".\RecPattern.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Rectangle.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\RegDialog.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Crypto1.h"\
+	".\RegDialog.h"\
+	
+
+.\Register.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Register.h"\
+	
+
+.\Render.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Plane.h"\
+	".\Property.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Render.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\RTFACTN.CPP : \
+	".\Rtfdecl.h"\
+	".\Rtftype.h"\
+	
+
+.\Rtfreadr.cpp : \
+	".\Rtfdecl.h"\
+	".\Rtftype.h"\
+	
+
+.\Ruler1.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Ruler1.h"\
+	
+
+.\RunMacroDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\EditMacroDlg.h"\
+	".\FilenameEdit.h"\
+	".\RunMacroDlg.h"\
+	
+
+.\SmoothD.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\SmoothD.h"\
+	
+
+.\Snap.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\IntP.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridDlg.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapObjectDlg.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapCentP.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\PolarTrackDlg.h"\
+	".\Property.h"\
+	".\SnapDlg.h"\
+	".\SnapGridDlg.h"\
+	".\SnapObject.h"\
+	
+
+.\SnapEndP.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapGridDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Property.h"\
+	".\SnapGridDlg.h"\
+	
+
+.\SnapGridP.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Command.h"\
+	".\SnapGridP.h"\
+	".\SnapPoint.h"\
+	".\Vector.h"\
+	
+
+.\SnapIntP.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapMidP.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapNearP.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapObject.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\SnapObject.h"\
+	
+
+.\SnapObjectDlg.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\IntP.h"\
+	".\Property.h"\
+	".\SnapObjectDlg.h"\
+	
+
+.\SnapPara.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapParaGrid.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Command.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\Vector.h"\
+	
+
+.\SnapPerp.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\SnapPoint.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Splash.cpp : \
+	".\Splash.h"\
+	
+
+.\Spline.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\LibS.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Spline.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\State.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\State.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\StdAfx.cpp : \
+	"..\..\..\..\..\..\program files (x86)\microsoft visual studio63\vc98\include\basetsd.h"\
+	".\StdAfx.h"\
+	".\TipDlg.h"\
+	
+
+.\StringP.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Property.h"\
+	".\StringP.h"\
+	
+
+.\Subject.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Observer.h"\
+	".\Subject.h"\
+	
+
+.\SubWnd.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\DrawWnd.h"\
+	".\Ruler1.h"\
+	".\SubWnd.h"\
+	
+
+.\TextCad.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\TextDi.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\textd.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\TextD.h"\
+	
+
+.\TextDi.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\TextDi.h"\
+	
+
+.\ThickD.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\ThickD.h"\
+	
+
+.\TransDlg.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\cadView.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Property.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\TransDlg.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Translate.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Translate.h"\
+	".\Vector.h"\
+	
+
+.\Triangle.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CVector.h"\
+	".\Edge.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Triangle.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\TVector.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CAM.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\TxtED.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\TxtED.h"\
+	
+
+.\Unclick.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Click.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\State.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Unclick.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Undo.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Observer.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Undo.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Vector.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Matrix1.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	
+
+.\Vectorm.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	
+
+.\Vectorp.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Vector.h"\
+	".\Vectorp.h"\
+	
+
+.\Vectorv.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Vector.h"\
+	".\Vectorv.h"\
+	
+
+.\Verb.cpp : \
+	".\AABB.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Imagex.h"\
+	".\Matrix1.h"\
+	".\Mesh.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Subject.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Verb.h"\
+	".\Vertex.h"\
+	
+
+.\Vertex.cpp : \
+	".\AABB.h"\
+	".\Bezier.h"\
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\CadAutoCamera.h"\
+	".\CadAutoCanvas.h"\
+	".\CadAutoCollection.h"\
+	".\CadAutoDrawing.h"\
+	".\CadAutoDrawingCollection.h"\
+	".\CadAutoEdit.h"\
+	".\CadAutoUtils.h"\
+	".\CadAutoVector.h"\
+	".\CadAutoWnd.h"\
+	".\cadDoc.h"\
+	".\cadView.h"\
+	".\CAM.h"\
+	".\Cercle.h"\
+	".\Command.h"\
+	".\Constraint.h"\
+	".\CPaperSize.h"\
+	".\CVector.h"\
+	".\cximage\xfile.h"\
+	".\cximage\ximacfg.h"\
+	".\cximage\ximadef.h"\
+	".\cximage\ximage.h"\
+	".\cximage\xiofile.h"\
+	".\cximage\xmemfile.h"\
+	".\Dim.h"\
+	".\DimA.h"\
+	".\DimArrow.h"\
+	".\DimL.h"\
+	".\DimText.h"\
+	".\Draw.h"\
+	".\Edge.h"\
+	".\Figure.h"\
+	".\Image.h"\
+	".\Imagex.h"\
+	".\Inter.h"\
+	".\Libdialog.h"\
+	".\LibS.h"\
+	".\Line.h"\
+	".\Matrix1.h"\
+	".\mdccombo.h"\
+	".\Memento.h"\
+	".\Mesh.h"\
+	".\Mouse.h"\
+	".\MultVar.h"\
+	".\Observer.h"\
+	".\OwnCombo.h"\
+	".\Parser.h"\
+	".\parserdxf.h"\
+	".\ParserFloat.h"\
+	".\ParserObject.h"\
+	".\ParserVar.h"\
+	".\ParserVerb.h"\
+	".\Property.h"\
+	".\QLine.h"\
+	".\QuadTree.h"\
+	".\Ray.h"\
+	".\Rectangle.h"\
+	".\Snap.h"\
+	".\SnapCentP.h"\
+	".\SnapEndP.h"\
+	".\SnapGridP.h"\
+	".\SnapIntP.h"\
+	".\SnapMidP.h"\
+	".\SnapNearP.h"\
+	".\SnapPara.h"\
+	".\SnapParaGrid.h"\
+	".\SnapPerp.h"\
+	".\SnapPoint.h"\
+	".\Subject.h"\
+	".\TextCad.h"\
+	".\Triangle.h"\
+	".\TVector.h"\
+	".\TxtED.h"\
+	".\Vector.h"\
+	".\Vectorm.h"\
+	".\Vertex.h"\
+	
+
+.\Zoombar.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\Zoombar.h"\
+	
+
+.\ZoomD.cpp : \
+	".\cad.h"\
+	".\cadaddin.h"\
+	".\ZoomD.h"\
+	
+
+!IF  "$(CFG)" == "cad - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "cad - Win32 Debug"
+
+!ENDIF 
+
+!IF  "$(CFG)" == "cad - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "cad - Win32 Debug"
+
+!ENDIF 
+

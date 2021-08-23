@@ -1,0 +1,1545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{40025220-ddff-4028-92c7-ba251daa29c5}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5e1f7ffb-2c1f-4641-9d10-a264733dd28d}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{e240f212-4b40-417b-9300-58d9fd693a5a}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Help Files">
+      <UniqueIdentifier>{037bc724-2858-4462-b898-ebe5d011001f}</UniqueIdentifier>
+      <Extensions>cnt;rtf</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AABB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddinManager1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddinSettingsDialog1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AndyCad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AndyCadAddin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayAngle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BArrowC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BArrowP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoolP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoCanvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoCollection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoDrawing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoDrawingCollection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CAdAutoShape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoSurface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CadAutoWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cadDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cadView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CAM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cercle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChamfD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chamfer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChFi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Click.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CLineSty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Clipper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Constraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPaperSize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Crypto1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CTreeCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomSheet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomWidth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DimA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DimArrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DimL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DimText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DxfArrayScanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DxfParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Edge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditMacroDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditParse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Face.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FFD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Figure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMacroDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilenameEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridPag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Imagex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Inter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IntP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LayBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Layerad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LayList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LComboBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Libdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LibS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LineAgain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LineBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Linestyle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MacroManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MClick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mdccombo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Memento.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MultVar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewMacroDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumCopy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Optionsheet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnCombo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PaperPag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PaperPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParseDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserDXF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserFloat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserVar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserVerb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PatternA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="picture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolarTrackDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Property.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PropPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RecArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RecColor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RecPattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Register.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RTFACTN.CPP">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rtfreadr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ruler1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RunMacroDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SmoothD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Snap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapCentP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapEndP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapGridDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapGridP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapIntP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapMidP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapNearP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapObjectDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapPara.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapParaGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapPerp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SnapPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Splash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SplineProp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextCad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="textd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThickD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TipDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Translate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TxtED.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Unclick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Undo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vectorm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Verb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Zoombar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ZoomD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="cad.odl">
+      <Filter>Source Files</Filter>
+    </Midl>
+    <Midl Include="CadAddIn.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="demo.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AABB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddinManager1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddinSettingsDialog1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AndyCad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AndyCadAddin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayAngle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BArrowC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BArrowP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoolP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cad_i.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAddInCP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoCanvas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoDrawing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoDrawingCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CAdAutoShape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoSurface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoTransform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CadAutoWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cadDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cadView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CAM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cercle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChamfD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chamfer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChFi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Click.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CLineSty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Clipper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPaperSize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Crypto1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTreeCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomSheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomWidth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DimA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DimArrow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DimL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DimText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgCap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Draw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dxf_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DxfArrayScanner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DxfParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditMacroDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditParse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Face.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Figure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMacroDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilenameEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridPag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Imagex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Inter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IntP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LayBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Layerad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LayList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LComboBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Libdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LibS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LineAgain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LineBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinePattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linestyle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LNSTLYE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MacroManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MClick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mdccombo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\grace\ParticleTest\memdc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memento.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MultVar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewMacroDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumCopy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJEdit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Optionsheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnCombo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PaperPag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PaperPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="picture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PolarTrackDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Property.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PropPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RecArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RecColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RecPattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Register.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rtfdecl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rtftype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ruler1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RunMacroDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SmoothD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Snap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapCentP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapEndP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapGridDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapGridP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapIntP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapMidP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapNearP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapObjectDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapPara.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapParaGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapPerp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SnapPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Splash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SplineProp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextCad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThickD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TipDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Translate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tritest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TxtED.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Unclick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Undo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vectorm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Verb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Zoombar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ZoomD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="textint\andy\clipper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\about.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\about1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Acrobat38.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\andcad2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\andycad.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\andycads.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap10.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap11.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap31.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap_b.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmapat.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00002.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00003.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00004.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00005.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00006.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00007.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00008.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00009.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00010.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00011.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00012.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00013.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00014.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00015.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00016.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00017.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00018.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00019.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00020.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00021.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00022.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp004.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp005.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\BSmile1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\BtnSel.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\BtnUSel.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cad.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cadd.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cadDoc.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\camera.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\CCHSB.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cer.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dimensio.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\edit.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\edit1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\flowrpot1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\fonts.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\hg1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\hg3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\hg4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00001.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00002.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00003.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00004.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00005.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00006.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00007.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon3.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon4.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon5.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon6.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon7.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\idr_cadt.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\laydi.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\laytoo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\libim.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\linestyl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\litebulb.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\mainfram.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\mirror_t.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\others.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rulerbl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rulerblm.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rulerupm.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\slopeang.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Smile1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Smile2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Smile3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Smile4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\snapopti.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\snapping.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\splash.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Splsh16.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\surface.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\surface0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolbar1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolbar2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\toolbar3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolbar4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tran.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tubile1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\weed.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\zi.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\zoomb.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\zoombar.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\zoombars.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="hlp\AppExit.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\Bullet.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\CurArw2.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\CurArw4.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\CurHelp.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\EditCopy.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\EditCut.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\EditPast.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\EditUndo.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\FileNew.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\FileOpen.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\FilePrnt.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\FileSave.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\HlpSBar.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\HlpTBar.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\RecFirst.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\RecLast.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\RecNext.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\RecPrev.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\Scmax.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\ScMenu.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+    <Image Include="hlp\Scmin.bmp">
+      <Filter>Help Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="textint\andy\andy.l">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="textint\andy\andy.y">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\cad.hpj">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\andycad.rc2">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Application.rgs">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Cad.rgs">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\cad1.bin">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\cur00001.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\cur00002.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\cursor1.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\registry.bin">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AfxCore.rtf">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AfxPrint.rtf">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\cad.cnt">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="cad.clw" />
+    <CustomBuild Include="cad.reg" />
+    <CustomBuild Include="res\html1.htm" />
+  </ItemGroup>
+</Project>

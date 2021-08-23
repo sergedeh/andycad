@@ -1,0 +1,27 @@
+// ToolBarX.cpp: implementation of the CToolBarX class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "cad.h"
+#include "ToolBarX.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+//DEL CToolBarX::CToolBarX()
+//DEL {
+//DEL 
+//DEL }
+
+//DEL CToolBarX::~CToolBarX()
+//DEL {
+//DEL 
+//DEL }

@@ -1,0 +1,22 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{B0BF0EEC-2270-4B66-98F4-A71218788173} = s 'Cad'
+		'Cad.EXE'
+		{
+			val AppID = s {B0BF0EEC-2270-4B66-98F4-A71218788173}
+		}
+	}
+}
+HKCR
+{
+	NoRemove AppID
+	{
+		{2F131366-B8A7-4BC3-8483-D4C69C41ABB0} = s 'Cad'
+		'Cad.EXE'
+		{
+			val AppID = s {2F131366-B8A7-4BC3-8483-D4C69C41ABB0}
+		}
+	}
+}

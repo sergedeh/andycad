@@ -1,0 +1,3 @@
+sub function2()
+MsgBox "You are nuts"
+end sub

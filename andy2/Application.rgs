@@ -1,0 +1,24 @@
+HKCR
+{
+	AndyCAD.Application.1 = s 'Application Class'
+	{
+		CLSID = s '{12CB0547-DA96-423B-8DE6-E59F83AC5776}'
+	}
+	AndyCAD.Application = s 'Application Class'
+	{
+		CLSID = s '{12CB0547-DA96-423B-8DE6-E59F83AC5776}'
+		CurVer = s 'AndyCAD.Application.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {12CB0547-DA96-423B-8DE6-E59F83AC5776} = s 'Application Class'
+		{
+			ProgID = s 'AndyCAD.Application.1'
+			VersionIndependentProgID = s 'AndyCAD.Application'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{B0BF0EEC-2270-4B66-98F4-A71218788173}'
+			'TypeLib' = s '{AC66CEFA-BF47-4F75-9C68-BB4C9C81C6DC}'
+		}
+	}
+}
