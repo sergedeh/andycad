@@ -297,6 +297,7 @@ void CMesh::addEdge(vector<CVector>& v1)
 	CVertex* vs,*ve;
 	CEdge* e;
 	bool _b=false,_e=false;
+	if (v1.size() == 0) return;
 	for(ivertex iter=vertexlist.begin();iter!=vertexlist.end();iter++)
 	{
 		if(pointinRegion(iter->second->v,v1[0]))

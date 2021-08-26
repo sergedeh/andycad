@@ -792,21 +792,27 @@ bool CCercle::DrawArc(bool fPrevB,CDC *hdc, CVector p)
 	deg=2;           // degree of polynomial = t-1
     ncp=8;
 	CP.resize(9);
+//	Kn.resize(12);
 
+	try
+	{
+		Kn.at(0) = 0;
+		Kn.at(1) = 0;
+		Kn.at(2) = 0;
+		Kn.at(3) = (double)1 / 4;
+		Kn.at(4) = (double)1 / 4;
+		Kn.at(5) = (double)1 / 2;
+		Kn.at(6) = (double)1 / 2;
+		Kn.at(7) = (double)3 / 4;
+		Kn.at(8) = (double)3 / 4;
+		Kn.at(9) = 1;
+		Kn.at(10) = 1;
+		Kn.at(11) = 1;
+	}
+	catch (...)
+	{
 
-
-		Kn[0]=0;
-		Kn[1]=0;
-		Kn[2]=0;
-		Kn[3]=(double)1/4;
-		Kn[4]=(double)1/4;
-		Kn[5]=(double)1/2;
-		Kn[6]=(double)1/2;
-		Kn[7]=(double)3/4;
-		Kn[8]=(double)3/4;
-		Kn[9]=1;
-		Kn[10]=1;
-		Kn[11]=1;
+	}
 
 /*	   control2.snaptoplane(control2);
 	   control2.snaptoplane(control1);
@@ -905,7 +911,7 @@ bool CCercle::DrawArc(bool fPrevB,CDC *hdc, CVector p)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=&(*find(vcenter.begin(),vcenter.end(),CP[jo]));
+			//CVector* n=&(*find(vcenter.begin(),vcenter.end(),CP[jo]));
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -1500,19 +1506,24 @@ bool CCercle::Draw2DotArc(bool fPrevB,CDC *hdc, CVector p)
 
   //   Para=Para_universp(0,1,ncp+1);
   //   Knot_Univer(ncp,deg,Kn,0,1);
+	try {
+		Kn.at(0) = 0;
+		Kn.at(1) = 0;
+		Kn.at(2) = 0;
+		Kn.at(3) = (double)1 / 4;
+		Kn.at(4) = (double)1 / 4;
+		Kn.at(5) = (double)1 / 2;
+		Kn.at(6) = (double)1 / 2;
+		Kn.at(7) = (double)3 / 4;
+		Kn.at(8) = (double)3 / 4;
+		Kn.at(9) = 1;
+		Kn.at(10) = 1;
+		Kn.at(11) = 1;
+	}
+	catch (...)
+	{
 
-		Kn[0]=0;
-		Kn[1]=0;
-		Kn[2]=0;
-		Kn[3]=(double)1/4;
-		Kn[4]=(double)1/4;
-		Kn[5]=(double)1/2;
-		Kn[6]=(double)1/2;
-		Kn[7]=(double)3/4;
-		Kn[8]=(double)3/4;
-		Kn[9]=1;
-		Kn[10]=1;
-		Kn[11]=1;
+	}
 
 
 
@@ -4748,7 +4759,7 @@ void CCercle::drawArc2(CVector center, CVector vstart, CVector vend)
 	ntype="Arc";
 
 	pt=vend;
-
+	if (isnan(center.x)) return;
 	Ct=center;//control1;
 	control2=vstart;
 
@@ -4872,7 +4883,9 @@ void CCercle::drawArc2(CVector center, CVector vstart, CVector vend)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=&(*find(vcenter.begin(),vcenter.end(),CP[jo]));
+			auto itf = find(vcenter.begin(), vcenter.end(), CP[jo]);
+			if (itf == vcenter.end()) continue;
+			CVector* n=&(*itf);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -5477,7 +5490,7 @@ void CCercle::setArc(CVector v1, CVector v2)
 	}
 	f1 = fmod(f1,2*pi);
 	f1 = (f1)/(2*pi);
-	for(int g=0;g!=ncp + deg + 2;g++)
+	for(int g=0;g!=ncp + deg + 2 && g < Kn.size();g++)
 	{
 		av = f1-Kn[g] >0 ? f1-Kn[g]:Kn[g] -f1;
 		if(av  <1E-2)
@@ -5557,34 +5570,37 @@ void CCercle::setArc(CVector v1, CVector v2)
 
 	if(f1!=0)
 	{
-		std::reverse(CP.begin(),CP.begin()+ncp+1);
-	 	std::reverse(Kn.begin(),Kn.begin()+ncp+deg+2);
+		vector<double>::iterator it1 = Kn.begin() + ncp + deg + 2 > Kn.end() ? Kn.end() : Kn.begin() + ncp + deg + 2;
+		vector<CVector>::iterator it2 = CP.begin() + ncp + 1 > CP.end() ? CP.end() : CP.begin() + ncp + 1;
+		std::reverse(CP.begin(),it2);
+	 	std::reverse(Kn.begin(),it1);
 //		f2=fmin;
 		f1=Kn[0];
-		for(int g=0;g!=ncp + deg + 2;g++)
+		for(int g=0;g!=ncp + deg + 2 && g < Kn.size();g++)
 		{
 			Kn[g]=(Kn[g]-f2);
 			Kn[g]>0?Kn[g]:-Kn[g];
 		}
 	}
-
-	int s2 = count(Kn.begin(),Kn.begin()+deg +ncp+1, f2);
-	s=find(Kn.begin(),Kn.begin()+deg +ncp+1,f2) - Kn.begin();
+	vector<double>::iterator it1 = deg + ncp + 1 > Kn.size() - 1 ? Kn.end() : Kn.begin() + deg + ncp + 1;
+	int s2 = count(Kn.begin(),it1, f2);
+	s=find(Kn.begin(),it1,f2) - Kn.begin();
 	for(g=0;g<=deg+1-s2;g++)
 	{
 		Kn.insert(Kn.begin()+s,Kn[s]);
 	}
-	s=find(Kn.begin(),Kn.begin()+deg +ncp+1,1) - Kn.begin();
+	it1 = deg + ncp + 1 > Kn.size() - 1 ? Kn.end() : Kn.begin() + deg + ncp + 1;
+	s=find(Kn.begin(),it1,1) - Kn.begin();
     ncp=find(CP.begin(),CP.end(),m2) - CP.begin();
 	ncp=ncp+1;
 
 	CP.resize(ncp);
 	if(f1!=f2)
 	{
-	for(g=0;g!=ncp + deg + 2;g++)
-	{
-		Kn[g]=(Kn[g]-f1)/(f2-f1);
-	}
+		for(g=0;g!=ncp + deg + 2 && g<Kn.size();g++)
+		{
+			Kn[g]=(Kn[g]-f1)/(f2-f1);
+		}
 	}
 	angle = (f2-f1)*2*pi;
 
@@ -5606,7 +5622,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 	}
 //		f1 = fmod(f1,2*pi);
 	f1 = (f1)/(2*pi);
-	for(int g=0;g!=ncp + deg + 2;g++)
+	for(int g=0;g!=ncp + deg + 2 && g < Kn.size();g++)
 	{
 		av = f1-Kn[g] >0 ? f1-Kn[g]:Kn[g] -f1;
 		if(av  <1E-2)
@@ -5616,8 +5632,8 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 		}
 	}
 	f2=f1;
-
-	int s = count(Kn.begin(),Kn.begin()+deg+ncp+1, f1);
+	vector<double>::iterator it1 = deg + ncp + 1 > Kn.size() - 1 ? Kn.end() : Kn.begin() + deg + ncp + 1;
+	int s = count(Kn.begin(),it1, f1);
 	CVector mn= NURBS(deg,CP,ncp,f1,Kn);
 	for(g=0;g<deg-s;g++)
 	{
@@ -5625,7 +5641,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 	}
 	if(s==0)
 	{
-	for(g=0;g<=ncp;g++)
+	for(g=0;g<=ncp && g < CP.size();g++)
 	{
 		if(CP[g]==mn)
 			CP[g]=v2;	
@@ -5646,7 +5662,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 	}
 //		f1 = fmod(f1,2*pi);
 	f1 = (f1)/(2*pi);
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(g=0;g!=ncp + deg + 2 && g< Kn.size();g++)
 	{
 		av = f1-Kn[g] >0 ? f1-Kn[g]:Kn[g] -f1;
 		if(av <1E-2)
@@ -5656,14 +5672,14 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 		}
 	}
 	CVector mn1= NURBS(deg,CP,ncp,f1,Kn);
- 	s = count(Kn.begin(),Kn.begin()+deg +ncp+1, f1);
+ 	s = count(Kn.begin(),it1, f1);
 	for(g=0;g<deg-s;g++)
 	{
 		Bohms(f1, deg,Kn,CP,ncp);	
 	}
 	if(s==0)
 	{
-	for(g=0;g<=ncp;g++)
+	for(g=0;g<=ncp && g < CP.size();g++)
 	{
 		if(CP[g]==mn1)
 			CP[g]=v1;	
@@ -5683,7 +5699,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 
 //		f3=f3 + pi;
 	f3 = (f3)/(2*pi);
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(g=0;g!=ncp + deg + 2 && g < Kn.size();g++)
 	{
 		av = f3-Kn[g] >0 ? f3-Kn[g]:Kn[g] -f3;
 		if(av <1E-2)
@@ -5692,7 +5708,7 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 			break;
 		}
 	}
-	s = count(Kn.begin(),Kn.begin()+deg +ncp+1, f3);
+	s = count(Kn.begin(),it1, f3);
 	for(g=0;g<deg-s;g++)
 	{
 		Bohms(f3, deg,Kn,CP,ncp);	
@@ -5707,28 +5723,30 @@ void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 	CVector m2 = NURBS(deg,CP,ncp,f2,Kn);
 	CVector m3 =NURBS(deg,CP,ncp,0,Kn);
 	
-
+	vector<double>::iterator it2 = ncp + deg + 2 > Kn.size() - 1 ? Kn.end() : Kn.begin() + ncp + deg + 2;
 	if((f3>f2)||(f1!=0))
 	{
-		std::reverse(CP.begin(),CP.begin()+ncp+1);
-	 	std::reverse(Kn.begin(),Kn.begin()+ncp+deg+2);
+		std::reverse(CP.begin(),ncp+1 > CP.size() - 1 ? CP.end() : CP.begin() + ncp + 1);
+	 	std::reverse(Kn.begin(),it2);
 //		f2=fmin;
 		f1=Kn[0];
 	}
+	it1 = deg + ncp + 1 > Kn.size() - 1 ? Kn.end() : Kn.begin() + deg + ncp + 1;
 
-	int s2 = count(Kn.begin(),Kn.begin()+deg +ncp+1, f2);
-	s=find(Kn.begin(),Kn.begin()+deg +ncp+2,f2) - Kn.begin();
+	int s2 = count(Kn.begin(),it1, f2);
+	s=find(Kn.begin(),it2,f2) - Kn.begin();
 	for(g=0;g<deg+1-s2;g++)
 	{
 		Kn.insert(Kn.begin()+s,Kn[s]);
 	}
-	s=find(Kn.begin(),Kn.begin()+deg +ncp+2,1) - Kn.begin();
+	it2 = ncp + deg + 2 > Kn.size() - 1 ? Kn.end() : Kn.begin() + ncp + deg + 2;
+	s=find(Kn.begin(),it2,1) - Kn.begin();
     ncp=find(CP.begin(),CP.end(),m2) - CP.begin();
 	ncp=ncp+1;
 
 	if(f1!=f2)
 	{
-	for(g=0;g!=ncp + deg + 2;g++)
+	for(g=0;g!=ncp + deg + 2 && g < Kn.size();g++)
 	{
 		Kn[g]=(Kn[g]-f1)/(f2-f1);
 	}

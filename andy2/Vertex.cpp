@@ -384,8 +384,8 @@ bool CVertex::isConnectedTo2(CVertex *v)
 {
 	CEdge* e;
 	CVertex* v1;
-	v1=EdgesSource()[0];
 	try{
+		v1 = EdgesSource().at(0);
 		if(v1==v){
 			if(v->n.xhit==v->n.yhit)
 				return true;
@@ -559,10 +559,11 @@ bool CVertex::RemoveAdjEdgei(CEdge* i)
 
 void CVertex::RemoveAdjEdge()
 {
-	for(CMesh::iedge i=adjE.begin();i!=adjE.end();i++)
+	for(CMesh::iedge i=adjE.begin();i!=adjE.end();next(i))
 	{
 		i->second->Mate(this)->RemoveAdjEdgei(i->second);
 		mesh->DeleteEdge(i->second->it);
+//		if (i == end(adjE)) break;
 		i->second=NULL;
 	}
 	adjE.clear();
@@ -575,13 +576,13 @@ void CVertex::RemoveFwdEdge(CVertex* v)
 	{
 		if((i->second->Start()==this)&&(i->second->Start()!=v))
 		{
-		CVertex* m=i->second->Mate(this);
-		m->RemoveAdjEdgei(i->second);
-		mesh->DeleteEdge(i->second->it);
-		i->second=NULL;
-		verase.push_back(i->first);
-		m->RemoveFwdEdge(v);
 		try{
+			CVertex* m=i->second->Mate(this);
+			m->RemoveAdjEdgei(i->second);
+			mesh->DeleteEdge(i->second->it);
+			i->second=NULL;
+			verase.push_back(i->first);
+			m->RemoveFwdEdge(v);
 			i++;
 		}catch(...)
 		{

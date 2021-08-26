@@ -5685,8 +5685,11 @@ CFigure* CFigure::Offset(float u)
 
 vector<CFigure*>  CFigure::Trim(vector<CVector>& v1,CFigure *f,bool side,bool st)
 {
-	mesh.TrimEdge3(v1[0],&f->mesh);//,side,st);
-	updatecore();
+	if (v1.size() != 0)
+	{
+		mesh.TrimEdge3(v1[0], &f->mesh);//,side,st);
+		updatecore();
+	}
 	return vector<CFigure*>();
 }
 

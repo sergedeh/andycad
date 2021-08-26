@@ -6785,7 +6785,7 @@ void CBezier::Bohms(double t, int p,vector<double>& U,vector<CVector>& P,int &n)
 			Pv[i]=P[i];
 		}
 
-		if(((k-p+1<=i)&&(i<=k))&&(U[i+p]!=U[i]))
+		if((i-1>=0)&&((k-p+1<=i)&&(i<=k))&&(U[i+p]!=U[i]))
 		{
 			double a1=(t-U[i])/(U[i+p]-U[i]);
 			double a2=(U[i+p]-t)/(U[i+p]-U[i]);
@@ -6795,7 +6795,7 @@ void CBezier::Bohms(double t, int p,vector<double>& U,vector<CVector>& P,int &n)
 			Pv[i].w=P[i].w*(a1)+P[i-1].w*(a2);
 		}
 
-		if((k+1<=i)&&(i<=n+1))
+		if((i - 1 >= 0) && (k+1<=i)&&(i<=n+1) && (i-1 < P.size()))
 		{
 			Pv[i]=P[i-1];
 		}
@@ -8753,20 +8753,24 @@ void CBezier::Bdegel(int d, int start, int end, vector<CVector>& Po)
 	{
 		u=ncpe+i;
 		if(start+i<1) continue;
+		if (start + i >= Po.size()) continue;
 		P[ncpe+i]=Po[start+i-1]*((double)i/(double)(d+1))+Po[start+i]*(1-(double)i/(double)(d+1));
 		re=P[ncpe+i];
 	}
 	P[ncpe]=Po[start];
 	re=P[ncpe];
-	P[ncpe+d+1]=Po[start+d];
-	re=P[ncpe+d+1];
-	ncpe+=d+1;
+	if (start + d < Po.size())
+	{
+		P[ncpe + d + 1] = Po[start + d];
+		re = P[ncpe + d + 1];
+		ncpe += d + 1;
+	}
 
 }
 
 void CBezier::degel()
 {
-	int nl[10];
+	int nl[50];
 	int d2=deg;
 	int n2=ncp;
 
@@ -8777,17 +8781,17 @@ void CBezier::degel()
 
 
 
-	for(int i=0;i<=ncp+deg+1;i++)
+	for(int i=0;i<=ncp+deg+1 && i <Kn.size();i++)
 	{
 		K[i]=Kn[i];
 	}
 	double k;
-	for(int i=0;i<=ncp+deg+1;i++)
+	for(int i=0;i<=ncp+deg+1 && i < Kn.size();i++)
 	{
 		k=Kn[i];
 	}
 	
-	for(int i=deg;i<=deg+n2;i++)
+	for(int i=deg;i<=deg+n2 && i < Kn.size();i++)
 	{
 		nl[i-deg]=count(K.begin(),K.begin()+d2+n2+1,K[i]);
 
@@ -8806,12 +8810,18 @@ void CBezier::degel()
 
 	Kc[0]=Kn[0];
 	int i;
+	int km = Kn.size();
+	int kmc = Kc.size();
 	for(i=1;i<=ncp+deg+1;i++)
 	{
+		if (i - 1 >= km) break;
 		Kc[i]=Kn[i-1];
 	}
-	Kc[i]=Kc[i-1];
-	Kc[i+1]=Kc[i-1];
+	if (i - 1 < kmc && i + 1 < kmc)
+	{
+		Kc[i] = Kc[i - 1];
+		Kc[i + 1] = Kc[i - 1];
+	}
 
 	deg++;
 	for(i=0;i<=ncpe+deg+1;i++)
@@ -8826,7 +8836,9 @@ void CBezier::degel()
 	 {
 	 for(int j=d2;j>q;j--)
 	 {
-	Kc.erase(find(Kc.begin(),Kc.end(),K[d2+i]));
+		 auto itk = find(Kc.begin(), Kc.end(), K[d2 + i]);
+		 if (itk == Kc.end()) continue;
+		Kc.erase(itk);
 	 }
 	 }
 	}
@@ -8836,7 +8848,9 @@ void CBezier::degel()
 	if(count(Kc1.begin(),Kc1.end(),K[d2+i])==d2)
 	{
 		jk++;
-		Kc1.insert(Kc1.begin() + distance(Kc1.begin(),find(Kc1.begin(),Kc1.end(),K[d2+i])),K[d2+i]);
+		auto itk = find(Kc1.begin(), Kc1.end(), K[d2 + i]);
+		if (itk == Kc1.end()) continue;
+		Kc1.insert(Kc1.begin() + distance(Kc1.begin(),itk),K[d2+i]);
 	}
 	}
 		          
