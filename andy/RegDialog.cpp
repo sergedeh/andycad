@@ -1,6 +1,6 @@
 
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "RegDialog.h"
 #include "cad.h"
 

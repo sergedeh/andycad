@@ -34,6 +34,8 @@ public:
 	double scaler(double *C,double *R,int r,int s,int i,int u);
 	void pivotr(double *C,double *R,int r,int s,int i,int k,int u);
 	double *R;
+private:
+	int i,j;
 
 };
 

@@ -242,7 +242,7 @@ private:
 	void BSdegelv(CBezier *fig, int d);
 	bool tsurf,revol,strans;
 	int PtonSpline(CVector point);
-	int j;
+	int j,i,iter,jiter;
 	int lkp1;
 	int lkp;
 	int tas;

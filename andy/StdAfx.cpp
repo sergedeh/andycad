@@ -2,17 +2,18 @@
 //	cad.pch will be the pre-compiled header
 //	stdafx.obj will contain the pre-compiled type information
 
-#include "stdafx.h"
+//#include "../AndyCADMFC/pch.h"
+#include "StdAfx.h"
 
 
 
 	#ifdef _ATL_STATIC_REGISTRY
 #include <statreg.h>
 #endif
-#include <atlimpl.cpp>
+//#include <atlimpl.cpp>
 
 	#ifdef _ATL_STATIC_REGISTRY
 #include <statreg.h>
 #endif
-#include <atlimpl.cpp>
+//#include <atlimpl.cpp>
 

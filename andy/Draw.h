@@ -356,7 +356,7 @@ private:
 
 	CVector positions[2]; int ita; 
 	CVector v0,v_current;
-	int nbc;
+	int nbc,i,j,iter,jiter,jj;
 	//layer management
 	CListCtrl* _tcl;
 	CTreeCtrl* _tctl;

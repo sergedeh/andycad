@@ -4,7 +4,7 @@
 //  Microsoft Visual C++, your modifications will be overwritten.
 
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "mdccombo.h"
 
 // Dispatch interfaces referenced by this interface

@@ -1,5 +1,5 @@
 // AndyCadAddin.cpp : Implementation of CAndyCadAddin
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "CadAddIn.h"
 #include "AndyCadAddin.h"
 

@@ -27,7 +27,7 @@ class CMesh;
 class CTriangle
 {
 public:
-	operator = (CTriangle t);
+	void operator = (CTriangle t);
 	void triangle_template();
 	void updateShadingpara(CCVector lit[6],col* my,int pwidth,int pheight,light *l);
 	void rasterizeTriangle(HDC hdc,BYTE* bits,float* zbuffer,\

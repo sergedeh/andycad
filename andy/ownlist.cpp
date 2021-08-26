@@ -2,7 +2,7 @@
 // See OwnList.h for details on how to use this class
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "OwnList.h"
 
 #ifdef _DEBUG

@@ -1,7 +1,7 @@
 // CadAutoEdit.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "CadAutoEdit.h"
 #include "caddoc.h"

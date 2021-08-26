@@ -1,7 +1,7 @@
 // MainFrm.cpp : implementation of the CMainFrame class
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 //#include "MLinestyle.h"
 

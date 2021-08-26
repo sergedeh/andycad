@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "ParserVerb.h"
 #include "chamfer.h"
@@ -48,7 +48,9 @@ CParserVerb* CParserVerb::getVerb(int s)
    }*/
    if(value==CHAMFER)
    {
-         return new CChamfer(s);
+	   CString ss;
+	   ss.Format("%d", s);
+         return new CChamfer(ss);
    }
    return NULL;
 }

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Vector.h"
 #include "tVector.h"
@@ -1172,7 +1172,7 @@ void CVector::zoom(double zr)
 
 }
 
-double absc(const CVector v,bool b){
+double absc(CVector v,bool b){
 	if(!b)
 		{
 	CVector vrx,vry,vrz;

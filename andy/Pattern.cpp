@@ -2,12 +2,12 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Pattern.h"
 #include "BArrowp.h"
 #include "mainfrm.h"
-#include "ximage.h"
+#include "cximage/ximage.h"
 	
 
 #ifdef _DEBUG
@@ -85,7 +85,8 @@ int CPattern::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	nsize++;
 	}
 	finder.Close();
-	for(int i=0;i<nsize;i++)
+	int i;
+	for(i=0;i<nsize;i++)
 		{
 			CBitmap* pattern= new CBitmap;
 

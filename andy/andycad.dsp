@@ -80,7 +80,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 ../cximage600_full/png/release/png.lib ../cximage600_full/jpeg/release/jpeg.lib ../cximage600_full/tiff/release/tiff.lib ../cximage600_full/cximage/release/cximage.lib ../cximage600_full/jasper/release/jasper.lib ../cximage600_full/mng/release/mng.lib ../cximage600_full/raw/release/libdcr.lib ../cximage600_full/zlib/release/zlib.lib Advapi32.lib /nologo /subsystem:windows /pdb:none /debug /machine:I386
+# ADD LINK32 ./cximage/png.lib ./cximage/jpeg.lib ./cximage/tiff.lib ./cximage/cximage.lib ./cximage/jasper.lib ./cximage/mng.lib ./cximage/libdcr.lib ./cximage/zlib.lib Advapi32.lib /nologo /subsystem:windows /pdb:none /debug /machine:I386
 
 !ENDIF 
 
@@ -107,6 +107,10 @@ SOURCE=.\AddinSettingsDialog1.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\andy.cc
+# End Source File
+# Begin Source File
+
 SOURCE=.\textint\andy\andy.l
 
 !IF  "$(CFG)" == "cad - Win32 Release"
@@ -119,7 +123,7 @@ InputPath=.\textint\andy\andy.l
 InputName=andy
 
 "$(InputDir)\$(InputName)_o.cc" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	flex -L -P$(InputName) -o$(InputDir)/$(InputName)_o.cc $(InputPath)
+	c:\yacc\yacc\bin\flex -L -P$(InputName) -o$(InputDir)/$(InputName)_o.cc $(InputPath)
 
 # End Custom Build
 
@@ -138,6 +142,14 @@ SOURCE=.\textint\andy\andy.y
 
 !ENDIF 
 
+# End Source File
+# Begin Source File
+
+SOURCE=.\andy_tab.cc
+# End Source File
+# Begin Source File
+
+SOURCE=.\andy_tab.h
 # End Source File
 # Begin Source File
 

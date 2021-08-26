@@ -2,17 +2,17 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Figure.h"
 #include <algorithm>
-#include <typeinfo.h>
+//#include <typeinfo.h>
 #include "unclick.h"
 #include "ray.h"
 #include "bezier.h"
 #include "mouse.h"
 #include "image.h"
-#include "ximage.h"
+#include "cximage/ximage.h"
 #include "Cadview.h"
 #include "rectangle.h"
 
@@ -837,7 +837,7 @@ void CFigure::breakcurve(CVector v1,CVector v2)
 }
 vector<CFigure*> CFigure::breakcurve2(CVector v1,CVector v2) 
 {
-	return NULL;
+	return vector<CFigure*>();
 }
 
 void CFigure::drawselect(CDC *hdc)
@@ -1273,7 +1273,7 @@ void CFigure::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 	xd=(float)width/pwidth;
 	yd=(float)height/pheight;
 	}
-	unsigned double ph,pw;
+	double ph,pw;
 	CPoint blend(blend_p);
 	hdc->LPtoDP(&blend);
 	blend.x=xleft;
@@ -1413,7 +1413,7 @@ if(v.size()!=0)
 		else
 			if(y<=i->r.bottom)
 			{
-				eiterator il=find(vl.begin(),vl.end(),i);
+				eiterator il=find(vl.begin(),vl.end(),*i);
 				if(il!=vl.end()) 
 					vl.erase(il);
 			}
@@ -1742,7 +1742,7 @@ void CFigure::Hatch(CDC *hdc)
 	xd=(float)width/pwidth;
 	yd=(float)height/pheight;
 	}
-	unsigned double ph,pw;
+	double ph,pw;
 	CPoint blend(blend_p);
 	hdc->LPtoDP(&blend);
 	blend.x=xleft;
@@ -1878,7 +1878,7 @@ if(v.size()!=0)
 		else
 			if(y<=i->r.bottom)
 			{
-				eiterator il=find(vl.begin(),vl.end(),i);
+				eiterator il=find(vl.begin(),vl.end(),*i);
 				if(il!=vl.end()) 
 					vl.erase(il);
 			}
@@ -2172,8 +2172,8 @@ void CFigure::savefile(CFile& file)
 //end andycad update
 
 
-		
-		for(vector<CVector>::iterator it=ptbegin.begin();it!=ptbegin.end();it++)
+		vector<CVector>::iterator it;
+		for(it=ptbegin.begin();it!=ptbegin.end();it++)
 		{
 			it->savefile(file);
 		}
@@ -4393,7 +4393,8 @@ void CFigure::lclear(bool b)
 
 void CFigure::updatepts()
 {
-	for(vector<CVector>::iterator it=ptbegin.begin();it<ptbegin.end();it++)
+	vector<CVector>::iterator it;
+	for(it=ptbegin.begin();it<ptbegin.end();it++)
 	{
 		it->assignPL(*it);
 	}
@@ -4447,7 +4448,7 @@ void CFigure::unfill(CDC *hdc)
 class isfarv
 {
 public:
-bool operator ()(CVector v1,CVector v2)
+bool operator ()(CVector v1,CVector v2) const
 {
 	CVector v01=v1.getDepth();
 	CVector v02=v2.getDepth();
@@ -5025,7 +5026,7 @@ vector<CVector>* CFigure::getpt()
 }
 struct isunique
 {
-	operator ()(CVector v1,CVector v2)
+	bool operator ()(CVector v1,CVector v2) const
 	{
 		return v1!=v2;
 	}
@@ -5624,7 +5625,7 @@ void CFigure::createobj(CMesh *m)
 	setInit();
 }
 
-CFigure::operator =(const CFigure& f)
+void CFigure::operator =(const CFigure& f)
 {
 	copy(&f);
 }
@@ -5716,7 +5717,7 @@ vector<CFigure*>  CFigure::Trim(vector<CVector>& v1,CFigure *f,bool side,bool st
 {
 	mesh.TrimEdge3(v1[0],&f->mesh);//,side,st);
 	updatecore();
-	return NULL;
+	return vector<CFigure*>();
 }
 
 CMesh* CFigure::getMesh()

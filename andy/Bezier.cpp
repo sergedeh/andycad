@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "CVector.h"
 #include "Bezier.h"
@@ -229,7 +229,8 @@ CBezier::CBezier(int degree,vector<CVector>& mpoint,vector<float>& mknts,bool fi
 //		Para_universp(0,1,ncp+degree,Para);
 //		Knot_Univer(ncp+1,degree,Kn,0,1);
 		ContP.resize(ncp);
-		for(int ji=0;ji<ncp;ji++)
+		int ji;
+		for(ji=0;ji<ncp;ji++)
 		{
 			
 			ContP[ji]=mpoint[ji];
@@ -368,7 +369,8 @@ void CBezier::OffsetMesh(float u, CFigure *f)
 {
 //	getMesh()->offset(u,f->getMesh());
 	mesh2.empty();
-	   for(int iter=0;iter<ncp;iter++)
+	int iter;
+	   for(iter=0;iter<ncp;iter++)
 		{
 		   float u=(float)iter/ncp;
 		   mesh2.addVertex (new CVertex(ContP[iter],u,0));
@@ -500,7 +502,8 @@ void* CBezier::Trim(vector<CVector> vec)
 
 	int s=0;
 	int g;
-		for(int iter=0;iter<=ncp+deg+1;iter++)
+	int iter;
+		for(iter=0;iter<=ncp+deg+1;iter++)
 			{
 				if(Kn[iter]==Para[indexvec[indexpetit-1]])
 				{
@@ -1091,7 +1094,8 @@ void CBezier::closecurve(CVector point,CDC *hdc)
 	delete b; 
 
 */
-	for(int i=0;i<ncp+deg+1;i++)
+	int i;
+	for(i=0;i<ncp+deg+1;i++)
 	{
 		Kn[i]/=2;
 	}
@@ -1475,7 +1479,8 @@ CVector CBezier::addnode(CVector point, CDC *hdc)
 		vector<pair<double,double> > dst;
 	   	Para_universp(0,1,N,Para);
 //		Knot_Univer(ncp,deg,Kn,0,1);
-	   for(int iter0=0;iter0<N;iter0++)
+		int iter0;
+	   for(iter0=0;iter0<N;iter0++)
 	   {
 		    CVector nb=Bspline(deg,ContP,ncp,Para[iter0],Kn);
 		    CVector nbplus=Bspline(deg,ContP,ncp,Para[iter0+1],Kn);//vMr[iter0+1];
@@ -1655,7 +1660,8 @@ bool CBezier::drawBezier(bool fPrevLine, CDC *hdc,CVector point)
 	int i0=ContP.size();
 //	Knot_Univer(ncp,deg,Kn,0,1);
 	CPoint *Pt=new CPoint [i0];
-   for(int iter=0;iter<i0;iter++)
+	int iter;
+   for(iter=0;iter<i0;iter++)
 	 {
 	   Pt[iter]=ContP[iter];
 	}
@@ -1862,7 +1868,8 @@ void CBezier::drawBezier(CDC *hdc)
 	hdc->SetROP2(im); 
 	}*/
 	CPoint *Pt=new CPoint [s];
-	   for(int iter=0;iter<s;iter++)
+	int iter;
+	   for(iter=0;iter<s;iter++)
 		{
 			Pt[iter]=ContP[iter];
 		}
@@ -3206,7 +3213,8 @@ void CBezier::savefiledxf(CStdioFile& file)
 	file.WriteString("0.0000000001");file.WriteString("\n");
 	file.WriteString(" 43");file.WriteString("\n");
 	file.WriteString("0.0000000001");file.WriteString("\n");
-	for(int i=0;i<Kn.size();i++)
+	int i;
+	for(i=0;i<Kn.size();i++)
 	{
 		file.WriteString(" 40");file.WriteString("\n");
 		ps.Format(_T("%f"),Kn[i]);
@@ -3251,8 +3259,8 @@ void CBezier::savefile(CFile &file)
 	file.Write(&maxpara1, sizeof(maxpara1));
 	file.Write(&surf, sizeof(surf));
 	file.Write(&vol, sizeof(vol));
-
-	for(int it=0;it<ncp;it++)
+	int it;
+	for(it=0;it<ncp;it++)
 	{
 		CP[it].savefile(file);
 	}
@@ -3324,7 +3332,8 @@ void CBezier::openfile(CFile &file)
 	CP.clear();
 	C.clear();
 	ContP.clear();
-	for(int it=0;it<ncp;it++)
+	int it;
+	for(it=0;it<ncp;it++)
 	{
 		CVector v;
 		v.openfile(file);
@@ -3419,8 +3428,8 @@ LONG CBezier::Readfile(CFile &file)
 	file.Seek(sizeof(maxpara1),CFile::current);
 	file.Seek(sizeof(surf),CFile::current);
 	file.Seek(sizeof(vol),CFile::current);
-
-	for(int it=0;it<ncp;it++)
+	int it;
+	for(it=0;it<ncp;it++)
 	{
 		CVector v;
 		v.Readfile(file);
@@ -3519,7 +3528,8 @@ void CBezier::addtovec(CDC* hdc)//()
 		   }
 
 		}
-	   for(int iter=lk;iter<=lh;iter++)
+		int iter;
+	   for(iter=lk;iter<=lh;iter++)
 		{
 		   mesh.addVertex (new CVertex(Mr[iter],Para[iter],0));
 		}
@@ -3587,7 +3597,8 @@ void CBezier::addtovecBezier(CDC* hdc)
 		if(hdc!=NULL)
 		{
 			CPoint *Pt=new CPoint [ncp0];
-		   for(int iter=0;iter<ncp0;iter++)
+			int iter;
+		   for(iter=0;iter<ncp0;iter++)
 			{
 				Pt[iter]=ContP[iter];
 			}
@@ -3602,7 +3613,7 @@ void CBezier::addtovecBezier(CDC* hdc)
 			if(n_p>0){
 			_p.resize(n_p);
 			_b.resize(n_p);
-			if(hdc->GetPath(_p.begin(),_b.begin(),n_p)){
+			if(hdc->GetPath(&(*_p.begin()),&(*_b.begin()),n_p)){
 				N=n_p;
 				vMr.resize(n_p);
 				Para.resize(n_p);
@@ -3641,7 +3652,8 @@ void CBezier::addtovecBezier(CDC* hdc)
 		lh=N;
 //		Para_universp(0,1,N-1,Para);
 		if(vMr.size()==0) return;
-	   for(int iter=lk;iter<lh;iter++)
+		int iter;
+	   for(iter=lk;iter<lh;iter++)
 		{
 		   CVertex *_v=new CVertex(vMr[iter],Para[iter],0);
 		   mesh.addVertex(_v);
@@ -3697,7 +3709,8 @@ void CBezier::addtovecBezier(CDC* hdc)
 	setInit();
 	}catch(...)
 		{
-		CString s=GetLastError();
+		CString s;
+		s.Format("%u",GetLastError());
 		AfxMessageBox(s);
 	}
 }
@@ -4667,8 +4680,8 @@ void CBezier::IDrawD1BSpline(CDC *hdc, CVector p1, CVector p2, CVector p3)
 
 	CPoint *Pt=new CPoint [N+1];
 	Para_universp(0,1,N,Para);
-
-   for(int iter=lk;iter<=lh;iter++)
+	int iter;
+   for(iter=lk;iter<=lh;iter++)
 	 {
 	   Mr[iter]=Bspline(deg,CP,ncp,Para[iter],Kn);
 	}
@@ -4722,11 +4735,12 @@ void CBezier::DrawNURBS(CDC *hdc)
 			CPoint *Pt1=new CPoint [ncp];
 			int ncp0=ContP.size();
 			ncp=ncp0;
-		   for(int iter=0;iter<ncp0;iter++)
+			int iter;
+		   for(iter=0;iter<ncp0;iter++)
 			{
 				Pt1[iter]=ContP[iter];
 			}
-		   iter=0;
+		    iter=0;
 			hdc->BeginPath();
 			hdc->PolyBezier(Pt1,ncp0);
 			hdc->EndPath();
@@ -4738,7 +4752,7 @@ void CBezier::DrawNURBS(CDC *hdc)
 			if(n_p>0){
 			_p.resize(n_p);
 			_b.resize(n_p);
-			if(hdc->GetPath(_p.begin(),_b.begin(),n_p)){
+			if(hdc->GetPath(&(*_p.begin()),&(*_b.begin()),n_p)){
 				N=n_p;
 				Para.resize(N+1);
 				   Para_universp(0,1,N,Para);
@@ -4793,7 +4807,7 @@ void CBezier::DrawBSpline(CDC *hdc)
 	   
 	   if(Mr==NULL) Mr=new CVector[N+1];
       CMesh::ivertex iv=mesh.vbegin();
-	  if(iv!=NULL){
+	  if(iv!=mesh.vend()){
    for(int iter=0;iter<N;iter++)
    {
 	  Mr[iter]=/*Bspline(deg,CP,ncp,Para[iter],Kn);//*/NURBS(deg,CP,ncp+1,Para[iter],Kn);
@@ -4874,8 +4888,8 @@ CVector CBezier::NURBS( int p, vector<CVector>& P,int n,double u,vector<double>&
 	result.z=0;
 	result.w=0;
 	double test=0;
-		
-	for (int i=0; i<n; i++)
+	int i;
+	for (i=0; i<n; i++)
 	{
 		base[i]=compute_base(p,u,U,i,n-1);
 		resultN+=base[i]*P[i].w;
@@ -4918,7 +4932,8 @@ CVector CBezier::NURBS( int p, vector<CVector> P,int n,double u,double v,vector<
 	{
 		base[j]=compute_base(p,u,U,j,n);
 	}
-	for (int i=0; i<=n; i++)
+	int i;
+	for (i=0; i<=n; i++)
 	{
 		base1[i]=compute_base(p,v,U,i,n);
 	}
@@ -4998,7 +5013,8 @@ CVector CBezier::NURBS( int p,int p1, vector<CVector> P,int n,int n1,double u,do
 	{
 		base[j]=compute_base(p,u,U,j,n);
 	}
-	for (int i=0; i<=n1; i++)
+	int i;
+	for (i=0; i<=n1; i++)
 	{
 		base1[i]=compute_base(p1,v,V,i,n1);
 	}
@@ -5146,7 +5162,8 @@ CVector CBezier::Sur_deriv( int p,int p1, vector<CVector> P,int n,int n1,double 
 		base1d[i]=compute_D1base(p1,p1,v,V,V,i,n1);
 	}
 	}
-	for (int i=0; i<=n1; i++)
+	int i;
+	for (i=0; i<=n1; i++)
 	{
 		base1[i]=compute_base(p1,v,V,i,n1);
 	}
@@ -5269,7 +5286,8 @@ CVector CBezier::NURBS( int p,int p1,int p2, vector<CVector> P,int n,int n1,int 
 	{
 		base[j]=compute_base(p,u,U,j,n);
 	}
-	for (int i=0; i<=n1; i++)
+	int i;
+	for (i=0; i<=n1; i++)
 	{
 		base1[i]=compute_base(p1,v,V,i,n1);
 	}
@@ -5419,8 +5437,8 @@ double CBezier::compute_base(int p, double u,vector<double> B,int i,int n)
 	double test=0;
 	int emult=0,bmult=0;
 
-
-	for(int iter=0;iter<=p+n+1;iter++)
+	int iter;
+	for(iter=0;iter<=p+n+1;iter++)
 	{
 		if (B[0]==B[iter])
 		{
@@ -5506,8 +5524,8 @@ double CBezier::computebase(int pp,int p, double u,vector<double> U,int i,int n)
 	double test=0;
 	int emult=0,bmult=0;
 
-
-	for(int iter=0;iter<=p+n+1;iter++)
+	int iter;
+	for(iter=0;iter<=p+n+1;iter++)
 	{
 		if (U[0]==U[iter])
 		{
@@ -5521,7 +5539,7 @@ double CBezier::computebase(int pp,int p, double u,vector<double> U,int i,int n)
 	}
 
 	
-	for( iter=0;iter<=p+n+1;iter++)
+	for(iter=0;iter<=p+n+1;iter++)
 	{
 		if ((U[0]==u)&&(iter==p))
 		{
@@ -5693,7 +5711,7 @@ void CBezier::insertknot(double t, int h, int p,vector<double> U,vector<CVector>
 	int vk=k-s;
 	if (vk<0) vk=0;
 	int r=0;
-	for(iter=n;iter>=0;iter--)
+	for(int iter=n;iter>=0;iter--)
 	{
 	PV[(n+1)*r+iter].x=P[iter].x*P[iter].w;
 	PV[(n+1)*r+iter].y=P[iter].y*P[iter].w;
@@ -5748,7 +5766,6 @@ void CBezier::insertknot(double t, int h, int p,vector<double> U,vector<CVector>
 	P[j].w=PV[(n+1)*r+iter].w;
 	j++;
 	}
-
 
 	for(iter=1;iter<=h;iter++)
 	{
@@ -5879,6 +5896,7 @@ void CBezier::insertknotU(double t, int h, int p,vector<double> U,int n)
 
 	if (s!=0)
 	{
+		int iter;
 	for(iter=0;iter<=k;iter++)
 	{
 		Uc[iter]=U[iter];
@@ -5995,7 +6013,8 @@ double* CBezier::Para_chord(double min,double max,CVector *point,int n)
 	double d=0;
 	double rx,ry;
 
-	for(int i=1;i<=n;i++)
+	int i;
+	for(i=1;i<=n;i++)
 	{
 		rx=point[i].x-point[i-1].x;
 		ry=point[i].y-point[i-1].y;
@@ -6048,7 +6067,8 @@ void CBezier::Para_chord(double min,double max,CVector *point,int n,double* T)
 	double d=0,dx=0;
 	CVector rx;
 
-	for(int i=1;i<=n;i++)
+	int i;
+	for(i=1;i<=n;i++)
 	{
 		rx=point[i]-point[i-1];
 		d+=absc(rx);
@@ -6083,8 +6103,8 @@ double* CBezier::Grev_knot1(int n, int p, vector<double> T)
 //	int m=n+p+1;
 	u=new double [n+1];
 	double dt=0,k;
-
-	for(int i=0;i<=p;i++)
+	int i;
+	for(i=0;i<=p;i++)
 	{
 		Kn[i]=0;
 	}
@@ -6206,10 +6226,11 @@ void CBezier::INT_curve(vector<CVector> point,int n, int p,vector<double> U, vec
 	{
 	N[j]=compute_D2base(p,p,T[p],T,U,j,nv);
 	}
-
-	for(int i=1; i<=nv-1;i++)
+	int i;
+	for(i=1; i<=nv-1;i++)
 	{
-	 for(int j=0;j<=nv;j++)
+		int j;
+	 for(j=0;j<=nv;j++)
 		{
 
 			N[i*(nv+1)+j]=compute_base(p, T[p+(i-1)],U,j,nv);
@@ -6343,7 +6364,8 @@ void CBezier::INT_curveI(CVector* point,int n, int p,vector<double> U, vector<do
 
 
 
-	for(int i=0; i<=nv;i++)
+	int i;
+	for(i=0; i<=nv;i++)
 	{
 	 for(int j=0;j<=nv;j++)
 		{
@@ -6353,8 +6375,6 @@ void CBezier::INT_curveI(CVector* point,int n, int p,vector<double> U, vector<do
 
 	}
 
-
-	
 
 	for(i=0;i<=n;i++)
 	{
@@ -6399,7 +6419,8 @@ CVector  CBezier::surface_Boor(vector<CVector> P,int m,int n,int p,int q, double
 	
 	double test=0,test1=0,test2=0;
 
-	for (int c=0;c<=pu;c++)
+	int c;
+	for (c=0;c<=pu;c++)
 	{
 		if(U[c]==u)
 		{
@@ -6488,7 +6509,8 @@ double * CBezier::surface_KnotCLR(vector<CVector> point,int m,int n)
 
 	v=new double [N+1];
 
-	for(int i=0;i<=m;i++)
+	int i;
+	for(i=0;i<=m;i++)
 	{
 		v[i]=0;
 	}
@@ -6601,7 +6623,8 @@ double * CBezier::surface_KnotUSC(int m,int n,vector<CVector> point)
 	vs=new double [n+1];
 	v=new double [n+1];
 
-	for(int i=0;i<=n;i++)
+	int i;
+	for(i=0;i<=n;i++)
 	{
 		v[i]=0;
 	}
@@ -6657,7 +6680,8 @@ double * CBezier::surface_KnotUSR(int m,int n,vector<CVector> point)
 
 
 
-	for(int i=0;i<=n;i++)
+	int i;
+	for(i=0;i<=n;i++)
 	{
 		v[i]=0;
 	}
@@ -6716,7 +6740,7 @@ CVector CBezier::insert_Boor(double t, int p,vector<double> U,vector<CVector> P,
 	double *arv;
 	arv=new double[(n+3)*(n+3)];
 	
-	for(iter=0;iter<=n;iter++)
+	for(int iter=0;iter<=n;iter++)
 	{
 	PV[iter*(n+1)]=P[iter];
 	}
@@ -6749,8 +6773,8 @@ void CBezier::Bohms(double t, int p,vector<double>& U,vector<CVector>& P,int &n)
 	vector<double> Uc;
 
 
-
-	for(int iter=0;iter<=m;iter++)
+	int iter;
+	for(iter=0;iter<=m;iter++)
 	{
 		if((U[iter]<=t)&&(t<U[iter+1]))
 		{
@@ -6765,7 +6789,8 @@ void CBezier::Bohms(double t, int p,vector<double>& U,vector<CVector>& P,int &n)
 	P[iter].z=P[iter].z*P[iter].w;
 	}
 
-	for(int i=0;i<=n+1;i++)
+	int i;
+	for(i=0;i<=n+1;i++)
 	{
 		Pv.push_back(v0);
 		if((0<=i)&&(i<=k-p))
@@ -6789,30 +6814,6 @@ void CBezier::Bohms(double t, int p,vector<double>& U,vector<CVector>& P,int &n)
 		}
 
 	}	
-/*
-	for(i ftr4tgb nkuy5b lkint i=0;i<n+1;i++)
-	{
-		if((0<=i)&&(i<=k-p+1))
-		{
-			Pv[i]=P[i];
-		}
-
-		if((k-p+2<=i)&&(i<=k))
-		{
-			if(U[i+p-1]==U[i]) continue;
-			Pv[i].x=P[i].x*((t-U[i])/(U[i+p-1]-U[i]))+P[i-1].x*((U[i+p-1]-t)/(U[i+p-1]-U[i]));
-			Pv[i].y=P[i].y*((t-U[i])/(U[i+p-1]-U[i]))+P[i-1].y*((U[i+p-1]-t)/(U[i+p-1]-U[i]));
-			Pv[i].z=P[i].z*((t-U[i])/(U[i+p-1]-U[i]))+P[i-1].z*((U[i+p-1]-t)/(U[i+p-1]-U[i]));
-			Pv[i].w=P[i].w*((t-U[i])/(U[i+p-1]-U[i]))+P[i-1].w*((U[i+p-1]-t)/(U[i+p-1]-U[i]));
-		}
-
-		if((k+1<=i)&&(i<=n+1))
-		{
-			Pv[i]=P[i-1];
-		}
-
-	}
-*/
 	for(iter=0;iter<=k;iter++)
 	{
 		Uc.push_back(U[iter]);
@@ -6835,7 +6836,6 @@ void CBezier::Bohms(double t, int p,vector<double>& U,vector<CVector>& P,int &n)
 		U[iter]=Uc[iter];
 
 	}
-
 	for(i=0;i<n;i++)
 	{
 		P[i].x=Pv[i].x/Pv[i].w;
@@ -6862,7 +6862,8 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 	if((u!=0)&&(u!=1))
 	{
 
-	for(int iter=0;iter<=m;iter++)
+		int iter;
+	for(iter=0;iter<=m;iter++)
 	{
 		if((U[iter]<=u)&&(u<U[iter+1]))
 		{
@@ -6870,11 +6871,12 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 		}
 	}
 
-	for(int a=0;a<=nw;a++)
+	int a;
+	for(a=0;a<=nw;a++)
 	{
 		for(int j=0;j<=nv;j++)
 		{
-			for(iter=0;iter<=nu;iter++)
+			for(int iter=0;iter<=nu;iter++)
 			{
 			P[a*(nv+1)*(nu+1)+j*(nu+1)+iter].x=P[a*(nv+1)*(nu+1)+j*(nu+1)+iter].x*P[a*(nv+1)*(nu+1)+j*(nu+1)+iter].w;
 			P[a*(nv+1)*(nu+1)+j*(nu+1)+iter].y=P[a*(nv+1)*(nu+1)+j*(nu+1)+iter].y*P[a*(nv+1)*(nu+1)+j*(nu+1)+iter].w;
@@ -6961,7 +6963,8 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 	Uc.resize(V.size());
 	k=0;
 	m=nv+pv+1;
-	for(int iter=0;iter<=m;iter++)
+	int iter;
+	for(iter=0;iter<=m;iter++)
 	{
 		if((V[iter]<=v)&&(v<V[iter+1]))
 		{
@@ -6969,9 +6972,10 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 		}
 	}
 
-	for(int a=0;a<=nw;a++)
+	int a;
+	for(a=0;a<=nw;a++)
 	{
-		for(iter=0;iter<=nu;iter++)
+		for(int iter=0;iter<=nu;iter++)
 		{
 			for(int j=0;j<=nv;j++)
 			{
@@ -7009,7 +7013,6 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 			}
 		}
 	}
-
 	for(iter=0;iter<=k;iter++)
 	{
 		Uc[iter]=V[iter];
@@ -7067,10 +7070,10 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 			k=iter;
 		}
 	}
-
-	for(int a=0;a<=nw;a++)
+	int a;
+	for(a=0;a<=nw;a++)
 	{
-		for(iter=0;iter<=nu;iter++)
+		for(int iter=0;iter<=nu;iter++)
 		{
 			for(int j=0;j<=nv;j++)
 			{
@@ -7080,7 +7083,7 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 			}
 		}
 	}
-
+	
 	for(a=0;a<=nw+1;a++)
 	{
 		for(int i=0;i<=nu;i++)
@@ -8426,7 +8429,8 @@ void CBezier::surface(CBezier *fig1, CFigure *fig2)
 	minpara=fig1->minpara;
 	maxpara=fig1->maxpara;
 	//N=fig1->N;
-	for(int i=0;i<=fig1->Kn.size();i++)
+	int i;
+	for(i=0;i<=fig1->Kn.size();i++)
 	{
 		Kn[i]=fig1->Kn[i];
 	}
@@ -8568,7 +8572,8 @@ void CBezier::copy(const CFigure *fig)
 
 	int s=bg->ContP.size();
 	ContP.resize(s);
-	for(int i=0; i<s;i++)
+	int i;
+	for(i=0; i<s;i++)
 	{
 		ContP[i]=bg->ContP[i];
 	}
@@ -8633,7 +8638,7 @@ void CBezier::copy(const CFigure *fig)
 	else if(bg->Mr != 0)
 	{
 	Mr=new CVector[(N+1)];
-	for(i=0; i<=N;i++)
+	for(int i=0; i<=N;i++)
 	{
 		Mr[i]=bg->Mr[i];
 	}
@@ -8675,7 +8680,8 @@ void CBezier::BSdegelv(CBezier *fig, int d)
 	vector<double> K;K.resize(50);
 	vector<double> Kc;Kc.resize(50);
 
-	for(int i=0;i<=fig->ncp+fig->deg;i++)
+	int i;
+	for(i=0;i<=fig->ncp+fig->deg;i++)
 	{
 		K[i]=fig->Kn[i];
 	}
@@ -8763,7 +8769,8 @@ void CBezier::degel()
 
 
 
-	for(int i=0;i<=ncp+deg+1;i++)
+	int i;
+	for(i=0;i<=ncp+deg+1;i++)
 	{
 		K[i]=Kn[i];
 	}
@@ -8821,7 +8828,7 @@ void CBezier::degel()
 	if(count(Kc1.begin(),Kc1.end(),K[d2+i])==d2)
 	{
 		jk++;
-		Kc1.insert(Kc1.begin+find(Kc1.begin(),Kc1.end(),K[d2+i]),K[d2+i]);
+		Kc1.insert(Kc1.begin() + distance(Kc1.begin(),find(Kc1.begin(),Kc1.end(),K[d2+i])),K[d2+i]);
 	}
 	}
 		          
@@ -8976,8 +8983,8 @@ void CBezier::degel(int &ncp0,int &deg0,vector<double> V,vector<CVector>CP0,vect
 	vector<double> Kc1;Kc1.resize(50);
 
 
-
-	for(int i=0;i<=ncp0+deg0+1;i++)
+	int i;
+	for(i=0;i<=ncp0+deg0+1;i++)
 	{
 		K[i]=V[i];
 	}
@@ -9035,7 +9042,7 @@ void CBezier::degel(int &ncp0,int &deg0,vector<double> V,vector<CVector>CP0,vect
 	if(count(Kc1.begin(),Kc1.end(),K[d2+i])==d2)
 	{
 		jk++;
-		Kc1.insert(Kc1.begin+find(Kc1.begin(),Kc1.end(),K[d2+i]),K[d2+i]);
+		Kc1.insert(Kc1.begin() + distance(Kc1.begin(), find(Kc1.begin(),Kc1.end(),K[d2+i])),K[d2+i]);
 	}
 	}
 		          
@@ -9087,7 +9094,8 @@ void CBezier::SUdegel(int du, int dv)
 	std::copy(C.begin(),C.end(),pt);
 
     int m1=0;
-	for(int dg=deg;dg<du;dg++)
+	int dg;
+	for(dg=deg;dg<du;dg++)
 	{
 	for(int d=0;d<=ncp1;d++)
 	{
@@ -9165,7 +9173,8 @@ void CBezier::loftsurface(vector<CBezier*>& fg, int l,int h)
 	deg=fg[0]->deg;
 	ncp=fg[0]->ncp;
 	deg1=3;
-	for(int i=0;i<=ncp1;i++)
+	int i;
+	for(i=0;i<=ncp1;i++)
 	{
 		deg=deg>=fg[i]->deg?deg:fg[i]->deg;
 	}
@@ -9352,7 +9361,8 @@ void CBezier::revolsurface(vector<CBezier*> fg, int l,bool simple)
 	Para_universp(0,1,ncp1,Para1);
     Knot_Univer(ncp2,deg1,Kn2,0,1);
 	Kn.resize(fg[1]->Kn.size());
-	for(int i=0;i<fg[1]->Kn.size();i++)
+	int i;
+	for(i=0;i<fg[1]->Kn.size();i++)
 	{
 		Kn[i]=fg[1]->Kn[i];
 	}
@@ -9460,7 +9470,7 @@ void CBezier::revolsurface(vector<CBezier*> fg, int l,bool simple)
 	vg0=vg[0].x*vrx+vg[0].y*vry+vg[0].z*vrz;*/
 	d1=vg[1]-vg[0];
 	d1.w=0;
-	for(i=0;i<=fg[1]->ncp;i++)
+	for(int i=0;i<=fg[1]->ncp;i++)
 	{
 
 	CVector pt=fg[1]->CP[i]-fg[0]->CP[0];
@@ -9518,51 +9528,6 @@ void CBezier::revolsurface(vector<CBezier*> fg, int l,bool simple)
 	CMatrix mathelp;
 
 	mathelp.Transpose(C,9,fg[1]->ncp+1);
-
-/*	int lo;
-	CVector v1,v2,v3,pv3,pk,pv2;
-	for(j=1;j<=ncp2;j++)
-	{
-		for(i=0;i<=ncp1;i++)
-		{
-			for(int k=0;k<=ncp;k++)
-			{
-			
-				if((k!=0)&&(k!=ncp))
-				{
-
-				v1=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k+1];
-				v2=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k-1];
-				v1=v1*pv2;
-				v2=v2*pv2;
-				v2=(v2/absc(v2))*50;
-				v1=(v1/absc(v1))*50;
-				v3=v2-v1;
-			if(pv3.dot(v3)<0) 
-			{
-		//		v3=-v3;
-			}
-//			pv3=v3;
-				}
-			if((k==0)||(k==ncp))
-			{
-			if(i==0)
-			{
-				pv2=C[(j-1)*(ncp1+1)*(ncp+1)+(i+1)*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k];
-			}
-			v1=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k+1]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k];
-			if(i!=ncp1) pv2=C[(j-1)*(ncp1+1)*(ncp+1)+(i+1)*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k];
-			if(k==ncp) v1=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k-1];
-			v3=v1*pv2;
-			v3=(v3/absc(v3))*50;
-			pv3=v3;
-			}
-			
-			C[j*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]+v3;
-			C[j*(ncp1+1)*(ncp+1)+i*(ncp+1)+k].w=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k].w;
-			}
-		}
-	}*/
 
 }
 
@@ -9629,7 +9594,8 @@ void CBezier::extrussurface(vector<CBezier*> fg, int l)
 	Knot_Univer(ncp1,deg1,Kn1,0,1);
 
 	CAABB bol;
-	for(int i=0;i<=ncp;i++)
+	int i;
+	for(i=0;i<=ncp;i++)
 	{
 	C[i]=fg[0]->CP[i];
 	bol.add(C[i]);
@@ -9700,50 +9666,6 @@ void CBezier::extrussurface(vector<CBezier*> fg, int l)
 		delete b[i];
 	}
 
-/*	int l,lo;
-	CVector v1,v2,v3,pv3,pk,pv2;
-	for(j=1;j<=ncp2;j++)
-	{
-		for(i=0;i<=ncp1;i++)
-		{
-			for(int k=0;k<=ncp;k++)
-			{
-			
-				if((k!=0)&&(k!=ncp))
-				{
-
-				v1=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k+1];
-				v2=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k-1];
-				v1=v1*pv2;
-				v2=v2*pv2;
-				v2=(v2/absc(v2))*50;
-				v1=(v1/absc(v1))*50;
-				v3=v2-v1;
-			if(pv3.dot(v3)<0) 
-			{
-		//		v3=-v3;
-			}
-//			pv3=v3;
-				}
-			if((k==0)||(k==ncp))
-			{
-			if(i==0)
-			{
-				pv2=C[(j-1)*(ncp1+1)*(ncp+1)+(i+1)*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k];
-			}
-			v1=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k+1]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k];
-			if(i!=ncp1) pv2=C[(j-1)*(ncp1+1)*(ncp+1)+(i+1)*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k];
-			if(k==ncp) v1=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]-C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k-1];
-			v3=v1*pv2;
-			v3=(v3/absc(v3))*50;
-			pv3=v3;
-			}
-			
-			C[j*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k]+v3;
-			C[j*(ncp1+1)*(ncp+1)+i*(ncp+1)+k].w=C[(j-1)*(ncp1+1)*(ncp+1)+i*(ncp+1)+k].w;
-			}
-		}
-	}*/
 
 	}
 	else if(l==1)
@@ -9797,7 +9719,8 @@ void CBezier::surface(CString type,vector<CBezier*> fg, int l,float vthick)
 	{
 	CBezier f1,f2,tr;
 	vector<CBezier*> fg1(2),fg2(2);
-	for(int h=0;h<2;h++)
+	int h;
+	for(h=0;h<2;h++)
 	{
 		fg1[h]=new CBezier;
 		fg2[h]=new CBezier;
@@ -9815,17 +9738,6 @@ void CBezier::surface(CString type,vector<CBezier*> fg, int l,float vthick)
 	vector< vector<CVector> > qd(2);
 	vector< vector<CVector> > rd(2);
 
-/*	for(int d=0;d<=1;d++)
-	{
-		std::copy(f1.C[2*f1.ncp].begin(),f1.C[f1.ncp],qd[d].begin());
-		std::copy(f2.C[0],f2.C[f2.ncp],rd[d].begin());
-	}
-	CMatrix mathelp;
-	mathelp.Transpose(qd,2,f1.ncp);
-	mathelp.Transpose(rd,2,f2.ncp);*/
-
-
-//	Para_universp(minpara,maxpara,N,Para);
 	Knot_Univer(3,f1.deg,Kn,0,1);
 	Knot_Univer(1,f1.deg1,Kn1,0,1);
 
@@ -10560,7 +10472,7 @@ if(v.size()!=0)
 		else
 			if(y<=i->r.bottom)
 			{
-				eiterator il=find(vl.begin(),vl.end(),i);
+				eiterator il=find(vl.begin(),vl.end(),*i);
 				if(il!=vl.end()) 
 					vl.erase(il);
 			}
@@ -11171,7 +11083,8 @@ void CBezier::sphere(CVector Ct,float radius)
 	vrx.getcoorx();
 	vry.getcoory();
 	vrz.getcoorz();
-	for(int i=0;i<=5;i++)
+	int i;
+	for(i=0;i<=5;i++)
 	{
 	v=Ct+(vry*radius*cos(tetha))+(vrx*radius*sin(tetha));
 	CP[i]=v;
@@ -11267,7 +11180,8 @@ void CBezier::sphere(CMesh *s)
 	vrx.getcoorx();
 	vry.getcoory();
 	vrz.getcoorz();
-	for(int i=0;i<=5;i++)
+	int i;
+	for(i=0;i<=5;i++)
 	{
 	v=Ct+(vry*radius*cos(tetha))+(vrx*radius*sin(tetha));
 	CP[i]=v;
@@ -11350,7 +11264,8 @@ void CBezier::sphere(CMesh *s)
 
   //u direction  
   s->resizevertex((N+1)*(N1+1));
-  for(int kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
+  int kiter;
+  for(kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
   {
     for(int jiter=0;jiter<=N1;jiter++)
 	 {
@@ -11441,7 +11356,8 @@ void CBezier::sphere(CMesh *s,CVector Co)
 	vrx.getcoorx();
 	vry.getcoory();
 	vrz.getcoorz();
-	for(int i=0;i<=5;i++)
+	int i;
+	for(i=0;i<=5;i++)
 	{
 	v=Co+(vry*radius*cos(tetha))+(vrx*radius*sin(tetha));
 	CP[i]=v;
@@ -11517,7 +11433,6 @@ void CBezier::sphere(CMesh *s,CVector Co)
   CVector nsu;
   CVector nsv;
   CVector ns;
-  i=0;
 
   	Para_universp(minpara,maxpara,N,Para);
 	Para_universp(minpara1,maxpara1,N1,Para1);
@@ -11525,7 +11440,8 @@ void CBezier::sphere(CMesh *s,CVector Co)
   //u direction 
 	int h=s->Vcount();
   s->resizevertex(s->Vcount()+(N+1)*(N1+1));
-  for(int kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
+  int kiter;
+  for(kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
   {
     for(int jiter=0;jiter<=N1;jiter++)
 	 {
@@ -11563,7 +11479,7 @@ void CBezier::sphere(CMesh *s,CVector Co)
    }
    }
    int ed=i;
-  	   for(i=0;i<ed;i+=5)
+  	   for(i=0;i<ed; i+=5)
 	   {
 		  s->addTri(new CTriangle(s->Edge(ho+i),s->Edge(ho+i+1),s->Edge(ho+i+4)));
   		  s->Triangle(s->Tcount()-1)->Edge(2)->flip();
@@ -11626,7 +11542,8 @@ void CBezier::smooth(int u, int v, int w)
   //u direction  
 	mesh.empty();
   mesh.resizevertex((N+1)*(N1+1)*(N2+1));
-  for(int kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
+  int kiter;
+  for(kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
   {
     for(int jiter=0;jiter<=N1;jiter++)
 	 {
@@ -11703,7 +11620,7 @@ void CBezier::smooth(int u, int v, int w)
    {
    for(int kiter=0;kiter<N2;kiter++)
    {
-	   for(jiter=0;jiter<N1;jiter++)
+	   for(int jiter=0;jiter<N1;jiter++)
 	   {
 		  new CEdge(mesh.Vertex((N1+1)*(N+1)*kiter+(N+1)*jiter+iter),mesh.Vertex((N1+1)*(N+1)*kiter+(N+1)*(jiter+1)+iter),(N1+1)*(N+1)*kiter+(N+1)*jiter+iter);
 		  new CEdge(mesh.Vertex((N1+1)*(N+1)*kiter+(N+1)*(jiter+1)+iter),mesh.Vertex((N1+1)*(N+1)*(kiter+1)+(N+1)*(jiter+1)+iter),(N1+1)*(N+1)*kiter+(N+1)*jiter+iter+1);
@@ -11803,7 +11720,8 @@ void CBezier::cube(CMesh *s)
 
   //u direction  
   s->resizevertex((N+1)*(N1+1)*(N2+1));
-  for(int kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
+  int kiter;
+  for(kiter=0;kiter<=N2;kiter++)//=kiter+N2-1)
   {
     for(int jiter=0;jiter<=N1;jiter++)
 	 {
@@ -11907,8 +11825,8 @@ void CBezier::cap(bool vctop,bool vcbot)
 		
 		
 		
-		
-	for(int iter=0;iter<=N;iter++)
+	int iter;	
+	for(iter=0;iter<=N;iter++)
 	{
 	CVector v=*mesh.Vertex(iter);
 	v=vrx*v.x+vrz*v.z+vry*v.y;
@@ -11954,7 +11872,8 @@ void CBezier::cap(bool vctop,bool vcbot)
 CVector nsu,nsv,ns;
 	int vc=mesh.Vcount();
 //	mesh.resizevertex(vc+(ncpu+1)*(ncpv+1));
-  for(int kiter=0;kiter<=0;kiter++)//=kiter+N2-1)
+	int kiter;
+  for(kiter=0;kiter<=0;kiter++)//=kiter+N2-1)
   {
     for(int jiter=0;jiter<=ncpv;jiter++)
 	 {
@@ -12069,7 +11988,8 @@ CVector nsu,nsv,ns;
 		
 	box1.empty();
 	Mb.clear();
-	   for(int iter=0;iter<=N;iter++)
+	int iter;
+	   for(iter=0;iter<=N;iter++)
 	   {
 		 CVector v=*mesh.Vertex(N2*(N1+1)*(N+1)+N1*(N+1)+iter);
 		 v=vrx*v.x+vrz*v.z+vry*v.y;
@@ -12114,7 +12034,8 @@ CVector nsu,nsv,ns;
 
 CVector nsu,nsv,ns;
 	int vc=mesh.Vcount();
-  for(int kiter=0;kiter<=0;kiter++)//=kiter+N2-1)
+	int kiter;
+  for(kiter=0;kiter<=0;kiter++)//=kiter+N2-1)
   {
     for(int jiter=0;jiter<=ncpv;jiter++)
 	 {
@@ -12228,8 +12149,8 @@ void CBezier::cap0(bool vctop,bool vcbot)
 	Mb.clear();
 	if(vctop)
 	{
-
-	   for(int iter=0;iter<=N;iter++)
+		int iter;
+	   for(iter=0;iter<=N;iter++)
 	   {
 		 box1.add(CVector(*mesh.Vertex(N2*(N1+1)*(N+1)+N1*(N+1)+iter)));
 	   }

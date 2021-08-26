@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Rectangle.h"
 
@@ -609,7 +609,8 @@ void CRectangle::drawMesh(CDC *hdc,float r)
 	CVector v001=v01;
 	CVector v002=v02;
 
-	for(int i=0;i<dcount;i++)
+	int i;
+	for(i=0;i<dcount;i++)
 	{
 		hdc->MoveTo(v01);
 		hdc->LineTo(v02);

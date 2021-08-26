@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Spline.h"
 
@@ -43,7 +43,7 @@ CFigure * CSpline::closecurve()
   {
 	  for(vector<CVector>::iterator i=elem[j]->ptbegin.begin();i!=elem[j]->ptbegin.end();i++)
 	  {
-		v.push_back(i);
+		v.push_back(&*i);
 	  }
 
   }
@@ -69,7 +69,7 @@ void CSpline::translate(CWnd *wnd, CDC *hdc, CVector prevpos, CVector postpos)
 		if (pointinRegion(ptsBegin,prevpos))
 		{
 			**k=postpos;
-			drawpoint(hdc,*k);
+			drawpoint(hdc,find(ptbegin.begin(),ptbegin.end(),**k));
 			b=true;
 		}
 	}

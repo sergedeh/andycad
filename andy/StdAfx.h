@@ -1,4 +1,4 @@
-// stdafx.h : include file for standard system include files,
+// pch.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -13,7 +13,7 @@
 #define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
 
 #ifndef _WIN32_WINNT		// Allow use of features specific to Windows XP or later.                   
-#define _WIN32_WINNT 0x0400	// Change this to the appropriate value to target other versions of Windows.
+#define _WIN32_WINNT 0x0600	// Change this to the appropriate value to target other versions of Windows.
 #endif						
 
 
@@ -30,7 +30,7 @@
 #ifndef _AFX_NO_AFXCMN_SUPPORT
 #include <afxcmn.h>			// MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
-#include "C:\Program Files(uac)\MyProjects\andycad\TipDlg.h"
+#include "C:\Users\Administrator\source\repos\andycad\andy\TipDlg.h"
 //#include <htmlhelp.h>
 #include <algorithm>
 #include <iterator>

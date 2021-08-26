@@ -30,7 +30,7 @@ public:
 	double volume();
 	operator CRect();
 	void inflate(float radius);
-	operator ==(CAABB* b) {return (min==b->min)&&(max==b->max);}
+	bool operator ==(CAABB* b) {return (min==b->min)&&(max==b->max);}
 	void add(CPoint& p);
 	bool ccontainpts(CPoint p);
 	CVector getParam(CVector p);

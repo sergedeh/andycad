@@ -23,7 +23,7 @@
 // that you have found/implemented and I will fix/incorporate them into this
 // file.
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include <math.h>
 //#include "utils.h"
 #include "geometry.h"
@@ -324,7 +324,7 @@ BOOL CPolygon::GetAttributes(REAL *pArea, CVector *pCentroid, CVector *pNorm,
     // Start triangulating
 	while (P.GetSize() > 3) {
 		BOOL bCornerCut = FALSE;
-		for (i = 0; i < P.GetSize(); i++ ) {
+		for (int i = 0; i < P.GetSize(); i++ ) {
 
 			int iPlus1 = i+1;        if (iPlus1 == P.GetSize()) iPlus1 = 0;
 			int iPlus2 = (iPlus1+1); if (iPlus2 == P.GetSize()) iPlus2 = 0;
@@ -367,7 +367,7 @@ BOOL CPolygon::GetAttributes(REAL *pArea, CVector *pCentroid, CVector *pNorm,
 	else 						// all points coincident or colinear, so get average
 	{
 		*pCentroid = CVector( D2Real(0.0), D2Real(0.0), D2Real(0.0) );
-		for (i=0; i<nNumUniquePoints; i++) *pCentroid += m_point[i];
+		for (int i=0; i<nNumUniquePoints; i++) *pCentroid += m_point[i];
 		*pCentroid = *pCentroid/Int2Real(nNumUniquePoints);
 	}
 	*pArea = (*pArea < D2Real(0.0))? D2Real(-0.5) * *pArea : D2Real(0.5) * *pArea;
@@ -428,10 +428,10 @@ CVector CPolygon::Centroid()
 	{
 		Centre = CVector( D2Real(0.0), D2Real(0.0), D2Real(0.0) );
 		if (Closed()) {
-			for (i=0; i<GetSize()-1; i++) Centre += m_point[i];
+			for (int i=0; i<GetSize()-1; i++) Centre += m_point[i];
 			Centre.Scale(D2Real(1.0/(double)(GetSize()-1)));
 		} else {
-			for (i=0; i<GetSize(); i++) Centre += m_point[i];
+			for (int i=0; i<GetSize(); i++) Centre += m_point[i];
 			Centre.Scale(D2Real(1.0/(double)GetSize()));
 		}
 		return Centre;
@@ -588,7 +588,7 @@ BOOL CPolygon::Triangulate(CPolygon* TriPoly)
     // Start triangulating
 	while (P.GetSize() > 3) {
 		BOOL bCornerCut = FALSE;
-		for (i = 0; i < P.GetSize(); i++ ) {
+		for (int i = 0; i < P.GetSize(); i++ ) {
 
 			int iPlus1 = i+1;        if (iPlus1 == P.GetSize()) iPlus1 = 0;
 			int iPlus2 = (iPlus1+1); if (iPlus2 == P.GetSize()) iPlus2 = 0;

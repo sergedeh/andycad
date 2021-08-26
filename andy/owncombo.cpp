@@ -2,7 +2,7 @@
 // See OwnCombo.h for details on how to use this class
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "OwnCombo.h"
 
 #ifdef _DEBUG

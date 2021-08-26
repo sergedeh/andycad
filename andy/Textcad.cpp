@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "TextCad.h"
 #include "bezier.h"
@@ -191,7 +191,7 @@ void CTextCad::create(CVector pos)
 }
 struct Tselected 
 	{
-	operator()(tpair t)
+	bool operator()(tpair t)
 		  {
 			return t.second.s;
 		  }
@@ -391,7 +391,8 @@ CPoint CTextCad::drawtext(CDC *hdc, UINT nchar)
 		k=seiter>sbiter?seiter:sbiter;
 		itmap i0=ltext.find(j);
 		itmap i1=ltext.find(k);
-		for(itmap i=i0;i1!=ltext.end();i++,i1++)
+		itmap i;
+		for(i=i0;i1!=ltext.end();i++,i1++)
 			{
 			i->second=i1->second;
 			}
@@ -490,7 +491,8 @@ CPoint CTextCad::deleteback(CDC *hdc)
 		k=seiter>sbiter?seiter:sbiter;
 		itmap i0=ltext.find(j);
 		itmap i1=ltext.find(k);
-		for(itmap i=i0;i1!=ltext.end();i++,i1++)
+		itmap i;
+		for(i=i0;i1!=ltext.end();i++,i1++)
 			{
 			i->second=i1->second;
 			}
@@ -508,7 +510,8 @@ CPoint CTextCad::deleteback(CDC *hdc)
 		{
 		int k;
 		char c;
-		for(itmap o=i;o!=ltext.end();o++)
+		itmap o;
+		for(o=i;o!=ltext.end();o++)
 			{
 				k=o->first;
 				c=o->second.c;
@@ -721,7 +724,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				int j=sbiter;
 				j=seiter>sbiter?sbiter:seiter;
 				k=seiter>sbiter?seiter:sbiter;
-				for(int l=j;l<k;l++)
+				int l;
+				for(l=j;l<k;l++)
 				{
 					ltext[l].s=false;
 				}
@@ -770,7 +774,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 					{
 					int jhg=0;
 					}
-				for(int l=j;l<k;l++)
+				int l;
+				for(l=j;l<k;l++)
 				{
 					ltext[l].s=false;
 				}
@@ -854,7 +859,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				int j=sbiter;
 				j=seiter>sbiter?sbiter:seiter;
 				k=seiter>sbiter?seiter:sbiter;
-				for(int l=j;l<k;l++)
+				int l;
+				for(l=j;l<k;l++)
 				{
 					ltext[l].s=false;
 				}
@@ -900,7 +906,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				int j=sbiter;
 				j=seiter>sbiter?sbiter:seiter;
 				k=seiter>sbiter?seiter:sbiter;
-				for(int l=j;l<k;l++)
+				int l;
+				for(l=j;l<k;l++)
 				{
 					ltext[l].s=false;
 				}
@@ -966,7 +973,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 					k=seiter>sbiter?seiter:sbiter;
 					itmap i0=ltext.find(j);
 					itmap i1=ltext.find(k);
-					for(itmap i=i0;i1!=ltext.end();i++,i1++)
+					itmap i;
+					for(i=i0;i1!=ltext.end();i++,i1++)
 						{
 						i->second=i1->second;
 						}
@@ -983,7 +991,8 @@ CPoint CTextCad::kbmovecurs(CDC *hdc,CString& d)
 				{
 				int k;
 				char c;
-				for(itmap o=i;o!=ltext.end();o++)
+				itmap o;
+				for(o=i;o!=ltext.end();o++)
 					{
 						k=o->first;
 						c=o->second.c;
@@ -1529,7 +1538,8 @@ void CTextCad::draw3D(CDC *hdc)
 	ifmap mb=fmap.begin();
 	ifmap me=fmap.end();
 	pfmap.clear();
-		for(ifmap l=mb;l!=me;l++)
+	ifmap l;
+		for(l=mb;l!=me;l++)
 		{
 			LOGFONT* ft= new LOGFONT;;
 			l->first->GetLogFont(ft);
@@ -2315,9 +2325,9 @@ DWORD CALLBACK EditStreamCallBack(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *
 	{
 
 		if (ar.IsStoring())
-			ar.GetFile()->WriteHuge(pbBuff, cb);
+			ar.GetFile()->Write(pbBuff, cb);
 		else
-			*pcb = ar.GetFile()->ReadHuge(pbBuff, cb);
+			*pcb = ar.GetFile()->Read(pbBuff, cb);
 	}
 	CATCH(CFileException, e)
 	{

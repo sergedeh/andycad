@@ -48,6 +48,7 @@ private:
 	CBezier *b;
 	CMesh mesh;
 	vector<CMesh> sphere;
+	int it,i,j,k;
 
 };
 

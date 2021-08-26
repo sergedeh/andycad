@@ -1,7 +1,7 @@
 // AddinSettingsDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "CAD.h"
 #include "AddinSettingsDialog1.h"
 

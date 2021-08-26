@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Dim.h"
 
@@ -545,7 +545,7 @@ void CDim::SendNotify(CString s, void *param[])
 	{
 		CFigure* f=(CFigure*)param[0];
 		CDC* hdc=(CDC*)param[1];
-		if(d_params.find(f)!=NULL)
+		if(d_params.find(f)!=d_params.end())
 		{
 			UpdateDim(f,hdc);
 		}

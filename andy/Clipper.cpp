@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Stdafx.h"
 /*******************************************************************************
 *                                                                              *
 * Author    :  Angus Johnson                                                   *
@@ -4104,7 +4104,7 @@ void ClipperOffset::DoOffset(double delta)
       m_normals[0] = DoublePoint(-m_normals[1].X, -m_normals[1].Y);
 
       k = len - 1;
-      for (int j4 = k - 1; j4 > 0; --j) OffsetPoint(j4, k, node.m_jointype);
+      for (int j4 = k - 1; j4 > 0; --j4) OffsetPoint(j4, k, node.m_jointype);
 
       if (node.m_endtype == etOpenButt)
       {

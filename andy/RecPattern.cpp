@@ -1,7 +1,7 @@
 // RecPattern.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "RecPattern.h"
 #include "ColorD.h"

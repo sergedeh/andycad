@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Matrix1.h"
 #include <math.h>
@@ -213,7 +213,8 @@ int CMatrix::ident(double *C,int r, int s,int i, int j, int n, int q)
 	D=new double[(n+1)*(n+1)];
 	int rp=n;
 	int sp=n;
-	for(int iti=0;iti<=rp;iti++)
+	int iti;
+	for(iti=0;iti<=rp;iti++)
 	{
 		for(int itj=0;itj<=sp;itj++)
 		{
@@ -227,7 +228,7 @@ int CMatrix::ident(double *C,int r, int s,int i, int j, int n, int q)
 
 	for(iti=i;iti<=i+(n-j);iti++)
 	{
-		for(itj=j;itj<=j+(n-j);itj++)
+		for(int itj=j;itj<=j+(n-j);itj++)
 		{
 		C[(s+1)*iti+itj]=D[(n+1)*iti+itj];
 		}
@@ -395,9 +396,9 @@ void CMatrix::LUG(double *D, double *N, int m, int n, int p)
 	int s=m+1;
 	int r=n+1;
 
-	for (int i=0; i<=n; i++)
+	for (i=0; i<=n; i++)
 	{
-		for(int j=0;j<=m;j++)
+		for(j=0;j<=m;j++)
 		{
 			Cv[(s+1)*i+j]=N[s*i+j];
 		}

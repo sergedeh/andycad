@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Line.h"
 #include <math.h>
@@ -15,7 +15,7 @@
 #include "mesh.h"
 #include "Cadview.h"
 #include "rectangle.h"
-#include "ximage.h"
+#include "cximage/ximage.h"
 
 
 #ifdef _DEBUG
@@ -72,7 +72,8 @@ CLine::CLine(vector<CVector> v)
 	ptbegin.clear();
 	ptend.clear();
 		box.empty();
-		for(vector<CVector>::iterator piterbex=v.begin();piterbex!=v.end();piterbex++)
+		vector<CVector>::iterator piterbex;
+		for(piterbex=v.begin();piterbex!=v.end();piterbex++)
 			box.add(*piterbex);
 
 		mesh.empty();

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "resource.h"
 // CG: This file added by 'Tip of the Day' component.
 

@@ -1,7 +1,7 @@
 // CustomSheet.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "CustomSheet.h"
 #include "paperpag.h"

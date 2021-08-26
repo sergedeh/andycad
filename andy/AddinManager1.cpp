@@ -19,7 +19,7 @@
 
 
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "Cad.h"
 #include "AddinManager1.h"
 #include "macromanager.h"

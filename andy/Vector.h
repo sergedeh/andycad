@@ -10,6 +10,7 @@
 #endif // _MSC_VER > 1000
 #include<vector>
 #include <math.h>
+#include <string>
 using namespace std;
 
 
@@ -136,7 +137,7 @@ public:
 	CVector intersect (CVector v,bool b=false);
 	
 	inline double dot(const CVector v) {return (x*v.x+y*v.y+z*v.z);}
-	inline double absc(const CVector v){return sqrt(v.x*v.x+v.y*v.y+v.z*v.z);}
+	inline double absc(CVector v){return sqrt(v.x*v.x+v.y*v.y+v.z*v.z);}
 	inline double argu(const CVector v){return atan2(v.y,v.x);}
 	inline CVector polarc(double absc,double argu){ return CVector(absc*cos(argu),absc*sin(argu));}
 
@@ -237,21 +238,24 @@ protected:
 		}
 	};
 	double angleBetween(CVector v1,CVector v2);
-	double absc(const CVector v,bool b=false);
+	double absc(CVector v,bool b=false);
 	double argu(const CVector v,bool b=false);
 	bool pointinRegion(CVector point, CVector region);
 	double pointtoVector(CVector line,CVector point,CVector* hitpoint=NULL);
 	CVector polarc(double absc,double argu,bool b=false);
 	CVector getcamor();
+	//inline bool operator ==(const CVector& v1,const CVector& v2) { return ((sqrt(pow(v1.z - v2.z, 2)) < 1E-6) && (sqrt(pow(v1.x - v2.x, 2)) < 1E-6) && (sqrt(pow(v1.y - v2.y, 2)) < 1E-6)); }
 	int orientation(CVector v1,CVector v2, CVector v3);
 
 class isclose
 {
 public:
 	isclose(CVector p):v(p){};
-	bool operator ()(CVector v1,CVector v2)
+	bool operator ()(const CVector v1,const CVector v2) const
 	{
-		return (v1.absc(CVector(v1,v))<v1.absc(CVector(v2,v)));
+		CVector a(v1, v),b(v2,v);
+		double a1 = absc(a), b1 = absc(b);
+		return (a1<b1);
 	}
 private:
 	CVector v;

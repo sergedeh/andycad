@@ -32,7 +32,7 @@ using namespace std;
 		double dv;
 		double v_top,v_bottom;
 		double u_top,u_bottom;
-		operator =(Edges v)
+		void operator =(Edges v)
 		{
 			e=v.e;
 			b=v.b;
@@ -90,15 +90,13 @@ using namespace std;
 			else
 				return CVector(e.u,e.v,r.bottom);
 		}
-		operator ==(Edges v){
+		bool operator ==(const Edges v ) const {
 		return ((e==v.e)&&(b==v.b)&&(r==v.r));
 		};
-		operator ==(Edges* v){
+		bool operator ==(Edges* v){
 		return ((e==v->e)&&(b==v->b)&&(r==v->r));
 		};
 	}; 
-
-
 typedef vector<Edges>::iterator eiterator;
 typedef vector<CVector>::iterator viterator;
 

@@ -2,9 +2,9 @@
 
 
 /* File created by MIDL compiler version 5.01.0164 */
-/* at Fri Jan 02 06:29:33 2015
+/* at Thu Aug 26 16:03:17 2021
  */
-/* Compiler settings for C:\Program Files(uac)\MyProjects\andycad\CadAddIn.idl:
+/* Compiler settings for C:\Users\Administrator\source\repos\andycad\andy\CadAddIn.idl:
     Os (OptLev=s), W1, Zp8, env=Win32, ms_ext, c_ext
     error checks: allocation ref bounds_check enum stub_data 
 */

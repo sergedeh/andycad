@@ -952,176 +952,176 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 
 				::SetCursorPos(p1.x,p1.y);
 */	
-			pDoc->m_objects->Create(hdc,"Box",pos);
+			pDoc->m_objects->Create(hdc,CString("Box"),pos);
 			b=true;
 			} else
 			if (menu==image)
 			{			
-			pDoc->m_objects->Create(hdc,"Image",pos);
+			pDoc->m_objects->Create(hdc, CString("Image"),pos);
 			b=true;
 			} else
 			if (menu==DimH)
 			{			
-			pDoc->m_objects->Create(hdc,"DimH",pos);
+			pDoc->m_objects->Create(hdc, CString("DimH"),pos);
 			b=true;
 			} else
 			if (menu==leader)
 			{			
-			pDoc->m_objects->Create(hdc,"leader",pos);
+			pDoc->m_objects->Create(hdc, CString("leader"),pos);
 			b=true;
 			} else
 			if (menu==multline)
 			{			
-			pDoc->m_objects->Create(hdc,"multline",pos);
+			pDoc->m_objects->Create(hdc, CString("multline"),pos);
 			b=true;
 			} else
 			if (menu==DimV)
 			{			
-			pDoc->m_objects->Create(hdc,"DimV",pos);
+			pDoc->m_objects->Create(hdc, CString("DimV"),pos);
 			b=true;
 			} else
 			if (menu==DimF)
 			{			
-			pDoc->m_objects->Create(hdc,"DimF",pos);
+			pDoc->m_objects->Create(hdc, CString("DimF"),pos);
 			b=true;
 			} else
 			if (menu==DimL)
 			{			
-			pDoc->m_objects->Create(hdc,"DimL",pos);
+			pDoc->m_objects->Create(hdc, CString("DimL"),pos);
 			b=true;
 			} else
 			if (menu==DimLH)
 			{			
-			pDoc->m_objects->Create(hdc,"DimLH",pos);
+			pDoc->m_objects->Create(hdc, CString("DimLH"),pos);
 			b=true;
 			} else
 			if (menu==DimLV)
 			{			
-			pDoc->m_objects->Create(hdc,"DimLV",pos);
+			pDoc->m_objects->Create(hdc, CString("DimLV"),pos);
 			b=true;
 			} else
 			if (menu==DimA)
 			{			
-			pDoc->m_objects->Create(hdc,"DimA",pos);
+			pDoc->m_objects->Create(hdc, CString("DimA"),pos);
 			b=true;
 			} else
 			if (menu==chamf)
 			{			
-			pDoc->m_objects->Create(hdc,"Chamfer",pos);
+			pDoc->m_objects->Create(hdc, CString("Chamfer"),pos);
 			change=true;
 			Invalidate();
 			} else
 			if (menu==filt)
 			{			
-			pDoc->m_objects->Create(hdc,"Fillet",pos);
+			pDoc->m_objects->Create(hdc, CString("Fillet"),pos);
 			change=true;
 			Invalidate();
 			} else
 			if (menu==C2L)
 			{			
-			pDoc->m_objects->Create(hdc,"2CLine",pos);
+			pDoc->m_objects->Create(hdc, CString("2CLine"),pos);
 			b=true;
 			} else
 			if (menu==sqline)
 			{			
-			pDoc->m_objects->Create(hdc,"QLine",pos);
+			pDoc->m_objects->Create(hdc, CString("QLine"),pos);
 			b=true;
 			
 			} else
 			if (menu==Line)
 			{			
-			pDoc->m_objects->Create(hdc,"Line",pos);
+			pDoc->m_objects->Create(hdc, CString("Line"),pos);
 			b=true;
 			
 			} else
 			if (menu==perpline)
 			{			
-			pDoc->m_objects->Create(hdc,"QPLine",pos);
+			pDoc->m_objects->Create(hdc, CString("QPLine"),pos);
 			b=true;
 			} else
 			if (menu==tangline)
 			{			
-			pDoc->m_objects->Create(hdc,"QTLine",pos);
+			pDoc->m_objects->Create(hdc, CString("QTLine"),pos);
 			b=true;
 			} else
 			if (menu==polybezier)
 			{			
-			pDoc->m_objects->Create(hdc,"Bezier",pos);
+			pDoc->m_objects->Create(hdc, CString("Bezier"),pos);
 			b=true;
 			
 			} else
             if (menu==Circle)
 			{			
-			pDoc->m_objects->Create(hdc,"Circle",pos);
+			pDoc->m_objects->Create(hdc, CString("Circle"),pos);
 			b=true;
 			} else
 			if ((menu==Rectangle)||(menu==Rectanglefree))
 			{			
-			pDoc->m_objects->Create(hdc,"Rectangle",pos);//rectangle.setPtsBegin(point);
+			pDoc->m_objects->Create(hdc, CString("Rectangle"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			} else
 			if (menu==circle2)
 			{
-				pDoc->m_objects->Create(hdc,"2DotCircle",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("2DotCircle"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==circle3)
 			{
-				pDoc->m_objects->Create(hdc,"3DotCircle",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("3DotCircle"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==ellipse)
 			{
-				pDoc->m_objects->Create(hdc,"Ellipse",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("Ellipse"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==arc)
 			{
-				pDoc->m_objects->Create(hdc,"Arc",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("Arc"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==arc2)
 			{
-				pDoc->m_objects->Create(hdc,"2DotArc",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("2DotArc"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==arc3)
 			{
-				pDoc->m_objects->Create(hdc,"3DotArc",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("3DotArc"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==arc32)
 			{
-				pDoc->m_objects->Create(hdc,"3DotArc2",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("3DotArc2"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==box)
 			{
-				pDoc->m_objects->Create(hdc,"Box",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("Box"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==sphere)
 			{
-				pDoc->m_objects->Create(hdc,"Sphere",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("Sphere"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			if (menu==plane)
 			{
-				pDoc->m_objects->Create(hdc,"Plane",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("Plane"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
 			if (menu==text)
 			{
-				pDoc->m_objects->Create(hdc,"Text",pos);//rectangle.setPtsBegin(point);
+				pDoc->m_objects->Create(hdc, CString("Text"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
@@ -1134,7 +1134,7 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 			}else 
 			if (menu==DimD)
 			{
-				pDoc->m_objects->Create(hdc,"DimD",pos);;
+				pDoc->m_objects->Create(hdc, CString("DimD"),pos);;
 		//		menu=select;
 				Invalidate();
 			b=true;
@@ -1142,7 +1142,7 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 			}else 
 			if (menu==DimR)
 			{
-				pDoc->m_objects->Create(hdc,"DimR",pos);;
+				pDoc->m_objects->Create(hdc, CString("DimR"),pos);;
 		//		menu=select;
 				change=true;
 				Invalidate();
@@ -2310,7 +2310,7 @@ void CCadView::OnSize(UINT nType, int cx, int cy)
 	CSize sz(wcr.Size().cx,wcr.Size().cy);
 	pDoc->m_objects->setpixel0(sz.cx,sz.cy);
 	pDC->LPtoDP(&sz);
-	if(bmp->GetSafeHandle!=NULL)
+	if(bmp->GetSafeHandle()!=NULL)
 	{
 		bmp->DeleteObject();
 	}

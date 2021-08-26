@@ -20,7 +20,7 @@
 #include "Ray.h"	// Added by ClassView
 #include "AABB.h"	// Added by ClassView
 #include "mesh.h"	// Added by ClassView
-#include "ximage.h"
+#include "cximage/ximage.h"
 #include "constraint.h"
 
 using namespace std;
@@ -29,7 +29,7 @@ using namespace std;
 class isfarV
 {
 public:
-bool operator ()(CVector v1,CVector v2)
+bool operator ()(CVector v1,CVector v2) const
 {
 	CVector v01=v1.getDepth();
 	CVector v02=v2.getDepth();
@@ -126,7 +126,7 @@ public:
 	virtual void UpdateMesh();
 	virtual void setbox(CAABB b);
 	virtual CFigure* generateCopy();
-	operator =(const CFigure& f);
+	void operator =(const CFigure& f);
 	CFigure(const CFigure& f);
 	void createobj(CMesh* m);
 	void setDir(float u1,float u2);
@@ -405,7 +405,7 @@ private:
 	double distprec;
 
 	bool glinee,glineb;
-	int uncount;
+	int uncount, i, j, it;
 	bool inReg;
 	bool rotclick;
 	string handle;

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Vertex.h"
 #include "mesh.h"
@@ -113,7 +113,7 @@ void CVertex::updatev(CVector m)
 
 void CVertex::addAdjE(CEdge *e)
 {
-	CMesh::iedge vi=NULL;//vertexlist.find(vertexcount);
+	CMesh::iedge vi=CMesh::iedge();//vertexlist.find(vertexcount);
 /*	int i=0;
 	if(adjE.size()>0)
 	{
@@ -423,7 +423,7 @@ CMesh* CVertex::getMesh()
 	return mesh;
 }
 
-CVertex::operator =(CVertex vx)
+void CVertex::operator =(CVertex vx)
 {
 	v=vx.v;
 	n=vx.n;

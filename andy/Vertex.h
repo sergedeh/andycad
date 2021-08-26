@@ -67,7 +67,7 @@ struct vertex
 	}
 	operator CPoint() {return p;}
 	operator CVector() {return pv;}
-	operator ==(vertex e) {return p==e.p;}
+	bool operator ==(const vertex& e) const {return p==e.p;}
 };
 
 class CMesh;
@@ -77,7 +77,7 @@ class CVertex
 {
 public:
 	bool operator==(CVertex v1) {return (v.absc(v1.v-v)<10);}
-	operator =(CVertex vx);
+	void operator =(CVertex vx);
 
 //	CVertex(CFigure* fig);
 	CVertex(CFile&file);

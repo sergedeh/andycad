@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Triangle.h"
 #include "mesh.h"
@@ -2894,7 +2894,7 @@ CMesh* CTriangle::getMesh()
 	return mesh;
 }
 
-CTriangle::operator = (CTriangle t)
+void CTriangle::operator = (CTriangle t)
 {
 	it=t.it;
 	n=t.n;

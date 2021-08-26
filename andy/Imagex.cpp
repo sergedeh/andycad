@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Imagex.h"
 
@@ -687,7 +687,8 @@ void CImagex::DeleteObject()
    {
         // According to the MS article "The Palette Manager: How and Why"
         // 4-bit palettes not really needed (will use VGA palette)
-       for (int i = 0; i < 8; i++)
+        int i;
+       for (i = 0; i < 8; i++)
        {
            pi.palPalEntry[i].peRed   = ms_StdColors[i].rgbRed;
            pi.palPalEntry[i].peGreen = ms_StdColors[i].rgbGreen;

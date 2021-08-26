@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Cercle.h"
 #include "plane.h"
@@ -905,7 +905,7 @@ bool CCercle::DrawArc(bool fPrevB,CDC *hdc, CVector p)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			CVector* n=&(*find(vcenter.begin(),vcenter.end(),CP[jo]));
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -2181,7 +2181,7 @@ bool CCercle::Draw3DotArc(bool fPrevB,CDC *hdc, CVector p)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			CVector* n=&(*find(vcenter.begin(),vcenter.end(),CP[jo]));
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -4691,7 +4691,7 @@ void CCercle::drawArc(CVector start, CVector mid, CVector end)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			CVector* n=&(*find(vcenter.begin(),vcenter.end(),CP[jo]));
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -4867,7 +4867,7 @@ void CCercle::drawArc2(CVector center, CVector vstart, CVector vend)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+			CVector* n=&(*find(vcenter.begin(),vcenter.end(),CP[jo]));
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];

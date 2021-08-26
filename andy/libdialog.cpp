@@ -1,7 +1,7 @@
 // Libdialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Libdialog.h"
 #include "cadview.h"

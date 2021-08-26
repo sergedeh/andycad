@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Stdafx.h"
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>

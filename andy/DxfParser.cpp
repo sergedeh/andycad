@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "DxfParser.h"
 #include "DxfArrayScanner.h"
@@ -40,7 +40,7 @@ void CDxfParser::parseSync(string source)
 void CDxfParser::_parse(string dxfString)
 {
 	vector<string> lines;
-	string result=strtok(dxfString.begin(),"\r\n|\r|\n/g");
+	string result=strtok(&*dxfString.begin(),"\r\n|\r|\n/g");
 	while(result.length()!=0)
 	{
 		lines.push_back(result);

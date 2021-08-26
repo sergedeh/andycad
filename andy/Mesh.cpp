@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Mesh.h"
 #include "render.h"
@@ -226,7 +226,8 @@ CMesh::CMesh(): tricount(0),stricount(0),edgecount(0),vertexcount(0),svertexcoun
 
 CMesh::~CMesh()
 {
-	for(vector<CTriangle*>::iterator iter=strilist.begin();iter!=strilist.end();iter++)
+	vector<CTriangle*>::iterator iter;
+	for(iter =strilist.begin();iter!=strilist.end();iter++)
 	{
 		if(!(*iter)->visible)
 			delete *iter;
@@ -250,7 +251,8 @@ CMesh::~CMesh()
 	}
 	edgelist.clear();
 
-	for(ivertex iter2=vertexlist.begin();iter2!=vertexlist.end();iter2++)
+	ivertex iter2;
+	for(iter2 =vertexlist.begin();iter2!=vertexlist.end();iter2++)
 	{
 		try{
 		delete iter2->second;
@@ -342,7 +344,7 @@ int CMesh::addEdge(CEdge* e,bool _ready)
 	edgelist[e->it]->setMesh(this);
 	}else
 	{
-	iedge vi=NULL;//vertexlist.find(vertexcount);
+	iedge vi=iedge();//vertexlist.find(vertexcount);
 	int i=0;
 	if(edgelist.size()>0)
 	{
@@ -383,7 +385,7 @@ CVertex* CMesh::addVertex(CVertex* v,bool _ready)
 	result=vertexlist[v->sit];
 	}else
 	{
-	ivertex vi=NULL;//vertexlist.find(vertexcount);
+	ivertex vi=ivertex();//vertexlist.find(vertexcount);
 	int i=0;
 	if(vertexlist.size()>0)
 	{
@@ -804,7 +806,7 @@ LONG CMesh::Readfile(CFile &file)
 void CMesh::addVertex(int i,CVertex* v)
 {
 	ivertex vi=vertexlist.find(i);
-	if(vi==NULL) vertexcount++;
+	if(vi==vertexlist.end()) vertexcount++;
 	vertexlist[i]=v;
 	vertexlist[i]->sit=i;
 	vertexlist[i]->setMesh(this);
@@ -1420,11 +1422,11 @@ bool CMesh::PtonEdge(CVector point, CVector &v,float& u, CVector& uv)
 	return false;
 
 }
-CMesh::operator = ( CMesh* m) 
+void CMesh::operator = ( CMesh* m) 
 {
 		copy(m);
 }
-CMesh::operator = ( CMesh m) 
+void CMesh::operator = ( CMesh m) 
 {
 		copy(&m);
 }
@@ -1542,7 +1544,7 @@ CMesh::itri CMesh::DeleteTri(int triIndex)
 	{
 	trilist[triIndex]->Disconnect();
 	delete trilist[triIndex];
-	itri v=trilist.erase(&trilist[triIndex]);
+	itri v=trilist.erase(trilist.begin() + triIndex);
 	while(v!=trilist.end())
 	{
 		(*v)->it--;
@@ -1928,7 +1930,7 @@ void CMesh::TrimEdge3(CVector v,CMesh *m)
 		it++;
 	}
 	try{
-		for(iter=edgelist.begin();iter!=edgelist.end();iter++)
+		for(CMesh::iedge iter=edgelist.begin();iter!=edgelist.end();iter++)
 		{
 			if(iter->second->onEdge(v01,vm)!=-1)
 			{

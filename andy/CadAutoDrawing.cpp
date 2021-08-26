@@ -1,7 +1,7 @@
 // CadAutoDrawing.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "caddoc.h"
 #include "CadAutoDrawing.h"

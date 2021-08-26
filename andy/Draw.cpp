@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Draw.h"
 #include "render.h"
@@ -2902,12 +2902,12 @@ void CDraw::save00(CDC *hdc,CFile& file)
 	DWORD lengtho=filo.GetLength();
 	BYTE* b=new BYTE[length];
 	filo1.SeekToBegin();
-	filo1.ReadHuge(b,length);
-	file.WriteHuge(b,length);
+	filo1.Read(b,length);
+	file.Write(b,length);
 	BYTE* b1=new BYTE[lengtho];
 	filo.SeekToBegin();
-	filo.ReadHuge(b1,lengtho);
-	file.WriteHuge(b1,lengtho);
+	filo.Read(b1,lengtho);
+	file.Write(b1,lengtho);
 
 /*	filo.Seek(sizeof(i)*2,CFile::begin);
 	DWORD lpos;
@@ -7102,7 +7102,7 @@ void CDraw::AddText(CDC *hdc,CVector &v,string& _text,float yheight,string facen
 			cf.yHeight=yheight*1440*iter->width_factor/yPerInch;
 			strcpy(cf.szFaceName,iter->font.c_str());
 			find=true;
-			((CTextCad*)fig[fit])->setFStyle(iter);
+			((CTextCad*)fig[fit])->setFStyle(&*iter);
 			break;
 		}
 	}

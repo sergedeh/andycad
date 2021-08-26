@@ -1,7 +1,7 @@
 // EditParse.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "EditParse.h"
 #include "parsedlg.h"

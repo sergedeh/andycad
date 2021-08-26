@@ -27,6 +27,8 @@ public:
 protected:
 	vector<CVector*> v;
 	CBezier b;
+private:
+	int i, j, it;
 
 };
 

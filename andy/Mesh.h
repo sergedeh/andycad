@@ -19,7 +19,7 @@ class CCadView;
 class isfar
 {
 public:
-bool operator ()(CTriangle* v1,CTriangle* v2)
+bool operator ()(CTriangle* v1,CTriangle* v2) const
 {
 	CVector v01=v1->getcent();
 	CVector v02=v2->getcent();
@@ -73,8 +73,8 @@ public:
 	float min_dist_toEdge(CVector v,int* n=NULL);
 	void offset(float u,CMesh* f);
 	CVector Vector(int i);
-	operator = ( CMesh* m);
-	operator = ( CMesh m);
+	void operator = ( CMesh* m);
+	void operator = ( CMesh m);
 	bool PtonEdge(CVector point,CVector& v,float& u, CVector& uv);
 	CVertex* addVertexonEdge(CVector v);
 	void copy(const CMesh& m);
@@ -175,7 +175,7 @@ private:
 	int tricount,stricount;
 	int edgecount,sedgecount;
 	int vertexcount,svertexcount;
-	int it,eit,vit;
+	int it,eit,vit,i, j;
 
 	multiset<CTriangle*,isfar> displaytrilist;
 	vector<CTriangle*> trilist;

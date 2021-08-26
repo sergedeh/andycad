@@ -1,7 +1,7 @@
 // cadDoc.cpp : implementation of the CCadDoc class
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Draw.h"	// Added by ClassView
 #include "cadview.h"

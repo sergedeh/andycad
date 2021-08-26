@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "Inter.h"
 //#include "Tvector.h"
@@ -373,8 +373,8 @@ CBezier* CInter::subdivide(double t, int p,double *U,CVector *P,int n)
 
 	int k;
 	int l=0;
-
-	for(int iter=0;iter<=m;iter++)
+	int iter;
+	for(iter=0;iter<=m;iter++)
 	{
 		if((U[iter]<t)&&(t<U[iter+1]))
 		{
@@ -403,8 +403,8 @@ CBezier* CInter::subdivide(double t, int p,double *U,CVector *P,int n)
 	PV[iter*(n+1)]=P[iter];
 	}
 
-		
-	for(int r=1; r<=h;r++)
+	int r;
+	for(r=1; r<=h;r++)
 	{
 		for(int i=k-p+r; i<=k-s; i++)
 		{

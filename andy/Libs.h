@@ -94,6 +94,8 @@ protected :
 	bool *sel;
 	size_t m;
 	size_t bc;
+private :
+	int i,j;
 	
 
 };

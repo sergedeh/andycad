@@ -31,7 +31,7 @@ struct S
 	CVector b,e;
 	S(CVector p1,CVector p2):b(p1),e(p2){}
 	S(){};
-	operator ==(S s1) {return ((b==s1.b)&&(e==s1.e));}
+	bool operator ==(S s1) {return ((b==s1.b)&&(e==s1.e));}
 	int left()
 	{
 		int x=(b.x<e.x)?b.x:e.x;

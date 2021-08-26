@@ -76,7 +76,7 @@ private:
 	CString prevf;
 	void updateCP(CString s);
 	CVector Ct,r,pt,control1,control2,control3, startpoint, endpoint, epoint, spoint;
-	int it;
+	int it,i,j,iter,jiter,g;
 	int start,end;
 	int handle;
 

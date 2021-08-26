@@ -137,7 +137,7 @@ private:
 		CBezier bz;
 		CString mtext;
 	FSTYLE* fstyle;
-
+	int i, j;
 };
 
 #endif // !defined(AFX_TEXTCAD_H__47586488_0253_41BC_B265_5966EF9478BA__INCLUDED_)

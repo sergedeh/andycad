@@ -1,7 +1,7 @@
 // CadAutoCollection.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "CadAutoCollection.h"
 
@@ -99,7 +99,7 @@ LPDISPATCH* CCadAutoCollection::GetBegin()
 {
 	// TODO: Add your property handler here
 
-	return v.begin();
+	return &*v.begin();
 }
 
 void CCadAutoCollection::SetBegin(LPDISPATCH newValue) 
@@ -113,7 +113,7 @@ LPDISPATCH* CCadAutoCollection::GetEnd()
 {
 	// TODO: Add your property handler here
 
-	return v.end();
+	return &*v.end();
 }
 
 void CCadAutoCollection::SetEnd(LPDISPATCH newValue) 

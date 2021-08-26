@@ -1,7 +1,7 @@
 // cad.cpp : Defines the class behaviors for the application.
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "regdialog.h"
 #include "MainFrm.h"
@@ -234,7 +234,8 @@ BOOL CCadApp::InitInstance()
 			((pFileMenu = pMenu->GetSubMenu(0)) != NULL))
 		{
 			// Locate the "Sen&d..." menu item
-			for (int i = 0, nLength = pFileMenu->GetMenuItemCount();
+			int i, nLength;
+			for (i = 0, nLength = pFileMenu->GetMenuItemCount();
 				i<nLength; i++)
 			{
 				CString strSend;

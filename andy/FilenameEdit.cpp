@@ -1,7 +1,7 @@
 // FilenameEdit.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 //#include "ScriptApp.h"
 #include "FilenameEdit.h"
 

@@ -1,7 +1,7 @@
 // BArrowC.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "Stdafx.h"
 #include "cad.h"
 #include "BArrowC.h"
 #include "ColorD.h"

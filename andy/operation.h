@@ -18,17 +18,17 @@ public:
 	COperation();
 	virtual ~COperation();
 
-	static  CVectorp operator+(CVectorp p,CVectorv v){ return CVectorp(p.x+v.x,p.y+v.y);}
-	static  CVectorv operator+(CVectorv v,CVectorp p){ return CVectorv(p.x+v.x,p.y+v.y);}
+	CVectorp operator+(CVectorp p,CVectorv v){ return CVectorp(p.x+v.x,p.y+v.y);}
+	CVectorv operator+(CVectorv v,CVectorp p){ return CVectorv(p.x+v.x,p.y+v.y);}
 	
-	static CVectorp operator -(CVectorp p,CVectorv v){ return CVectorp(p.x-v.x,p.y-v.y);}
-	static CVectorv operator -(CVectorv v,CVectorp p){ return CVectorv(p.x-v.x,p.y-v.y);}
+	CVectorp operator -(CVectorp p,CVectorv v){ return CVectorp(p.x-v.x,p.y-v.y);}
+	CVectorv operator -(CVectorv v,CVectorp p){ return CVectorv(p.x-v.x,p.y-v.y);}
 
-	static CVectorp operator +(CVectorp p,CVectorp v){ return CVectorp(p.x+v.x,p.y+v.y);}
-	static CVectorv operator +(CVectorv v,CVectorv p){ return CVectorv(p.x+v.x,p.y+v.y);}
+	CVectorp operator +(CVectorp p,CVectorp v){ return CVectorp(p.x+v.x,p.y+v.y);}
+	CVectorv operator +(CVectorv v,CVectorv p){ return CVectorv(p.x+v.x,p.y+v.y);}
 
-	static CVectorp operator -(CVectorp p,CVectorp v){ return CVectorp(p.x-v.x,p.y-v.y);}
-	static CVectorv operator -(CVectorv v,CVectorv p){ return CVectorv(p.x-v.x,p.y-v.y);}
+	CVectorp operator -(CVectorp p,CVectorp v){ return CVectorp(p.x-v.x,p.y-v.y);}
+	CVectorv operator -(CVectorv v,CVectorv p){ return CVectorv(p.x-v.x,p.y-v.y);}
 
 };
 

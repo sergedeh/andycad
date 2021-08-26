@@ -6,7 +6,7 @@
 --------------------Configuration: cad - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\sergedeh\AppData\Local\Temp\RSPDA88.bat" with contents
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\2\RSP815F.bat" with contents
 [
 @echo off
 start /wait hcw /C /E /M "hlp\cad.hpj"
@@ -19,7 +19,7 @@ echo hlp\cad.hpj(1) : error:
 type "hlp\cad.log"
 :done
 ]
-Creating command line "C:\Users\sergedeh\AppData\Local\Temp\RSPDA88.bat"
+Creating command line "C:\Users\ADMINI~1\AppData\Local\Temp\2\RSP815F.bat"
 <h3>Output Window</h3>
 Making help file...
 hlp\cad.hpj(1) : error:
