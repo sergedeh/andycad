@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -198,24 +198,72 @@
     <ClInclude Include="AndyCADMFC.h" />
     <ClInclude Include="AndyCADMFCDoc.h" />
     <ClInclude Include="AndyCADMFCView.h" />
+    <ClInclude Include="arcprop.h" />
+    <ClInclude Include="ArrayAngle.h" />
+    <ClInclude Include="barrowc.h" />
+    <ClInclude Include="BArrowP.h" />
+    <ClInclude Include="Bezier.h" />
+    <ClInclude Include="BoolP.h" />
     <ClInclude Include="calendarbar.h" />
+    <ClInclude Include="chamfd.h" />
+    <ClInclude Include="Chamfer.h" />
+    <ClInclude Include="chfi.h" />
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="Clipper.h" />
+    <ClInclude Include="CntrItem.h" />
+    <ClInclude Include="Colord.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="Constraint.h" />
     <ClInclude Include="CVector.h" />
+    <ClInclude Include="dim.h" />
+    <ClInclude Include="dima.h" />
+    <ClInclude Include="DimArrow.h" />
+    <ClInclude Include="diml.h" />
+    <ClInclude Include="DimText.h" />
+    <ClInclude Include="DlgCap.h" />
+    <ClInclude Include="dot.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="mytest\DEdit.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="StdAfx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Textcad.h" />
+    <ClInclude Include="textd.h" />
+    <ClInclude Include="TextDi.h" />
+    <ClInclude Include="texts.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AndyCADMFC.cpp" />
     <ClCompile Include="AndyCADMFCDoc.cpp" />
     <ClCompile Include="AndyCADMFCView.cpp" />
+    <ClCompile Include="arcprop.cpp" />
+    <ClCompile Include="ArrayAngle.cpp" />
+    <ClCompile Include="barrowc.cpp" />
+    <ClCompile Include="BArrowP.cpp" />
+    <ClCompile Include="Bezier.cpp" />
+    <ClCompile Include="BoolP.cpp" />
     <ClCompile Include="calendarbar.cpp" />
+    <ClCompile Include="chamfd.cpp" />
+    <ClCompile Include="Chamfer.cpp" />
+    <ClCompile Include="chfi.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="clinesty.cpp" />
+    <ClCompile Include="Clipper.cpp" />
+    <ClCompile Include="CntrItem.cpp" />
+    <ClCompile Include="Colord.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="Constraint.cpp" />
     <ClCompile Include="CVector.cpp" />
+    <ClCompile Include="dim.cpp" />
+    <ClCompile Include="dima.cpp" />
+    <ClCompile Include="DimArrow.cpp" />
+    <ClCompile Include="diml.cpp" />
+    <ClCompile Include="DimText.cpp" />
+    <ClCompile Include="DlgCap.cpp" />
+    <ClCompile Include="dot.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -223,6 +271,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Textcad.cpp" />
+    <ClCompile Include="textd.cpp" />
+    <ClCompile Include="TextDi.cpp" />
+    <ClCompile Include="texts.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AndyCADMFC.reg" />
+    <None Include="cpp.hint" />
     <None Include="res\AndyCADMFC.rc2" />
     <None Include="res\ribbon.mfcribbon-ms" />
   </ItemGroup>

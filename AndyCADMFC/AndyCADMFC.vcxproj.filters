@@ -51,7 +51,85 @@
     <ClInclude Include="Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StdAfx.h">
+    <ClInclude Include="mytest\DEdit.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bezier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Textcad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="textd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="texts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chamfd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chamfer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chfi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Clipper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CntrItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Colord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="arcprop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayAngle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="barrowc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BArrowP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoolP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dima.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DimArrow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="diml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DimText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgCap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,6 +161,87 @@
     <ClCompile Include="vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Textcad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="textd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="texts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chamfd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chamfer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chfi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clinesty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Clipper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CntrItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Colord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Constraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="arcprop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayAngle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="barrowc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BArrowP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoolP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dima.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DimArrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="diml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DimText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="AndyCADMFC.idl">
@@ -97,6 +256,7 @@
     <None Include="res\AndyCADMFC.rc2">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AndyCADMFC.rc">

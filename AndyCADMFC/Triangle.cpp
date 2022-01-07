@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "Triangle.h"
 #include "mesh.h"
 
@@ -32,7 +32,7 @@ static char THIS_FILE[]=__FILE__;
 HANDLE 	hdcmutex=CreateMutex( 
     NULL,                       // no security attributes
     FALSE,                      // initially not owned
-    "MutexToHDC");  // name of mutex
+    (_T("MutexToHDC")));  // name of mutex
 
 
 
@@ -2894,7 +2894,7 @@ CMesh* CTriangle::getMesh()
 	return mesh;
 }
 
-CTriangle::operator = (CTriangle t)
+void CTriangle::operator = (CTriangle t)
 {
 	it=t.it;
 	n=t.n;

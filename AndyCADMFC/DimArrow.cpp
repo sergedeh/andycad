@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "DimArrow.h"
 
 #ifdef _DEBUG

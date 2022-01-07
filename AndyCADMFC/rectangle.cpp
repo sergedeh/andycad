@@ -2,9 +2,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "Rectangle.h"
+#include "Triangle.cpp"
 
 #ifdef _DEBUG
 #undef THIS_FILE

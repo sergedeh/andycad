@@ -1,8 +1,8 @@
 // CustomSheet.cpp : implementation file
 //
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "CustomSheet.h"
 #include "paperpag.h"
 #include "gridpag.h"

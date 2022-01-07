@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "DimL.h"
 
 #ifdef _DEBUG
@@ -153,7 +153,7 @@ bool CDimL::getCharge(CDC *hdc)
 //	CString sp;
 //	sp.Format(_T("%.3f"),pline.info.distance*0.01);//*delta);
 //	text.assign(hdc,pr,sp);
-	text2.initText("linear-meter",hdc,pr,pline.myinfo.distance);
+	text2.initText(_T("linear-meter"),hdc,pr,pline.myinfo.distance);
 
 	pline.v2D();
 	CVector vp0(pline.Vector(0),pline.Vector(1));

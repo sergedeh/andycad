@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "Crypto.h"
 
 //	Tell the linker to link the to the Cryptography API.

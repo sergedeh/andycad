@@ -1,8 +1,8 @@
 // Text.cpp : implementation file
 //
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+#include "AndyCADMFC.h"
 #include "Text.h"
 
 #ifdef _DEBUG
