@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 #include "aabb.h"
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 #include "figure.h"	// Added by ClassView
 
 class CCAM

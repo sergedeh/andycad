@@ -5,12 +5,13 @@
 #if !defined(AFX_RECTANGLE_H__04018D3B_2A49_4F83_AD58_02731A62FFA7__INCLUDED_)
 #define AFX_RECTANGLE_H__04018D3B_2A49_4F83_AD58_02731A62FFA7__INCLUDED_
 
-#include "bezier.h"	// Added by ClassView
+//#include "bezier.h"	// Added by ClassView
 #include "Line.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
 
+class CBezier;
 class CRectangle :public CLine 
 {
 public:

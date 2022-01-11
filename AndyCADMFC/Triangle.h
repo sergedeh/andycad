@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 #include "edge.h"
 //#include "Vertex.h"	// Added by ClassView
-//#include "Vector.h"	// Added by ClassView
+//#include "CVector.h"	// Added by ClassView
 //#include "line.h"	// Added by ClassView
 //#include "Figure.h"
 #include "quadtree.h"
@@ -27,7 +27,7 @@ class CMesh;
 class CTriangle
 {
 public:
-	operator = (CTriangle t);
+	void operator = (CTriangle t);
 	void triangle_template();
 	void updateShadingpara(CCVector lit[6],col* my,int pwidth,int pheight,light *l);
 	void rasterizeTriangle(HDC hdc,BYTE* bits,float* zbuffer,\

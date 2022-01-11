@@ -14,7 +14,7 @@ public:
 
 // Dialog Data
 	//{{AFX_DATA(CTipDlg)
-	// enum { IDD = IDD_TIP };
+	 enum { IDD = IDD_TIP };
 	BOOL	m_bStartup;
 	CString	m_strTip;
 	//}}AFX_DATA

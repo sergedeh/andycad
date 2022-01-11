@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 #include "Command.h"
-#include "vector.h"
+#include "CVector.h"
 
 class CSnap;
 class CSnapPoint : public CCommand  

@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #pragma once
-#include "Vector.h"
+#include "CVector.h"
 #include "aabb.h"
 #include<vector>
 using namespace std;

@@ -9,7 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "Vector.h"
+#include "CVector.h"
 
 
 class CVectorm : public CVector  

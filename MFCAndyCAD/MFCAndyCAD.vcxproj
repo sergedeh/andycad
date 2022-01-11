@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{CA7E496E-76A4-4F00-B090-306C623400A8}</ProjectGuid>
+    <Keyword>MFCProj</Keyword>
+    <RootNamespace>MFCAndyCAD</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)MFCAndyCAD.tlb</TypeLibraryName>
+      <HeaderFileName>MFCAndyCAD_h.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)MFCAndyCAD.tlb</TypeLibraryName>
+      <HeaderFileName>MFCAndyCAD_h.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)MFCAndyCAD.tlb</TypeLibraryName>
+      <HeaderFileName>MFCAndyCAD_h.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)MFCAndyCAD.tlb</TypeLibraryName>
+      <HeaderFileName>MFCAndyCAD_h.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\andy\AABB.h" />
+    <ClInclude Include="..\andy\AddinManager.h" />
+    <ClInclude Include="..\andy\AddinManager1.h" />
+    <ClInclude Include="..\andy\AddinSettingsDialog1.h" />
+    <ClInclude Include="..\andy\andy.tab.h" />
+    <ClInclude Include="..\andy\andycad.h" />
+    <ClInclude Include="..\andy\AndyCadAddin.h" />
+    <ClInclude Include="..\andy\andycadDoc.h" />
+    <ClInclude Include="..\andy\andycadView.h" />
+    <ClInclude Include="..\andy\andy_tab.h" />
+    <ClInclude Include="..\andy\Application.h" />
+    <ClInclude Include="..\andy\arcprop.h" />
+    <ClInclude Include="..\andy\ArrayAngle.h" />
+    <ClInclude Include="..\andy\barrowc.h" />
+    <ClInclude Include="..\andy\BArrowP.h" />
+    <ClInclude Include="..\andy\Bezier.h" />
+    <ClInclude Include="..\andy\BoolP.h" />
+    <ClInclude Include="..\andy\cad.h" />
+    <ClInclude Include="..\andy\CadAddIn.h" />
+    <ClInclude Include="..\andy\CadAddInCP.h" />
+    <ClInclude Include="..\andy\CadAddIn_h.h" />
+    <ClInclude Include="..\andy\CadAutoCamera.h" />
+    <ClInclude Include="..\andy\CadAutoCanvas.h" />
+    <ClInclude Include="..\andy\CadAutoCollection.h" />
+    <ClInclude Include="..\andy\CadAutoDrawing.h" />
+    <ClInclude Include="..\andy\CadAutoDrawingCollection.h" />
+    <ClInclude Include="..\andy\CadAutoEdit.h" />
+    <ClInclude Include="..\andy\CAdAutoShape.h" />
+    <ClInclude Include="..\andy\CadAutoSurface.h" />
+    <ClInclude Include="..\andy\CadAutoTransform.h" />
+    <ClInclude Include="..\andy\CadAutoUtils.h" />
+    <ClInclude Include="..\andy\CadAutoVector.h" />
+    <ClInclude Include="..\andy\CadAutoWnd.h" />
+    <ClInclude Include="..\andy\cadDoc.h" />
+    <ClInclude Include="..\andy\cadView.h" />
+    <ClInclude Include="..\andy\cad_h.h" />
+    <ClInclude Include="..\andy\CAM.h" />
+    <ClInclude Include="..\andy\CameraDlg.h" />
+    <ClInclude Include="..\andy\Cercle.h" />
+    <ClInclude Include="..\andy\chamfd.h" />
+    <ClInclude Include="..\andy\Chamfer.h" />
+    <ClInclude Include="..\andy\chfi.h" />
+    <ClInclude Include="..\andy\childfrm.h" />
+    <ClInclude Include="..\andy\Click.h" />
+    <ClInclude Include="..\andy\clinesty.h" />
+    <ClInclude Include="..\andy\Clipper.h" />
+    <ClInclude Include="..\andy\cmemdc.h" />
+    <ClInclude Include="..\andy\cmemdoc.h" />
+    <ClInclude Include="..\andy\cmoveandrotatebar.h" />
+    <ClInclude Include="..\andy\CntrItem.h" />
+    <ClInclude Include="..\andy\Colord.h" />
+    <ClInclude Include="..\andy\Command.h" />
+    <ClInclude Include="..\andy\Constraint.h" />
+    <ClInclude Include="..\andy\Copie (3) de Textcad.h" />
+    <ClInclude Include="..\andy\Copy of AABB.h" />
+    <ClInclude Include="..\andy\Copy of AddinManager.h" />
+    <ClInclude Include="..\andy\Copy of AddinManager1.h" />
+    <ClInclude Include="..\andy\Copy of AddinSettingsDialog1.h" />
+    <ClInclude Include="..\andy\Copy of AndyCad.h" />
+    <ClInclude Include="..\andy\Copy of AndyCadAddin.h" />
+    <ClInclude Include="..\andy\Copy of Application.h" />
+    <ClInclude Include="..\andy\Copy of arcprop.h" />
+    <ClInclude Include="..\andy\Copy of ArrayAngle.h" />
+    <ClInclude Include="..\andy\Copy of barrowc.h" />
+    <ClInclude Include="..\andy\Copy of BArrowP.h" />
+    <ClInclude Include="..\andy\Copy of Bezier.h" />
+    <ClInclude Include="..\andy\Copy of cad.h" />
+    <ClInclude Include="..\andy\Copy of CadAddIn.h" />
+    <ClInclude Include="..\andy\Copy of CadAddInCP.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoCamera.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoCanvas.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoCollection.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoDrawing.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoDrawingCollection.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoEdit.h" />
+    <ClInclude Include="..\andy\Copy of CAdAutoShape.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoSurface.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoTransform.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoUtils.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoVector.h" />
+    <ClInclude Include="..\andy\Copy of CadAutoWnd.h" />
+    <ClInclude Include="..\andy\Copy of cadDoc.h" />
+    <ClInclude Include="..\andy\Copy of cadView.h" />
+    <ClInclude Include="..\andy\Copy of CAM.h" />
+    <ClInclude Include="..\andy\Copy of CameraDlg.h" />
+    <ClInclude Include="..\andy\Copy of Cercle.h" />
+    <ClInclude Include="..\andy\Copy of chamfd.h" />
+    <ClInclude Include="..\andy\Copy of Chamfer.h" />
+    <ClInclude Include="..\andy\Copy of chfi.h" />
+    <ClInclude Include="..\andy\Copy of childfrm.h" />
+    <ClInclude Include="..\andy\Copy of Click.h" />
+    <ClInclude Include="..\andy\Copy of clinesty.h" />
+    <ClInclude Include="..\andy\Copy of cmemdc.h" />
+    <ClInclude Include="..\andy\Copy of cmemdoc.h" />
+    <ClInclude Include="..\andy\Copy of cmoveandrotatebar.h" />
+    <ClInclude Include="..\andy\Copy of Colord.h" />
+    <ClInclude Include="..\andy\Copy of Command.h" />
+    <ClInclude Include="..\andy\Copy of Copie (2) de Textcad.h" />
+    <ClInclude Include="..\andy\cpapersize.h" />
+    <ClInclude Include="..\andy\Crypt.h" />
+    <ClInclude Include="..\andy\Crypto.h" />
+    <ClInclude Include="..\andy\Crypto1.h" />
+    <ClInclude Include="..\andy\CTreeCtrl.h" />
+    <ClInclude Include="..\andy\customsheet.h" />
+    <ClInclude Include="..\andy\customwidth.h" />
+    <ClInclude Include="..\andy\CVector.h" />
+    <ClInclude Include="..\andy\dim.h" />
+    <ClInclude Include="..\andy\dima.h" />
+    <ClInclude Include="..\andy\DimArrow.h" />
+    <ClInclude Include="..\andy\diml.h" />
+    <ClInclude Include="..\andy\DimText.h" />
+    <ClInclude Include="..\andy\DlgCap.h" />
+    <ClInclude Include="..\andy\dot.h" />
+    <ClInclude Include="..\andy\Draw.h" />
+    <ClInclude Include="..\andy\drawwnd.h" />
+    <ClInclude Include="..\andy\DxfArrayScanner.h" />
+    <ClInclude Include="..\andy\DxfParser.h" />
+    <ClInclude Include="..\andy\dxf_file.h" />
+    <ClInclude Include="..\andy\dxf_format.h" />
+    <ClInclude Include="..\andy\dxf_tab.h" />
+    <ClInclude Include="..\andy\Edge.h" />
+    <ClInclude Include="..\andy\EditMacroDlg.h" />
+    <ClInclude Include="..\andy\EditParse.h" />
+    <ClInclude Include="..\andy\Face.h" />
+    <ClInclude Include="..\andy\FFD.h" />
+    <ClInclude Include="..\andy\Figure.h" />
+    <ClInclude Include="..\andy\Figureback.h" />
+    <ClInclude Include="..\andy\FileMacroDlg.h" />
+    <ClInclude Include="..\andy\FilenameEdit.h" />
+    <ClInclude Include="..\andy\FloatP.h" />
+    <ClInclude Include="..\andy\font.h" />
+    <ClInclude Include="..\andy\geometry.h" />
+    <ClInclude Include="..\andy\gridpag.h" />
+    <ClInclude Include="..\andy\gridpage.h" />
+    <ClInclude Include="..\andy\image.h" />
+    <ClInclude Include="..\andy\Imagex.h" />
+    <ClInclude Include="..\andy\infobar.h" />
+    <ClInclude Include="..\andy\inplaceframe.h" />
+    <ClInclude Include="..\andy\inter.h" />
+    <ClInclude Include="..\andy\IntP.h" />
+    <ClInclude Include="..\andy\IpFrame.h" />
+    <ClInclude Include="..\andy\laybar.h" />
+    <ClInclude Include="..\andy\Layerad.h" />
+    <ClInclude Include="..\andy\LayerD.h" />
+    <ClInclude Include="..\andy\laylist.h" />
+    <ClInclude Include="..\andy\lcombobox.h" />
+    <ClInclude Include="..\andy\libdialog.h" />
+    <ClInclude Include="..\andy\Libs.h" />
+    <ClInclude Include="..\andy\LightD.h" />
+    <ClInclude Include="..\andy\line.h" />
+    <ClInclude Include="..\andy\lineagain.h" />
+    <ClInclude Include="..\andy\linebar.h" />
+    <ClInclude Include="..\andy\linestyle.h" />
+    <ClInclude Include="..\andy\MacroManager.h" />
+    <ClInclude Include="..\andy\MainFrm.h" />
+    <ClInclude Include="..\andy\matrix.h" />
+    <ClInclude Include="..\andy\matrix1.h" />
+    <ClInclude Include="..\andy\MClick.h" />
+    <ClInclude Include="..\andy\mdccombo.h" />
+    <ClInclude Include="..\andy\memdc.h" />
+    <ClInclude Include="..\andy\Memento.h" />
+    <ClInclude Include="..\andy\Mesh.h" />
+    <ClInclude Include="..\andy\mlinestyle.h" />
+    <ClInclude Include="..\andy\mouse.h" />
+    <ClInclude Include="..\andy\MultVar.h" />
+    <ClInclude Include="..\andy\NewMacroDlg.h" />
+    <ClInclude Include="..\andy\newtext.h" />
+    <ClInclude Include="..\andy\nstatusbar.h" />
+    <ClInclude Include="..\andy\numcopy.h" />
+    <ClInclude Include="..\andy\OBJEdit.h" />
+    <ClInclude Include="..\andy\Observer.h" />
+    <ClInclude Include="..\andy\operation.h" />
+    <ClInclude Include="..\andy\optionsheet.h" />
+    <ClInclude Include="..\andy\owncombo.h" />
+    <ClInclude Include="..\andy\OwnCombo1.h" />
+    <ClInclude Include="..\andy\ownlist.h" />
+    <ClInclude Include="..\andy\paperpag.h" />
+    <ClInclude Include="..\andy\paperpage.h" />
+    <ClInclude Include="..\andy\ParseDlg.h" />
+    <ClInclude Include="..\andy\Parser.h" />
+    <ClInclude Include="..\andy\ParserArc.h" />
+    <ClInclude Include="..\andy\ParserCircle.h" />
+    <ClInclude Include="..\andy\ParserDXF.h" />
+    <ClInclude Include="..\andy\ParserFloat.h" />
+    <ClInclude Include="..\andy\ParserObject.h" />
+    <ClInclude Include="..\andy\ParserPoint.h" />
+    <ClInclude Include="..\andy\ParserRectangle.h" />
+    <ClInclude Include="..\andy\ParserVar.h" />
+    <ClInclude Include="..\andy\ParserVerb.h" />
+    <ClInclude Include="..\andy\Pattern.h" />
+    <ClInclude Include="..\andy\pgrid.h" />
+    <ClInclude Include="..\andy\picture.h" />
+    <ClInclude Include="..\andy\Plane.h" />
+    <ClInclude Include="..\andy\PolarTrackDlg.h" />
+    <ClInclude Include="..\andy\popbar.h" />
+    <ClInclude Include="..\andy\ProgressBar.h" />
+    <ClInclude Include="..\andy\Property.h" />
+    <ClInclude Include="..\andy\proppage.h" />
+    <ClInclude Include="..\andy\qline.h" />
+    <ClInclude Include="..\andy\QuadTree.h" />
+    <ClInclude Include="..\andy\Quaternion.h" />
+    <ClInclude Include="..\andy\Ray.h" />
+    <ClInclude Include="..\andy\RecArray.h" />
+    <ClInclude Include="..\andy\reccolor.h" />
+    <ClInclude Include="..\andy\RecPattern.h" />
+    <ClInclude Include="..\andy\rectangle.h" />
+    <ClInclude Include="..\andy\RegDialog.h" />
+    <ClInclude Include="..\andy\Register.h" />
+    <ClInclude Include="..\andy\Render.h" />
+    <ClInclude Include="..\andy\resourc.h" />
+    <ClInclude Include="..\andy\resource.h" />
+    <ClInclude Include="..\andy\Rtfdecl.h" />
+    <ClInclude Include="..\andy\Rtftype.h" />
+    <ClInclude Include="..\andy\ruler.h" />
+    <ClInclude Include="..\andy\ruler1.h" />
+    <ClInclude Include="..\andy\RunMacroDlg.h" />
+    <ClInclude Include="..\andy\SmoothD.h" />
+    <ClInclude Include="..\andy\Snap.h" />
+    <ClInclude Include="..\andy\Snap2.h" />
+    <ClInclude Include="..\andy\SnapCentP.h" />
+    <ClInclude Include="..\andy\SnapDlg.h" />
+    <ClInclude Include="..\andy\SnapEndP.h" />
+    <ClInclude Include="..\andy\SnapGridDlg.h" />
+    <ClInclude Include="..\andy\SnapGridDlg2.h" />
+    <ClInclude Include="..\andy\SnapGridP.h" />
+    <ClInclude Include="..\andy\SnapIntP.h" />
+    <ClInclude Include="..\andy\SnapMidP.h" />
+    <ClInclude Include="..\andy\SnapNearP.h" />
+    <ClInclude Include="..\andy\SnapObject.h" />
+    <ClInclude Include="..\andy\SnapObjectDlg.h" />
+    <ClInclude Include="..\andy\SnapPara.h" />
+    <ClInclude Include="..\andy\SnapParaGrid.h" />
+    <ClInclude Include="..\andy\SnapPerp.h" />
+    <ClInclude Include="..\andy\SnapPoint.h" />
+    <ClInclude Include="..\andy\splash.h" />
+    <ClInclude Include="..\andy\Spline.h" />
+    <ClInclude Include="..\andy\SrvrItem.h" />
+    <ClInclude Include="..\andy\State.h" />
+    <ClInclude Include="..\andy\StdAfx.h" />
+    <ClInclude Include="..\andy\StringP.h" />
+    <ClInclude Include="..\andy\Subject.h" />
+    <ClInclude Include="..\andy\subwnd.h" />
+    <ClInclude Include="..\andy\TabOption.h" />
+    <ClInclude Include="..\andy\Tangle.h" />
+    <ClInclude Include="..\andy\text.h" />
+    <ClInclude Include="..\andy\text1.h" />
+    <ClInclude Include="..\andy\Textcad.h" />
+    <ClInclude Include="..\andy\Textcad1.h" />
+    <ClInclude Include="..\andy\Textcad_2.h" />
+    <ClInclude Include="..\andy\textd.h" />
+    <ClInclude Include="..\andy\TextDi.h" />
+    <ClInclude Include="..\andy\texts.h" />
+    <ClInclude Include="..\andy\ThickD.h" />
+    <ClInclude Include="..\andy\tipdlg.h" />
+    <ClInclude Include="..\andy\toolbarw.h" />
+    <ClInclude Include="..\andy\toolbarx.h" />
+    <ClInclude Include="..\andy\TransDlg.h" />
+    <ClInclude Include="..\andy\translate.h" />
+    <ClInclude Include="..\andy\Triangle.h" />
+    <ClInclude Include="..\andy\TRIM.h" />
+    <ClInclude Include="..\andy\tritest.h" />
+    <ClInclude Include="..\andy\tvector.h" />
+    <ClInclude Include="..\andy\txted.h" />
+    <ClInclude Include="..\andy\Unclick.h" />
+    <ClInclude Include="..\andy\Undo.h" />
+    <ClInclude Include="..\andy\Vector.h" />
+    <ClInclude Include="..\andy\Vectorm.h" />
+    <ClInclude Include="..\andy\vectorp.h" />
+    <ClInclude Include="..\andy\vectorv.h" />
+    <ClInclude Include="..\andy\Verb.h" />
+    <ClInclude Include="..\andy\Vertex.h" />
+    <ClInclude Include="..\andy\zoombar.h" />
+    <ClInclude Include="..\andy\zoomd.h" />
+    <ClInclude Include="calendarbar.h" />
+    <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MFCAndyCAD.h" />
+    <ClInclude Include="MFCAndyCADDoc.h" />
+    <ClInclude Include="MFCAndyCADView.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\andy\AABB.cpp" />
+    <ClCompile Include="..\andy\AddinManager.cpp" />
+    <ClCompile Include="..\andy\AddinManager1.cpp" />
+    <ClCompile Include="..\andy\AddinSettingsDialog1.cpp" />
+    <ClCompile Include="..\andy\andycad.cpp" />
+    <ClCompile Include="..\andy\AndyCadAddin.cpp" />
+    <ClCompile Include="..\andy\andycadDoc.cpp" />
+    <ClCompile Include="..\andy\andycadView.cpp" />
+    <ClCompile Include="..\andy\Application.cpp" />
+    <ClCompile Include="..\andy\arcprop.cpp" />
+    <ClCompile Include="..\andy\ArrayAngle.cpp" />
+    <ClCompile Include="..\andy\barrowc.cpp" />
+    <ClCompile Include="..\andy\BArrowP.cpp" />
+    <ClCompile Include="..\andy\Bezier.cpp" />
+    <ClCompile Include="..\andy\Bezier1.cpp" />
+    <ClCompile Include="..\andy\BoolP.cpp" />
+    <ClCompile Include="..\andy\cad.cpp" />
+    <ClCompile Include="..\andy\CadAutoCamera.cpp" />
+    <ClCompile Include="..\andy\CadAutoCanvas.cpp" />
+    <ClCompile Include="..\andy\CadAutoCollection.cpp" />
+    <ClCompile Include="..\andy\CadAutoDrawing.cpp" />
+    <ClCompile Include="..\andy\CadAutoDrawingCollection.cpp" />
+    <ClCompile Include="..\andy\CadAutoEdit.cpp" />
+    <ClCompile Include="..\andy\CAdAutoShape.cpp" />
+    <ClCompile Include="..\andy\CadAutoSurface.cpp" />
+    <ClCompile Include="..\andy\CadAutoTransform.cpp" />
+    <ClCompile Include="..\andy\CadAutoUtils.cpp" />
+    <ClCompile Include="..\andy\CadAutoVector.cpp" />
+    <ClCompile Include="..\andy\CadAutoWnd.cpp" />
+    <ClCompile Include="..\andy\cadDoc.cpp" />
+    <ClCompile Include="..\andy\cadView.cpp" />
+    <ClCompile Include="..\andy\CAM.cpp" />
+    <ClCompile Include="..\andy\CameraDlg.cpp" />
+    <ClCompile Include="..\andy\Cercle.cpp" />
+    <ClCompile Include="..\andy\chamfd.cpp" />
+    <ClCompile Include="..\andy\Chamfer.cpp" />
+    <ClCompile Include="..\andy\chfi.cpp" />
+    <ClCompile Include="..\andy\Click.cpp" />
+    <ClCompile Include="..\andy\clinesty.cpp" />
+    <ClCompile Include="..\andy\Clipper.cpp" />
+    <ClCompile Include="..\andy\cmoveandrotatebar.cpp" />
+    <ClCompile Include="..\andy\CntrItem.cpp" />
+    <ClCompile Include="..\andy\Colord.cpp" />
+    <ClCompile Include="..\andy\Command.cpp" />
+    <ClCompile Include="..\andy\Constraint.cpp" />
+    <ClCompile Include="..\andy\Copie (3) de Textcad.cpp" />
+    <ClCompile Include="..\andy\cpapersize.cpp" />
+    <ClCompile Include="..\andy\Crypt.cpp" />
+    <ClCompile Include="..\andy\Crypto.cpp" />
+    <ClCompile Include="..\andy\Crypto1.cpp" />
+    <ClCompile Include="..\andy\CTreeCtrl.cpp" />
+    <ClCompile Include="..\andy\customsheet.cpp" />
+    <ClCompile Include="..\andy\customwidth.cpp" />
+    <ClCompile Include="..\andy\CVector.cpp" />
+    <ClCompile Include="..\andy\dim.cpp" />
+    <ClCompile Include="..\andy\dima.cpp" />
+    <ClCompile Include="..\andy\DimArrow.cpp" />
+    <ClCompile Include="..\andy\diml.cpp" />
+    <ClCompile Include="..\andy\DimText.cpp" />
+    <ClCompile Include="..\andy\DlgCap.cpp" />
+    <ClCompile Include="..\andy\dot.cpp" />
+    <ClCompile Include="..\andy\Draw.cpp" />
+    <ClCompile Include="..\andy\Draw1.cpp" />
+    <ClCompile Include="..\andy\drawwnd.cpp" />
+    <ClCompile Include="..\andy\DxfArrayScanner.cpp" />
+    <ClCompile Include="..\andy\DxfParser.cpp" />
+    <ClCompile Include="..\andy\dxf_file.cpp" />
+    <ClCompile Include="..\andy\Edge.cpp" />
+    <ClCompile Include="..\andy\EditMacroDlg.cpp" />
+    <ClCompile Include="..\andy\EditParse.cpp" />
+    <ClCompile Include="..\andy\Face.cpp" />
+    <ClCompile Include="..\andy\FFD.cpp" />
+    <ClCompile Include="..\andy\Figure.cpp" />
+    <ClCompile Include="..\andy\Figure10.cpp" />
+    <ClCompile Include="..\andy\FileMacroDlg.cpp" />
+    <ClCompile Include="..\andy\FilenameEdit.cpp" />
+    <ClCompile Include="..\andy\FloatP.cpp" />
+    <ClCompile Include="..\andy\font.cpp" />
+    <ClCompile Include="..\andy\geometry.cpp" />
+    <ClCompile Include="..\andy\gridpag.cpp" />
+    <ClCompile Include="..\andy\gridpage.cpp" />
+    <ClCompile Include="..\andy\image.cpp" />
+    <ClCompile Include="..\andy\Imagex.cpp" />
+    <ClCompile Include="..\andy\Infobar.cpp" />
+    <ClCompile Include="..\andy\inplaceframe.cpp" />
+    <ClCompile Include="..\andy\inter.cpp" />
+    <ClCompile Include="..\andy\IntP.cpp" />
+    <ClCompile Include="..\andy\IpFrame.cpp" />
+    <ClCompile Include="..\andy\laybar.cpp" />
+    <ClCompile Include="..\andy\Layerad.cpp" />
+    <ClCompile Include="..\andy\LayerD.cpp" />
+    <ClCompile Include="..\andy\laylist.cpp" />
+    <ClCompile Include="..\andy\lcombobox.cpp" />
+    <ClCompile Include="..\andy\libdialog.cpp" />
+    <ClCompile Include="..\andy\Libs.cpp" />
+    <ClCompile Include="..\andy\LightD.cpp" />
+    <ClCompile Include="..\andy\Line.cpp" />
+    <ClCompile Include="..\andy\lineagain.cpp" />
+    <ClCompile Include="..\andy\linebar.cpp" />
+    <ClCompile Include="..\andy\linestyle.cpp" />
+    <ClCompile Include="..\andy\MacroManager.cpp" />
+    <ClCompile Include="..\andy\MainFrm.cpp" />
+    <ClCompile Include="..\andy\matrix.cpp" />
+    <ClCompile Include="..\andy\matrix1.cpp" />
+    <ClCompile Include="..\andy\MClick.cpp" />
+    <ClCompile Include="..\andy\mdccombo.cpp" />
+    <ClCompile Include="..\andy\Memento.cpp" />
+    <ClCompile Include="..\andy\Mesh.cpp" />
+    <ClCompile Include="..\andy\mlinestyle.cpp" />
+    <ClCompile Include="..\andy\mouse.cpp" />
+    <ClCompile Include="..\andy\MultVar.cpp" />
+    <ClCompile Include="..\andy\NewMacroDlg.cpp" />
+    <ClCompile Include="..\andy\newtext.cpp" />
+    <ClCompile Include="..\andy\nstatusbar.cpp" />
+    <ClCompile Include="..\andy\numcopy.cpp" />
+    <ClCompile Include="..\andy\OBJEdit.cpp" />
+    <ClCompile Include="..\andy\Observer.cpp" />
+    <ClCompile Include="..\andy\operation.cpp" />
+    <ClCompile Include="..\andy\optionsheet.cpp" />
+    <ClCompile Include="..\andy\owncombo.cpp" />
+    <ClCompile Include="..\andy\OwnCombo1.cpp" />
+    <ClCompile Include="..\andy\ownlist.cpp" />
+    <ClCompile Include="..\andy\paperpag.cpp" />
+    <ClCompile Include="..\andy\paperpage.cpp" />
+    <ClCompile Include="..\andy\ParseDlg.cpp" />
+    <ClCompile Include="..\andy\Parser.cpp" />
+    <ClCompile Include="..\andy\ParserArc.cpp" />
+    <ClCompile Include="..\andy\ParserCircle.cpp" />
+    <ClCompile Include="..\andy\ParserDXF.cpp" />
+    <ClCompile Include="..\andy\ParserFloat.cpp" />
+    <ClCompile Include="..\andy\ParserObject.cpp" />
+    <ClCompile Include="..\andy\ParserPoint.cpp" />
+    <ClCompile Include="..\andy\ParserRectangle.cpp" />
+    <ClCompile Include="..\andy\ParserVar.cpp" />
+    <ClCompile Include="..\andy\ParserVerb.cpp" />
+    <ClCompile Include="..\andy\Pattern.cpp" />
+    <ClCompile Include="..\andy\pgrid.cpp" />
+    <ClCompile Include="..\andy\picture.cpp" />
+    <ClCompile Include="..\andy\Plane.cpp" />
+    <ClCompile Include="..\andy\PolarTrackDlg.cpp" />
+    <ClCompile Include="..\andy\popbar.cpp" />
+    <ClCompile Include="..\andy\ProgressBar.cpp" />
+    <ClCompile Include="..\andy\Property.cpp" />
+    <ClCompile Include="..\andy\proppage.cpp" />
+    <ClCompile Include="..\andy\qline.cpp" />
+    <ClCompile Include="..\andy\QuadTree.cpp" />
+    <ClCompile Include="..\andy\Quaternion.cpp" />
+    <ClCompile Include="..\andy\Ray.cpp" />
+    <ClCompile Include="..\andy\RecArray.cpp" />
+    <ClCompile Include="..\andy\reccolor.cpp" />
+    <ClCompile Include="..\andy\RecPattern.cpp" />
+    <ClCompile Include="..\andy\rectangle.cpp" />
+    <ClCompile Include="..\andy\RegDialog.cpp" />
+    <ClCompile Include="..\andy\Register.cpp" />
+    <ClCompile Include="..\andy\Render.cpp" />
+    <ClCompile Include="..\andy\RTFACTN.CPP" />
+    <ClCompile Include="..\andy\Rtfreadr.cpp" />
+    <ClCompile Include="..\andy\ruler.cpp" />
+    <ClCompile Include="..\andy\ruler1.cpp" />
+    <ClCompile Include="..\andy\RunMacroDlg.cpp" />
+    <ClCompile Include="..\andy\SmoothD.cpp" />
+    <ClCompile Include="..\andy\Snap.cpp" />
+    <ClCompile Include="..\andy\Snap2.cpp" />
+    <ClCompile Include="..\andy\SnapCentP.cpp" />
+    <ClCompile Include="..\andy\SnapDlg.cpp" />
+    <ClCompile Include="..\andy\SnapEndP.cpp" />
+    <ClCompile Include="..\andy\SnapGridDlg.cpp" />
+    <ClCompile Include="..\andy\SnapGridDlg2.cpp" />
+    <ClCompile Include="..\andy\SnapGridP.cpp" />
+    <ClCompile Include="..\andy\SnapIntP.cpp" />
+    <ClCompile Include="..\andy\SnapMidP.cpp" />
+    <ClCompile Include="..\andy\SnapNearP.cpp" />
+    <ClCompile Include="..\andy\SnapObject.cpp" />
+    <ClCompile Include="..\andy\SnapObjectDlg.cpp" />
+    <ClCompile Include="..\andy\SnapPara.cpp" />
+    <ClCompile Include="..\andy\SnapParaGrid.cpp" />
+    <ClCompile Include="..\andy\SnapPerp.cpp" />
+    <ClCompile Include="..\andy\SnapPoint.cpp" />
+    <ClCompile Include="..\andy\splash.cpp" />
+    <ClCompile Include="..\andy\Spline.cpp" />
+    <ClCompile Include="..\andy\SrvrItem.cpp" />
+    <ClCompile Include="..\andy\State.cpp" />
+    <ClCompile Include="..\andy\StdAfx.cpp" />
+    <ClCompile Include="..\andy\StringP.cpp" />
+    <ClCompile Include="..\andy\Subject.cpp" />
+    <ClCompile Include="..\andy\subwnd.cpp" />
+    <ClCompile Include="..\andy\TabOption.cpp" />
+    <ClCompile Include="..\andy\Tangle.cpp" />
+    <ClCompile Include="..\andy\text.cpp" />
+    <ClCompile Include="..\andy\text1.cpp" />
+    <ClCompile Include="..\andy\Textcad.cpp" />
+    <ClCompile Include="..\andy\Textcad1.cpp" />
+    <ClCompile Include="..\andy\Textcad_2.cpp" />
+    <ClCompile Include="..\andy\textd.cpp" />
+    <ClCompile Include="..\andy\TextDi.cpp" />
+    <ClCompile Include="..\andy\texts.cpp" />
+    <ClCompile Include="..\andy\ThickD.cpp" />
+    <ClCompile Include="..\andy\tipdlg.cpp" />
+    <ClCompile Include="..\andy\toolbarw.cpp" />
+    <ClCompile Include="..\andy\toolbarx.cpp" />
+    <ClCompile Include="..\andy\TransDlg.cpp" />
+    <ClCompile Include="..\andy\translate.cpp" />
+    <ClCompile Include="..\andy\Triangle.cpp" />
+    <ClCompile Include="..\andy\TRIM.cpp" />
+    <ClCompile Include="..\andy\tvector.cpp" />
+    <ClCompile Include="..\andy\txted.cpp" />
+    <ClCompile Include="..\andy\Unclick.cpp" />
+    <ClCompile Include="..\andy\Undo.cpp" />
+    <ClCompile Include="..\andy\vector.cpp" />
+    <ClCompile Include="..\andy\Vectorm.cpp" />
+    <ClCompile Include="..\andy\vectorp.cpp" />
+    <ClCompile Include="..\andy\vectorv.cpp" />
+    <ClCompile Include="..\andy\Verb.cpp" />
+    <ClCompile Include="..\andy\Vertex.cpp" />
+    <ClCompile Include="..\andy\zoombar.cpp" />
+    <ClCompile Include="..\andy\zoomd.cpp" />
+    <ClCompile Include="calendarbar.cpp" />
+    <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MFCAndyCAD.cpp" />
+    <ClCompile Include="MFCAndyCADDoc.cpp" />
+    <ClCompile Include="MFCAndyCADView.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="MFCAndyCAD.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\andy\resource.hm" />
+    <None Include="MFCAndyCAD.reg" />
+    <None Include="res\MFCAndyCAD.rc2" />
+    <None Include="res\ribbon.mfcribbon-ms" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MFCAndyCAD.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\buttons.bmp" />
+    <Image Include="res\filelarge.bmp" />
+    <Image Include="res\filesmall.bmp" />
+    <Image Include="res\info.bmp" />
+    <Image Include="res\main.bmp" />
+    <Image Include="res\MFCAndyCAD.ico" />
+    <Image Include="res\MFCAndyCADDoc.ico" />
+    <Image Include="res\nav_large.bmp" />
+    <Image Include="res\nav_large_hc.bmp" />
+    <Image Include="res\pages.bmp" />
+    <Image Include="res\pages_hc.bmp" />
+    <Image Include="res\pages_small.bmp" />
+    <Image Include="res\pages_small_hc.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\Toolbar256.bmp" />
+    <Image Include="res\writelarge.bmp" />
+    <Image Include="res\writesmall.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

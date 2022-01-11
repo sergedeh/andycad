@@ -13,7 +13,7 @@
 	".\QLine.h"\
 	".\Rectangle.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\cad.cpp : \
@@ -38,7 +38,7 @@
 	".\SubWnd.h"\
 	".\TextD.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	".\ZoomD.h"\
 	
 
@@ -94,7 +94,7 @@
 	".\Ruler1.h"\
 	".\SubWnd.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\cadView.cpp : \
@@ -113,7 +113,7 @@
 	".\Ruler1.h"\
 	".\SubWnd.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\Cercle.cpp : \
@@ -124,7 +124,7 @@
 	".\Line.h"\
 	".\Mouse.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\ColorD.cpp : \
@@ -159,7 +159,7 @@
 	".\QLine.h"\
 	".\Rectangle.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\DrawWnd.cpp : \
@@ -172,7 +172,7 @@
 	".\Figure.h"\
 	".\Mouse.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\Inter.cpp : \
@@ -187,7 +187,7 @@
 	".\QLine.h"\
 	".\Rectangle.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\LibS.cpp : \
@@ -196,7 +196,7 @@
 	".\LibS.h"\
 	".\Mouse.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\Line.cpp : \
@@ -205,7 +205,7 @@
 	".\Line.h"\
 	".\Mouse.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\MainFrm.cpp : \
@@ -240,7 +240,7 @@
 .\Operation.cpp : \
 	".\cad.h"\
 	".\Operation.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	".\Vectorp.h"\
 	".\Vectorv.h"\
 	
@@ -257,7 +257,7 @@
 	".\Mouse.h"\
 	".\QLine.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\RecColor.cpp : \
@@ -273,7 +273,7 @@
 	".\Mouse.h"\
 	".\Rectangle.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\Ruler1.cpp : \
@@ -309,29 +309,29 @@
 .\Translate.cpp : \
 	".\cad.h"\
 	".\Translate.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\TVector.cpp : \
 	".\cad.h"\
 	".\TVector.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\Vector.cpp : \
 	".\cad.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	
 
 .\Vectorp.cpp : \
 	".\cad.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	".\Vectorp.h"\
 	
 
 .\Vectorv.cpp : \
 	".\cad.h"\
-	".\Vector.h"\
+	".\CVector.h"\
 	".\Vectorv.h"\
 	
 

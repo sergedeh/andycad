@@ -5,7 +5,7 @@
 #if !defined(AFX_RAY_H__F445B457_CD9E_45D4_9E30_1CB6068BFA8E__INCLUDED_)
 #define AFX_RAY_H__F445B457_CD9E_45D4_9E30_1CB6068BFA8E__INCLUDED_
 
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000

@@ -14,8 +14,8 @@
 //#include "SubWnd.h"	// Added by ClassView
 #include "mouse.h"
 #include "CPapersize.h"
-#include "vector.h"
-#include "subject.h"
+#include "CVector.h"
+#include "CSubject.h"
 #include "Snap.h"	// Added by ClassView
 
 //#include "Ctext.h"

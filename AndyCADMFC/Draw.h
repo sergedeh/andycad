@@ -24,7 +24,7 @@
 #include "QLine.h"
 #include "TextCad.h"	// Added by ClassView
 #include "inter.h"
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 #include "image.h"
 #include "cam.h"
 #include "memento.h"

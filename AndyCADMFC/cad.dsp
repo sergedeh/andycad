@@ -1546,7 +1546,7 @@ SOURCE=.\Undo.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\Vector.h
+SOURCE=.\CVector.h
 # End Source File
 # Begin Source File
 

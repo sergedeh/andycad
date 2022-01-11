@@ -14,7 +14,7 @@
 #include <assert.h>
 
 
-#include "Vector.h"
+#include "CVector.h"
 #include "Vectorm.h"
 #include "matrix1.h"
 //#include "eqmatrix.h"

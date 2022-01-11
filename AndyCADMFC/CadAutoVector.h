@@ -1,7 +1,7 @@
 #if !defined(AFX_CADAUTOVECTOR_H__90B7D139_4A84_44AE_A1E2_02385883050A__INCLUDED_)
 #define AFX_CADAUTOVECTOR_H__90B7D139_4A84_44AE_A1E2_02385883050A__INCLUDED_
 
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000

@@ -4,7 +4,7 @@
 
 #if !defined(AFX_TEXTCAD_H__47586488_0253_41BC_B265_5966EF9478BA__INCLUDED_)
 #define AFX_TEXTCAD_H__47586488_0253_41BC_B265_5966EF9478BA__INCLUDED_
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 #include "Rectangle.h"	// Added by ClassView
 #include "figure.h"	// Added by ClassView
 #include <map>

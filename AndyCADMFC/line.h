@@ -7,9 +7,9 @@
 
 #include "Mouse.h"	// Added by ClassView
 #pragma warning(disable:4786)
-#include "vector.h"
+//#include "CVector.h"
 #include "ray.h"
-#include "cvector.h"
+//#include "cvector.h"
 
 #include <vector>
 #include "figure.h"	// Added by ClassView
@@ -32,7 +32,7 @@ using namespace std;
 		double dv;
 		double v_top,v_bottom;
 		double u_top,u_bottom;
-		operator =(Edges v)
+		void operator =(Edges v)
 		{
 			e=v.e;
 			b=v.b;
@@ -90,15 +90,17 @@ using namespace std;
 			else
 				return CVector(e.u,e.v,r.bottom);
 		}
-		operator ==(Edges v){
+		bool operator ==(Edges v){
 		return ((e==v.e)&&(b==v.b)&&(r==v.r));
 		};
-		operator ==(Edges* v){
+		bool operator ==(Edges* v){
 		return ((e==v->e)&&(b==v->b)&&(r==v->r));
 		};
 	}; 
-
-
+	bool operator == (Edges v1, std::vector<Edges>::iterator v2)
+	{
+		return ((v1.e == v2->e) && (v1.b == v2->b) && (v1.r == v2->r));
+	}
 typedef vector<Edges>::iterator eiterator;
 typedef vector<CVector>::iterator viterator;
 

@@ -6,7 +6,7 @@
 #endif // _MSC_VER > 1000
 // OBJEdit.h : header file
 //
-#include "vector.h"
+#include "CVector.h"
 /////////////////////////////////////////////////////////////////////////////
 // COBJEdit dialog
 

@@ -656,7 +656,7 @@ makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm" </Command>
     <ClInclude Include="TxtED.h" />
     <ClInclude Include="Unclick.h" />
     <ClInclude Include="Undo.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="CVector.h" />
     <ClInclude Include="Vectorm.h" />
     <ClInclude Include="Vectorp.h" />
     <ClInclude Include="Vectorv.h" />

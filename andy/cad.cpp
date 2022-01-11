@@ -84,7 +84,7 @@ BOOL CCadApp::InitInstance()
 	LoadStdProfileSettings();  // Load standard INI file options (including MRU)
 	CRegDialog RegistrationDialog;
 
-	RegistrationDialog.Check();
+//	RegistrationDialog.Check();
 	{
 		//Set up date and time defaults so they're the same as system defaults
 		setlocale(LC_ALL, "");

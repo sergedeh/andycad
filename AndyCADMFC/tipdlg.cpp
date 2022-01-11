@@ -1,7 +1,7 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "resource.h"
 // CG: This file added by 'Tip of the Day' component.
-
+#include "tipdlg.h"
 #include <winreg.h>
 #include <sys\stat.h>
 #include <sys\types.h>
@@ -36,7 +36,8 @@ CTipDlg::CTipDlg(CWnd* pParent /*=NULL*/)
 	UINT iFilePos = pApp->GetProfileInt(szSection, szIntFilePos, 0);
 
 	// Now try to open the tips file
-	m_pStream = fopen("tips.txt", "r");
+	FILE* m_pStream = NULL;
+	errno_t er = fopen_s(&m_pStream,"tips.txt", "r");
 	if (m_pStream == NULL) 
 	{
 		m_strTip.LoadString(CG_IDS_FILE_ABSENT);
@@ -49,7 +50,9 @@ CTipDlg::CTipDlg(CWnd* pParent /*=NULL*/)
 	// ini file
 	struct _stat buf;
 	_fstat(_fileno(m_pStream), &buf);
-	CString strCurrentTime = ctime(&buf.st_ctime);
+	char strCurrentTime2[26];
+	errno_t er1 = ctime_s(strCurrentTime2,sizeof strCurrentTime2,&buf.st_ctime);
+	CString strCurrentTime(strCurrentTime2);
 	strCurrentTime.TrimRight();
 	CString strStoredTime = 
 		pApp->GetProfileString(szSection, szTimeStamp, NULL);

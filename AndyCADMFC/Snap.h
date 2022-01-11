@@ -8,9 +8,9 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-#include "vector.h"
+#include "CVector.h"
 #include <vector>
-#include "Observer.h"
+#include "CObserver.h"
 #include "property.h"
 
 #include "command.h"
@@ -31,7 +31,7 @@ struct S
 	CVector b,e;
 	S(CVector p1,CVector p2):b(p1),e(p2){}
 	S(){};
-	operator ==(S s1) {return ((b==s1.b)&&(e==s1.e));}
+	bool operator ==(S s1) {return ((b==s1.b)&&(e==s1.e));}
 	int left()
 	{
 		int x=(b.x<e.x)?b.x:e.x;
@@ -65,7 +65,7 @@ class CFigure;
 class CSnap : public CObserver,public CCommand  
 {
 public:
-	bool getSnapPoint(CVector& v,CVector &vl,CDC* hdc,CString type="");
+	bool getSnapPoint(CVector& v,CVector &vl,CDC* hdc,CString type=_T(""));
 	void init();
 	void executePoint(CVector &v, CDC *hdc);
 	void setval(vector<CProperty *>dlg);

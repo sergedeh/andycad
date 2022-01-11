@@ -116,7 +116,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -198,32 +198,66 @@
     <ClInclude Include="AndyCADMFC.h" />
     <ClInclude Include="AndyCADMFCDoc.h" />
     <ClInclude Include="AndyCADMFCView.h" />
+    <ClInclude Include="CAABB.h" />
     <ClInclude Include="calendarbar.h" />
+    <ClInclude Include="CCVector.h" />
+    <ClInclude Include="CEdge.h" />
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="CMesh.h" />
+    <ClInclude Include="CObserver.h" />
+    <ClInclude Include="CPlane.h" />
+    <ClInclude Include="CQuadTree.h" />
+    <ClInclude Include="CRay.h" />
+    <ClInclude Include="CRender.h" />
+    <ClInclude Include="CSubject.h" />
+    <ClInclude Include="CTriangle.h" />
     <ClInclude Include="CVector.h" />
+    <ClInclude Include="CVertex.h" />
+    <ClInclude Include="cximage\ximage.h" />
+    <ClInclude Include="Figure.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="image.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="matrix1.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="StdAfx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="tipdlg.h" />
+    <ClInclude Include="tvector.h" />
+    <ClInclude Include="Vectorm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AndyCADMFC.cpp" />
     <ClCompile Include="AndyCADMFCDoc.cpp" />
     <ClCompile Include="AndyCADMFCView.cpp" />
+    <ClCompile Include="CAABB.cpp" />
     <ClCompile Include="calendarbar.cpp" />
+    <ClCompile Include="CCVector.cpp" />
+    <ClCompile Include="CEdge.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="CMesh.cpp" />
+    <ClCompile Include="CObserver.cpp" />
+    <ClCompile Include="CPlane.cpp" />
+    <ClCompile Include="CQuadTree.cpp" />
+    <ClCompile Include="CRay.cpp" />
+    <ClCompile Include="CRender.cpp" />
+    <ClCompile Include="CSubject.cpp" />
+    <ClCompile Include="CTriangle.cpp" />
     <ClCompile Include="CVector.cpp" />
+    <ClCompile Include="CVertex.cpp" />
+    <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="image.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="matrix1.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="vector.cpp" />
+    <ClCompile Include="tipdlg.cpp" />
+    <ClCompile Include="tvector.cpp" />
+    <ClCompile Include="Vectorm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="AndyCADMFC.idl" />

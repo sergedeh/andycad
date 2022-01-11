@@ -579,10 +579,14 @@ void CVertex::RemoveFwdEdge(CVertex* v)
 		try{
 			CVertex* m=i->second->Mate(this);
 			m->RemoveAdjEdgei(i->second);
-			mesh->DeleteEdge(i->second->it);
-			i->second=NULL;
-			verase.push_back(i->first);
+			int _first = i->first;
+			i = mesh->DeleteEdge(i->second->it);
 			m->RemoveFwdEdge(v);
+		//	if()
+			if (i == adjE.end()) break;
+			i = adjE.find(i->first);
+			verase.push_back(i->first);
+		//	i->second = NULL;
 			i++;
 		}catch(...)
 		{

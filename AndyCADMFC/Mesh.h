@@ -12,7 +12,7 @@
 #include "triangle.h"
 #include <set>
 #include <map>
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 
 using namespace std;
 class CCadView;
@@ -73,8 +73,8 @@ public:
 	float min_dist_toEdge(CVector v,int* n=NULL);
 	void offset(float u,CMesh* f);
 	CVector Vector(int i);
-	operator = ( CMesh* m);
-	operator = ( CMesh m);
+	void operator = ( CMesh* m);
+	void operator = ( CMesh m);
 	bool PtonEdge(CVector point,CVector& v,float& u, CVector& uv);
 	CVertex* addVertexonEdge(CVector v);
 	void copy(const CMesh& m);

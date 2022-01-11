@@ -5,7 +5,7 @@
 #if !defined(AFX_TRANSLATE_H__B539E288_6EF2_443B_931F_3A13A27D5AC9__INCLUDED_)
 #define AFX_TRANSLATE_H__B539E288_6EF2_443B_931F_3A13A27D5AC9__INCLUDED_
 
-#include "vector.h"
+#include "CVector.h"
 #include<vector>
 #if _MSC_VER > 1000
 #pragma once

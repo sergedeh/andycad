@@ -1,128 +1,264 @@
-// CVector.h: interface for the CCVector class.
 //
-//////////////////////////////////////////////////////////////////////
+//  CVector.h
+//  testcommand
+//
+//  Created by Serge Deh on 10/15/20.
+//  Copyright (c) 2020 Serge Deh. All rights reserved.
+//
 
-#if !defined(AFX_CVECTOR_H__EFAB0083_E63E_4331_9C92_7F76D83EC7CF__INCLUDED_)
-#define AFX_CVECTOR_H__EFAB0083_E63E_4331_9C92_7F76D83EC7CF__INCLUDED_
+#ifndef __testcommand__CVector__
+#define __testcommand__CVector__
 
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
+//#define pi 3.14
 
-class CCVector  
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <math.h>
+////#include "//#include "CPoint.h".h"
+//#include "CSize.h"
+#include "pch.h"
+using namespace std;
+class CVector
 {
 public:
-	LONG Readfile(CFile &file);
+	enum PLANESNAP {front,left,top,snapnull};
+	double xc,yc,zc;
+private:
+	void snapcoortoplane(CVector &v,int i);
+	static PLANESNAP planesnap;
+	
+	static double n,f,r,l,t,b;
+	static double Sx,Sy,zstore,wstore;
+	static bool perspec;
+	struct V
+	{
+		double x;
+		double y;
+		double z;
+		double w;
+		void savefile(CFile& file)
+		{
+			file.Write(&x,sizeof(double));
+			file.Write(&y,sizeof(double));
+			file.Write(&z,sizeof(double));
+			file.Write(&w,sizeof(double));
+		}
+		void openfile(CFile& file)
+		{
+			file.Read(&x,sizeof(double));
+			file.Read(&y,sizeof(double));
+			file.Read(&z,sizeof(double));
+			file.Read(&w,sizeof(double));
+		}
+		long Readfile(CFile& file)
+		{
+			file.Seek(sizeof(double),CFile::current);
+			file.Seek(sizeof(double),CFile::current);
+			file.Seek(sizeof(double),CFile::current);
+			return file.Seek(sizeof(double),CFile::current);
+		}
+	};
+	V vb,ve;
+	static V vecx,vecy,vecz,vec0,\
+    vecix,veciy,veciz,veci0,\
+    pvecx,pvecy,pvecz,pvec0,\
+    pvecix,pveciy,pveciz,pveci0;
+	CVector (const V vec);
+    
+    
+public:
+	CSize getScreen();
+	CVector getscrbot();
+	CVector sgetscrtop();
+	CVector sgetscrb();
+	void Scale(double f);
+	void Normalise();
+	void worldi();
+	float getnearplane();
+	float getfarplane();
+	void setnearplane(float v);
+	void setfarplane(float v);
+	void world();
+	long Readfile(CFile &file);
 	void openfile(CFile& file);
 	void savefile(CFile& file);
-	CCVector(): r(0.0), g(0.0), b(0.0) {};
-	virtual ~CCVector();
-    CCVector(const CCVector& c) : r(c.r), g(c.g), b(c.b) {}
-    CCVector(double _r, double _g, double _b) : r(_r), g(_g), b(_b) {}
-	CCVector& operator=(const CCVector& c) {
-     r = c.r;
-     g = c.g;
-     b = c.b;
-     return *this;
-   }
- 
-   CCVector& operator+=(const CCVector& c) {
-     r += c.r; g += c.g; b += c.b;
-     return *this;
-   }
- 
-   CCVector& operator-=(const CCVector& c) {
-     r -= c.r; g -= c.g; b -= c.b;
-     return *this;
-   }
- 
-   inline CCVector& operator*=(const CCVector& c) {
-     r *= c.r; g *= c.g; b *= c.b;
-     return *this;
-   }
-   CCVector& operator/=(const CCVector& c) {
-     r /= c.r; g /= c.g; b /= c.b;
-     return *this;
-   }
- 
-   CCVector& operator*=(double s) {
-     r *= s; g *= s; b *= s;
-     return *this;
-   }
- 
-   CCVector& operator/=(double s) {
-     double is = 1.0 / s;
-     r *= is; g *= is; b *= is;
-     return *this;
-   }
- 
-   CCVector operator-() const {
-     return CCVector(-r, -g, -b);
-   }
-   CCVector operator+() const {
-     return *this;
-   }
- 
-   inline int toRGB() const {
-     int red   = (int) (r * 255.0);
-     int green = (int) (g * 255.0);
-     int blue  = (int) (b * 255.0);
- 
-     if (red < 0)   red = 0;   else if (red > 255)   red = 255;
-     if (green < 0) green = 0; else if (green > 255) green = 255;
-     if (blue < 0)  blue = 0;  else if (blue > 255)  blue = 255;
- 
-     return (red << 16) | (green << 8) | blue;
-   }
- 
-   double getMax() const {
-     double max = (r > g) ? r : g;
-     if (max < b)
-       max = b;
-     return max;
-   }
- 
-   double getMin() const {
-     double min = (r < g) ? r : g;
-     if (min > b)
-       min = b;
-     return min;
-   }
- 
-   double getAverage() const {
-     return (r + g + b) / 3.0;
-   }
- 
-   double r, g, b;
- };
- 
- inline CCVector operator+(const CCVector& a, const CCVector& b) {
-   return CCVector(a.r + b.r, a.g + b.g, a.b + b.b);
- }
- 
- inline CCVector operator-(const CCVector& a, const CCVector& b) {
-   return CCVector(a.r - b.r, a.g - b.g, a.b - b.b);
-}
- 
- inline CCVector operator*(const CCVector& a, const CCVector& b) {
-   return CCVector(a.r * b.r, a.g * b.g, a.b * b.b);
-}
- 
- inline CCVector operator/(const CCVector& a, const CCVector& b) {
-   return CCVector(a.r / b.r, a.g / b.g, a.b / b.b);
- }
- 
- inline CCVector operator*(double s, const CCVector& c) {
-   return CCVector(s * c.r, s * c.g, s * c.b);
- }
- 
- inline CCVector operator*(const CCVector& c, double s) {
-   return CCVector(s * c.r, s * c.g, s * c.b);
- }
- 
- inline CCVector operator/(const CCVector& c, double s) {
-   double is = 1.0 / s;
-   return CCVector(is * c.r, is * c.g, is * c.b);
- }
- 
-#endif // !defined(AFX_CVECTOR_H__EFAB0083_E63E_4331_9C92_7F76D83EC7CF__INCLUDED_)
+	void zoom(double zr);
+	void assignF();
+	bool snaptoplane(CVector& v);
+	PLANESNAP getplanesnap();
+    std::string setplanesnap(std::string s);
+	void getcooro();
+	void getcoorz();
+	void getcoory();
+	void getcoorx();
+	void v3D();
+	void v2D();
+	bool isOn();
+	bool getPerspective();
+	void setScreen(int w,int h);
+	void assignInv(CVector v);
+	void translatecamz(CVector v);
+	void translatecamxy(CVector v);
+	void setperspective();
+	CVector getDepth();
+	CVector camxyz();
+	void viewi();
+	void initz();
+	CPoint cP();
+	void setcamor(CVector v);
+	CVector getscrb();
+	CVector getscrtop();
+	CVector getcamz();
+	CVector getcamy();
+	CVector getcamx();
+	CVector getcamor();
+	double pointtoVector(CVector line,CVector point,CVector* hitpoint=NULL);
+	void assignLP(CVector v);
+	void assignPL(CVector v);
+	void polarcvec(double absci, double argo);
+	void assign(CVector v);
+	void assign(CVector begin, CVector end);
+	void assign(CVector vec,bool point);
+	friend class CTVector;
+	friend class CCAM;
+    
+	CVector();
+	//CVector (CVector& v) {x=v.x;y=v.y;}
+    //	CVector(double fx,double fy,double fz=1);
+	CVector(double fx,double fy,double fz=0,double fw=1);
+	CVector(const CPoint point);
+	CVector(const CVector begin,const CVector end);
+//    CVector(CVector& v);
+    
+	CPoint divideVect(CVector ptDebut, CVector ptEnd);
+	
+	bool pointinRegion(CVector point,CVector region);
+	CVector ppprojection(CVector point,CVector* v1=NULL);
+	CVector scalarMult(double value);
+    //	virtual double pointtoVector(CVector line,CVector Point);
+	CVector operator *(CVector v);
+	CVector operator *(double v);
+	CVector intersect (CVector v,bool b=false);
+	
+	inline double dot(const CVector v) {return (x*v.x+y*v.y+z*v.z);}
+	inline double absc(const CVector v){return sqrt(v.x*v.x+v.y*v.y+v.z*v.z);}
+	inline double argu(const CVector v){return atan2(v.y,v.x);}
+	inline CVector polarc(double absc,double argu){ return CVector(absc*cos(argu),absc*sin(argu));}
+    
+	inline void nullvec(){x=0;y=0;z=0;w=0;}
+	
+	virtual ~CVector();
+	
+    
+	//inline CPoint operator+(CPoint v){ return CPoint((int)x+v.x,(int)y+v.y);}
+	operator CPoint();// { CPoint v; v.x=x;v.y=y;return v;}//CPoint(x,y);}//***check it out*****
+	/*inline*/ void operator -=(const CVector v);//{x=x-v.x;y=y-v.y;w-=v.w;}
+    
+	/*inline*/ void operator +=(const CVector v);//{x=x+v.x;y=y+v.y;w+=v.w;}
+	/*inline*/ CVector operator +(CVector v);//{ return CVector(x+v.x,y+v.y,w+v.w);}
+	/*inline*/ CVector operator -(CVector v);//{ return CVector(x-v.x,y-v.y,w-v.w);}
+	inline CVector operator -(){ return CVector(-x,-y,-z);}
+	inline CVector operator -(int i){return CVector(x-i,y-i,z-i);}
+	inline CVector operator +(int i){return CVector(x+i,y+i,z+i);}
+	/*inline*/ CVector operator /(double i);//{return CVector(x/i,y/i,w/i);}
+	inline bool operator >(const CVector v){ return((x>v.x)&&(y>v.y));}
+	inline bool operator <(const CVector v){ return ((x<v.x)&&(y<v.y));}
+	inline bool operator <=(const CVector v){ return ((x<=v.x)&&(y<=v.y));}
+	inline bool operator >=(const CVector v){ return((x>=v.x)&&(y>=v.y));}
+	
+    
+	inline bool operator !=(const CVector v) const { return ((sqrt((z-v.z)*(z-v.z))>1E-5)||(sqrt((x-v.x)*(x-v.x))>1E-5)||(sqrt((y-v.y)*(y-v.y))>1E-5));}
+	inline bool operator ==(const CVector& v) const { return ((sqrt(pow(z-v.z,2))<1E-6)&&(sqrt(pow(x-v.x,2))<1E-6)&&(sqrt(pow(y-v.y,2))<1E-6));}
+    
+	inline CPoint getCenter(){CPoint v;v.x=x/2;v.y=y/2;return v;}// CPoint(x/2,y/2);}
+    
+	CPoint ptsBegin;        // beginning point
+	CPoint ptsEnd;// new endpoint
+    
+	double x,y,z,w,ws;
+	double xhit,yhit,zhit;
+    
+    
+protected:
+    
+};
+
+struct FINFO
+{
+	std::string name;
+	std::string description;
+	std::string author;
+	double cost;
+	double distance;
+	double angle;
+	double surface;
+	FINFO()
+	{
+		name = "";
+		description = "";
+		author = "";
+		cost = -1;
+		distance = -1;
+		angle = -1;
+		surface = -1;
+
+	}
+};
+struct FLAYER
+{
+	std::string name;
+	int handle;
+	bool on;
+	bool lock;
+	bool clear;
+	FLAYER()
+	{
+		handle = 0;
+		on = false;
+		clear = true;
+		lock = false;
+		name = "";
+	}
+};
+double absc(const CVector v,bool b=false);
+double argu(const CVector v,bool b=false);
+bool pointinRegion(CVector point, CVector region);
+double pointtoVector(CVector line,CVector point,CVector* hitpoint=NULL);
+CVector polarc(double absc,double argu,bool b=false);
+CVector getcamor();
+int orientation(CVector v1,CVector v2, CVector v3);
+
+extern CPoint operator - (CPoint p1, CPoint p2);
+extern CPoint operator + (CPoint p1, CPoint p2);
+extern bool operator == (CPoint p1, CPoint p2);
+class isclose
+{
+public:
+	isclose(CVector p) :v(p) {};
+	bool operator ()(CVector v1, CVector v2)
+	{
+		return (v1.absc(CVector(v1, v)) < v1.absc(CVector(v2, v)));
+	}
+private:
+	CVector v;
+};
+
+struct FSTYLE
+{
+	string name;
+	string font;
+	int handle;
+	float fixed_height;
+	float width_factor;
+	FSTYLE()
+	{
+		handle = 0;
+		name = "";
+		font = "";
+		fixed_height = 0;
+		width_factor = 1;
+	}
+};
+
+#endif /* defined(__testcommand__CVector__) */

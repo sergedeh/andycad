@@ -1,0 +1,29 @@
+// MFCAndyCAD.idl : type library source for MFCAndyCAD.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (MFCAndyCAD.tlb).
+
+[ uuid(556eb6a3-a5fd-444f-9d94-637f134cb1e4), version(1.0) ]
+library MFCAndyCAD
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CMFCAndyCADDoc
+
+	[ uuid(d46c6b20-2a8f-4cf2-9ac3-66e0dce12882) ]
+	dispinterface IMFCAndyCAD
+	{
+		properties:
+
+		methods:
+	};
+
+	//  Class information for CMFCAndyCADDoc
+
+	[ uuid(4720d6b6-b0a2-4cae-985d-f04b5e3d94cd) ]
+	coclass CMFCAndyCADDoc
+	{
+		[default] dispinterface IMFCAndyCAD;
+	};
+};

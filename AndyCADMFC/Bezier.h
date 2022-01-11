@@ -12,7 +12,7 @@
 #include "figure.h"
 #include "mesh.h"
 #include "QuadTree.h"	// Added by ClassView
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 //#include "ffd.h"	// Added by ClassView
 
 using namespace std;

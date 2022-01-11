@@ -310,9 +310,6 @@
     <ClCompile Include="Observer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Operation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Optionsheet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -533,12 +530,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vectorm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vectorp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vectorv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Verb.cpp">
@@ -880,9 +871,6 @@
     <ClInclude Include="Observer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Operation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Optionsheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -902,18 +890,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Parser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserFloat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserVar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserVerb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Pattern.h">
@@ -1103,12 +1079,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vectorm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vectorp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vectorv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Verb.h">

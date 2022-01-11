@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 #include "snappoint.h"
-#include "vector.h"
+#include "CVector.h"
 
 class CSnapMidP : public CSnapPoint  
 {

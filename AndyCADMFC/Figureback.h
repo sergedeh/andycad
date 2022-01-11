@@ -12,7 +12,7 @@
 #include "mouse.h"
 #include "TVector.h"
 #include <vector>
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 #include "imagex.h"	// Added by ClassView
 #include "observer.h"	// Added by ClassView
 #include "subject.h"	// Added by ClassView

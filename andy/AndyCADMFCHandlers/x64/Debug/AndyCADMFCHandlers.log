@@ -1,0 +1,59 @@
+﻿  64 bit Processing .\AndyCADMFCHandlers.idl
+  AndyCADMFCHandlers.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\oaidl.idl
+  oaidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\objidl.idl
+  objidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\unknwn.idl
+  unknwn.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\wtypes.idl
+  wtypes.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\wtypesbase.idl
+  wtypesbase.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\basetsd.h
+  basetsd.h
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\guiddef.h
+  guiddef.h
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ocidl.idl
+  ocidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\oleidl.idl
+  oleidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\servprov.idl
+  servprov.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\urlmon.idl
+  urlmon.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\msxml.idl
+  msxml.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\shobjidl.idl
+  shobjidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\docobj.idl
+  docobj.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\shtypes.idl
+  shtypes.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\comcat.idl
+  comcat.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\propidl.idl
+  propidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\prsht.idl
+  prsht.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\propsys.idl
+  propsys.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\StructuredQueryCondition.idl
+  StructuredQueryCondition.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ObjectArray.idl
+  ObjectArray.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\shobjidl_core.idl
+  shobjidl_core.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\thumbcache.idl
+  thumbcache.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\oaidl.acf
+  oaidl.acf
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ocidl.acf
+  ocidl.acf
+  pch.cpp
+  AndyCADMFCDoc.cpp
+  AndyCADMFCView.cpp
+  AndyCADMFCHandlers.cpp
+C:\Users\Administrator\Source\Repos\andycad\andy\AndyCADMFCHandlers\PreviewHandler.h(9,10): fatal error C1083: Cannot open include file: '..\AndyCADMFC\AndyCADMFCDoc.h': No such file or directory
+  dllmain.cpp
+  Generating Code...

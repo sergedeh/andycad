@@ -2,19 +2,19 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "pch.h"
 #include "cad.h"
 #include "Figure.h"
 #include <algorithm>
-#include <typeinfo.h>
+//#include <typeinfo.h>
 #include "unclick.h"
-#include "ray.h"
+//#include "ray.h"
 #include "bezier.h"
 #include "mouse.h"
 #include "image.h"
-#include "ximage.h"
+#include "cximage/ximage.h"
 #include "Cadview.h"
-#include "rectangle.h"
+//#include "rectangle.h"
 
 #include <set>
 
@@ -837,7 +837,8 @@ void CFigure::breakcurve(CVector v1,CVector v2)
 }
 vector<CFigure*> CFigure::breakcurve2(CVector v1,CVector v2) 
 {
-	return NULL;
+	vector<CFigure*> v;
+	return v;
 }
 
 void CFigure::drawselect(CDC *hdc)
@@ -1273,7 +1274,7 @@ void CFigure::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 	xd=(float)width/pwidth;
 	yd=(float)height/pheight;
 	}
-	unsigned double ph,pw;
+	double ph,pw;
 	CPoint blend(blend_p);
 	hdc->LPtoDP(&blend);
 	blend.x=xleft;
@@ -1742,7 +1743,7 @@ void CFigure::Hatch(CDC *hdc)
 	xd=(float)width/pwidth;
 	yd=(float)height/pheight;
 	}
-	unsigned double ph,pw;
+	double ph,pw;
 	CPoint blend(blend_p);
 	hdc->LPtoDP(&blend);
 	blend.x=xleft;
@@ -1866,7 +1867,7 @@ if(v.size()!=0)
 	
 	}catch(...)
 	{
-		AfxMessageBox("Problem with getting memory for hatch");
+		AfxMessageBox(_T("Problem with getting memory for hatch"));
 	}
 
 	for (y=ytop;y>=ybottom;y--) {
@@ -1970,7 +1971,7 @@ if(v.size()!=0)
 	_ps=true;
 	}catch(...)
 	{
-		AfxMessageBox("Problem with the function Hatch");
+		AfxMessageBox(_T("Problem with the function Hatch"));
 	}
 }	
 
@@ -2172,8 +2173,8 @@ void CFigure::savefile(CFile& file)
 //end andycad update
 
 
-		
-		for(vector<CVector>::iterator it=ptbegin.begin();it!=ptbegin.end();it++)
+		vector<CVector>::iterator it;
+		for(it=ptbegin.begin();it!=ptbegin.end();it++)
 		{
 			it->savefile(file);
 		}
@@ -2181,8 +2182,9 @@ void CFigure::savefile(CFile& file)
 		{
 			it->savefile(file);
 		}
-		i=layer.name.GetLength();
+		i=layer.name.length();
 		file.Write(&i,sizeof(int));
+		int j;
 		for(j=0;j<i;j++)
 		{
 		char c=layer.name[j];
@@ -2193,7 +2195,7 @@ void CFigure::savefile(CFile& file)
 		file.Write(&layer.clear,sizeof(bool));
 
 
-		i=myinfo.name.GetLength();
+		i=myinfo.name.length();
 		file.Write(&i,sizeof(int));
 		for(j=0;j<i;j++)
 		{
@@ -2201,7 +2203,7 @@ void CFigure::savefile(CFile& file)
 		file.Write(&c,sizeof(c));
 		}
 
-		i=myinfo.author.GetLength();
+		i=myinfo.author.length();
 		file.Write(&i,sizeof(int));
 		for(j=0;j<i;j++)
 		{
@@ -2209,7 +2211,7 @@ void CFigure::savefile(CFile& file)
 		file.Write(&c,sizeof(c));
 		}
 
-		i=myinfo.description.GetLength();
+		i=myinfo.description.length();
 		file.Write(&i,sizeof(int));
 		for(j=0;j<i;j++)
 		{
@@ -2300,7 +2302,8 @@ void CFigure::openfile(CFile& file)
 		CString sg1;
 		sg1.Format(_T("%d"),i);
 //		AfxMessageBox(sg1+" handle characters");
-		for(int j=0;j<i;j++)
+		int j;
+		for(j=0;j<i;j++)
 		{
 		char c;
 		file.Read(&c,sizeof(c));
@@ -2340,11 +2343,11 @@ void CFigure::openfile(CFile& file)
 	//	i=layer.name.GetLength();
 		i=0;
 		file.Read(&i,sizeof(int));
-		for(j=0;j<i;j++)
+		for(std::string::iterator j=layer.name.begin();j< layer.name.begin()+i;j++)
 		{
 		char c;
 		file.Read(&c,sizeof(c));
-		layer.name.Insert(j,c);
+		layer.name.insert(j,c);
 		}
 		file.Read(&layer.handle,sizeof(int));
 		file.Read(&layer.on,sizeof(bool));
@@ -2354,31 +2357,31 @@ void CFigure::openfile(CFile& file)
 	//	i=myinfo.name.GetLength();
 		i=0;
 		file.Read(&i,sizeof(int));
-		for(j=0;j<i;j++)
+		for(std::string::iterator j=myinfo.name.begin();j< myinfo.name.begin()+i;j++)
 		{
 		char c;//=myinfo.name[j];
 		file.Read(&c,sizeof(c));
-		myinfo.name.Insert(j,c);
+		myinfo.name.insert(j,c);
 		}
 
 	//	i=myinfo.author.GetLength();
 		i=0;
 		file.Read(&i,sizeof(int));
-		for(j=0;j<i;j++)
+		for(std::string::iterator j = myinfo.author.begin(); j < myinfo.author.begin() + i; j++)
 		{
 		char c;
 		file.Read(&c,sizeof(c));
-		myinfo.author.Insert(j,c);
+		myinfo.author.insert(j,c);
 		}
 
 	//	i=myinfo.description.GetLength();
 		i=0;
 		file.Read(&i,sizeof(int));
-		for(j=0;j<i;j++)
+		for(std::string::iterator j = myinfo.description.begin(); j < myinfo.description.begin() + i; j++)
 		{
 		char c;
 		file.Read(&c,sizeof(c));
-		myinfo.description.Insert(j,c);
+		myinfo.description.insert(j,c);
 		}
 
 		file.Read(&myinfo.cost,sizeof(double));
@@ -2453,7 +2456,8 @@ LONG CFigure::Readfile(CFile& file)
 		file.Read(&ei, sizeof(int));
 
 		ptbegin.clear();
-		for(int i=0;i<bi;i++)
+		int i;
+		for(i=0;i<bi;i++)
 		{
 			CVector v;
 			v.Readfile(file);
@@ -2467,7 +2471,8 @@ LONG CFigure::Readfile(CFile& file)
 //		i=layer.name.GetLength();
 		i=0;
 		file.Read(&i,sizeof(int));
-		for(int j=0;j<i;j++)
+		int j;
+		for(j=0;j<i;j++)
 		{
 		char c;
 		file.Seek(sizeof(c),CFile::current);
@@ -3361,7 +3366,7 @@ CFigure* CFigure::alignbyL(CDC *hdc, CVector line, CVector projectline, CVector 
 
 			pbulk->createobj(resultb,resulte);
 */
-	CFigure *pbulk;
+	CFigure *pbulk=NULL;
 		return pbulk;
 
 
@@ -4397,7 +4402,7 @@ void CFigure::updatepts()
 	{
 		it->assignPL(*it);
 	}
-	for(it=ptend.begin();it<ptend.end();it++)
+	for(vector<CVector>::iterator it=ptend.begin();it<ptend.end();it++)
 	{
 		it->assignPL(*it);
 	}
@@ -4590,7 +4595,7 @@ void CFigure::setinfo(FINFO f)
 
 CString CFigure::getInfName()
 {
-	return myinfo.name;
+	return CString(myinfo.name.c_str());
 
 }
 
@@ -4644,7 +4649,8 @@ void CFigure::copy(const CFigure *fig)
 
 		ptbegin.clear();
 		int m=fig->ptbegin.size();
-		for(int i=0;i<m;i++)
+		int i;
+		for(i=0;i<m;i++)
 		{
 			ptbegin.push_back(fig->ptbegin[i]);
 		}
@@ -4695,7 +4701,8 @@ void CFigure::add(const CFigure *fig)
 
 
 		int m=fig->ptbegin.size();
-		for(int i=0;i<m;i++)
+		int i;
+		for(i=0;i<m;i++)
 		{
 			ptbegin.push_back(fig->ptbegin[i]);
 		}
@@ -5025,7 +5032,7 @@ vector<CVector>* CFigure::getpt()
 }
 struct isunique
 {
-	operator ()(CVector v1,CVector v2)
+	bool operator ()( CVector v1,CVector v2) const
 	{
 		return v1!=v2;
 	}
@@ -5624,7 +5631,7 @@ void CFigure::createobj(CMesh *m)
 	setInit();
 }
 
-CFigure::operator =(const CFigure& f)
+void CFigure::operator =(const CFigure& f)
 {
 	copy(&f);
 }
@@ -5716,7 +5723,8 @@ vector<CFigure*>  CFigure::Trim(vector<CVector>& v1,CFigure *f,bool side,bool st
 {
 	mesh.TrimEdge3(v1[0],&f->mesh);//,side,st);
 	updatecore();
-	return NULL;
+	vector<CFigure*> v;
+	return v;
 }
 
 CMesh* CFigure::getMesh()
@@ -5735,7 +5743,7 @@ void CFigure::UpdateTexture(CDC *hdc, CBitmap *bmp)
 //	bmp->GetBitmapBits(d,tex);
 //	CImage im;
 //	tex=(BYTE*)im.ConvertDDBtoDIB(bmp,hdc);
-	ASSERT(tex);
+//	ASSERT(tex);
 
 //	PBITMAPINFO pbmi=im.CreateBMPInfo((HBITMAP)bmp->GetSafeHandle(),true);
 	BITMAPINFO bitinfo1;

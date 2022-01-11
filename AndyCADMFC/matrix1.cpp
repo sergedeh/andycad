@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "pch.h"
 #include "cad.h"
 #include "Matrix1.h"
 #include <math.h>
@@ -195,7 +195,7 @@ int  CMatrix::scramble(double *Cv,int r, int s, int n)
    		 Cs[(s+1)*(int)Cv[(s+1)*r+iter]+jiter]=Cv[(s+1)*iter+jiter];
 		}
 	}
-	for(i=0;i<=r;i++)
+	for(int i=0;i<=r;i++)
 	{
 		for(int j=0;j<=s;j++)
 		{
@@ -225,9 +225,9 @@ int CMatrix::ident(double *C,int r, int s,int i, int j, int n, int q)
 		D[(sp+1)*itj+itj]=q;
 		}
 
-	for(iti=i;iti<=i+(n-j);iti++)
+	for(int iti=i;iti<=i+(n-j);iti++)
 	{
-		for(itj=j;itj<=j+(n-j);itj++)
+		for(int itj=j;itj<=j+(n-j);itj++)
 		{
 		C[(s+1)*iti+itj]=D[(n+1)*iti+itj];
 		}
@@ -394,10 +394,10 @@ void CMatrix::LUG(double *D, double *N, int m, int n, int p)
 
 	int s=m+1;
 	int r=n+1;
-
+	int j = 0;
 	for (int i=0; i<=n; i++)
 	{
-		for(int j=0;j<=m;j++)
+		for(j=0;j<=m;j++)
 		{
 			Cv[(s+1)*i+j]=N[s*i+j];
 		}
@@ -408,7 +408,7 @@ void CMatrix::LUG(double *D, double *N, int m, int n, int p)
 	
 	matalg(Cv,r,s,n,m,p,2,0.00005);
 
-	for (i=0; i<=n; i++)
+	for (int i=0; i<=n; i++)
 	{
 		D[i]=Cv[(s+1)*i+s];
 	}
@@ -428,7 +428,7 @@ void CMatrix::Transpose(CVector* C, int col, int row)
 		  CP[i*row+j]=C[i*row+j];
 	  }
   }
-  for(i=0;i<col;i++)
+  for(int i=0;i<col;i++)
   {
 	  for(int j=0;j<row;j++)
 	  {
@@ -451,7 +451,7 @@ void CMatrix::Transpose(vector<CVector> &C, int col, int row)
 	  }
   }
   CVector f;
-  for(i=0;i<col;i++)
+  for(int i=0;i<col;i++)
   {
 	  for(int j=0;j<row;j++)
 	  {
@@ -476,7 +476,7 @@ void CMatrix::Transpose(vector< vector<CVector> > &C, int col, int row)
 	  }
   }
   C.resize(row);
-  for(i=0;i<row;i++)
+  for(int i=0;i<row;i++)
   {
 	  C[i].resize(col);
 	  for(int j=0;j<col;j++)
@@ -502,7 +502,7 @@ void CMatrix::Transpose(double *C, int col, int row)
 	  }
   }
   double f;
-  for(i=0;i<col;i++)
+  for(int i=0;i<col;i++)
   {
 	  for(int j=0;j<row;j++)
 	  {
@@ -526,7 +526,7 @@ void CMatrix::Transpose(CPoint *C, int col, int row)
 		  CP[i*row+j]=C[i*row+j];
 	  }
   }
-  for(i=0;i<col;i++)
+  for(int i=0;i<col;i++)
   {
 	  for(int j=0;j<row;j++)
 	  {

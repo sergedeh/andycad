@@ -1,0 +1,69 @@
+// MFCAndyCADHandlers.idl : IDL source for MFCAndyCADHandlers
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MFCAndyCADHandlers.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(459ecd47-2c97-4bf2-b4f3-1a4408f2ba05),
+	pointer_default(unique)
+]
+interface IPreview : IUnknown
+{
+};
+
+[
+	object,
+	uuid(6e2cf39d-10e3-4bc1-8f21-b63047bec22e),
+	pointer_default(unique)
+]
+interface IThumbnail : IUnknown
+{
+};
+
+[
+	object,
+	uuid(017e6238-a3cb-450e-a296-b1772f1aa935),
+	pointer_default(unique)
+]
+interface ISearch : IUnknown
+{
+};
+
+[
+	uuid(556eb6a3-a5fd-444f-9d94-637f134cb1e4),
+	version(1.0),
+]
+library MFCAndyCADHandlersLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(13c9eb39-42de-40ab-9630-40764951229d)
+	]
+	coclass Preview
+	{
+		[default] interface IPreviewHandler;
+	};
+	[
+		uuid(62bef97a-3b16-47e5-81a8-3aae5a6fcd3b)
+	]
+	coclass Thumbnail
+	{
+		[default] interface IThumbnailProvider;
+	};
+	[
+		uuid(5d2ced57-11b0-4da7-b1ef-3c9d6005fcbd)
+	]
+	coclass Search
+	{
+		[default] interface IFilter;
+	};
+};
+
+import "shobjidl.idl";
+import "thumbcache.idl";
+import "filter.idl";

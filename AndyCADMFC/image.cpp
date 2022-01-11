@@ -1,9 +1,9 @@
-// Image.cpp: implementation of the CImage class.
+// Image.cpp: implementation of the CImage2 class.
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "cad.h"
+#include "pch.h"
+//#include "cad.h"
 #include "Image.h"
 
 #ifdef _DEBUG
@@ -16,30 +16,30 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-CImage::CImage()
+CImage2::CImage2()
 {
 	prevu=0;
  hBitmap=NULL;
- name="CImage";
+ name="CImage2";
  im=NULL;
 }
 
-CImage::~CImage()
+CImage2::~CImage2()
 {
 
 }
-CImage::CImage(CDC *hdc,CFile &file)
+CImage2::CImage2(CDC *hdc,CFile &file)
 {
-	name="CImage";
+	name="CImage2";
 	openfile(hdc,file);
 }
 
 
-BOOL CImage::LoadBitmap(CDC *hdc) 
+BOOL CImage2::LoadBitmap(CDC *hdc) 
 { 
 	CFileDialog fl(true);
 	
-	fl.m_ofn.lpstrFilter="JPEG Files(*.jpg)\0*.jpg\0JPEG Files(*.jpeg)\0*.jpeg\0)PNG Files(*.png)\0*.png\0TIFF Files(*.tiff)\0*.tiff\0";
+	fl.m_ofn.lpstrFilter=CString("JPEG Files(*.jpg)\0*.jpg\0JPEG Files(*.jpeg)\0*.jpeg\0)PNG Files(*.png)\0*.png\0TIFF Files(*.tiff)\0*.tiff\0");
 	fl.m_ofn.nFilterIndex=1;
 	if(fl.DoModal()==IDOK)
 	{
@@ -82,8 +82,8 @@ BOOL CImage::LoadBitmap(CDC *hdc)
 				//				im->Flip();
 
 				
-				rec.updatevcore();
-				CRect rbox=rec.vbox;
+				rec->updatevcore();
+				CRect rbox=rec->vbox;
 			//	rbox.NormalizeRect();
 				hdc->LPtoDP(&rbox);
 
@@ -217,12 +217,12 @@ BOOL CImage::LoadBitmap(CDC *hdc)
 	}
 	return false;
 }
-bool CImage::draw(bool fPrevLine, CDC *hdc,CVector point)
+bool CImage2::draw(bool fPrevLine, CDC *hdc,CVector point)
 {
-	return rec.draw(fPrevLine,hdc,point);
+	return rec->draw(fPrevLine,hdc,point);
 
 }
-void CImage::copy(const CFigure *fig)
+void CImage2::copy(const CFigure *fig)
 {
 	CLine::copy(fig);
 	CString sext;
@@ -242,7 +242,7 @@ void CImage::copy(const CFigure *fig)
 	vbox=fig->vbox;
 
 }
-void CImage::draw(CDC *hdc)
+void CImage2::draw(CDC *hdc)
 {
 	try{
 	CPoint p1=CPoint(mesh.Vertex(1)->v)-CPoint(mesh.Vertex(0)->v);
@@ -260,7 +260,7 @@ void CImage::draw(CDC *hdc)
 	CLine::draw(hdc);
 	}catch(...)
 	{
-		AfxMessageBox("Drawing issue");
+		AfxMessageBox(CString("Drawing issue"));
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -277,7 +277,7 @@ void CImage::draw(CDC *hdc)
  *                   Quite slow. Needs CXIMAGE_SUPPORT_INTERPOLATION.
  * \return true if everything is ok
  */
-long CImage::Draw(HDC hdc, long x, long y, long cx, long cy, RECT* pClipRect, bool bSmooth)
+long CImage2::Draw(HDC hdc, long x, long y, long cx, long cy, RECT* pClipRect, bool bSmooth)
 {
 	if((pDib==0)||(hdc==0)||(cx==0)||(cy==0)||(!info.bEnabled)) return 0;
 
@@ -571,17 +571,17 @@ long CImage::Draw(HDC hdc, long x, long y, long cx, long cy, RECT* pClipRect, bo
 	return 1;
 }
 
-void CImage::setMove(bool mv,CVector pos)
+void CImage2::setMove(bool mv,CVector pos)
 {
-	rec.setMove(mv,pos);
+	rec->setMove(mv,pos);
 
 }
-void CImage::create(CVector pos)
+void CImage2::create(CVector pos)
 {
-	rec.create(pos);
+	rec->create(pos);
 
 }
-bool CImage::Hatch(CDC* hdc)
+bool CImage2::Hatch(CDC* hdc)
 {
 	CString sext;
 	int len = texture_file.GetLength();
@@ -705,71 +705,71 @@ bool CImage::Hatch(CDC* hdc)
 					
 	return true;
 }
-bool CImage::getCharge()
+bool CImage2::getCharge()
 {
-	if(rec.getCharge())
+	if(rec->getCharge())
 	{
-	bool b=rec.getCharge();
+	bool b=rec->getCharge();
 //	mesh.copy(rec.getMesh());
 	mesh.empty();
-	CVector uv=rec.box.getParam(rec.ptbegin[0]);
-	mesh.addVertex(new CVertex(rec.ptbegin[0],uv.x,uv.y));
-	uv=rec.box.getParam(rec.ptbegin[1]);
-	mesh.addVertex(new CVertex(rec.ptbegin[1],uv.x,uv.y));
+	CVector uv=rec->box.getParam(rec->ptbegin[0]);
+	mesh.addVertex(new CVertex(rec->ptbegin[0],uv.x,uv.y));
+	uv=rec->box.getParam(rec->ptbegin[1]);
+	mesh.addVertex(new CVertex(rec->ptbegin[1],uv.x,uv.y));
 	new CEdge(mesh.Vertex(mesh.Vcount()-2),mesh.Vertex(mesh.Vcount()-1),mesh.Ecount());
 
-	uv=rec.box.getParam(rec.ptbegin[2]);
-	mesh.addVertex(new CVertex(rec.ptbegin[2],uv.x,uv.y));
+	uv=rec->box.getParam(rec->ptbegin[2]);
+	mesh.addVertex(new CVertex(rec->ptbegin[2],uv.x,uv.y));
 	new CEdge(mesh.Vertex(mesh.Vcount()-2),mesh.Vertex(mesh.Vcount()-1),mesh.Ecount());
-	uv=rec.box.getParam(rec.ptbegin[3]);
-	mesh.addVertex(new CVertex(rec.ptbegin[3],uv.x,uv.y));
+	uv=rec->box.getParam(rec->ptbegin[3]);
+	mesh.addVertex(new CVertex(rec->ptbegin[3],uv.x,uv.y));
 	new CEdge(mesh.Vertex(mesh.Vcount()-2),mesh.Vertex(mesh.Vcount()-1),mesh.Ecount());
 	new CEdge(mesh.Vertex(mesh.Vcount()-1),mesh.Vertex(mesh.Vcount()-4),mesh.Ecount());
 
-	ptbegin=rec.ptbegin;
-	ptend=rec.ptend;
+	ptbegin=rec->ptbegin;
+	ptend=rec->ptend;
 	updatecore();
-	mesh.updateBoxUV(rec.box);
+	mesh.updateBoxUV(rec->box);
 	cl=true;
 		return true;
 	}
 	else return false;
 }
 
-void CImage::initL()
+void CImage2::initL()
 {
 	if(mytext!=NULL)
 	{
 		delete mytext;
 		mytext=NULL;
 	}
-	rec.initL();
+	rec->initL();
 }
 
-void CImage::setPtsBegin(CVector point)
+void CImage2::setPtsBegin(CVector point)
 {
-	rec.setPtsBegin(point);
+	rec->setPtsBegin(point);
 		
 }
 
 
-void CImage::savefile(CDC *hdc,CFile &file)
+void CImage2::savefile(CDC *hdc,CFile &file)
 {
-	rec.savefile(file);
+	rec->savefile(file);
 	CFigure::savefile(file);
 }
 
-void CImage::openfile(CDC *hdc,CFile &file)
+void CImage2::openfile(CDC *hdc,CFile &file)
 {
-	rec=CRectangle(file);
+	rec=new CRectangle(file);
 	CFigure::openfile(file);
 	updatecore();
-	name="CImage";
+	name="CImage2";
 //	draw(hdc);
 
 }
 
-HGLOBAL CImage::ConvertDDBtoDIB(CBitmap *pBmp,CDC *hdc)
+HGLOBAL CImage2::ConvertDDBtoDIB(CBitmap *pBmp,CDC *hdc)
 {
 
 	BITMAP bm;
@@ -846,7 +846,7 @@ HGLOBAL CImage::ConvertDDBtoDIB(CBitmap *pBmp,CDC *hdc)
 	return hDib;
 }
 
-PBITMAPINFO CImage::CreateBMPInfo(HBITMAP hBMP, bool set=true) 
+PBITMAPINFO CImage2::CreateBMPInfo(HBITMAP hBMP, bool set=true) 
  { 
 
 	BITMAP bm;
@@ -911,7 +911,7 @@ PBITMAPINFO CImage::CreateBMPInfo(HBITMAP hBMP, bool set=true)
 	return pbmi;
 
 }
-void CImage::CreateBMPFile(LPTSTR pszFile,HBITMAP hBMP, HDC hDC) 
+void CImage2::CreateBMPFile(LPTSTR pszFile,HBITMAP hBMP, HDC hDC) 
  { 
 
     HANDLE hf;                 // file handle 
@@ -979,7 +979,7 @@ void CImage::CreateBMPFile(LPTSTR pszFile,HBITMAP hBMP, HDC hDC)
 
 
 
-DWORD CImage::GetColorTableSize(WORD wBitCount)
+DWORD CImage2::GetColorTableSize(WORD wBitCount)
 {
 	DWORD dwSizeCT;
 	switch(wBitCount)
@@ -1008,7 +1008,7 @@ DWORD CImage::GetColorTableSize(WORD wBitCount)
 	return dwSizeCT;
 }
 
-void CImage::drawTrans(CDC *hdc)
+void CImage2::drawTrans(CDC *hdc)
 {
 	CFigure::drawTrans(hdc);
 }

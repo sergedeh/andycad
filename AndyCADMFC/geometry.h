@@ -28,7 +28,7 @@
 
 #include <math.h>
 #include <float.h>
-#include "vector.h"
+#include "CVector.h"
 #include <vector>
 
 using namespace std;

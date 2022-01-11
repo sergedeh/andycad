@@ -9,10 +9,11 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "Figure.h"
+//#include "Figure.h"
 #include "rectangle.h"
+#include "cximage/ximage.h"
 
-class CImage :public CxImage, public CLine 
+class CImage2 :public CxImage, public CLine 
 {
 public:
 	bool Hatch(CDC* hdc);
@@ -23,9 +24,9 @@ public:
 	void drawTrans(CDC *hdc);
 	void openfile(CDC *hdc,CFile &file);
 	void savefile(CDC *hdc,CFile &file);
-	CImage(CDC *hdc,CFile &file);
-	CImage();
-	virtual ~CImage();
+	CImage2(CDC *hdc,CFile &file);
+	CImage2();
+	virtual ~CImage2();
 	bool draw(bool fPrevLine, CDC *hdc,CVector point);
 	void draw(CDC *hdc);
 	void setMove(bool mv,CVector pos);
@@ -38,7 +39,7 @@ public:
 	HGLOBAL ConvertDDBtoDIB(CBitmap *pBmp,CDC *hdc);
 
 private:
-	CRectangle rec;
+	CRectangle* rec;
 	CBitmap* hB,*phB;
 	BITMAP bm;
 	HBITMAP hBitmap;

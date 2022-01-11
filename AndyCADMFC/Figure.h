@@ -8,19 +8,18 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-
+#define _CRT_SECURE_NO_WARNINGS
 //#include "mouse.h"
 #include "TVector.h"
 #include <vector>
 #include <string>
-#include "Vector.h"	// Added by ClassView
+//#include "CVector.h"	// Added by ClassView
 #include "imagex.h"	// Added by ClassView
-#include "observer.h"	// Added by ClassView
-#include "subject.h"	// Added by ClassView
+#include "CObserver.h"	// Added by ClassView
+#include "CSubject.h"	// Added by ClassView
 #include "Ray.h"	// Added by ClassView
-#include "AABB.h"	// Added by ClassView
 #include "mesh.h"	// Added by ClassView
-#include "ximage.h"
+//#include "cximage/ximage.h"
 #include "constraint.h"
 
 using namespace std;
@@ -37,6 +36,7 @@ bool operator ()(CVector v1,CVector v2)
 }
 };
 //class CMesh;
+class CxImage;
 class CState;
 class CFigure : public CObserver,public CSubject 
 {
@@ -126,7 +126,7 @@ public:
 	virtual void UpdateMesh();
 	virtual void setbox(CAABB b);
 	virtual CFigure* generateCopy();
-	operator =(const CFigure& f);
+	void operator =(const CFigure& f);
 	CFigure(const CFigure& f);
 	void createobj(CMesh* m);
 	void setDir(float u1,float u2);
@@ -343,6 +343,7 @@ public:
 	FLAYER layer;
 	FLAYER getLayer();
 	virtual void setLayer(FLAYER& lay);
+	CString name;
 
 	CFigure();
 	virtual ~CFigure();
@@ -369,7 +370,6 @@ protected:
 	enum {R0,R1,R2,R3,R4} rotstate;
 	bool click,multiselect,cl,brk;
 	bool Bisclick;
-	CString name;
 	vector<CVector>::iterator  piterb,pitere,piterpb,piterpe;
 	
 	vector<CVector> prevptbegin,ptbegin1,ptend1;

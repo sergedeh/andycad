@@ -1099,7 +1099,7 @@
     <ClInclude Include="Undo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
+    <ClInclude Include="CVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vectorm.h">

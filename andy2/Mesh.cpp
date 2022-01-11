@@ -1209,6 +1209,7 @@ void CMesh::copy(const CMesh *m)
 		CEdge* ex=new CEdge();
 //		*ex=*e->second;
 		ex->setMesh(this);
+		if (!e->second) continue;
 		ex->initcopy(e->second);
 		addEdge(ex,true);
 //		addEdge(ex);

@@ -9,7 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "Vector.h"
+#include "CVector.h"
 #include "Figure.h"
 #include "libs.h"
 #include "cercle.h"

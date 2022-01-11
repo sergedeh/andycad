@@ -4,7 +4,7 @@
 
 #include "pch.h"
 #include "AndyCADMFC.h"
-#include "Vector.h"
+#include "CVector.h"
 #include "tVector.h"
 
 #ifdef _DEBUG

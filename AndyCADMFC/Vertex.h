@@ -5,8 +5,7 @@
 #if !defined(AFX_VERTEX_H__D96773BE_DE0A_4CDF_BE19_8382AEAE2FBC__INCLUDED_)
 #define AFX_VERTEX_H__D96773BE_DE0A_4CDF_BE19_8382AEAE2FBC__INCLUDED_
 
-#include "Vector.h"	// Added by ClassView
-#include "cvector.h"
+#include "CCVector.h"
 #include <map>
 //#include "line.h"
 
@@ -67,7 +66,7 @@ struct vertex
 	}
 	operator CPoint() {return p;}
 	operator CVector() {return pv;}
-	operator ==(vertex e) {return p==e.p;}
+	bool operator ==(vertex e) {return p==e.p;}
 };
 
 class CMesh;
@@ -77,7 +76,7 @@ class CVertex
 {
 public:
 	bool operator==(CVertex v1) {return (v.absc(v1.v-v)<10);}
-	operator =(CVertex vx);
+	void operator =(CVertex vx);
 
 //	CVertex(CFigure* fig);
 	CVertex(CFile&file);

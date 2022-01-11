@@ -5,7 +5,7 @@
 #if !defined(AFX_CERCLE_H__8491740A_B766_4C5D_A00F_15FF223B372B__INCLUDED_)
 #define AFX_CERCLE_H__8491740A_B766_4C5D_A00F_15FF223B372B__INCLUDED_
 #include "Bezier.h"	// Added by ClassView
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000

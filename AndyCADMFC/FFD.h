@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 #include "Bezier.h"
-#include "Vector.h"	// Added by ClassView
+#include "CVector.h"	// Added by ClassView
 
 class CFFD :public CFigure  
 {
