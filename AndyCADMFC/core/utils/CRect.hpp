@@ -42,3 +42,6 @@ struct Rect {
 }
 };
 
+// For compatibility with old MFC-style naming
+using CRect = Rect;
+
