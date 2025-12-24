@@ -33,6 +33,7 @@
 // file.
 
 #include <math.h>
+#include <algorithm>
 
 
 CVector GetClosestPoint2D(CVector& start, CVector& end, CVector& P)
@@ -65,14 +66,16 @@ REAL Angle(CVector p1, CVector p2, CVector p3)
 	u = p3-p2;
     
 	cosA = u.dot(v) / D2Real( sqrt(Real2D( absc(u)*absc(v) )) );
-	return D2Real(max(0.0, acos(cosA) * RAD2DEG));
+	float angle = static_cast<float>(acos(cosA) * RAD2DEG);
+	return D2Real(std::max(0.0f, angle));
 }
 
 REAL Angle(VECTOR v, VECTOR u)
 // returns the angle (in degrees) between 2 vectors
 {
 	REAL cosA = u.dot(v) / D2Real( sqrt(Real2D( absc(u)*absc(v) )) );
-	return D2Real(max(0.0, acos(cosA) * RAD2DEG));
+	float angle = static_cast<float>(acos(cosA) * RAD2DEG);
+	return D2Real(std::max(0.0f, angle));
 }
 
 VECTOR Normal(CVector p1, CVector p2, CVector p3)
@@ -209,9 +212,9 @@ bool CPolygon::SetSize(int nSize)
 	}
     
 	// Case 2: Allocate new memory for polygon
-	if (m_point.size() == NULL) {
+        if (m_point.size() == 0) {
 		m_point.resize(nSize);
-		if (m_point.size() == NULL) {
+                if (m_point.size() == 0) {
 			m_n = 0;
 			return false;
 		} else {

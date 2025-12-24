@@ -12146,3 +12146,15 @@ CVector CBezier::getPoint(float u)
 	}
 	return v;
 }
+
+void CBezier::openfile(CDC *hdc, fstream &file)
+{
+	(void)hdc;
+	openfile(file);
+}
+
+void CBezier::savefile(CDC *hdc, fstream &file)
+{
+	(void)hdc;
+	savefile(file);
+}

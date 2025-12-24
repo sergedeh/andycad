@@ -28,5 +28,26 @@ foreach(child ${children})
 endforeach()
 
 # Test executable
-add_executable(core_test core_test.cpp)
+file(GLOB TEST_SOURCES
+    "core_test.cpp"
+    "tests/*.cpp"
+)
+set(TEST_EXTRA_SOURCES
+    CFFD.cpp
+    CPolygon.cpp
+)
+add_executable(core_test ${TEST_SOURCES} ${TEST_EXTRA_SOURCES})
 target_link_libraries(core_test PRIVATE andycad_core)
+target_include_directories(core_test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+target_include_directories(core_test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/core)
+
+# Add all core subdirectories to the test include path for legacy headers.
+file(GLOB test_children RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/core ${CMAKE_CURRENT_SOURCE_DIR}/core/*)
+foreach(child ${test_children})
+    if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/core/${child})
+        target_include_directories(core_test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/core/${child})
+    endif()
+endforeach()
+
+enable_testing()
+add_test(NAME core_test COMMAND core_test)
