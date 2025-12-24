@@ -3,6 +3,12 @@ CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
+CTestTestfile.cmake
 
 # Build outputs
 core_test
+core_test.js
+core_test.wasm
+
+# WASM build outputs
+wasm/build/
