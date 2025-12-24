@@ -9,6 +9,10 @@
 #ifndef __testcommand__CTriangle__
 #define __testcommand__CTriangle__
 
+#include "../vector/CVector.h"
+#include "../utils/MFCStubs.h"
+#include "../utils/CDC.h"
+#include <vector>
 #include <iostream>
 // Triangle.h: interface for the CTriangle class.
 //
@@ -48,7 +52,7 @@ public:
 	CTriangle(CEdge* f, CEdge* s, CEdge* t);
 	CTriangle(CEdge f, CEdge s, CEdge t);
 	CTriangle(CVertex f, CVertex s, CVertex t);
-	CTriangle(CMesh* m=NULL): mesh(m),sit(NULL),sjt(NULL),skt(NULL),eit(NULL),ejt(NULL),ekt(NULL),it(-1){};
+	CTriangle(CMesh* m=nullptr): mesh(m),sit(nullptr),sjt(nullptr),skt(nullptr),eit(-1),ejt(-1),ekt(-1),it(-1){};
 	CTriangle(CVertex* f, CVertex* s, CVertex* t);
 	virtual ~CTriangle();
 	int surface();
@@ -67,6 +71,9 @@ public:
 	long skipRead(ifstream& file);
 	void loadFrom(ifstream& file);
 	void saveTo(ofstream& file);
+    void openfile(CFile& file);
+    void savefile(CFile& file);
+    long Readfile(CFile& file);
     
 	CMesh *mesh;
 	CVertex *sit,*sjt,*skt;

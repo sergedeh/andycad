@@ -16,11 +16,11 @@
 
 #include "CVector.h"
 #include "CFigure.h"
-#include "Clibs.h"
-#include "Ccercle.h"
-#include "Crectangle.h"
-#include "Cqline.h"
-#include "Ctextcad.h"
+#include "CLibs.h"
+#include "../circle/Cercle.h"
+#include "../rectangle/CRectangle.h"
+#include "../qline/CQLine.h"
+#include "../textcad/CTextCad.h"
 using namespace std;
 class CInter : public CFigure
 {

@@ -11,21 +11,21 @@
 
 #include "../aabb/CAABB.h"
 #include "../vector/CVector.h"	// Added by ClassView
-#include "../shape/CShape.h"	// Added by ClassView
+#include "../figure/CFigure.h"	// Added by ClassView
 
-class CCAM:public CShape
+class CCAM:public CFigure
 {
 public:
 	LONG Readfile(CFile &file);
 	void savefile(CFile &file);
 	void openfile(CFile& file);
 	void Update();
-	void copy(const CShape *fig);
-	CShape* generateCopy();
+	void copy(const CFigure *fig);
+	CFigure* generateCopy();
 	void initZoom();
 	CVector getScreen();
 	void undo();
-	void init(CShape* f);
+	void init(CFigure* f);
 	void initCam();
 	void Translate(CVector v);
 	float getnearplane();

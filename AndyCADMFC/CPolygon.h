@@ -39,7 +39,7 @@
 
 #include <math.h>
 #include <float.h>
-#include "cvector.h"
+#include "CVector.h"
 #include <vector>
 
 using namespace std;

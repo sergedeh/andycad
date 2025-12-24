@@ -10,15 +10,15 @@
 // Bezier.cpp: implementation of the CBezier class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "CCVector.h"
-#include "CMatrix.h"
-#include "CInter.h"
+#include "../cvector/CCVector.h"
+#include "../matrix/CMatrix.h"
+#include "../inter/CInter.h"
 #include <algorithm>
 #include <functional>
-#include "CRay.h"
+#include "../ray/CRay.h"
 #include "CLine.h"
 //#include <process>*************
-#include "Cffd.h"
+#include "CFFD.h"
 #include "CRender.h"
 #include "CPlane.h"
 #include "CCam.h"
@@ -610,7 +610,7 @@ void* CBezier::Trim(vector<CVector> vec)
 	bs->addtovec();
 	bs->deg=deg;
     
-	int kj=1E10;;
+	int kj=ncp + 1;
 	for(i=0;i<=ncp;i++)
 	{
 		if(pp==CP[i])
@@ -1632,6 +1632,7 @@ CVector CBezier::addnode(CVector point, CDC *hdc)
      //	delete []Para;
      }
      */
+    return CVector();
 }
 
 
@@ -6171,7 +6172,7 @@ CVector CBezier::insert_Boor(double t, int p,vector<double> U,vector<CVector> P,
 	}
 	else
 	//	return -1;**********
-        ;
+        return CVector();
 }
 
 void CBezier::Bohms(double t, int p,vector<double>& U,vector<CVector>& P,int &n)
@@ -9425,7 +9426,7 @@ bool CBezier::PtinNode(CVector point,int multi)
             }
             
         }
-    
+    return false;
 }
 /*
  

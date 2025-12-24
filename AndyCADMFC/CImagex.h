@@ -9,13 +9,18 @@
 #ifndef __testcommand__CImagex__
 #define __testcommand__CImagex__
 
-#include <iostream>
+// #include <iostream>
 // Imagex.h: interface for the CImagex class.
 //
 //////////////////////////////////////////////////////////////////////
 
+// #include "core/utils/MFCStubs.h"
+typedef void* HDC;
 class CImagex
 {
+public:
+    CImagex(HDC hdc, const char* filename) {}
+    CImagex() {}
 };
 
 

@@ -14,8 +14,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "cFigure.h"
-#include "crectangle.h"
+#include "CFigure.h"
+#include "CRectangle.h"
 
 class CImage :public CxImage, public CLine
 {

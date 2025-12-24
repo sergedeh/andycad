@@ -30,24 +30,24 @@ CInter::~CInter()
 bool CInter::inReg(CFigure *c1, CFigure *r1)
 {
 	CAABB r01;
-	r01.add(CGPoint(c1->box.corner(0)));
-	r01.add(CGPoint(c1->box.corner(1)));
-	r01.add(CGPoint(c1->box.corner(2)));
-	r01.add(CGPoint(c1->box.corner(3)));
-	r01.add(CGPoint(c1->box.corner(4)));
-	r01.add(CGPoint(c1->box.corner(5)));
-	r01.add(CGPoint(c1->box.corner(6)));
-	r01.add(CGPoint(c1->box.corner(7)));
+	r01.add(c1->box.corner(0));
+	r01.add(c1->box.corner(1));
+	r01.add(c1->box.corner(2));
+	r01.add(c1->box.corner(3));
+	r01.add(c1->box.corner(4));
+	r01.add(c1->box.corner(5));
+	r01.add(c1->box.corner(6));
+	r01.add(c1->box.corner(7));
     
 	CAABB r02;
-	r02.add(CGPoint(r1->box.corner(0)));
-	r02.add(CGPoint(r1->box.corner(1)));
-	r02.add(CGPoint(r1->box.corner(2)));
-	r02.add(CGPoint(r1->box.corner(3)));
-	r02.add(CGPoint(r1->box.corner(4)));
-	r02.add(CGPoint(r1->box.corner(5)));
-	r02.add(CGPoint(r1->box.corner(6)));
-	r02.add(CGPoint(r1->box.corner(7)));
+	r02.add(r1->box.corner(0));
+	r02.add(r1->box.corner(1));
+	r02.add(r1->box.corner(2));
+	r02.add(r1->box.corner(3));
+	r02.add(r1->box.corner(4));
+	r02.add(r1->box.corner(5));
+	r02.add(r1->box.corner(6));
+	r02.add(r1->box.corner(7));
 	CAABB r03;
 	r02.intersectAABB(r01,&r03);
     
@@ -770,6 +770,7 @@ CFigure* CInter::paste(CVector cent,CVector point,CFigure *line)
         
     }
     delete lb;
+    return nullptr;
 }
 
 

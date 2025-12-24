@@ -143,8 +143,8 @@ public:
 	void AddCircle(CVector p1,CVector p2);
 	void AddCircle(CVector p1,CVector p2, CVector p3);
 	void AddCircle(CVector v, float radius);
-	void AddSpline(vector<CVector>& v,bool _fit=true,CDC* hdc=NULL);
-	void AddSpline2(vector<CVector> &v,vector<float> &fv,bool _fit,CDC *hdc=NULL);
+	void AddSpline(vector<CVector>& v,bool _fit=true,CDC* hdc=nullptr);
+	void AddSpline2(vector<CVector> &v,vector<float> &fv,bool _fit,CDC *hdc=nullptr);
 	void AddLayer(string& layer_name,int layer_status,int layer_color,string& layer_linetype,int layer_lineweight);
 	void AddText(CDC *hdc,CVector &v,string& _text,float yheight,string facename);
 	void AddTextStyle(string& style_name,string font_file, float fixed_height,float width_factor);
@@ -184,7 +184,7 @@ public:
 	void perpective(string s);
 	void volume( CDC *hdc);
 	void degel(CDC *hdc);
-	void surface(string type,float vthick=0,bool vctop=false,bool vcbot=false,CDC *hdc=NULL,int ext=100);
+	void surface(string type,float vthick=0,bool vctop=false,bool vcbot=false,CDC *hdc=nullptr,int ext=100);
 	FINFO getobif();
 	void removeobject(CTreeCtrl& mtree,CDC* hdc);
 	void addobject(CTreeCtrl& mtree,CDC* hdc);
@@ -218,7 +218,7 @@ public:
 	void setinitzoom();
 	CRect getAllBox();
 	void setCenter(CVector p);
-	void setzoomrat(double zr,CFigure* f=NULL);
+	void setzoomrat(double zr,CFigure* f=nullptr);
 	bool Trim(CDC* hdc,CVector v,bool side);
 	void setFiltparam(double lk);
 	void setChamfparam(double ld);

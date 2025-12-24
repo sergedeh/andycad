@@ -5,14 +5,14 @@
 //  Created by Serge Deh on 10/15/20.
 //  Copyright (c) 2020 Serge Deh. All rights reserved.
 //
-#include "pch.h"
+#include "../utils/pch.h"
 #include "CQuadTree.h"
 //#include "CAABB.h"
 
 // QuadTree.cpp: implementation of the CQuadTree class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "CMesh.h"
+#include "../mesh/CMesh.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -127,6 +127,7 @@ int CQuadTree::quadrant(CRay m)
      return i;
      }
      }*/
+	return -1;
 }
 
 void CQuadTree::split()
@@ -232,7 +233,7 @@ void CQuadTree::insert(CTriangle *p)
         if(i!=-1)
             sub[i]->insert(triangle);
         
-        triangle = NULL;
+        triangle = nullptr;
         i=quadrant(range);
         if(i!=-1)
             sub[i]->insert(p);
@@ -263,7 +264,7 @@ int CQuadTree::quadrant(CTriangle *m)
 			return i;
 		}
 	}
-    
+	return -1;
 }
 
 void CQuadTree::splitq()
@@ -364,7 +365,7 @@ void CQuadTree::insert(CEdge *e)
         if(i!=-1)
             sub[i]->insert(edge);
         
-        edge = NULL;
+        edge = nullptr;
         i=quadrant(range);
         if(i!=-1)
             sub[i]->insert(e);

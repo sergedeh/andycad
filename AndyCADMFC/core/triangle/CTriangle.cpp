@@ -2335,7 +2335,7 @@ CVertex* CTriangle::Vertex(int n)
           //  ASSERT(FALSE);
             ;
 	}
-    
+    return NULL;
 }
 
 CEdge* CTriangle::Edge(int n)
@@ -2352,7 +2352,7 @@ CEdge* CTriangle::Edge(int n)
            // ASSERT(FALSE);
             ;
 	}
-    
+    return NULL;
 }
 
 CMesh* CTriangle::getMesh()
@@ -2401,6 +2401,6 @@ void CTriangle::Disconnect()
 
 CVertex* CTriangle::intersect(CEdge *e)
 {
-    if(e==NULL) return NULL;
-    
+    if(e==nullptr) return nullptr;
+    return nullptr;
 }

@@ -3,12 +3,15 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "cad.h"
+//#include "cad.h"
+#include "MFCStubs.h"
+#include "CImagex.h"
 #include "Cercle.h"
-#include "plane.h"
+#include "CPlane.h"
 #include <math.h>
-#include "ffd.h"
-#include "textcad.h"
+#include "CFFD.h"
+#include "CTextCad.h"
+#include "CTVector.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -505,7 +508,7 @@ bool CCercle::DrawEllipse(bool fPrevB,CDC *hdc, CVector p)
 
      CPoint *Pt=new CPoint[N+1];
    int ss;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   ss=iter;
@@ -546,7 +549,7 @@ bool CCercle::DrawEllipse(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=ss;i++)
+	for (int i=0; i<=ss;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -718,7 +721,7 @@ bool CCercle::DrawCircle(bool fPrevB,CDC *hdc, CVector p)
 
    CPoint *Pt=new CPoint[N+1];
    int s;//=0;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   s=iter;
@@ -760,7 +763,7 @@ bool CCercle::DrawCircle(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=s;i++)
+	for (int i=0; i<=s;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -905,7 +908,7 @@ bool CCercle::DrawArc(bool fPrevB,CDC *hdc, CVector p)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+//			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -1116,7 +1119,7 @@ end= lh;
    
    CPoint *Pt=new CPoint[N+1];
    int s=0;
-   for(iter=lk;iter<=lh;iter++)
+   for(int iter=lk;iter<=lh;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -1149,7 +1152,7 @@ end= lh;
 	hdc->MoveTo(control1);
 	hdc->LineTo(Mr[lh]);
 
-	for (i=0; i<=N;i++)
+	for (int i=0; i<=N;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -1332,7 +1335,7 @@ bool CCercle::Draw2DotCircle(bool fPrevB,CDC *hdc, CVector p)
   
    CPoint *Pt=new CPoint [N+1];
    int s;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   s=iter;
@@ -1374,7 +1377,7 @@ bool CCercle::Draw2DotCircle(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=s;i++)
+	for (int i=0; i<=s;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -1636,7 +1639,7 @@ bool CCercle::Draw2DotArc(bool fPrevB,CDC *hdc, CVector p)
    vector<int> bv;
    indexpos.clear();
    indexpos.resize(2);
-   for(iter=0;iter<N;iter++)
+   for(int iter=0;iter<N;iter++)
    {
 	   CRay l1(Mr[iter],Mr[iter+1],1);
 
@@ -1668,7 +1671,7 @@ bool CCercle::Draw2DotArc(bool fPrevB,CDC *hdc, CVector p)
 */
    CPoint *Pt=new CPoint[N+1];
    int s=0;
-   for(iter=0;iter<=lh;iter++)
+   for(int iter=0;iter<=lh;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -1697,7 +1700,7 @@ bool CCercle::Draw2DotArc(bool fPrevB,CDC *hdc, CVector p)
 	hdc->SelectObject(oldp);
 	hdc->SelectObject(oldb);
 
-	for (i=0; i<=lh;i++)
+	for (int i=0; i<=lh;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -1968,7 +1971,7 @@ bool CCercle::Draw3DotCircle(bool fPrevB,CDC *hdc, CVector p)
    int ss;
    lk=0;
    lh=N;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	   ss=iter;
@@ -2009,7 +2012,7 @@ bool CCercle::Draw3DotCircle(bool fPrevB,CDC *hdc, CVector p)
 	hdc->FillPath();
    }
 
-	for (i=0; i<=ss;i++)
+	for (int i=0; i<=ss;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -2181,7 +2184,7 @@ bool CCercle::Draw3DotArc(bool fPrevB,CDC *hdc, CVector p)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+//			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -2245,7 +2248,7 @@ end= lh;
 
    CPoint *Pt=new CPoint[N+1];
 
-   for(iter=lk;iter<=lh;iter++)
+   for(int iter=lk;iter<=lh;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -2273,7 +2276,7 @@ end= lh;
  	hdc->Polyline(&Pt[start],ss);
     hdc->Rectangle(CRect(Ct,CSize(10,10)));
 
-	for (i=lk; i<=lh;i++)
+	for (int i=lk; i<=lh;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -2462,7 +2465,7 @@ bool CCercle::Draw3DotArc2(bool fPrevB,CDC *hdc, CVector p)
 
    CPoint *Pt=new CPoint[N+1];
    int ss=0;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -2505,9 +2508,15 @@ bool CCercle::Draw3DotArc2(bool fPrevB,CDC *hdc, CVector p)
    {
     hdc->EndPath();
 	hdc->FillPath();
+    for (int i=0; i<=N;i++)
+	{
+	Pprev[i]=Pt[i];
+	}
+
+	prevref=N;
    }
 
-	for (i=0; i<=N;i++)
+	for (int i=0; i<=N;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -2705,7 +2714,7 @@ bool CCercle::Draw3DotArc2(bool fPrevB,CDC *hdc, CVector p)
    vector<int> bv,bo;
    indexpos.clear();
    indexpos.resize(2);
-   for(iter=0;iter<N;iter++)
+   for(int iter=0;iter<N;iter++)
    {
 	   CRay l1(Mr[iter],Mr[iter+1],1);
 	   CRay l(control1,control2,1);
@@ -2736,7 +2745,7 @@ bool CCercle::Draw3DotArc2(bool fPrevB,CDC *hdc, CVector p)
 
    CPoint *Pt=new CPoint[N+1];
    int ss=0;
-   for(iter=0;iter<=N;iter++)
+   for(int iter=0;iter<=N;iter++)
 	 {
 	   Pt[iter]=Mr[iter];
 	}
@@ -2763,7 +2772,7 @@ bool CCercle::Draw3DotArc2(bool fPrevB,CDC *hdc, CVector p)
  	hdc->Polyline(&Pt[start],ss);//min(ref,vref)],ss);
 
 
-	for (i=0; i<=N;i++)
+	for (int i=0; i<=N;i++)
 	{
 	Pprev[i]=Pt[i];
 	}
@@ -3360,7 +3369,7 @@ void CCercle::drawArc(CVector center, CVector startpoint, double angle)
    Para_universp(0,1,N,Para);
 
    int s=N-1,e=0;
-   for(iter=0;iter<N;iter++)
+   for(int iter=0;iter<N;iter++)
    {
 	   Mr[iter]=NURBS(deg,CP,ncp,Para[iter],Kn);
 	   CVector ve(Mr[iter],endpoint);
@@ -3495,7 +3504,7 @@ bool CCercle::inRegion(CVector point)
 	select=full;
    
 
-   for(int i=0;i<=ncp;i++)
+   for (int i=0;i<=ncp;i++)
    {
 	   if ((pointinRegion(point,CP[i]))&&(!multiselect))
 	   {
@@ -3608,7 +3617,7 @@ bool CCercle::inRegion(CVector point)
    }
    else
    {
-	   CBezier::inRegion(point);
+	   return CBezier::inRegion(point);
    }
    
 }
@@ -3736,7 +3745,7 @@ void* CCercle::Trim(vector<CVector> vec)
 				Bohms(Para[indexvec[indexpetit-1]], deg,Kn,CP,ncp);	
 			}
 	s=0;
-		for(iter=0;iter<=ncp+deg+1;iter++)
+		for(int iter=0;iter<=ncp+deg+1;iter++)
 		{
 			if(Kn[iter]==Para[indexvec[indexpetit+1]])
 			{
@@ -4123,6 +4132,7 @@ void* CCercle::Trim(vector<CVector> vec)
 	}
 
 
+	return NULL;
 }
 
 
@@ -4319,7 +4329,7 @@ return;
 			}
 	s=0;
 
-			for(iter=0;iter<=ncp+deg+1;iter++)
+			for(int iter=0;iter<=ncp+deg+1;iter++)
 			{
 				if(Kn[iter]==Para[prevstart])
 				{
@@ -4691,7 +4701,7 @@ void CCercle::drawArc(CVector start, CVector mid, CVector end)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+////			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -4867,7 +4877,7 @@ void CCercle::drawArc2(CVector center, CVector vstart, CVector vend)
 	{
 		if(jo%3==0)
 		{
-			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
+////			CVector* n=find(vcenter.begin(),vcenter.end(),CP[jo]);
 			if(jo+1<d)
 			{
 			CVector vp=CP[jo+1]-CP[jo];
@@ -5455,6 +5465,7 @@ CCercle::CCercle(CVector v1, CVector v2,bool arc)
 
 void CCercle::setArc(CVector v1, CVector v2)
 {
+	int g;
 	CVector w1(Ct,CP[0]);
 	CVector w2(Ct,v2);
 	float av;
@@ -5585,6 +5596,7 @@ void CCercle::setArc(CVector v1, CVector v2)
 
 void CCercle::setArc(CVector v1, CVector v2, CVector v3)
 {
+	int g;
 	CVector w1(Ct,CP[0]);
 	CVector w2(Ct,v2);
 	float av;

@@ -17,10 +17,10 @@
 using namespace std;
 
 
-CCadView* CMesh::view=NULL;
+CCadView* CMesh::view=nullptr;
 //BYTE* CMesh::bits=NULL;*******
-float* CMesh::zbuffer=NULL;
-CRender* CMesh::render=NULL;
+float* CMesh::zbuffer=nullptr;
+CRender* CMesh::render=nullptr;
 int bwidth,bheight;
 //HWND hwnd;*******
 //HDC hd=NULL;*******
@@ -108,7 +108,7 @@ int CMesh::SaddTri(CTriangle* t)
 
 void CMesh::addEdge(vector<CVector>& v1)
 {
-	CVertex* vs=NULL,*ve=NULL;
+	CVertex* vs=nullptr,*ve=nullptr;
 	CEdge* e;
 	bool _b=false,_e=false;
 	for(ivertex iter=vertexlist.begin();iter!=vertexlist.end();iter++)
@@ -238,7 +238,7 @@ void CMesh::displayTri(CDC *hdc,CVector loc[2],CCVector lit[6],col* mytext,int p
     
 	int c=displaytrilist.size();
     
-	if(zbuffer==NULL)
+	if(zbuffer==nullptr)
 	{
 		return;
 	}
@@ -340,7 +340,7 @@ void CMesh::DelaunayTri()
   //	TriPoly->m_n = 0;						// in the loop.
   
   z = new double[vertexcount];
-  if (z == NULL) return FALSE;
+  if (z == nullptr) return FALSE;
   
   for (i=0; i<vertexcount; i++)
   z[i] = vertexlist[i].x*vertexlist[i].x + vertexlist[i].y*vertexlist[i].y;
@@ -427,7 +427,7 @@ void CMesh::openfile(CFile &file)
         
         //		vertexlist.insert(make_pair(i,t));
         //		vertexlist[i]->sit=i;
-		t=NULL;
+		t=nullptr;
 	}
 	for(int i=0;i<tcount;i++)
 	{
@@ -552,7 +552,7 @@ void CMesh::Edraw(CDC* hdc)
 {
     render->displayTri(hdc);
     delete [] zbuffer;
-    zbuffer=NULL;
+    zbuffer=nullptr;
 }
 
 
@@ -666,6 +666,7 @@ CVertex* CMesh::getVertex(float u)
 			return iter->second;
 		}
 	}
+	return nullptr;
 }
 CVector CMesh::getVector(float u)
 {
@@ -725,7 +726,7 @@ void CMesh::display(CDC* hdc)
 {
 /*	int c=displaytrilist.size();
     
-	if(zbuffer==NULL)
+	if(zbuffer==nullptr)
 	{
 		return;
 	}
@@ -1041,7 +1042,7 @@ void CMesh::copy(const CMesh &m)
 CVertex* CMesh::addVertexonEdge(CVector v)
 {
 	CVector v1;
-	CVertex* vx=NULL;;
+	CVertex* vx=nullptr;;
 	float u;
 	int n;
 	for(iedge iter=edgelist.begin();iter!=edgelist.end();iter++)
@@ -1060,7 +1061,7 @@ CVertex* CMesh::addVertexonEdge(CVector v)
 		}
 		
 	}
-	return false;
+	return nullptr;
     
 }
 
@@ -1309,7 +1310,7 @@ void CMesh::breakEdge(CVector v1, CVector v2)
 }
 bool CMesh::Close()
 {
-	CVertex *vs=NULL,*ve=NULL;
+	CVertex *vs=nullptr,*ve=nullptr;
 	CEdge* e;
 	vector<CVertex*> unvs;
 	vector<CVertex*> unve;
@@ -1563,7 +1564,7 @@ void CMesh::TrimEdge3(CVector v,CMesh *m)
 	CVector vm;
 	CVector v01=v;
 	int u;
-    CEdge* eg=NULL;
+    CEdge* eg=nullptr;
     for(CMesh::iedge iter=edgelist.begin();iter!=edgelist.end();iter++)
     {
         if(iter->second->onEdge(v01,vm)!=-1)

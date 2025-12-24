@@ -12,8 +12,8 @@
 #include <iostream>
 #include "../vectorm/CVectorm.h"
 #include "../utils/RenderContext.hpp"
+#include "../utils/CRect.hpp"
 class CVector;
-class CRect;
 class CAABB
 {
 public:
@@ -43,7 +43,7 @@ public:
     
 	void empty(); //empty the box
     
-	void add(CVector &p); // add a point to the box
+	void add(const CVector &p); // add a point to the box
     void add(const CAABB &box); // add a AABB to the box
     
     

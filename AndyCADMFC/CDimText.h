@@ -14,7 +14,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "cTextCad.h"
+#include "CTextCad.h"
 
 class CDimText : public CTextCad
 {

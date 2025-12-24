@@ -13,6 +13,7 @@
 
 #include "../vertex/CVertex.h"
 #include "../vector/CVector.h"	// Added by ClassView
+#include "../utils/CDC.h"
 
 class CEdge
 {
@@ -24,13 +25,16 @@ public:
 	long skipRead(ifstream& file);
 	void loadFrom(ifstream& file);
 	void saveTo(ofstream& file);
+	void savefile(CFile& file);
+	void openfile(CFile& file);
+	long Readfile(CFile& file);
 	void display(CDC *hdc);
 	CVertex* Start();
 	CVertex* End();
 	CVertex* Mate(CVertex* v);
 	CEdge (CVertex b, CVertex e);
 	CEdge (CVertex* b, CVertex* e,int i=-1);
-	CEdge (): constrained(false),sit(NULL),sjt(NULL),adjt(0),ofile(false){};
+	CEdge (): constrained(false),sit(nullptr),sjt(nullptr),adjt(0),ofile(false){};
 	CEdge operator - ();
 	bool operator ==(CEdge v){ return ((sit==v.sit)&&(sjt==v.sjt));}
     //	CEdge();
@@ -46,7 +50,7 @@ public:
 	void initcopy2(CEdge* e,int j);
 	void RemoveAdjTri();
 	void RemoveAdjTri(int i);
-	float project(CVector v, CVector* n=NULL);
+	float project(CVector v, CVector* n=nullptr);
 	CVector vDir();
 	CVector getNormal();
 	CMesh* getMesh();

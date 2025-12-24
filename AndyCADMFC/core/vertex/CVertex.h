@@ -135,6 +135,9 @@ struct vertex
         long skipRead(ifstream& file);
         void loadFrom(ifstream& file);
         void saveTo(ofstream& file);
+        void openfile(CFile& file) {}
+        void savefile(CFile& file) {}
+        long Readfile(CFile& file) { return 0; }
         bool isOn();
         CVector v;
         CVector n;

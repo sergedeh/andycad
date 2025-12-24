@@ -14,9 +14,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "caabb.h"
-#include "cVector.h"	// Added by ClassView
-#include "cfigure.h"	// Added by ClassView
+#include "CAABB.h"
+#include "CVector.h"	// Added by ClassView
+#include "CFigure.h"	// Added by ClassView
 
 class CCAM:public CFigure
 {

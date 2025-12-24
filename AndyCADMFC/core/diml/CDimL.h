@@ -13,11 +13,11 @@
 // DimL.h: interface for the CDimL class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "cLibS.h"
-#include "cline.h"
-#include "cdimarrow.h"
-#include "cdimtext.h"
-#include "ctextcad.h"
+#include "CLibs.h"
+#include "CLine.h"
+#include "CDimArrow.h"
+#include "CDimText.h"
+#include "CTextCad.h"
 
 class CDimL : public CLibS
 {

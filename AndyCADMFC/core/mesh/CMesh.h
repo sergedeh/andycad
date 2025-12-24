@@ -19,7 +19,8 @@
 #include <set>
 #include <map>
 #include "../vector/CVector.h"	// Added by ClassView
-#include "CCadView.h"
+#include "../core/utils/CCadView.h"
+#include "../utils/CDC.h"
 using namespace std;
 
 class isfar
@@ -76,7 +77,7 @@ public:
 	int iEdge(int i);
 	int* Tri(int i);
 	void deleteSVertex();
-	float min_dist_toEdge(CVector v,int* n=NULL);
+	float min_dist_toEdge(CVector v,int* n=nullptr);
 	void offset(float u,CMesh* f);
 	CVector Vector(int i);
 	void operator = ( CMesh* m);
@@ -115,6 +116,9 @@ public:
 	long skipRead(ifstream& file);
 	void loadFrom(ifstream& file);
 	void saveTo(ofstream& file);
+	long Readfile(CFile& file);
+	void openfile(CFile& file);
+	void savefile(CFile& file);
 	void displayVertex(CDC *hdc);
 	void updateTri();
 	CMesh();

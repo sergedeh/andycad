@@ -77,7 +77,7 @@ double CVector::pointtoVector(CVector line,CVector point,CVector* hitpoint)
 	xhit=point.x;
 	yhit=point.y;
 	zhit=point.z;
-	if(hitpoint!=NULL)
+	if(hitpoint!=nullptr)
 		*hitpoint=point;
     
 	point.operator -=(orpoint);
@@ -308,7 +308,7 @@ CVector CVector::ppprojection(CVector point,CVector* v1)
 	double proj1=point.dot(*this)/dot(*this);
 	point=scalarMult(proj1);
     
-	if(v1!=NULL)
+	if(v1!=nullptr)
 		*v1=point;
 	point.operator -=(orpoint);
 	return point;
@@ -955,6 +955,7 @@ bool CVector::snaptoplane(CVector &v)
                 t.popTransform();//pushUnit();
                 return true;
             }
+    return false;
 }
 
 void CVector::snapcoortoplane(CVector &v,int i)
@@ -1094,7 +1095,7 @@ double pointtoVector(CVector line,CVector point,CVector* hitpoint)
 	double proj1=point.dot(line)/line.dot(line);
 	point=line*proj1;
 	
-	if(hitpoint!=NULL)
+	if(hitpoint!=nullptr)
 		*hitpoint=point;
 	point.operator -=(orpoint);
     
@@ -1234,14 +1235,4 @@ int orientation(CVector v1, CVector v2, CVector v3)
 CVector CVector::getscrbot()
 {
     return CVector (r,b,0,1);
-}
-
-CPoint operator - (CPoint p1, CPoint p2) {
-	return CPoint(p1.x - p2.x, p1.y - p2.y);
-}
-CPoint operator + (CPoint p1, CPoint p2) {
-	return CPoint(p1.x + p2.x, p1.y + p2.y);
-}
-bool operator == (CPoint p1, CPoint p2) {
-	return p1.x == p2.x && p1.y == p2.y;
 }

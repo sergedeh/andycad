@@ -13,13 +13,13 @@
 // Dim.h: interface for the CDim class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "cLibS.h"
-#include "cline.h"
-#include "cdimarrow.h"
-#include "ctextcad.h"
-#include "cdimtext.h"
-#include"cCercle.h"
-#include"cconstraint.h"
+#include "CLibs.h"
+#include "CLine.h"
+#include "CDimArrow.h"
+#include "CTextCad.h"
+#include "CDimText.h"
+#include "Cercle.h"
+#include "CConstraint.h"
 
 class CDim : public CLibS
 {

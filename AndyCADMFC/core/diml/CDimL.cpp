@@ -109,6 +109,7 @@ bool CDimL::draw(bool fPrevLine, CDC *hdc, CVector point)
       //  hdc->SetROP2(t);******************
 	}
     
+	return true;
 }
 void CDimL::setPtsBegin(CVector pos)
 {
@@ -217,6 +218,7 @@ bool CDimL::getCharge(CDC *hdc)
         add(&text2);
         return result;
 	}
+	return false;
 }
 
 void CDimL::initL()

@@ -13,7 +13,7 @@
 // DimArrow.h: interface for the CDimArrow class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "cLine.h"
+#include "CLine.h"
 
 class CDimArrow : public CLine
 {

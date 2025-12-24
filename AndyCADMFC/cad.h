@@ -12,9 +12,9 @@
 	#error include 'stdafx.h' before including this file for PCH
 #endif
 
-#include "resource.h"       // main symbols
+#include "Resource.h"       // main symbols
 //#include "Cad_i.h"
-#include "cadaddin.h"
+#include "CadAddIn.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
