@@ -38,8 +38,7 @@ file(GLOB TEST_SOURCES
     "tests/*.cpp"
 )
 set(TEST_EXTRA_SOURCES
-    CFFD.cpp
-    CPolygon.cpp
+    # Core files are now included via library link
 )
 add_executable(core_test ${TEST_SOURCES} ${TEST_EXTRA_SOURCES})
 target_link_libraries(core_test PRIVATE andycad_core)
@@ -61,10 +60,6 @@ if(ANDYCAD_WASM)
     add_executable(andycad_wasm
         wasm/main_wasm.cpp
         wasm/CDC_WASM.cpp
-        CFFD.cpp
-        CDimArrow.cpp
-        CDimText.cpp
-        CCommand.cpp
     )
     target_link_libraries(andycad_wasm PRIVATE andycad_core)
     target_include_directories(andycad_wasm PRIVATE

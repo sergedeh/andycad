@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\build_final\CMakeFiles\41b2e30910ff41dafff0c575e1599f0b\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{817184AF-344A-302C-8AD9-A0B6F837A8C8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

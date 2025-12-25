@@ -1,0 +1,110 @@
+MSBuild version 17.7.2+d6990bcfa for .NET Framework
+Build started 12/25/2025 1:44:11 AM.
+
+Project "C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj" on node 1 (Build target(s)).
+PrepareForBuild:
+  Creating directory "x64\Debug\AndyCADMFC.tlog\".
+InitializeBuildStatus:
+  Creating "x64\Debug\AndyCADMFC.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "x64\Debug\AndyCADMFC.tlog\unsuccessfulbuild".
+Midl:
+  C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x86\midl.exe /D _DEBUG /W1 /nologo /char signed /env x64 /h "AndyCADMFC_h.h" /tlb "x64\Debug\AndyCADMFC.tlb" /robust /target "NT60" MFC\AndyCADMFC.idl 
+  64 bit Processing MFC\AndyCADMFC.idl
+  AndyCADMFC.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\oaidl.idl
+  oaidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\objidl.idl
+  objidl.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\unknwn.idl
+  unknwn.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\wtypes.idl
+  wtypes.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\wtypesbase.idl
+  wtypesbase.idl
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\basetsd.h
+  basetsd.h
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\guiddef.h
+  guiddef.h
+  64 bit Processing C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\oaidl.acf
+  oaidl.acf
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\HostX86\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _CRT_SECURE_NO_WARNINGS /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"pch.h" /Fp"x64\Debug\AndyCADMFC.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:queue MFC\pch.cpp
+  pch.cpp
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\HostX86\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _CRT_SECURE_NO_WARNINGS /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"pch.h" /Fp"x64\Debug\AndyCADMFC.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:queue MFC\AndyCADMFC.cpp MFC\AndyCADMFCDoc.cpp MFC\AndyCADMFCView.cpp Legacy_Source\CAABB.cpp MFC\calendarbar.cpp Legacy_Source\CCVector.cpp Legacy_Source\CEdge.cpp MFC\ChildFrm.cpp Legacy_Source\CMesh.cpp Legacy_Source\CObserver.cpp Legacy_Source\CPlane.cpp Legacy_Source\CQuadTree.cpp Legacy_Source\CRay.cpp Legacy_Source\CRender.cpp Legacy_Source\CSubject.cpp Legacy_Source\CTriangle.cpp Legacy_Source\CVector.cpp Legacy_Source\CVertex.cpp Legacy_Source\Figure.cpp Legacy_Source\image.cpp MFC\MainFrm.cpp Legacy_Source\matrix1.cpp MFC\tipdlg.cpp Legacy_Source\tvector.cpp Legacy_Source\Vectorm.cpp
+  AndyCADMFC.cpp
+  AndyCADMFCDoc.cpp
+  AndyCADMFCView.cpp
+  CAABB.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CAABB.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  calendarbar.cpp
+  CCVector.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CCVector.cpp(47,18): warning C4244: 'return': conversion from 'ULONGLONG' to 'long', possible loss of data [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CEdge.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CEdge.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  ChildFrm.cpp
+  CMesh.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CMesh.h(18,10): fatal  error C1083: Cannot open include file: 'CTriangle.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CObserver.cpp
+  CPlane.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CPlane.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CQuadTree.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CQuadTree.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CRay.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CRay.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CRender.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CRender.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CSubject.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CSubject.cpp(39,5): warning C4858: discarding return value: The 'remove' and 'remove_if' algorithms return the iterator past the last element that should be kept. You need to call container.erase(result, container.end()) afterwards. In C++20, 'std::erase' and 'std::erase_if' are simpler replacements for these two steps. [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CTriangle.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CTriangle.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CVector.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CVector.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  CVertex.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CVertex.h(13,10): fatal  error C1083: Cannot open include file: 'CVector.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  Figure.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  image.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\Line.h(8,10): fatal  error C1083: Cannot open include file: 'Mouse.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  Generating Code...
+  Compiling...
+  MainFrm.cpp
+  matrix1.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  tipdlg.cpp
+  tvector.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  Vectorm.cpp
+C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  Generating Code...
+Done Building Project "C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj" (Build target) (1) ->
+(ClCompile target) -> 
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CCVector.cpp(47,18): warning C4244: 'return': conversion from 'ULONGLONG' to 'long', possible loss of data [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CSubject.cpp(39,5): warning C4858: discarding return value: The 'remove' and 'remove_if' algorithms return the iterator past the last element that should be kept. You need to call container.erase(result, container.end()) afterwards. In C++20, 'std::erase' and 'std::erase_if' are simpler replacements for these two steps. [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+
+
+"C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj" (Build target) (1) ->
+(ClCompile target) -> 
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CAABB.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CEdge.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CMesh.h(18,10): fatal  error C1083: Cannot open include file: 'CTriangle.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CPlane.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CQuadTree.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CRay.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CRender.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CTriangle.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  c1xx : fatal  error C1083: Cannot open source file: 'Legacy_Source\CVector.cpp': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\CVertex.h(13,10): fatal  error C1083: Cannot open include file: 'CVector.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\Line.h(8,10): fatal  error C1083: Cannot open include file: 'Mouse.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+  C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\Legacy_Source\cad.h(15,10): fatal  error C1083: Cannot open include file: 'Resource.h': No such file or directory [C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\AndyCADMFC.vcxproj]
+
+    2 Warning(s)
+    15 Error(s)
+
+Time Elapsed 00:00:31.02

@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0622 */
+ /* File created by MIDL compiler version 8.01.0628 */
 /* at Tue Jan 19 04:14:07 2038
  */
 /* Compiler settings for CadAddIn.idl:
-    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -40,6 +40,14 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
+#endif
+
+#ifndef DECLSPEC_XFGVIRT
+#if defined(_CONTROL_FLOW_GUARD_XFG)
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
 #endif
 
 /* Forward Declarations */ 
@@ -153,28 +161,34 @@ EXTERN_C const IID IID_IAndyCad;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAndyCad * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAndyCad * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAndyCad * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IAndyCad * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IAndyCad * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IAndyCad * This,
             /* [in] */ REFIID riid,
@@ -183,6 +197,7 @@ EXTERN_C const IID IID_IAndyCad;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IAndyCad * This,
             /* [annotation][in] */ 
@@ -202,18 +217,22 @@ EXTERN_C const IID IID_IAndyCad;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IAndyCad, LoadAllAdins)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *LoadAllAdins )( 
             IAndyCad * This,
             BSTR strAddinLoadingInfo);
         
+        DECLSPEC_XFGVIRT(IAndyCad, get_MainWindow)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MainWindow )( 
             IAndyCad * This,
             /* [retval][out] */ long *pVal);
         
+        DECLSPEC_XFGVIRT(IAndyCad, SendStatus)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *SendStatus )( 
             IAndyCad * This,
             BSTR strStatus);
         
+        DECLSPEC_XFGVIRT(IAndyCad, SetAddInInfo)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *SetAddInInfo )( 
             IAndyCad * This,
             long lSessionID,
@@ -221,11 +240,13 @@ EXTERN_C const IID IID_IAndyCad;
             BSTR strXMLMenuToolbarIDCmdInfo,
             long lToobarRes);
         
+        DECLSPEC_XFGVIRT(IAndyCad, SetAddinToolbar)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *SetAddinToolbar )( 
             IAndyCad * This,
             long lAddinIndex,
             VARIANT varValue);
         
+        DECLSPEC_XFGVIRT(IAndyCad, SetViewHeading)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *SetViewHeading )( 
             IAndyCad * This,
             BSTR strHeading1,
@@ -329,28 +350,34 @@ EXTERN_C const IID DIID__IAndyCadEvents;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             _IAndyCadEvents * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             _IAndyCadEvents * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             _IAndyCadEvents * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             _IAndyCadEvents * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             _IAndyCadEvents * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             _IAndyCadEvents * This,
             /* [in] */ REFIID riid,
@@ -359,6 +386,7 @@ EXTERN_C const IID DIID__IAndyCadEvents;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             _IAndyCadEvents * This,
             /* [annotation][in] */ 
@@ -454,28 +482,34 @@ EXTERN_C const IID IID_IAndyCadAddin;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAndyCadAddin * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAndyCadAddin * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAndyCadAddin * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IAndyCadAddin * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IAndyCadAddin * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IAndyCadAddin * This,
             /* [in] */ REFIID riid,
@@ -484,6 +518,7 @@ EXTERN_C const IID IID_IAndyCadAddin;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IAndyCadAddin * This,
             /* [annotation][in] */ 
@@ -503,12 +538,14 @@ EXTERN_C const IID IID_IAndyCadAddin;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IAndyCadAddin, Initialize)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Initialize )( 
             IAndyCadAddin * This,
             long lSessionID,
             IAndyCad *pApp,
             VARIANT bFirstTime);
         
+        DECLSPEC_XFGVIRT(IAndyCadAddin, Uninitialize)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Uninitialize )( 
             IAndyCadAddin * This,
             long lSessionID);
@@ -596,28 +633,34 @@ EXTERN_C const IID DIID__IAndyCadAddinEvents;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             _IAndyCadAddinEvents * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             _IAndyCadAddinEvents * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             _IAndyCadAddinEvents * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             _IAndyCadAddinEvents * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             _IAndyCadAddinEvents * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             _IAndyCadAddinEvents * This,
             /* [in] */ REFIID riid,
@@ -626,6 +669,7 @@ EXTERN_C const IID DIID__IAndyCadAddinEvents;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             _IAndyCadAddinEvents * This,
             /* [annotation][in] */ 
