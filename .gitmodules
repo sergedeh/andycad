@@ -1,0 +1,3 @@
+[submodule "andy2/tests/googletest"]
+	path = andy2/tests/googletest
+	url = https://github.com/google/googletest.git

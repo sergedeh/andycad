@@ -243,7 +243,7 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
     TRACE(s);
     //	m.Edraw(hdc);
   } catch (...) {
-    AfxMessageBox("Display Error");
+    AfxMessageBox("error in display\n");
   }
   candraw = false;
 }
