@@ -1,0 +1,231 @@
+
+	int width=0;
+	int height=0;
+
+	vector <Edges> v;
+	vector<Edges> vl;
+	double u,vv;
+	ptbegin=mesh.getVectors();
+	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isytop));
+	double ytop=vi->y;
+	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxleft));
+	double xleft=vi->x;
+	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isybottom));
+	double ybot=vi->y;
+	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxright));
+	double xright=vi->x;
+
+	CVector tl(xleft,ytop,0);
+	CVector lb(xright,ybot,0);
+//	hdc->LPtoDP(&tl);
+//	hdc->LPtoDP(&lb);
+	xleft=tl.x;
+	ytop=tl.y;
+	float xd;
+	float yd;
+	width=lb.x-tl.x;
+	height=tl.y-lb.y;
+	width=(width>0)?width:-width;
+	height=(height>0)?height:-height;
+
+	if(texture!=NULL)
+	{
+	xd=(float)width/pwidth;
+	yd=(float)height/pheight;
+	}
+	unsigned ph,pw;
+	CPoint blend(blend_p);
+	hdc->LPtoDP(&blend);
+	blend.x=xleft;
+	blend.y=ytop;
+	CPoint nblend(blend_plane);
+	hdc->LPtoDP(&nblend);
+	nblend.x=width;
+	nblend.y=0;
+	blend_radius=width;
+	CPlane pl(CVector(blend.x,blend.y,0),CVector(nblend.x,nblend.y,0));
+	float initalpha=0;
+	float endalpha=1;
+//	blend_mode=linearb;
+//	tex_vert_mode=decal;
+
+//This part is commented to allow experimenetation with the CMesh class
+
+/*	for(vector<CVector>::iterator it=ptbegin.begin(),ite=ptend.begin();it!=ptbegin.end();it++,ite++)
+	{
+		CPoint p1(*it);
+		hdc->LPtoDP(&p1);
+		if(mode_texture==wrap)
+		{
+		u=(double)(p1.x-xleft)/pwidth;
+		vv=(double)(ytop-p1.y)/pheight;
+		}
+		else
+		{
+		u=(double)(p1.x-xleft)/width;
+		vv=(double)(ytop-p1.y)/height;
+		}
+	
+/*		if(mode_texture==wrap)
+		{
+		u=__min(u-floor(u),1);
+		u=__max(u,0);
+		vv=__min(vv-floor(vv),1);
+		vv=__max(vv,0);
+		}
+*//*		vertex v1(p1,u,vv);
+
+		CPoint p2(*ite);
+		hdc->LPtoDP(&p2);
+//		u=(double)(p2.x-xleft)/pwidth;
+//		vv=(double)(ytop-p2.y)/pheight;
+		if(mode_texture==wrap)
+		{
+		u=(double)(p2.x-xleft)/pwidth;
+		vv=(double)(ytop-p2.y)/pheight;
+		}
+		else
+		{
+		u=(double)(p2.x-xleft)/width;
+		vv=(double)(ytop-p2.y)/height;
+		}
+
+
+/*		if(mode_texture==wrap)
+		{
+		u=__min(u-floor(u),1);
+		u=__max(u,0);
+		vv=__min(vv-floor(vv),1);
+		vv=__max(vv,0);
+		}
+*//*		vertex v2(p2,u,vv);
+
+		CRect r(p1,p2);
+		r.NormalizeRect();
+		if(r.top!=r.bottom)
+		{
+			v.push_back(Edges(v1,v2,r));
+		}
+	}
+*/
+	vector<CEdge*> vel=mesh.getEdgeList();
+	for(vector<CEdge*>::iterator it=vel.begin();it!=vel.end();it++)
+	{
+		CVertex* vx=(*it)->Start();
+		CVector t=*vx;
+		CPoint p1(t);
+		hdc->LPtoDP(&p1);
+		vertex v1(p1,vx->un,vx->vn);
+
+		vx=(*it)->End();
+		t=*vx;
+		CPoint p2(t);
+		hdc->LPtoDP(&p2);
+		vertex v2(p2,vx->un,vx->vn);
+
+		CRect r(p1,p2);
+		if(r.top<r.bottom)
+		{
+			int xc=r.top;
+			r.top=r.bottom;
+			r.bottom=xc;
+		}
+		if(r.top!=r.bottom)
+		{
+			v.push_back(Edges(v1,v2,r));
+
+		}
+
+	}
+
+if(v.size()!=0)
+   {
+
+
+	sort(v.begin(),v.end(),pointer_to_binary_function<Edges, Edges,bool>(isPbig));//sort edges by maxy
+	
+	ytop=v.begin()->r.top;
+
+	eiterator gi=min_element(v.begin(),v.end(),pointer_to_binary_function<Edges,Edges,bool>(isysmall));
+	int ybottom=gi->r.bottom;
+	double u_bottom=gi->getbottom().x;
+	double v_bottom=gi->getbottom().y;
+
+	double v_top=v.begin()->gettop().y;
+	double u_top=v.begin()->gettop().x;
+
+
+	
+	int o=hdc->SetMapMode(MM_TEXT);
+	int br=	GetRValue(rgba);
+	int bg=	GetGValue(rgba);
+	int bb=	GetBValue(rgba);
+
+	for (y=ytop;y>=ybottom;y--) {
+
+	for(vector<Edges>::iterator i=v.begin();i!=v.end();i++)
+	{
+		if(y==i->r.top)
+			vl.push_back(*i);
+		else
+			if(y<=i->r.bottom)
+			{
+				eiterator il=find(vl.begin(),vl.end(),*i);
+				if(il!=vl.end()) 
+					vl.erase(il);
+			}
+	}
+				//update x coordinate of every active edge
+	
+//	insert/remove edges from “active edge list”
+	if(mode_texture!=wrap)
+	{
+	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
+		updatex(ip,y,width,xleft);//update x coordinate of every active edge
+	}
+	else
+	{
+	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
+		updatexw(ip,y,pwidth,xleft);//update x coordinate of every active edge
+	}
+	sort(vl.begin(),vl.end(),pointer_to_binary_function<Edges,Edges,bool> (sortx));//sort active edges by x coordinate
+	int yt;
+	
+	for(eiterator ik=vl.begin();ik<vl.end()-1;ik+=2)
+	{
+	int xleft=ik->x_current;
+	double uleft=ik->u_current;
+	double vleft=ik->v_current;
+	int xright=(ik+1)->x_current;
+	double uright=(ik+1)->u_current;
+	double vright=(ik+1)->v_current;
+	double du=(uright-uleft)/(xright-xleft);
+	double dv=(vright-vleft)/(xright-xleft);
+	double dx=(double)1/(xright-xleft);
+
+//	double alpha=1;
+	for (double x=xleft;x<=xright;x++)
+	{
+//		int yt=floor(pheight*vt)*(pwidth)+floor(pwidth*uleft);
+		if(tex_vert_mode==replace)
+		{
+		 r=mytext[yt].r;
+		 g=mytext[yt].g;
+		 b=mytext[yt].b;
+		//hdc->SetPixel(x,y,RGB(mytext[yt].r,mytext[yt].g,mytext[yt].b));
+		}else
+		if(tex_vert_mode==decal)
+		{
+		//alpha=computealpha(x,y,&pl,initalpha,endalpha);
+		 r=(1-alpha)*mytext[yt].r+alpha*br;
+		 g=(1-alpha)*mytext[yt].g+alpha*bg;
+		 b=(1-alpha)*mytext[yt].b+alpha*bb;
+		}else
+		if(tex_vert_mode==multiply)
+		{
+		 r=(mytext[yt].r/255*br/255)*255;
+		 g=(mytext[yt].g/255*bg/255)*255;
+		 b=(mytext[yt].b/255*bb/255)*255;
+		}
+		else
+		if(tex_vert_mode==image_texture)
