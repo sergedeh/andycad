@@ -1029,13 +1029,13 @@ void CLine::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 	vector<Edges> vl;
 	double u,vv;
 	CVector ev=ptend.back();
-	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isytop));
+	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),isytop);
 	double ytop=(vi->y>ev.y)?vi->y:ev.y;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxleft));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxleft);
 	double xleft=(vi->x<ev.x)?vi->x:ev.x;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isybottom));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isybottom);
 	double ybot=(vi->y<ev.y)?vi->y:ev.y;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxright));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxright);
 	double xright=(vi->x>ev.x)?vi->x:ev.x;
 
 	CPoint tl(CVector(xleft,ytop,0));
@@ -1097,7 +1097,7 @@ void CLine::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 			i+=pwidth%4;
 		}
 
-	sort(v.begin(),v.end(),pointer_to_binary_function<Edges, Edges,bool>(isPbig));//sort edges by maxy
+	sort(v.begin(),v.end(),isPbig);//sort edges by maxy
 	
 	if(v.begin()==NULL)
 	{
@@ -1106,7 +1106,7 @@ void CLine::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 	ytop=v.begin()->r.top;
 	double vt=0;
 
-	eiterator gi=min_element(v.begin(),v.end(),pointer_to_binary_function<Edges,Edges,bool>(isysmall));
+	eiterator gi=min_element(v.begin(),v.end(),isysmall);
 	int ybottom=gi->r.bottom;
 	int vb=1;
 	int prevyt=0;
@@ -1133,10 +1133,10 @@ void CLine::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 	}
 				//update x coordinate of every active edge
 	
-//	insert/remove edges from “active edge list”
+//	insert/remove edges from ï¿½active edge listï¿½
 	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
 		updatex(ip,y,width,xleft);//update x coordinate of every active edge
-	sort(vl.begin(),vl.end(),pointer_to_binary_function<Edges,Edges,bool> (sortx));//sort active edges by x coordinate
+	sort(vl.begin(),vl.end(),sortx);//sort active edges by x coordinate
 	
 	for(eiterator ik=vl.begin();ik<vl.end()-1;ik+=2)
 	{

@@ -17,7 +17,7 @@ public:
 	void assign(CVector begin,CVector end);
 	float getPara(CVector v);
 	CRay();
-	CRay(CVector& be,CVector& en,bool b=false):porg(be),phead(en),segment(b){};
+	CRay(const CVector& be,const CVector& en,bool b=false):porg(be),phead(en),segment(b){};
 	CRay(CPoint& be,CPoint& en,bool b=false):porg(CVector(be.x,be.y,0)),phead(CVector(en.x,en.y,0)),segment(b){};
 //	CRay(CVector& be,CVector& en,bool b=false):porg(be),phead(en),segment(b){};
 	void setPara();

@@ -124,6 +124,13 @@ public:
 //	CVector(double fx,double fy,double fz=1);
 	CVector(double fx,double fy,double fz=0,double fw=1);
 	CVector(const CPoint point);
+	CVector(const CSize& size)
+	{
+		x = size.cx;
+		y = size.cy;
+		z = 0;
+		w = 0;
+	}
 	CVector(const CVector begin,const CVector end);
 
 	CPoint divideVect(CVector ptDebut, CVector ptEnd);

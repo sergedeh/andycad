@@ -550,12 +550,6 @@ type "hlp\%(Filename).log"
     <CustomBuild Include="res\cursor1.cur" />
     <CustomBuild Include="res\html1.htm" />
     <CustomBuild Include="res\registry.bin" />
-    <CustomBuild Include="textint\andy\andy.l">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">flex -L -P%(Filename) -o%(RootDir)%(Directory)/%(Filename)_o.cc %(FullPath)</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">flex -L -P%(Filename) -o%(RootDir)%(Directory)/%(Filename)_o.cc %(FullPath)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(InputDir)$(InputName)_o.cc;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(InputDir)$(InputName)_o.cc;%(Outputs)</Outputs>
-    </CustomBuild>
     <CustomBuild Include="textint\andy\andy.y">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

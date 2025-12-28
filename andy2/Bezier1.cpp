@@ -5151,7 +5151,7 @@ CVector  CBezier::surface_Boor(vector<CVector> P,int m,int n,int p,int q, double
 double * CBezier::surface_KnotCLR(vector<CVector> point,int m,int n)
 {
 	/*
-	Input: (m+1)×(n+1) data points di,j;
+	Input: (m+1)ï¿½(n+1) data points di,j;
 	Output: Parameters in the u-direction s0, ..., sm
           and parameters in the v-direction t0, ..., tn;
 	Algorithm:
@@ -5202,7 +5202,7 @@ double * CBezier::surface_KnotCLR(vector<CVector> point,int m,int n)
 double * CBezier::surface_KnotCLC(vector<CVector> point,int m,int n)
 {
 	/*
-	Input: (m+1)×(n+1) data points di,j;
+	Input: (m+1)ï¿½(n+1) data points di,j;
 	Output: Parameters in the u-direction s0, ..., sm
           and parameters in the v-direction t0, ..., tn;
 	Algorithm:
@@ -5267,7 +5267,7 @@ double * CBezier::surface_KnotCLC(vector<CVector> point,int m,int n)
 double * CBezier::surface_KnotUSC(int m,int n,vector<CVector> point)
 {
 	/*
-	Input: (m+1)×(n+1) data points di,j;
+	Input: (m+1)ï¿½(n+1) data points di,j;
 	Output: Parameters in the u-direction s0, ..., sm
           and parameters in the v-direction t0, ..., tn;
 	Algorithm:
@@ -5324,7 +5324,7 @@ double * CBezier::surface_KnotUSC(int m,int n,vector<CVector> point)
 double * CBezier::surface_KnotUSR(int m,int n,vector<CVector> point)
 {
 	/*
-	Input: (m+1)×(n+1) data points di,j;
+	Input: (m+1)ï¿½(n+1) data points di,j;
 	Output: Parameters in the u-direction s0, ..., sm
           and parameters in the v-direction t0, ..., tn;
 	Algorithm:
@@ -5830,7 +5830,7 @@ void CBezier::Bohms(double u,double v,double w, int pu,int pv,int pw,vector<doub
 vector<CVector>  CBezier::INT_surface(vector<CVector> point,int n, int m,int q,int p,vector<double> V,vector<double> U,vector<double> Tv,vector<double> Tu)
 {
 	
-	/*Input: (m+1)×(n+1) data points dij and degree (p,q);
+	/*Input: (m+1)ï¿½(n+1) data points dij and degree (p,q);
 	Output: A B-spline surface of degree (p,q) that contains all data points;
 	Algorithm:
 
@@ -8645,13 +8645,13 @@ void CBezier::ScanPolygon(CDC *hdc, COLORREF rgba,CVector *K,int s,CImagex *text
 
 	double u,vv;
 	CVector ev=ptend.back();
-	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isytop));
+	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),isytop);
 	double ytop=(vi->y>ev.y)?vi->y:ev.y;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxleft));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxleft);
 	double xleft=(vi->x<ev.x)?vi->x:ev.x;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isybottom));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isybottom);
 	double ybot=(vi->y<ev.y)?vi->y:ev.y;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxright));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxright);
 	double xright=(vi->x>ev.x)?vi->x:ev.x;
 
 	CPoint tl(CVector(xleft,ytop,0));
@@ -8686,12 +8686,12 @@ void CBezier::ScanPolygon(CDC *hdc, COLORREF rgba,CVector *K,int s,CImagex *text
 		if(r.top!=r.bottom)
 			v.push_back(Edges(p1,p2,r));
 	}
-	sort(v.begin(),v.end(),pointer_to_binary_function<Edges, Edges,bool>(isPbig));//sort edges by maxy
+	sort(v.begin(),v.end(),isPbig);//sort edges by maxy
 	
 	ytop=v.begin()->r.top;
 	double vt=0;
 
-	eiterator gi=min_element(v.begin(),v.end(),pointer_to_binary_function<Edges,Edges,bool>(isysmall));
+	eiterator gi=min_element(v.begin(),v.end(),isysmall);
 	int ybottom=gi->r.top;
 
 	ybottom=gi->r.bottom;
@@ -8718,10 +8718,10 @@ void CBezier::ScanPolygon(CDC *hdc, COLORREF rgba,CVector *K,int s,CImagex *text
 	}
 				//update x coordinate of every active edge
 	
-//	vl.push_back(e);//	insert/remove edges from “active edge list”
+//	vl.push_back(e);//	insert/remove edges from ï¿½active edge listï¿½
 	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
 		updatex(ip,y,width,xleft);//update x coordinate of every active edge
-	sort(vl.begin(),vl.end(),pointer_to_binary_function<Edges,Edges,bool> (sortx));//sort active edges by x coordinate
+	sort(vl.begin(),vl.end(),sortx);//sort active edges by x coordinate
 
 	for(eiterator ik=vl.begin();ik<vl.end()-1;ik+=2)
 	{
@@ -8779,13 +8779,13 @@ void CBezier::ScanPolygon(CDC *hdc, COLORREF rgba,CVector *K,int s,CImagex *text
 	vector<Edges> vl;
 	double u,vv;
 	CVector ev=ptend.back();
-	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isytop));
+	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),isytop);
 	double ytop=(vi->y>ev.y)?vi->y:ev.y;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxleft));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxleft);
 	double xleft=(vi->x<ev.x)?vi->x:ev.x;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isybottom));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isybottom);
 	double ybot=(vi->y<ev.y)?vi->y:ev.y;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxright));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxright);
 	double xright=(vi->x>ev.x)?vi->x:ev.x;
 
 	CPoint tl(CVector(xleft,ytop,0));
@@ -8846,12 +8846,12 @@ void CBezier::ScanPolygon(CDC *hdc, COLORREF rgba,CVector *K,int s,CImagex *text
    {
 
 
-	sort(v.begin(),v.end(),pointer_to_binary_function<Edges, Edges,bool>(isPbig));//sort edges by maxy
+	sort(v.begin(),v.end(),isPbig);//sort edges by maxy
 	
 	ytop=v.begin()->r.top;
 	double vt=0;
 
-	eiterator gi=min_element(v.begin(),v.end(),pointer_to_binary_function<Edges,Edges,bool>(isysmall));
+	eiterator gi=min_element(v.begin(),v.end(),isysmall);
 	int ybottom=gi->r.bottom;
 	double vtop=v.begin()->gettop().y;
 	int vb=1;
@@ -8883,7 +8883,7 @@ void CBezier::ScanPolygon(CDC *hdc, COLORREF rgba,CVector *K,int s,CImagex *text
 	}
 				//update x coordinate of every active edge
 	
-//	insert/remove edges from “active edge list”
+//	insert/remove edges from ï¿½active edge listï¿½
 	if(mode_texture!=wrap)
 	{
 	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
@@ -8894,7 +8894,7 @@ void CBezier::ScanPolygon(CDC *hdc, COLORREF rgba,CVector *K,int s,CImagex *text
 	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
 		updatexw(ip,y,pwidth,xleft);//update x coordinate of every active edge
 	}
-	sort(vl.begin(),vl.end(),pointer_to_binary_function<Edges,Edges,bool> (sortx));//sort active edges by x coordinate
+	sort(vl.begin(),vl.end(),sortx);//sort active edges by x coordinate
 	int yt;
 	
 	for(eiterator ik=vl.begin();ik<vl.end()-1;ik+=2)

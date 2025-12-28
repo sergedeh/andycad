@@ -91,7 +91,7 @@ CCadView *pView;
 CVector cv;
 
 
-void yyerror (char* s)  /* Called by yyparse on error */
+void yyerror (const char* s)  /* Called by yyparse on error */
 {
  // printf ("%s\n", s);
   CString f(s);

@@ -93,7 +93,7 @@ public:
 	void update();
 	void Unfill();
 	CPoint getpos();
-	void draglib(CString&  f, CString& l,CPoint point);
+	void draglib(const CString&  f, const CString& l,CPoint point);
 	void OnPageSetup2(float paper_width,float paper_height); 
 	void libupdate();
 	void import(int fileindex,CStdioFile &file);
@@ -528,22 +528,27 @@ private:
 	CSize zrec;
 	bool isSaving;
 //	CSubWnd m_wndsub;
-	enum {Circle,Line,Rectangle,Rectanglefree,FreeLine,select,rotate,scale,\
-		text,paraLeft,paraCenter,paraRight,paraJustify,alignbyline,circle2,circle3,\
-		polyline,polybezier,sqline,arc,arc2,arc3,arc32,freecirc,paste,undo,redo,Dim1,DimL,\
-		DimA,DimH,DimV,DimF,DimR,DimD,DimT,DimLH,DimLV,ellipse,perpline,tangline,not,\
-		copyrec,copyang,copyanglin,copybycenter,copyline,copylinenocopy,fliph,flipv,\
-		mirrornocopy,slide,mirror,notm,offset,chamf,filt,trim,C2L,image, campad,camsw,camrot,\
-		spoint,fill,box,camset,sphere,plane,leader,multline,extend,clip,init} menu;
-	enum {addnode,deletenode,breakcurve,closecurve,group,ungroup,sendbgr,sendfront,sendforward,sendbackward,\
-		vectorconstraint,pointconstraint,nothing} submenu;
-	enum {copy,cut,null} menu_edit;
+	enum class menu_items {Circle,Line,Rectangle,Rectanglefree,FreeLine,select,rotate,scale,
+		text,paraLeft,paraCenter,paraRight,paraJustify,alignbyline,circle2,circle3,
+		polyline,polybezier,sqline,arc,arc2,arc3,arc32,freecirc,paste,undo,redo,Dim1,DimL,
+		DimA,DimH,DimV,DimF,DimR,DimD,DimT,DimLH,DimLV,ellipse,perpline,tangline,not_enum,
+		copyrec,copyang,copyanglin,copybycenter,copyline,copylinenocopy,fliph,flipv,
+		mirrornocopy,slide,mirror,notm,offset,chamf,filt,trim,C2L,image, campad,camsw,camrot,
+		spoint,fill,box,camset,sphere,plane,leader,multline,extend,clip,init};
+	menu_items menu;
+	enum class submenu_items {addnode,deletenode,breakcurve,closecurve,group,ungroup,sendbgr,sendfront,sendforward,sendbackward,vectorconstraint,pointconstraint,nothing};
+	submenu_items submenu;
+	enum class menu_edit_items {copy,cut,null_edit};
+	menu_edit_items menu_edit;
 	bool snap_menu;
-	enum {zoomin,zoomout} zmode;
-	enum {vectorconstraint_item,horizontal,vertical,perpendicular,parallel,collinear,\
-		equal,angular} vectorconstraint_mode;
-	enum {pointconstraint_item,coincident,fix,size_linear,aligned} pointconstraint_mode;
-	enum {symmetric,concentric,size_radius,size_diameter} figureconstraint_mode;
+	enum class zmode_items {zoomin,zoomout};
+	zmode_items zmode;
+	enum class vectorconstraint_mode_items {vectorconstraint_item,horizontal,vertical,perpendicular,parallel,collinear,equal,angular};
+	vectorconstraint_mode_items vectorconstraint_mode;
+	enum class pointconstraint_mode_items {pointconstraint_item,coincident,fix,size_linear,aligned};
+	pointconstraint_mode_items pointconstraint_mode;
+	enum class figureconstraint_mode_items {symmetric,concentric,size_radius,size_diameter};
+	figureconstraint_mode_items figureconstraint_mode;
 
 	//enum {copyrec,copyang,copyanglin,copybycenter,copyline,fliph,flipv,mirrornocopy,slide,mirror,notm} menu_tran;
 //	CCercle circle;

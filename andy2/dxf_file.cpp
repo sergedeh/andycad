@@ -1243,13 +1243,13 @@ init_dxf.WriteString("*Active");init_dxf.WriteString("\n");
 init_dxf.WriteString(" 70");init_dxf.WriteString("\n");
 init_dxf.WriteString("     0");init_dxf.WriteString("\n");
 //camera origin
-CVector or=cam.getcamor();
+CVector origin=cam.getcamor();
 CString psx;
-psx.Format(_T("%f"),or.x);
+psx.Format(_T("%f"),origin.x);
 CString psy;
-psy.Format(_T("%f"),or.y);
+psy.Format(_T("%f"),origin.y);
 CString psz;
-psz.Format(_T("%f"),or.z);
+psz.Format(_T("%f"),origin.z);
 
 init_dxf.WriteString(" 10");init_dxf.WriteString("\n");
 init_dxf.WriteString(psx);init_dxf.WriteString("\n");

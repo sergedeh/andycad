@@ -81,7 +81,7 @@ void CAABB::empty()
 	max.x=max.y=max.z=-grossnum;
 };
 
-void CAABB::add(CVector &p)
+void CAABB::add(const CVector &p)
 {
 
 // Expand the box as necessary to contain the point.
@@ -729,7 +729,7 @@ bool CAABB::ccontainpts(CPoint p)
 	return po.containpts(vp);
 }
 
-void CAABB::add(CPoint &p)
+void CAABB::add(const CPoint &p)
 {
 // Expand the box as necessary to contain the point.
 	min.z=0;max.z=0;

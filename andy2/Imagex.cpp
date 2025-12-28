@@ -290,7 +290,7 @@ RGBQUAD CImagex::ms_StdColors[] = {
     { 0xFF, 0xFF, 0xFF, 0 },
 };
 
-void error(LPSTR lpszFunction) 
+void error(LPCSTR lpszFunction) 
 { 
     CHAR szBuf[80]; 
     DWORD dw = GetLastError(); 
@@ -412,7 +412,7 @@ CImagex::CImagex(HDC hDC, int iWidth, int iHeight, COLORREF crColor)
 
 // Setting the bitmap...
 
-// --- In  : nIDResource - resource ID
+// --- Inï¿½ : nIDResource - resource ID
 // --- Out :
 // --- Returns : Returns TRUE on success, FALSE otherwise
 // --- Effect : Initialises the bitmap from a resource. If failure, then object is
@@ -422,7 +422,7 @@ BOOL CImagex::SetBitmap(HDC hdc,HINSTANCE handle,UINT nIDResource)
     return SetBitmap(hdc,handle,MAKEINTRESOURCE(nIDResource));
 }
 
-// --- In  : lpszResourceName - resource name
+// --- Inï¿½ : lpszResourceName - resource name
 // --- Out :
 // --- Returns : Returns TRUE on success, FALSE otherwise
 // --- Effect : Initialises the bitmap from a resource. If failure, then object is
@@ -575,7 +575,7 @@ if (hFile == INVALID_HANDLE_VALUE)
 	 
 }
 
-// --- In  : bForceRelease - if TRUE, then the memory DC is forcibly released
+// --- Inï¿½ : bForceRelease - if TRUE, then the memory DC is forcibly released
 // --- Out :
 // --- Returns : TRUE on success
 // --- Effect : Selects out the current bitmap and deletes the mem dc. If bForceRelease 
@@ -646,7 +646,7 @@ void CImagex::DeleteObject()
 
 #ifndef DIBSECTION_NO_PALETTE
 
-// --- In  : palette - reference to a palette object which will be filled
+// --- Inï¿½ : palette - reference to a palette object which will be filled
 //           nNumColors - number of color entries to fill
 // --- Out :
 // --- Returns : TRUE on success, false otherwise
@@ -722,7 +722,7 @@ void CImagex::DeleteObject()
 
 #ifndef DIBSECTION_NO_PALETTE
 
-// --- In  :
+// --- Inï¿½ :
 // --- Out :
 // --- Returns : TRUE on success
 // --- Effect : Creates the palette from the DIBSection's color table. Assumes 
@@ -806,7 +806,7 @@ BOOL CImagex::CreatePalette()
 }
 #endif // DIBSECTION_NO_PALETTE
 
-// --- In  : lpBitmapInfo - pointer to a BITMAPINFO structure
+// --- Inï¿½ : lpBitmapInfo - pointer to a BITMAPINFO structure
 //           lpBits - pointer to image bits. Can be NULL to simply create empty bitmap
 // --- Out :
 // --- Returns : Returns TRUE on success, FALSE otherwise
@@ -939,7 +939,7 @@ int CImagex::NumColorEntries(int nBitsPerPixel, int nCompression, DWORD biClrUse
 }
 
 // 
-// --- In  : nWidth - image width in pixels
+// --- Inï¿½ : nWidth - image width in pixels
 //           nBitsPerPixel - bits per pixel
 // --- Out :
 // --- Returns : Returns the number of storage bytes needed for each scanline 
@@ -1009,7 +1009,7 @@ void CImagex::Draw(HDC hDC, int x, int y)
  }
 
 
-// --- In  : hBitmap - handle to image
+// --- Inï¿½ : hBitmap - handle to image
 //           pPalette - optional palette to use when setting image
 // --- Out :
 // --- Returns : Returns TRUE on success, FALSE otherwise
@@ -1155,7 +1155,7 @@ BOOL CImagex::SetBitmap(HDC hdc,HBITMAP hBitmap
     return TRUE;
 }
 
-// --- In  : hdc     - the Device Context in which the DIBSection is selected
+// --- Inï¿½ : hdc     - the Device Context in which the DIBSection is selected
 //           hBitmap - the bitmap whose solor entries are to be queried
 //           lpbi    - a pointer to a BITMAPINFO structure that will have it's
 //                     color table filled.
@@ -1237,7 +1237,7 @@ UINT CImagex::GetColorTableEntries(HDC hdc, HBITMAP hBitmap)
 #endif
 }
 
-// --- In  : pPalette - new palette to use
+// --- Inï¿½ : pPalette - new palette to use
 // --- Out :
 // --- Returns : TRUE on success
 // --- Effect : Sets the current palette used by the image from the supplied CPalette,
@@ -1260,7 +1260,7 @@ BOOL CImagex::SetPalette(HPALETTE* pPalette)
     return SetLogPalette(&pi);
 }
 
-// --- In  : pLogPalette - new palette to use
+// --- Inï¿½ : pLogPalette - new palette to use
 // --- Out :
 // --- Returns : TRUE on success
 // --- Effect : Sets the current palette used by the image from the supplied LOGPALETTE
@@ -1305,7 +1305,7 @@ BOOL CImagex::SetLogPalette(LOGPALETTE* pLogPalette)
     return FillDIBColorTable(nColors, RGBquads);
 }
 
-// --- In  : nNumColors - number of colors to set
+// --- Inï¿½ : nNumColors - number of colors to set
 //           pRGB - colors to fill
 // --- Out :
 // --- Returns : Returns TRUE on success
