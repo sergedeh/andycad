@@ -39,7 +39,7 @@ double* CMatrix::searchmat(double *C,int r,int s,int i1,int j1,int i2,int j2)
 	int j=j1;
 	double ju,jb;
 	double h1,h2;
-	double d[3];
+	static double d[3];
 	
 	if ((j1+1)!=s)
 	{

@@ -267,7 +267,7 @@ void CCAM::draw(CDC *hdc)
 {
 
 }
-void CCAM::copy(const CShape *fig)
+void CCAM::copy(const CFigure *fig)
 {
 	CCAM* cam=(CCAM*) fig;
 	camor=cam->camor;
@@ -281,10 +281,10 @@ void CCAM::copy(const CShape *fig)
 	yvec=cam->yvec;
 //	zoom_r=cam->zoom_r;
 	zvec=cam->zvec;
-	CShape::copy(fig);
+	CFigure::copy(fig);
 
 }
-CShape* CCAM::generateCopy()
+CFigure* CCAM::generateCopy()
 {
 	CCAM* l=new CCAM;
 	l->copy(this);
@@ -501,7 +501,7 @@ void CCAM::initCam()
 
 }
 
-void CCAM::init(CShape *f)
+void CCAM::init(CFigure *f)
 {
 	CVector vr=f->box.corner(3);//rop.BottomRight();
 	vr.v2D();

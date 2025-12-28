@@ -150,7 +150,7 @@ int CLibdialog::OnCreate(LPCREATESTRUCT lpCreateStruct)
 */	HDITEM hd;
 	hd.mask=HDI_FORMAT|HDI_TEXT|HDI_WIDTH;
 	hd.fmt=HDF_LEFT|HDF_STRING;
-	hd.pszText="Library";
+	hd.pszText=(LPSTR)"Library";
 	hd.cxy=hrec.Size().cx;
 	hd.cchTextMax=lstrlen(hd.pszText);
 //	hlist.InsertItem(0,&hd);

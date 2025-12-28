@@ -37,9 +37,9 @@ CEdge::~CEdge()
         //			delete it;
 	}
 	
-	sit=NULL;
-	sjt=NULL;
-	it=NULL;
+	sit=nullptr;
+	sjt=nullptr;
+	it=-1;
 	adjT.clear();
 	adjt=0;
 }
@@ -58,7 +58,7 @@ CVertex* CEdge::Mate(CVertex* v)
         if (v==End())
             return Start();
 		else
-			return NULL;
+            return nullptr;
     
 }
 CVertex* CEdge::Start()
@@ -286,7 +286,7 @@ CVector CEdge::VertexPos(int n)
             ;
 //            ASSERT(false);
 	}
-    
+    return CVector();
 }
 CVertex* CEdge::Vertex(int n)
 {
@@ -303,7 +303,7 @@ CVertex* CEdge::Vertex(int n)
   //          ASSERT(false);
             ;
 	}
-    
+    return nullptr;
 }
 
 CVertex* CEdge::splitEdge(float u)
@@ -405,7 +405,7 @@ float CEdge::project(CVector v, CVector *n)
      CAABB box;
      box.add(vor);
      box.add(ven);
-     if(n!=NULL)
+    if(n!=nullptr)
      {
      if(box.containpts(*n))
      return u;

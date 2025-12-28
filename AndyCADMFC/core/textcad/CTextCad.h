@@ -13,13 +13,13 @@
 // TextCad.h: interface for the CTextCad class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "cVector.h"	// Added by ClassView
-#include "cRectangle.h"	// Added by ClassView
-#include "cfigure.h"	// Added by ClassView
+#include "../vector/CVector.h"	// Added by ClassView
+#include "../rectangle/CRectangle.h"	// Added by ClassView
+#include "../figure/CFigure.h"	// Added by ClassView
 #include <map>
 #include <functional>
-#include "cBezier.h"
-#include "CFont.h"
+#include "../bezier/CBezier.h"
+#include "../font/CFont.h"
 
 #if _MSC_VER > 1000
 #pragma once
@@ -57,7 +57,7 @@ public:
 	void updatecopy();
 	CFont* getFont();
 	bool inRegion(CVector point);
-	void assign(CDC *hdc,CVector p,string s,CHARFORMAT* _cf=NULL);
+	void assign(CDC *hdc,CVector p,string s,CHARFORMAT* _cf=nullptr);
 	void openfile(fstream &file,CDC* hdc);
 	void savefile(fstream &file);
 //	void savefiledxf(CStdioFile& file);**************

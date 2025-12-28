@@ -31,7 +31,7 @@ public:
 	operator CRect();
 	void inflate(float radius);
 	bool operator ==(CAABB* b) {return (min==b->min)&&(max==b->max);}
-	void add(CPoint& p);
+	void add(const CPoint& p);
 	bool ccontainpts(CPoint p);
 	CVector getParam(CVector p);
 	void draw(CDC* hdc);
@@ -50,7 +50,7 @@ public:
 
 	void empty(); //empty the box
 
-	void add(CVector &p); // add a point to the box
+	void add(const CVector &p); // add a point to the box
     void add(const CAABB &box); // add a AABB to the box
 
 

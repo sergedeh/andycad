@@ -13,22 +13,22 @@
 // Snap.h: interface for the CSnap class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "cvector.h"
+#include "CVector.h"
 #include <vector>
-#include "cObserver.h"
-#include "cproperty.h"
+#include "CObserver.h"
+#include "CProperty.h"
 
-#include "ccommand.h"
-#include "ctextcad.h"
-#include "csnappara.h"
-#include "csnapperp.h"
-#include "csnapendp.h"
-#include "csnapmidp.h"
-#include "csnapintp.h"
-#include "csnapnearp.h"
-#include "csnapcentp.h"
-#include "csnapgridp.h"
-#include "csnapparagrid.h"
+#include "CCommand.h"
+#include "CTextCad.h"
+#include "CSnapPara.h"
+#include "CSnapperp.h"
+#include "CSnapendp.h"
+#include "CSnapmidp.h"
+#include "CSnapintp.h"
+#include "CSnapnearp.h"
+#include "CSnapcentp.h"
+#include "CSnapgridp.h"
+#include "CSnapparagrid.h"
 
 
 struct S
@@ -37,17 +37,17 @@ struct S
 	S(CVector p1,CVector p2):b(p1),e(p2){}
 	S(){};
 	bool operator ==(S s1) {return ((b==s1.b)&&(e==s1.e));}
-	int left()
+	int left() const
 	{
 		int x=(b.x<e.x)?b.x:e.x;
 		return x;
 	}
-	int right()
+	int right() const
 	{
 		int x=(b.x>e.x)?b.x:e.x;
 		return x;
 	}
-	int top()
+	int top() const
 	{
 		int x=(b.y<e.y)?b.y:e.y;
 		return x;

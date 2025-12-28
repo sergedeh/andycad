@@ -337,7 +337,7 @@ bool CVertex::isConnectedTo2(CVertex *v)
 	{
 		return false;
 	}
-    
+    return false;
 }
 
 bool CVertex::isBoundary()
@@ -466,7 +466,7 @@ CVector CVertex::getEdgeOffset(float u)
                 return e2;
         
 	}
-    
+    return CVector();
 }
 
 bool CVertex::RemoveAdjEdgei(CEdge* i)
@@ -498,7 +498,7 @@ void CVertex::RemoveAdjEdge()
 	{
 		i->second->Mate(this)->RemoveAdjEdgei(i->second);
 		mesh->DeleteEdge(i->second->it);
-		i->second=NULL;
+		i->second=nullptr;
 	}
 	adjE.clear();
 	adje=0;
@@ -513,7 +513,7 @@ void CVertex::RemoveFwdEdge(CVertex* v)
             CVertex* m=i->second->Mate(this);
             m->RemoveAdjEdgei(i->second);
             mesh->DeleteEdge(i->second->it);
-            i->second=NULL;
+            i->second=nullptr;
             verase.push_back(i->first);
             m->RemoveFwdEdge(v);
             try{
@@ -618,14 +618,14 @@ void CVertex::Disconnect()
     /*	vector<CTriangle*>::iterator it=adjT.begin();
      while(it!=adjT.end())
      {
-     *it=NULL;
+     *it=nullptr;
      it++;
      }
      
      CMesh::iedge it1=adjE.begin();
      while(it1!=adjE.end())
      {
-     *it1=NULL;
+     *it1=nullptr;
      it1++;
      }*/
     
@@ -660,7 +660,7 @@ void CVertex::DeleteAdjEdge(CEdge* i)
 {
 	if(adjE.find(i->it)!=adjE.end())
 	{
-		adjE[i->it]=NULL;
+		adjE[i->it]=nullptr;
 		adjE.erase(i->it);
 		adje--;
 	}
@@ -723,5 +723,5 @@ int CVertex::orientation_3d_sos(CVertex *b, CVertex *c, CVertex *d)
     
     if(b== NULL && c == NULL && 
        d == NULL) return 0;
-    
+    return 0;
 }

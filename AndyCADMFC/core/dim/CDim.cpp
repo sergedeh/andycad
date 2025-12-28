@@ -236,6 +236,7 @@ bool CDim::draw(bool fPrevLine, CDC *hdc, CVector point)
                     }
 	}
     
+	return false;
 }
 void CDim::setPtsBegin(CVector pos)
 {
@@ -818,6 +819,7 @@ bool CDim::getCharge(CDC *hdc)
 		state=false;
 		return true;
 	}
+	return false;
 }
 
 void CDim::initL()

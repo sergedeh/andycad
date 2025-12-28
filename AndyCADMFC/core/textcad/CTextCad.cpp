@@ -11,11 +11,11 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "cbezier.h"
+#include "../bezier/CBezier.h"
 //#include "ctextdi.h"
-#include "ccam.h"
-#include "clibs.h"
-#include "cCadview.h"
+#include "../cam/CAM.h"
+#include "../libs/CLibs.h"
+#include "../utils/CCadView.h"
 //#include "cCaddoc.h"
 
 
@@ -1875,8 +1875,8 @@ CGPoint CTextCad::setfont(CDC *hdc,LOGFONT font,COLORREF ccl,CHARFORMAT cf)
 
 CGPoint CTextCad::texthome(CDC *hdc)
 {
-	vectext.begin();
-	vecpos.begin();
+	(void)vectext.begin();
+	(void)vecpos.begin();
     
 	CGPoint pp;
 	pp=curspos;

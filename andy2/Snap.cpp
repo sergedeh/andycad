@@ -77,37 +77,36 @@ CSnap::~CSnap()
 }
 
 class isleft
+
 {
+
 public:
-	const bool operator () (point s1,point s2)
+
+	const bool operator () (point s1,point s2) const
+
 	{
+
+
 
 		return (s1.v.x>s2.v.x);
+
 	};
+
 };
-class istop:public binary_function<CVector,CVector,bool>
+class istop
 {
 public:
-	bool operator () (first_argument_type s1,second_argument_type s2) const
+	bool operator () (point s1,point s2) const
 	{
 
-		return s1.y<s2.y;
+		return s1.v.y<s2.v.y;
 	};
-	bool operator () (first_argument_type s1)
-	{
-
-		return s1.y<s2.y;
-	};
-	istop(first_argument_type s):s2(s){};
-	istop(){};
-protected:
-	first_argument_type s2;
 };
 
-class isbot:public binary_function<S,S,bool>
+class isbot
 {
 public:
-	bool operator () (first_argument_type s1,second_argument_type s2) const
+	bool operator () (S s1,S s2) const
 	{
 
 		return s1.top()>s2.top();

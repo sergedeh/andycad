@@ -6,7 +6,7 @@
 //  Copyright (c) 2020 Serge Deh. All rights reserved.
 //
 
-#include "../vector/CVector.h"
+#include "CTVector.h"
 // TVector.cpp: implementation of the CTVector class.
 //
 //////////////////////////////////////////////////////////////////////

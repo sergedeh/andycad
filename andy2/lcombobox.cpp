@@ -41,9 +41,9 @@ int CLComboBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CComboBoxEx::OnCreate(lpCreateStruct) == -1)
 		return -1;
                                                                                                                   	
-	char *text="Bonjour";
+	const char *text="Bonjour";
 	ps.iItem=0;
-	ps.pszText=text;
+	ps.pszText=(LPSTR)text;
 	ps.mask=CBEIF_TEXT;
 	ps.iImage=0;
 	ps.iSelectedImage=0;

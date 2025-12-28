@@ -71,6 +71,7 @@ CVector CAABB::getclosestOpCorner(CVector p)
                             else
                                 if(pointinRegion((corner(2)+corner(0))/2,p))
                                     return (corner(1)+corner(3))/2;
+    return corner(0); // Default fallback
     
     
 }
@@ -82,7 +83,7 @@ void CAABB::empty()
 	max.x=max.y=max.z=-grossnum;
 };
 
-void CAABB::add(CVector &p)
+void CAABB::add(const CVector &p)
 {
     
     // Expand the box as necessary to contain the point.
@@ -425,12 +426,12 @@ bool CAABB::intersectAABB(const CAABB &box2, CAABB *boxIntersect) const //check 
     if (max.z < box2.min.z) return false;
     // We have overlap. Compute CAABB of intersection, if they want it
     if (boxIntersect != NULL) {
-        boxIntersect->min.x = max(min.x, box2.min.x);
-        boxIntersect->max.x = min(max.x, box2.max.x);
-        boxIntersect->min.y = max(min.y, box2.min.y);
-        boxIntersect->max.y = min(max.y, box2.max.y);
-        boxIntersect->min.z = max(min.z, box2.min.z);
-        boxIntersect->max.z = min(max.z, box2.max.z);
+        boxIntersect->min.x = std::max(min.x, box2.min.x);
+        boxIntersect->max.x = std::min(max.x, box2.max.x);
+        boxIntersect->min.y = std::max(min.y, box2.min.y);
+        boxIntersect->max.y = std::min(max.y, box2.max.y);
+        boxIntersect->min.z = std::max(min.z, box2.min.z);
+        boxIntersect->max.z = std::min(max.z, box2.max.z);
     }
     // They intersected
     return true;
@@ -445,12 +446,12 @@ bool CAABB::intersectAABB2(const CAABB &box2, CAABB *boxIntersect) const //check
     if (max.y < box2.min.y) return false;
     // We have overlap. Compute CAABB of intersection, if they want it
     if (boxIntersect != NULL) {
-        boxIntersect->min.x = max(min.x, box2.min.x);
-        boxIntersect->max.x = min(max.x, box2.max.x);
-        boxIntersect->min.y = max(min.y, box2.min.y);
-        boxIntersect->max.y = min(max.y, box2.max.y);
-        boxIntersect->min.z = max(min.z, box2.min.z);
-        boxIntersect->max.z = min(max.z, box2.max.z);
+        boxIntersect->min.x = std::max(min.x, box2.min.x);
+        boxIntersect->max.x = std::min(max.x, box2.max.x);
+        boxIntersect->min.y = std::max(min.y, box2.min.y);
+        boxIntersect->max.y = std::min(max.y, box2.max.y);
+        boxIntersect->min.z = std::max(min.z, box2.min.z);
+        boxIntersect->max.z = std::min(max.z, box2.max.z);
     }
     // They intersected
     return true;
@@ -688,7 +689,7 @@ void CAABB::inflate(float radius)
 	min.z-=radius;
 }
 
-CRect CAABB::operator CRect()
+CAABB::operator CRect()
 {
 	return CRect(min,max);
 }

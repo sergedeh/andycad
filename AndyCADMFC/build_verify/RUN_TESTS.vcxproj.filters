@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\build_verify\CMakeFiles\a6bff2e5f70265fbca38a12d4b38dc18\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4F2E17F7-4FEC-30F0-8820-34086230A8C1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

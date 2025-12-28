@@ -715,7 +715,7 @@ CFigure * CLibS::getEl(int i)
 }
 string CLibS::getLibName()
 {
-	return libname;
+	return std::string((LPCTSTR)libname);
 }
 
 void CLibS::setselectmode(SELECT j)

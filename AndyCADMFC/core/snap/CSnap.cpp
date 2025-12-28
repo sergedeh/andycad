@@ -18,13 +18,11 @@
 #include <algorithm>
 #include <utility>
 #include <iterator>
-#include "cray.h"
-#include "caabb.h"
-#include "ctvector.h"
-#include "cintp.h"
-//#include "csnapobjectdlg.h";*****************
-//#include "csnapgriddlg.h";******************
-#include "cdraw.h"
+#include "../ray/CRay.h"
+#include "../aabb/CAABB.h"
+#include "../tvector/CTVector.h"
+#include "../inter/CIntp.h"
+#include "../draw/CDraw.h"
 
 
 class istop;
@@ -85,29 +83,29 @@ public:
 		return (s1.v.x>s2.v.x);
 	};
 };
-class istop:public binary_function<CVector,CVector,bool>
+class istop
 {
 public:
-	bool operator () (first_argument_type s1,second_argument_type s2) const
+	bool operator () (const CVector& s1,const CVector& s2) const
 	{
         
 		return s1.y<s2.y;
 	};
-	bool operator () (first_argument_type s1)
+	bool operator () (const CVector& s1)
 	{
         
 		return s1.y<s2.y;
 	};
-	istop(first_argument_type s):s2(s){};
+	istop(const CVector& s):s2(s){};
 	istop(){};
 protected:
-	first_argument_type s2;
+	CVector s2;
 };
 
-class isbot:public binary_function<S,S,bool>
+class isbot
 {
 public:
-	bool operator () (first_argument_type s1,second_argument_type s2) const
+	bool operator () (const S& s1,const S& s2) const
 	{
         
 		return s1.top()>s2.top();
@@ -455,6 +453,7 @@ bool CSnap::getSnapPoint(CVector& v,CVector &vl,CDC* hdc,string type)
 	{
         return draw->getSnapMidPoint(v,vl,hdc)||draw->getSnapNearest(v,vl,hdc)||draw->getSnapEndPoint(v,vl,hdc);
 	}
+	return false;
 }
 void CSnap::init(vector<CProperty *> dlg,CDraw* d,CDC* hdc)
 {

@@ -29,9 +29,8 @@ public:
 	CString getOutput();
 	CString getInput();
 	CParser();
-	void execute(CString& input, CString &output, CParseDlg* dlg);
+	void execute(const CString& input, CString &output, CParseDlg* dlg);
 	void executeFile(CStdioFile &file,CString &output);
-	void Execute();
 	virtual ~CParser();
 
 	protected:
@@ -40,13 +39,6 @@ public:
    CFigure* figure;
 
 private:
-	CParserVar* getVar(string s);
-	CParserVerb* getVerb(string s);
-	CParserFloat* getFloat(string s);
-	CParserObject* tokenize(string s);
-	bool topStack(int c1, int c2);
-	void addArgsToVerb();
-	void addArgsToValue();
 	CString ins,outs;
 };
 

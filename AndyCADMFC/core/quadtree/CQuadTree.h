@@ -13,8 +13,8 @@
 // QuadTree.h: interface for the CQuadTree class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "../aabb/CAABB.h"
-#include "../ray/CRay.h"
+#include "CAABB.h"
+#include "CRay.h"
 #include <vector>
 class CTriangle;
 class CEdge;

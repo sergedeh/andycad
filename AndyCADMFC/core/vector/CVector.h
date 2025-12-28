@@ -16,14 +16,17 @@
 #include <string>
 #include <math.h>
 #include "../utils/CPoint.hpp"
-#include "../utils/CSize.hpp"
+#include "../utils/CSize.h"
+#include "../utils/MFCStubs.h"
 using namespace std;
 
 class CVector
 {
+    friend class CTVector;
 public:
 	enum PLANESNAP {front,left,top,snapnull};
 	double xc,yc,zc;
+	double x,y,z,w;
 private:
 	void snapcoortoplane(CVector &v,int i);
 	static PLANESNAP planesnap;
@@ -44,6 +47,13 @@ private:
 			file.write(reinterpret_cast<const char*>(&w), sizeof(w));
 		}
 
+		void savefile(std::fstream& file) const {
+			file.write(reinterpret_cast<const char*>(&x), sizeof(x));
+			file.write(reinterpret_cast<const char*>(&y), sizeof(y));
+			file.write(reinterpret_cast<const char*>(&z), sizeof(z));
+			file.write(reinterpret_cast<const char*>(&w), sizeof(w));
+		}
+
 		void loadFrom(std::ifstream& file) {
 			file.read(reinterpret_cast<char*>(&x), sizeof(x));
 			file.read(reinterpret_cast<char*>(&y), sizeof(y));
@@ -51,10 +61,20 @@ private:
 			file.read(reinterpret_cast<char*>(&w), sizeof(w));
 		}
 
-		long skipRead(std::ifstream& file) {
-			file.seekg(sizeof(double) * 4, std::ios::cur);
-			return static_cast<long>(file.tellg());
+		void openfile(std::fstream& file) {
+			file.read(reinterpret_cast<char*>(&x), sizeof(x));
+			file.read(reinterpret_cast<char*>(&y), sizeof(y));
+			file.read(reinterpret_cast<char*>(&z), sizeof(z));
+			file.read(reinterpret_cast<char*>(&w), sizeof(w));
 		}
+
+        long Readfile(fstream& file) {
+            file.read(reinterpret_cast<char*>(&x), sizeof(x));
+            file.read(reinterpret_cast<char*>(&y), sizeof(y));
+            file.read(reinterpret_cast<char*>(&z), sizeof(z));
+            file.read(reinterpret_cast<char*>(&w), sizeof(w));
+            return 0;
+        }
 	};
 	V vb,ve;
 	static V vecx,vecy,vecz,vec0,\
@@ -80,6 +100,11 @@ public:
 	long skipRead(ifstream& file);
 	void loadFrom(ifstream& file);
 	void saveTo(ofstream& file);
+    long Readfile(CFile& file) { return 0; }
+    void savefile(CFile& file) {}
+    void openfile(CFile& file) {}
+    void openfile(fstream& file) {}
+    void savefile(fstream& file) {}
 	void zoom(double zr);
 	void assignF();
 	bool snaptoplane(CVector& v);
@@ -110,7 +135,7 @@ public:
 	CVector getcamy();
 	CVector getcamx();
 	CVector getcamor();
-	double pointtoVector(CVector line,CVector point,CVector* hitpoint=NULL);
+	double pointtoVector(CVector line,CVector point,CVector* hitpoint=nullptr);
 	void assignLP(CVector v);
 	void assignPL(CVector v);
 	void polarcvec(double absci, double argo);
@@ -131,7 +156,7 @@ public:
 	CPoint divideVect(CVector ptDebut, CVector ptEnd);
 	
 	bool pointinRegion(CVector point,CVector region);
-	CVector ppprojection(CVector point,CVector* v1=NULL);
+	CVector ppprojection(CVector point,CVector* v1=nullptr);
 	CVector scalarMult(double value);
     //	virtual double pointtoVector(CVector line,CVector Point);
 	CVector operator *(CVector v);
@@ -172,7 +197,7 @@ public:
 	CPoint ptsBegin;        // beginning point
 	CPoint ptsEnd;// new endpoint
     
-	double x,y,z,w,ws;
+	double ws;
 	double xhit,yhit,zhit;
     
     
@@ -220,19 +245,17 @@ struct FLAYER
 double absc(const CVector v,bool b=false);
 double argu(const CVector v,bool b=false);
 bool pointinRegion(CVector point, CVector region);
-double pointtoVector(CVector line,CVector point,CVector* hitpoint=NULL);
+double pointtoVector(CVector line,CVector point,CVector* hitpoint=nullptr);
 CVector polarc(double absc,double argu,bool b=false);
 CVector getcamor();
 int orientation(CVector v1,CVector v2, CVector v3);
 
-extern CPoint operator - (CPoint p1, CPoint p2);
-extern CPoint operator + (CPoint p1, CPoint p2);
-extern bool operator == (CPoint p1, CPoint p2);
+
 class isclose
 {
 public:
 	isclose(CVector p) :v(p) {};
-	bool operator ()(CVector v1, CVector v2)
+	bool operator ()(CVector v1, CVector v2) const
 	{
 		return (v1.absc(CVector(v1, v)) < v1.absc(CVector(v2, v)));
 	}
@@ -240,21 +263,6 @@ private:
 	CVector v;
 };
 
-struct FSTYLE
-{
-	string name;
-	string font;
-	int handle;
-	float fixed_height;
-	float width_factor;
-	FSTYLE()
-	{
-		handle = 0;
-		name = "";
-		font = "";
-		fixed_height = 0;
-		width_factor = 1;
-	}
-};
+
 
 #endif /* defined(__testcommand__CVector__) */

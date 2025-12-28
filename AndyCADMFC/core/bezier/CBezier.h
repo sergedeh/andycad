@@ -14,11 +14,11 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "cfigure.h"
-#include "cmesh.h"
-#include "cQuadTree.h"	// Added by ClassView
-#include "cVector.h"	// Added by ClassView
-//#include "ffd.h"	// Added by ClassView
+#include "../figure/CFigure.h"
+#include "../mesh/CMesh.h"
+#include "../quadtree/CQuadTree.h"	// Added by ClassView
+#include "../vector/CVector.h"	// Added by ClassView
+//#include "../ffd/CFFD.h"	// Added by ClassView
 
 using namespace std;
 
@@ -29,7 +29,7 @@ class CBezier : public CFigure
 public:
 	vector<double> getKn();
 	vector<CVector> getCP();
-	const CAABB getbox(CDC* hdc=NULL);
+	const CAABB getbox(CDC* hdc=nullptr);
 	void UpdateMesh();
 	void selectSM(CDC *hdc);
 	void setBlockon();
@@ -92,7 +92,7 @@ public:
 	void deleteobj();
 	virtual bool inRegion(CVector point);
 	CBezier(fstream&file);
-	CBezier(int degree,vector<CVector>& mpoint,bool fit=true,CDC* hdc=NULL);
+	CBezier(int degree,vector<CVector>& mpoint,bool fit=true,CDC* hdc=nullptr);
 	void DrawNURBS(CDC *hdc);
 	void OffsetMesh(float u, CFigure *f);
 	virtual void* Trim(vector<CVector> vec);
@@ -103,6 +103,7 @@ public:
 	CBezier();
 	CBezier(int degree,vector<CVector>& mpoint,vector<float>& mknts,bool fit,CDC* hdc);
 	virtual ~CBezier();
+    int j;
     
 	CGPoint *Pprev,*Ptr,*Pt1r;
     
@@ -118,16 +119,21 @@ public:
 	void setMenuSelect(bool menu);
 	void initL();
 	void initLBezier();
-	bool getCharge(CDC *hdc=NULL);
+	bool getCharge(CDC *hdc=nullptr);
 	void create(CVector pos);
-	void addtovec(CDC *hdc=NULL);
-	void addtovecBezier(CDC* hdc=NULL);
+	void addtovec(CDC *hdc=nullptr);
+	void addtovecBezier(CDC* hdc=nullptr);
 	CMesh* Clip(CFigure* f);
 	void setPtsBegin(CGPoint pos);
-	long Readfile(fstream &file);
-	void openfile(fstream& file);
-	void savefile(fstream& file);
-//	void savefiledxf(CStdioFile& file);****************
+	virtual long Readfile(fstream &file);
+    virtual LONG Readfile(CFile& file) { return 0; }
+	virtual void openfile(fstream& file);
+    virtual void openfile(CFile& file) {}
+	virtual void openfile(CDC *hdc,fstream& file);
+	virtual void savefile(CDC *hdc,fstream& file);
+	virtual void savefile(fstream& file);
+    virtual void savefile(CFile& file) {}
+	void savefiledxf(CStdioFile& file) {}
 	virtual void drawinit(CDC *hdc,CVector begin, CVector end);
 	void draw(CDC *hdc);
 	virtual bool draw(bool fPrevLine,CDC* hdc,CVector point);
@@ -247,7 +253,6 @@ private:
 	void BSdegelv(CBezier *fig, int d);
 	bool tsurf,revol,strans;
 	int PtonSpline(CVector point);
-	int j;
 	int lkp1;
 	int lkp;
 	int tas;

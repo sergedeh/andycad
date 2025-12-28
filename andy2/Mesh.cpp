@@ -997,6 +997,7 @@ CVertex* CMesh::getVertex(float u)
 			return iter->second;
 		}
 	}
+	return NULL;
 }
 CVector CMesh::getVector(float u)
 {
@@ -1385,14 +1386,9 @@ CVertex* CMesh::addVertexonEdge(CVector v)
 			vx=(iter)->second->splitEdge(u);
 			DeleteEdge(n);
 			return vx;
-		}else
-		{
-
-			int j=0;
 		}
-		
 	}
-	return false;
+	return NULL;
 
 }
 

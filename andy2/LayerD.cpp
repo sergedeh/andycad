@@ -117,7 +117,7 @@ int CLayerD::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	LV_COLUMN col;
 	col.mask=LVCF_FMT|LVCF_TEXT|LVCF_WIDTH;  
 	col.fmt=LVCFMT_LEFT;
-	col.pszText="Layer";
+	col.pszText=(LPSTR)"Layer";
 	col.iSubItem=0;
 	col.iImage=0;
 	col.iOrder=0;

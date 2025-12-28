@@ -10,11 +10,11 @@
 // Draw.cpp: implementation of the CDraw class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "crender.h"
-#include "caabb.h"
+#include "CRender.h"
+#include "CAABB.h"
 #include <algorithm>
-//#include "cspline.h";********************
-#include "cdimtext.h"
+//#include "CSpline.h";********************
+#include "CDimText.h"
 #include <string>
 
 
@@ -60,7 +60,7 @@ CDraw::CDraw()
 	Bminus=false;
 	positions[1]=v0;ita=0;
 	rzoom=0.5;
-	curr_fig=NULL;
+	curr_fig=nullptr;
 	
 	selected=false;
 	menuselect=false;
@@ -80,9 +80,9 @@ CDraw::CDraw()
 	CVector kt(k.getscrtop()/2,k.getscrb()/2);
 	k=k-kt;
 	pBezier=new CBezier;
-	Dim=NULL;
-	DimL= NULL;
-	snap_fig=NULL;
+	Dim=nullptr;
+	DimL=nullptr;
+	snap_fig=nullptr;
     render=new CRender;
     
 }
@@ -897,7 +897,7 @@ void CDraw::finaladd( CDC *hdc,string figure, CVector pos2,string option)
          {
          grid(hdc,prevsbox);
          }
-         if(curr_fig!=NULL)
+         if(curr_fig!=nullptr)
          {
          CTextCad txt;
          if(curr_fig->getName()==txt.getName())
@@ -1794,7 +1794,7 @@ bool CDraw::copyl(CDC *hdc, CVector point,bool cp)
 	CCercle pC;
 	CTextCad textc;
 	CLibS pl;
-	CLibS *pLib=NULL;//=new CLibS;
+	CLibS *pLib=nullptr;//=new CLibS;
     string scount;
     string f;
     //f.Format(_T("%d"),count);*************
@@ -1866,7 +1866,7 @@ bool CDraw::mirrorselect(CDC *hdc,CVector point,bool cp)
 	CCercle *pC;
 	CTextCad textc;
 	CLibS pl;
-	CLibS *pLib=NULL;//=new CLibS;
+	CLibS *pLib=nullptr;//=new CLibS;
     string scount;
     string f;
     //f.Format(_T("%d"),count);************
@@ -2248,7 +2248,7 @@ void CDraw::Init()
 		}catch(...)
 		{
 		}
-        fig[i]=NULL;
+        fig[i]=nullptr;
 	}
 	fit=0;
 	fig.clear();
@@ -2260,7 +2260,7 @@ void CDraw::Init()
 	for(int i=0;i<j;i++)
 	{
         delete rmemento[i];
-        rmemento[i]=NULL;
+        rmemento[i]=nullptr;
 	}
 	rmemento.clear();
     
@@ -2270,7 +2270,7 @@ void CDraw::Init()
 	for(int i=0;i<j;i++)
 	{
         delete vmemento[i];
-        vmemento[i]=NULL;
+        vmemento[i]=nullptr;
 	}
 	vmemento.clear();
 	while(!undostack.empty())
@@ -2321,9 +2321,9 @@ void CDraw::Init()
 	CVector kt(k.getscrtop()/2,k.getscrb()/2);
 	k=k-kt;
 	pBezier=new CBezier;
-	Dim=NULL;
-	DimL= NULL;
-	snap_fig=NULL;
+	Dim=nullptr;
+	DimL= nullptr;
+	snap_fig=nullptr;
     
 }
 struct INDEX
@@ -2390,7 +2390,7 @@ void CDraw::save(CDC *hdc,fstream& file)
     
     CFile filo(result,CFile::modeCreate|CFile::modeReadWrite);
     
-    CFigure **tfig=NULL;
+    CFigure **tfig=nullptr;
     tfig=(CFigure**) realloc(tfig,sizeof(CFigure*)*fit);
     int j=fit;
     filo.Write(&version,sizeof(int));
@@ -2759,7 +2759,7 @@ void CDraw::save00(CDC *hdc,fstream& file)
     CFile filo(result,CFile::modeCreate|CFile::modeReadWrite);
     CFile filo1(result1,CFile::modeCreate|CFile::modeReadWrite);
     
-    CFigure **tfig=NULL;
+    CFigure **tfig=nullptr;
     tfig=(CFigure**) realloc(tfig,sizeof(CFigure*)*fit);
     int j=fit;
     file.Write(&version,sizeof(int));
@@ -3293,7 +3293,7 @@ void CDraw::SelectRotState(bool value)
 		if (fig[i]->inselectedstate())
 		{
 			fig[i]->setRotClick(value);
-			fig[i]->rotateSM(NULL,0,v,v,false);
+			fig[i]->rotateSM(nullptr,0,v,v,false);
             
 		}
         //	}
@@ -4007,6 +4007,7 @@ bool CDraw::straightDimA(bool st)
 		}
 	}
     
+	return false;
 }
 
 bool CDraw::finDimA()
@@ -4054,6 +4055,7 @@ CGPoint CDraw::drawtext(CDC *hdc, int nchar)
 			}
 		}
 	}
+	return CGPointv(-10, -10);
 }
 
 void CDraw::inittext()
@@ -4084,6 +4086,7 @@ CGPoint CDraw::txthome(CDC *hdc)
 			}
 		}
 	}
+	return CGPointv(-10, -10);
 }
 
 CGPoint CDraw::deletetxt(CDC *hdc)
@@ -4098,6 +4101,7 @@ CGPoint CDraw::deletetxt(CDC *hdc)
 			}
 		}
 	}
+	return CGPointv(-10, -10);
 }
 
 
@@ -4113,6 +4117,7 @@ CGPoint CDraw::txtend(CDC *hdc)
 			}
 		}
 	}
+	return CGPointv(-10, -10);
 }
 
 
@@ -4129,6 +4134,7 @@ CGPoint CDraw::deletebk(CDC *hdc)
 			}
 		}
 	}
+	return CGPointv(-10, -10);
 }
 
 CGPoint CDraw::entertxt(CDC *hdc)
@@ -4145,6 +4151,7 @@ CGPoint CDraw::entertxt(CDC *hdc)
 		}
 	}
     
+	return CGPointv(-10, -10);
 }
 
 CGPoint CDraw::movecurskb(CDC *hdc, string dir)
@@ -4197,6 +4204,7 @@ CGPoint CDraw::setFont(CDC *hdc,LOGFONT font,COLORREF ccl,CHARFORMAT cf)
 		}
 	}
     
+	return CGPointv(0, 0);
 }
 
 void CDraw::slide(CDC *hdc,CVector pos)
@@ -4429,7 +4437,7 @@ void CDraw::setzoomrat(double zr,CFigure* f)
 {
 	candraw=true;
 	forundoc(&cam,"Scale");
-	if(f==NULL)
+	if(f==nullptr)
 	{
 		if(vs.size()==0) ;
 		//	cam.setcamorigin(&box);
@@ -4468,7 +4476,7 @@ void CDraw::setCenter(CVector p)
             }
 		}
 	}
-    //	cam.setcamorigin(NULL);
+    //	cam.setcamorigin(nullptr);
     
     
 }
@@ -4477,7 +4485,7 @@ void CDraw::setinitzoom()
 	candraw=true;
 	forundoc(&cam,"Init");
 	cam.initZoom();
-	cam.setcamorigin(NULL);
+	cam.setcamorigin(nullptr);
 	cam.zoom(1);
 }
 void CDraw::setfitzoom(double& d)
@@ -4485,7 +4493,7 @@ void CDraw::setfitzoom(double& d)
 	candraw=true;
 	forundoc(&cam,"Extent");
 	cam.initZoom();
-	cam.setcamorigin(NULL);
+	cam.setcamorigin(nullptr);
 	cam.zoom(1);
     
 	CVector v0,v1,v2,v3;
@@ -4625,7 +4633,7 @@ void CDraw::InitlibDxf(CLibdialog& lbtctl,fstream& file)
                 
             }
             t=_tctl->GetNextVisibleItem(t);
-            while(t!=NULL)
+            while(t!=nullptr)
             {
                 if(_tctl->GetItemText(t)==_T("Local Blocks"))
                 {
@@ -4689,7 +4697,7 @@ void CDraw::InitlibAff(CLibdialog& lbtctl,fstream& file)
                 
             }
             t=_tctl->GetNextVisibleItem(t);
-            while(t!=NULL)
+            while(t!=nullptr)
             {
                 if(_tctl->GetItemText(t)==_T("Local Blocks"))
                 {
@@ -4782,7 +4790,7 @@ void CDraw::AddBlock2(string& name,string& layer,string& handle,CVector vo)
                 
             }
             t=_tctl->GetNextVisibleItem(t);
-            while(t!=NULL)
+            while(t!=nullptr)
             {
                 if(_tctl->GetItemText(t)==_T("In Memory Blocks"))
                 {
@@ -4826,7 +4834,7 @@ void CDraw::AddBlock3(string& name,float rot_angle,CVector vscale,CVector vo,CVe
 			fg->rotate(rot_angle,3);
 			create(fg);
 			vs.push_back(fig[fit-1]);
-			pastearray(NULL,false,col_row_count.x,col_row_count.y,col_row_spacing.x,col_row_spacing.y,1,0);
+			pastearray(nullptr,false,col_row_count.x,col_row_count.y,col_row_spacing.x,col_row_spacing.y,1,0);
 		}
 	}
 }
@@ -4836,7 +4844,7 @@ void CDraw::AddToBlock()
     //	CLibS *lib=vblocks.back();
 	if(fit==0) return;
 	current_block->add(fig.back());
-	fig[fit-1]=NULL;
+	fig[fit-1]=nullptr;
 	fig.resize(fit-1);
 	fit--;
 	sfit--;
@@ -4949,7 +4957,7 @@ void CDraw::Insertlib(CDC *hdc,string &f, string &l,CVector pos)
                         int hj;
                         file.Seek(lpos,CFile::begin);
                         file.Read(&hj,sizeof(hj));
-                        CFigure* f=NULL;
+                        CFigure* f=nullptr;
                         switch(lpo)
                         {
                             case 0:
@@ -5160,14 +5168,14 @@ void CDraw::removelayer(string &txt)
 				if(fig[i]->getLayer().name==txt)
 				{
 					free(fig[i]);
-					fig[i]=NULL;
+					fig[i]=nullptr;
 				}
 			}
 			CFigure** j=(CFigure**)calloc(fit,sizeof(CFigure*));
 			int t=0;
 			for(int i=0;i<fit;i++)
 			{
-				if(fig[i]!=NULL)
+				if(fig[i]!=nullptr)
 				{
 					j[t]=fig[i];
 					t++;
@@ -6339,7 +6347,7 @@ void CDraw::setTexture(string s,CDC* hdc)
 
 const CFigure** CDraw::getFvec()
 {
-    return NULL;//fig;
+    return nullptr;//fig;
 }
 
 const int * CDraw::getVFint()
@@ -6976,7 +6984,7 @@ void CDraw::AddText(CDC *hdc,CVector &v,string& _text,float yheight,string facen
 		{
 			yheight=(iter->fixed_height==0)?yheight:iter->fixed_height;
 			CDC dc;
-			dc.CreateDC(_T("DISPLAY"),NULL,NULL,NULL);
+			dc.CreateDC(_T("DISPLAY"),nullptr,nullptr,nullptr);
 			LONG yPerInch1=dc.GetDeviceCaps(LOGPIXELSY);
 			LONG yPerInch=1;
 			cf.dwMask=3892314127;
@@ -7005,7 +7013,7 @@ void CDraw::AddText(CDC *hdc,CVector &v,string& _text,float yheight,string facen
 	((CTextCad*)fig[fit])->assign(hdc,v,string(_text.c_str()),&cf);
 	LOGFONT font;
 	COLORREF ccl;
-	((CTextCad*)fig[fit])->setfont(NULL,font,ccl,cf);
+	((CTextCad*)fig[fit])->setfont(nullptr,font,ccl,cf);
     
 	fig[fit]->setLayer(currlayer);
 	fig[fit]->setcorevecor();
@@ -7238,7 +7246,7 @@ void CDraw::Move(CFigure *f, CVector v)
 {
 	v_current=v_current+v;
     
-	if(f!=NULL)
+	if(f!=nullptr)
 		f->Translate(v);
 	else
 	{
@@ -7253,7 +7261,7 @@ void CDraw::MoveTo(CFigure *f, CVector v)
 {
 	v_current=v;
     
-	if(f!=NULL)
+	if(f!=nullptr)
 	{
 		CVector v1=f->box.center();
 		v1=v-v1;
@@ -7274,7 +7282,7 @@ void CDraw::MoveTo(CFigure *f, CVector v)
 void CDraw::Move(CFigure *f, int node, CVector v)
 {
 	v_current=v_current+v;
-	if(f!=NULL)
+	if(f!=nullptr)
 		f->Translate(v,node);
 	else
 	{
@@ -7289,7 +7297,7 @@ void CDraw::Move(CFigure *f, int node, CVector v)
 void CDraw::MoveTo(CFigure *f, int node, CVector v)
 {
 	v_current=v;
-	if(f!=NULL)
+	if(f!=nullptr)
 	{
 		CVector v1=f->box.center();
 		v1=v-v1;
@@ -7521,7 +7529,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
             *ftp=pL;
             lib->add(ftp);
             delete fig[i];
-            fig[i]=NULL;
+            fig[i]=nullptr;
         }else
             if(fig[i]->getName()==pR.getName())
             {
@@ -7532,7 +7540,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
                 *ftp=pR;
                 lib->add(ftp);
                 delete fig[i];
-                fig[i]=NULL;
+                fig[i]=nullptr;
             }else
 				if(fig[i]->getName()==image.getName())
 				{
@@ -7543,7 +7551,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
 					*ftp=image;
 					lib->add(ftp);
 					delete fig[i];
-					fig[i]=NULL;
+					fig[i]=nullptr;
 				}else
                     if(fig[i]->getName()==pCircle.getName())
                     {
@@ -7555,7 +7563,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
                         //					*ftp=pCircle;
                         lib->add(ftp);
                         delete fig[i];
-                        fig[i]=NULL;
+                        fig[i]=nullptr;
                     }else
                         if(fig[i]->getName()==pB.getName())
                         {
@@ -7567,7 +7575,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
                             lib->add(ftp);
                             //	pBezier->initVect();
                             delete fig[i];
-                            fig[i]=NULL;
+                            fig[i]=nullptr;
                         }else
                             if(fig[i]->getName()==textc.getName())
                             {
@@ -7578,7 +7586,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
                                 *ftp=textc;
                                 lib->add(ftp);
                                 delete fig[i];
-                                fig[i]=NULL;
+                                fig[i]=nullptr;
                             }else
                                 if(fig[i]->getName()==lib->getName())
                                 {
@@ -7589,7 +7597,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
                                     ftp->Copy(pli);
                                     lib->add(ftp);
                                     delete fig[i];
-                                    fig[i]=NULL;
+                                    fig[i]=nullptr;
                                 }			
         connect=true;
     }
@@ -7603,7 +7611,7 @@ void CDraw::Group(CFigure *f1, CFigure *f2)
         int j=0;
         for(int i=0;i<fit;i++)
         {
-            if(fig[i]!=NULL)
+            if(fig[i]!=nullptr)
             {
                 f[j]=fig[i];
                 j++;
@@ -7645,7 +7653,7 @@ bool CDraw::Trim(CDC* hdc,CVector v,bool side)
         aabb.add(vs[i]->box);
         ft->add(vs[i]);
     }
-    //			ft->closecurve(CVector(0,0),NULL);
+    //			ft->closecurve(CVector(0,0),nullptr);
 	for (int j=0;j<fit2;j++)
 	{
 		if (fig[j]->inRegion(v))
@@ -7778,7 +7786,7 @@ void CDraw::mirror(CFigure* f,bool v)
 	CCercle *pC;
 	CTextCad textc;
 	CLibS pl;
-	CLibS *pLib=NULL;//=new CLibS;
+	CLibS *pLib=nullptr;//=new CLibS;
     
     
 	int pk=fit;
@@ -7977,7 +7985,7 @@ void CDraw::copy(CFigure *f, bool cp)
 	CCercle pC;
 	CTextCad textc;
 	CLibS pl;
-	CLibS *pLib=NULL;//=new CLibS;
+	CLibS *pLib=nullptr;//=new CLibS;
     
     
 	int pk=fit;
@@ -8668,6 +8676,7 @@ CGPoint CDraw::PreparePrint()
     //	v4.assign(v11);
 	CGPoint po6=v4;
     //	cam.init(&printpage);
+	return CGPointv(0, 0);
 }
 
 void CDraw::endPrint()

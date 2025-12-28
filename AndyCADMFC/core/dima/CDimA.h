@@ -13,9 +13,9 @@
 // DimA.h: interface for the CDimA class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "cLibS.h"
-#include"cCercle.h"
-#include "ctextcad.h"
+#include "CLibs.h"
+#include "Cercle.h"
+#include "CTextCad.h"
 
 class CDimA : public CLibS
 {

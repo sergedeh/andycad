@@ -1244,15 +1244,15 @@ void CFigure::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 //		new CEdge(mesh.Vertex(mesh.Vcount()-1),mesh.Vertex(0),mesh.Ecount());
 		if(!mesh.Close()) return;//new CEdge(mesh.LastVertex(),mesh.FirstVertex(),mesh.Ecount());
 	}
-	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isytop));
+	viterator vi=min_element(ptbegin.begin(),ptbegin.end(),isytop);
 	int ytop=vi->y;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxleft));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxleft);
 	double xleft=vi->x;
 	int ixleft=xleft;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isybottom));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isybottom);
 	double ybot=vi->y;
 	int iybot=ybot;
-	vi=min_element(ptbegin.begin(),ptbegin.end(),pointer_to_binary_function<CVector,CVector,bool>(isxright));
+	vi=min_element(ptbegin.begin(),ptbegin.end(),isxright);
 	double xright=vi->x;
 
 	CVector tl(xleft,ytop,0);
@@ -1382,11 +1382,11 @@ void CFigure::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 if(v.size()!=0)
    {
 
-   	sort(v.begin(),v.end(),pointer_to_binary_function<Edges, Edges,bool>(isPbig));//sort edges by maxy
+	sort(v.begin(),v.end(),isPbig);//sort edges by maxy
 	
 	ytop=v.begin()->r.top;
 
-	eiterator gi=min_element(v.begin(),v.end(),pointer_to_binary_function<Edges,Edges,bool>(isysmall));
+	eiterator gi=min_element(v.begin(),v.end(),isysmall);
 	int ybottom=gi->r.bottom;
 	double u_bottom=gi->getbottom().x;
 	double v_bottom=gi->getbottom().y;
@@ -1420,7 +1420,7 @@ if(v.size()!=0)
 	}
 				//update x coordinate of every active edge
 	
-//	insert/remove edges from “active edge list”
+//	insert/remove edges from ï¿½active edge listï¿½
 	if(mode_texture!=wrap)
 	{
 	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
@@ -1431,7 +1431,7 @@ if(v.size()!=0)
 	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
 		updatexw(ip,y,pwidth,xleft);//update x coordinate of every active edge
 	}
-	sort(vl.begin(),vl.end(),pointer_to_binary_function<Edges,Edges,bool> (sortx));//sort active edges by x coordinate
+	sort(vl.begin(),vl.end(),sortx);//sort active edges by x coordinate
 	int yt;
 	
 		int br;
@@ -1716,13 +1716,13 @@ void CFigure::Hatch(CDC *hdc)
 //	lg.setMultselect(multiselect);
 	lg.updatevcore(true);
 //	ptbegin=mesh.getVectors();
-	viterator vi=min_element(ptend.begin(),ptend.end(),pointer_to_binary_function<CVector,CVector,bool>(isytop));
+	viterator vi=min_element(ptend.begin(),ptend.end(),isytop);
 	double ytop=vi->y;
-	vi=min_element(ptend.begin(),ptend.end(),pointer_to_binary_function<CVector,CVector,bool>(isxleft));
+	vi=min_element(ptend.begin(),ptend.end(),isxleft);
 	double xleft=vi->x;
-	vi=min_element(ptend.begin(),ptend.end(),pointer_to_binary_function<CVector,CVector,bool>(isybottom));
+	vi=min_element(ptend.begin(),ptend.end(),isybottom);
 	double ybot=vi->y;
-	vi=min_element(ptend.begin(),ptend.end(),pointer_to_binary_function<CVector,CVector,bool>(isxright));
+	vi=min_element(ptend.begin(),ptend.end(),isxright);
 	double xright=vi->x;
 
 	CVector tl(xleft,ytop,0);
@@ -1812,11 +1812,11 @@ if(v.size()!=0)
    {
 
     
-	sort(v.begin(),v.end(),pointer_to_binary_function<Edges, Edges,bool>(isPbig));//sort edges by maxy
+	sort(v.begin(),v.end(),isPbig);//sort edges by maxy
 	
 	ytop=v.begin()->r.top;
 
-	eiterator gi=min_element(v.begin(),v.end(),pointer_to_binary_function<Edges,Edges,bool>(isysmall));
+	eiterator gi=min_element(v.begin(),v.end(),isysmall);
 	int ybottom=gi->r.bottom;
 	double u_bottom=gi->getbottom().x;
 	double v_bottom=gi->getbottom().y;
@@ -1885,10 +1885,10 @@ if(v.size()!=0)
 	}
 				//update x coordinate of every active edge
 	
-//	insert/remove edges from “active edge list”
+//	insert/remove edges from ï¿½active edge listï¿½
 	for(vector<Edges>::iterator ip=vl.begin();ip!=vl.end();ip++)
 		updatexw(ip,y,ang,xleft);//update x coordinate of every active edge
-	sort(vl.begin(),vl.end(),pointer_to_binary_function<Edges,Edges,bool> (sortx));//sort active edges by x coordinate
+	sort(vl.begin(),vl.end(),sortx);//sort active edges by x coordinate
 	int yt;
 	
 		int br;

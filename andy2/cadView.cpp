@@ -827,7 +827,7 @@ CCadDoc* CCadView::GetDocument() // non-debug version is inline
 
 void CCadView::OnCercle() 
 {
-	menu=Circle;
+	menu = menu_items::Circle;
 
 	CString input,output;
 	input="circle";
@@ -847,7 +847,7 @@ void CCadView::OnCercle()
 }
 void CCadView::OnLine() 
 {
-	menu=Line;	
+	menu = menu_items::Line;	
 	CString input,output;
 	input="line";
 	CCadDoc* pDoc = GetDocument();
@@ -906,7 +906,7 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
             // Convert the cursor coordinates into a POINTS 
             // structure, which defines the beginning point of the 
             // line drawn during a WM_MOUSEMOVE message. 
-			if ((menu==Line)||(menu==Circle)||(menu==Rectangle)||(menu==polybezier))
+			if ((static_cast<int>(menu)== static_cast<int>(menu_items::Line))||(static_cast<int>(menu)== static_cast<int>(menu_items::Circle))||(static_cast<int>(menu)==static_cast<int>(menu_items::Rectangle))||(static_cast<int>(menu)==static_cast<int>(menu_items::polybezier)))
 			{			
 //			pDoc->m_objects->Create(hdc,"Line",pos);
 			input.Format("<%f,%f,%f>",u1,u2,u3);
@@ -921,7 +921,7 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 			}
 			b=true;
 			} 
-			if (menu==camset)
+			if (menu== menu_items::camset)
 			{
 				CVector v;
 				v=pDoc->m_objects->getobject(hdc,pos);
@@ -939,7 +939,7 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 				camdlg.updateviewpara();
 			b=true;
 			} else
-			if (menu==box)
+			if (menu== menu_items::box)
 			{
 /*				CPoint p1;
 				CVector v1(0,0);
@@ -955,206 +955,206 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 			pDoc->m_objects->Create(hdc,CString("Box"),pos);
 			b=true;
 			} else
-			if (menu==image)
+			if (menu== menu_items::image)
 			{			
 			pDoc->m_objects->Create(hdc, CString("Image"),pos);
 			b=true;
 			} else
-			if (menu==DimH)
+			if (menu==menu_items::DimH)
 			{			
 			pDoc->m_objects->Create(hdc, CString("DimH"),pos);
 			b=true;
 			} else
-			if (menu==leader)
+			if (menu== menu_items::leader)
 			{			
 			pDoc->m_objects->Create(hdc, CString("leader"),pos);
 			b=true;
 			} else
-			if (menu==multline)
+			if (menu== menu_items::multline)
 			{			
 			pDoc->m_objects->Create(hdc, CString("multline"),pos);
 			b=true;
 			} else
-			if (menu==DimV)
+			if (menu==menu_items::DimV)
 			{			
 			pDoc->m_objects->Create(hdc, CString("DimV"),pos);
 			b=true;
 			} else
-			if (menu==DimF)
+			if (menu==menu_items::DimF)
 			{			
 			pDoc->m_objects->Create(hdc, CString("DimF"),pos);
 			b=true;
 			} else
-			if (menu==DimL)
+			if (menu==menu_items::DimL)
 			{			
 			pDoc->m_objects->Create(hdc, CString("DimL"),pos);
 			b=true;
 			} else
-			if (menu==DimLH)
+			if (menu==menu_items::DimLH)
 			{			
 			pDoc->m_objects->Create(hdc, CString("DimLH"),pos);
 			b=true;
 			} else
-			if (menu==DimLV)
+			if (menu==menu_items::DimLV)
 			{			
 			pDoc->m_objects->Create(hdc, CString("DimLV"),pos);
 			b=true;
 			} else
-			if (menu==DimA)
+			if (menu==menu_items::DimA)
 			{			
 			pDoc->m_objects->Create(hdc, CString("DimA"),pos);
 			b=true;
 			} else
-			if (menu==chamf)
+			if (menu== menu_items::chamf)
 			{			
 			pDoc->m_objects->Create(hdc, CString("Chamfer"),pos);
 			change=true;
 			Invalidate();
 			} else
-			if (menu==filt)
+			if (menu== menu_items::filt)
 			{			
 			pDoc->m_objects->Create(hdc, CString("Fillet"),pos);
 			change=true;
 			Invalidate();
 			} else
-			if (menu==C2L)
+			if (menu== menu_items::C2L)
 			{			
 			pDoc->m_objects->Create(hdc, CString("2CLine"),pos);
 			b=true;
 			} else
-			if (menu==sqline)
+			if (menu==menu_items::sqline)
 			{			
 			pDoc->m_objects->Create(hdc, CString("QLine"),pos);
 			b=true;
 			
 			} else
-			if (menu==Line)
+			if (menu== menu_items::Line)
 			{			
 			pDoc->m_objects->Create(hdc, CString("Line"),pos);
 			b=true;
 			
 			} else
-			if (menu==perpline)
+			if (menu==menu_items::perpline)
 			{			
 			pDoc->m_objects->Create(hdc, CString("QPLine"),pos);
 			b=true;
 			} else
-			if (menu==tangline)
+			if (menu==menu_items::tangline)
 			{			
 			pDoc->m_objects->Create(hdc, CString("QTLine"),pos);
 			b=true;
 			} else
-			if (menu==polybezier)
+			if (menu==menu_items::polybezier)
 			{			
 			pDoc->m_objects->Create(hdc, CString("Bezier"),pos);
 			b=true;
 			
 			} else
-            if (menu==Circle)
+            if (menu== menu_items::Circle)
 			{			
 			pDoc->m_objects->Create(hdc, CString("Circle"),pos);
 			b=true;
 			} else
-			if ((menu==Rectangle)||(menu==Rectanglefree))
+			if ((menu== menu_items::Rectangle)||(menu==menu_items::Rectanglefree))
 			{			
 			pDoc->m_objects->Create(hdc, CString("Rectangle"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			} else
-			if (menu==circle2)
+			if (menu==menu_items::circle2)
 			{
 				pDoc->m_objects->Create(hdc, CString("2DotCircle"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==circle3)
+			if (menu==menu_items::circle3)
 			{
 				pDoc->m_objects->Create(hdc, CString("3DotCircle"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==ellipse)
+			if (menu==menu_items::ellipse)
 			{
 				pDoc->m_objects->Create(hdc, CString("Ellipse"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==arc)
+			if (menu==menu_items::arc)
 			{
 				pDoc->m_objects->Create(hdc, CString("Arc"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==arc2)
+			if (menu==menu_items::arc2)
 			{
 				pDoc->m_objects->Create(hdc, CString("2DotArc"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==arc3)
+			if (menu==menu_items::arc3)
 			{
 				pDoc->m_objects->Create(hdc, CString("3DotArc"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==arc32)
+			if (menu==menu_items::arc32)
 			{
 				pDoc->m_objects->Create(hdc, CString("3DotArc2"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==box)
+			if (menu== menu_items::box)
 			{
 				pDoc->m_objects->Create(hdc, CString("Box"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==sphere)
+			if (menu== menu_items::sphere)
 			{
 				pDoc->m_objects->Create(hdc, CString("Sphere"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
-			if (menu==plane)
+			if (menu== menu_items::plane)
 			{
 				pDoc->m_objects->Create(hdc, CString("Plane"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==text)
+			if (menu== menu_items::text)
 			{
 				pDoc->m_objects->Create(hdc, CString("Text"),pos);//rectangle.setPtsBegin(point);
 			b=true;
 			}
 			else
-			if (menu==slide)
+			if (menu==menu_items::slide)
 			{ 
 				pDoc->m_objects->slide(hdc,pos);
-				menu=select;
+				menu = menu_items::select;
 			b=true;
 				
 			}else 
-			if (menu==DimD)
+			if (menu==menu_items::DimD)
 			{
 				pDoc->m_objects->Create(hdc, CString("DimD"),pos);;
-		//		menu=select;
+		//		menu = menu_items::select;
 				Invalidate();
 			b=true;
 				
 			}else 
-			if (menu==DimR)
+			if (menu==menu_items::DimR)
 			{
 				pDoc->m_objects->Create(hdc, CString("DimR"),pos);;
-		//		menu=select;
+		//		menu = menu_items::select;
 				change=true;
 				Invalidate();
 			b=true;
 				
 			}else 
-			if (menu==select)
+			if (static_cast<int>(menu)==static_cast<int>(menu_items::select))
 			{
 				
 				bool sel;
 				
-				if (submenu==closecurve)
+				if (submenu== submenu_items::closecurve)
 				{
 					selT=pDoc->m_objects->closecurve(pos,hdc);
 				}else 
@@ -1176,59 +1176,59 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 				}
 			}
 			else 
-			if(menu==spoint)
+			if(menu== menu_items::spoint)
 				{
 
-				if (submenu==addnode)	
+				if (submenu== submenu_items::addnode)
 					{
 				    selT=pDoc->m_objects->addnode(pos,hdc);
 				
 					} else
-				if (submenu==deletenode)
+				if (submenu== submenu_items::deletenode)
 				{
 					selT=pDoc->m_objects->deletenode(pos,hdc);
 				} else
-				if (submenu==breakcurve)
+				if (submenu== submenu_items::breakcurve)
 				{
 					if(pDoc->m_objects->breakcurve(pos))
-						submenu=nothing;
+						submenu= submenu_items::nothing;
 				} else
-				if (submenu==pointconstraint)
+				if (submenu== submenu_items::pointconstraint)
 				{
 					if(pDoc->m_objects->pointconstraint(pos))
-						submenu=nothing;
+						submenu= submenu_items::nothing;
 				} else
-				if (submenu==vectorconstraint)
+				if (submenu== submenu_items::vectorconstraint)
 				{
-					if(vectorconstraint_mode==vectorconstraint_item)
+					if(vectorconstraint_mode== vectorconstraint_mode_items::vectorconstraint_item)
 					{
 						if(pDoc->m_objects->vectorconstraint(pos))
-							submenu=nothing;
+							submenu= submenu_items::nothing;
 					}else
-					if(vectorconstraint_mode==horizontal)
+					if(vectorconstraint_mode== vectorconstraint_mode_items::horizontal)
 					{
 						if(pDoc->m_objects->vectorconstraint(pos,0))
-							submenu=nothing;
+							submenu= submenu_items::nothing;
 					}else
-					if(vectorconstraint_mode==vertical)
+					if(vectorconstraint_mode== vectorconstraint_mode_items::vertical)
 					{
 						if(pDoc->m_objects->vectorconstraint(pos,1))
-							submenu=nothing;
+							submenu= submenu_items::nothing;
 					}else
-					if(vectorconstraint_mode==perpendicular)
+					if(vectorconstraint_mode== vectorconstraint_mode_items::perpendicular)
 					{
 						if(pDoc->m_objects->vectorconstraint(pos,2))
-							submenu=nothing;
+							submenu= submenu_items::nothing;
 					}else
-					if(vectorconstraint_mode==parallel)
+					if(vectorconstraint_mode== vectorconstraint_mode_items::parallel)
 					{
 						if(pDoc->m_objects->vectorconstraint(pos,3))
-							submenu=nothing;
+							submenu= submenu_items::nothing;
 					}else
-					if(vectorconstraint_mode==collinear)
+					if(vectorconstraint_mode== vectorconstraint_mode_items::collinear)
 					{
 						if(pDoc->m_objects->vectorconstraint(pos,4))
-							submenu=nothing;
+							submenu= submenu_items::nothing;
 					}
 
 				} else
@@ -1260,7 +1260,7 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 				}
 				}
 			else
-			if (menu==mirror)
+			if (menu== menu_items::mirror)
 			{	
 		       selT=pDoc->m_objects->mirrorselect(hdc,pos,false);
 			   change=true;
@@ -1268,15 +1268,15 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 			b=true;
 			}
 			else
-			if (menu==mirrornocopy)
+			if (menu==menu_items::mirrornocopy)
 			{	
 		       selT=pDoc->m_objects->mirrorselect(hdc,pos,true);
 			   change=true;
 			   Invalidate();
-				menu=select;
+				menu = menu_items::select;
 			}
 			else
-			if (menu==copyline)
+			if (menu==menu_items::copyline)
 			{	
 		       selT=pDoc->m_objects->copyl(hdc,pos,false); 
 			   change=true;
@@ -1284,68 +1284,39 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 			b=true;
 			}
 			else
-			if (menu==copylinenocopy)
+			if (menu== menu_items::copylinenocopy)
 			{	
 		       selT=pDoc->m_objects->copyl(hdc,pos,true);
 			   change=true;
 			   Invalidate();
-				menu=select;
+				menu = menu_items::select;
 			}
 			else
-			if (menu==copyrec)
+			if (menu==menu_items::copyrec)
 			{	
 		       selT=pDoc->m_objects->copyl(hdc,pos,false); 
 			   change=true;
-			   menu=select;
+			   menu = menu_items::select;
 			   Invalidate();
 			b=true;
 			}
 		else
-		if (menu==rotate)
+		if (menu== menu_items::rotate)
 		{
   
-//			if(!mouse.getMove())
-//			{
-//				pDoc->m_objects->selectRotateCenter(hdc,mouse.getPrevPos(),mouse.getPostPos());
-//			}
-		}
-/*		else
-		if (menu==copyang)
-		{
-  
-//			if(!mouse.getMove())
-//			{
-//				pDoc->m_objects->copyRS(hdc,pos,false);
-//				menu=select;
-//			}
-			b=true;
 		}
 		else
-		if (menu==copyanglin)
+		if (menu==menu_items::copybycenter)
 		{
   
-//			if(!mouse.getMove())
-//			{
-//				pDoc->m_objects->copyRS(hdc,pos,true);
-//				menu=select;
-//			}
-			b=true;
-		}*/
-		else
-		if (menu==copybycenter)
-		{
-  
-//			if(!mouse.getMove())
-//			{
 				pDoc->m_objects->copybyCenter(hdc,pos);
 			   change=true;
-			   menu=select;
+			   menu = menu_items::select;
 			   Invalidate();
-//			}
 			b=true;
 		}
 		else
-		if (menu==trim)
+		if (menu== menu_items::trim)
 		{
 			bool b;
 			if(GetKeyState(VK_CONTROL) & 0x8000)
@@ -1354,21 +1325,21 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 				b=false;
 			pDoc->m_objects->Trim(hdc,pos,b);
 		} else
-		if(menu==paste)
+		if(menu==menu_items::paste)
 		{
 			pDoc->m_objects->paste(hdc,pos);
 			b=true;
 		
 		}
 		else
-		if(menu==extend)
+		if(menu== menu_items::extend)
 		{
 			pDoc->m_objects->extend(pos);
 			b=true;
 		
 		}
 		else
-		if(menu==clip)
+		if(menu== menu_items::clip)
 		{
 			pDoc->m_objects->clip(pos);
 			pDoc->m_objects->cleardraw(hdc);
@@ -1376,7 +1347,7 @@ void CCadView::OnLButtonDown(UINT nFlags, CPoint point)
 		
 		}
 		else
-		if(menu==fill)
+		if(menu== menu_items::fill)
 		{
 			pDoc->m_objects->fill(hdc,pos);
 			b=true;
@@ -1465,22 +1436,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 	ic++;
 	switch(menu)
 	{
-/*	case Line:
-		{
-			CString input=pDoc->m_parser->getInput();
-			input.MakeLower();
-			if (input.Find("next point")!=-1)
-			{
-				//mouse.setMove(true);
-//				mouse.setPostPos(pos);
-	
-                 fPrevLine = pDoc->m_objects->add("Line",fPrevLine,hdc, vpos); 
-            
-			}
-		b=true;
-		break;	
-		}*/
-	case box:
+	case menu_items::box:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1501,7 +1457,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 		break;	
 		}
-	case image:
+	case menu_items::image:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1512,7 +1468,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimA:
+	case menu_items::DimA:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1523,7 +1479,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimV:
+	case menu_items::DimV:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1534,7 +1490,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimF:
+	case menu_items::DimF:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1545,7 +1501,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimR:
+	case menu_items::DimR:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1557,7 +1513,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			break;
 		}
 
-	case DimD:
+	case menu_items::DimD:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1568,7 +1524,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimH:
+	case menu_items::DimH:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1579,7 +1535,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case leader:
+	case menu_items::leader:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1590,7 +1546,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case multline:
+	case menu_items::multline:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1601,7 +1557,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimL:
+	case menu_items::DimL:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1612,7 +1568,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimLH:
+	case menu_items::DimLH:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1624,7 +1580,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case DimLV:
+	case menu_items::DimLV:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1636,9 +1592,9 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case sqline:
-	case perpline:
-	case tangline:
+	case menu_items::sqline:
+	case menu_items::perpline:
+	case menu_items::tangline:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1649,7 +1605,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case Line:
+	case menu_items::Line:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1660,7 +1616,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case polybezier:
+	case menu_items::polybezier:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1679,7 +1635,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 		b=true;
 			break;
 		}
-	case Circle:
+	case menu_items::Circle:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1691,7 +1647,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case circle2:
+	case menu_items::circle2:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1703,7 +1659,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case circle3:
+	case menu_items::circle3:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1715,7 +1671,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case ellipse:
+	case menu_items::ellipse:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1727,7 +1683,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case arc:
+	case menu_items::arc:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1739,7 +1695,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case arc2:
+	case menu_items::arc2:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1750,7 +1706,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case arc3:
+	case menu_items::arc3:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1761,7 +1717,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case arc32:
+	case menu_items::arc32:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1772,8 +1728,8 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case Rectangle:
-	case Rectanglefree:
+	case menu_items::Rectangle:
+	case menu_items::Rectanglefree:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1784,7 +1740,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case plane:
+	case menu_items::plane:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1795,7 +1751,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case text:
+	case menu_items::text:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1806,8 +1762,8 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			ptsPrevEnd=pos;
 			break;
 		}
-	case select:
-	case spoint:
+	case menu_items::select:
+	case menu_items::spoint:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1829,7 +1785,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			} 
 			break;
 		}
-	case campad:
+	case menu_items::campad:
 		{
 			if (mouse.getLBdownStatus())
 			{
@@ -1861,7 +1817,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			} 
 			break;
 		}
-	case rotate:
+	case menu_items::rotate:
 	{
 			if (mouse.getLBdownStatus())
 			{
@@ -1885,7 +1841,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			}
 			break;
 	}
-	case scale:
+	case menu_items::scale:
 	{
 			if (mouse.getLBdownStatus())
 			{
@@ -1909,7 +1865,7 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 			}
 			break;
 	}
-		case camrot:
+		case menu_items::camrot:
 			{
 			if (mouse.getLBdownStatus())
 			{
@@ -1936,24 +1892,6 @@ void CCadView::OnMouseMove(UINT nFlags, CPoint point)
 	}
 	}
 
-//	CVector v=pos;
-//	if(snap_menu)
-//	{
-//	DWORD tick=GetTickCount();
-//	static DWORD prevtick=0;
-//	if(!pDoc->m_objects->fsnap(v,hdc))
-//		v.w=-2;
-//	snap.display(v,hdc);
-/*	if(pDoc->m_objects->fsnap(v,hdc))
-	{
-		snap.display(v,hdc);
-	}
-	else
-	{
-		v.w=-2;
-		snap.display(v,hdc);
-	}*/
-//	}
 	void* pp[2];
 //	CVector p=pDoc->m_objects->getMouse(pos);
 	pp[0]=&vpos;
@@ -1991,15 +1929,6 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 	hdc->SetViewportOrg(CPoint(0,0));
 	hdc->SetWindowOrg(CPoint(0,0));
 
-/*	CDC *hmdc=new CDC;
-	hmdc->CreateCompatibleDC(hdc);
-	hmdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hmdc->RealizePalette();
-*/
-//	CRect wcr;
-//
-//	GetClientRect(&wcr);
-
 
 	bool b=false;
 
@@ -2010,23 +1939,23 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 
 		switch(menu)//if ((menu==Line)|(menu==Circle)|(menu==Rectangle)|menu==select|menu==rotate)
 			{
-			case Line:
+			case menu_items::Line:
 				pDoc->m_objects->finaladd(hdc,"Line",pos,"");
 			b=true;
 				break;
-			case box:
+			case menu_items::box:
 				pDoc->m_objects->finaladd(hdc,"Box",pos,"");
 			b=true;
 				break;
-			case plane:
+			case menu_items::plane:
 				pDoc->m_objects->finaladd(hdc,"Plane",pos,"");
 			b=true;
 				break;
-			case image:
+			case menu_items::image:
 				pDoc->m_objects->finaladd(hdc,"Image",pos,"");
 			b=true;
 				break;
-			case DimR:
+			case menu_items::DimR:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimR",pos,"");
 				change=true;
@@ -2034,7 +1963,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimD:
+			case menu_items::DimD:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimD",pos,"");
 				change=true;
@@ -2042,7 +1971,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimH:
+			case menu_items::DimH:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimH",pos,"");
 				change=true;
@@ -2050,7 +1979,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case leader:
+			case menu_items::leader:
 				{
 				pDoc->m_objects->finaladd(hdc,"leader",pos,"");
 				change=true;
@@ -2058,7 +1987,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case multline:
+			case menu_items::multline:
 				{
 				pDoc->m_objects->finaladd(hdc,"multline",pos,"");
 				change=true;
@@ -2066,7 +1995,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimV:
+			case menu_items::DimV:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimV",pos,"");
 				change=true;
@@ -2074,7 +2003,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimF:
+			case menu_items::DimF:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimF",pos,"");
 				change=true;
@@ -2082,7 +2011,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimL:
+			case menu_items::DimL:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimL",pos,"");
 				change=true;
@@ -2090,7 +2019,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimLH:
+			case menu_items::DimLH:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimLH",pos,"");
 				change=true;
@@ -2098,7 +2027,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimLV:
+			case menu_items::DimLV:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimLV",pos,"");
 				change=true;
@@ -2106,7 +2035,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case DimA:
+			case menu_items::DimA:
 				{
 				pDoc->m_objects->finaladd(hdc,"DimA",pos,"");
 				change=true;
@@ -2114,7 +2043,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case chamf:
+			case menu_items::chamf:
 				{
 				bool ot=pDoc->m_objects->finDimA();
 				if (ot)
@@ -2123,7 +2052,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 //				selT=ot;
 				break;
 				}
-			case filt:
+			case menu_items::filt:
 				{
 				bool ot=pDoc->m_objects->finDimA();
 				if (ot)
@@ -2132,7 +2061,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 //				selT=ot;
 				break;
 				}
-			case C2L:
+			case menu_items::C2L:
 				{
 				bool ot=pDoc->m_objects->finDimA();
 				if (ot)
@@ -2141,89 +2070,89 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			b=true;
 				break;
 				}
-			case sqline:
+			case menu_items::sqline:
 				pDoc->m_objects->finaladd(hdc,"QLine",pos,"");
 			b=true;
 				break;
-			case perpline:
+			case menu_items::perpline:
 				pDoc->m_objects->finaladd(hdc,"QLine",pos,"");
 			b=true;
 				break;
-			case tangline:
+			case menu_items::tangline:
 				pDoc->m_objects->finaladd(hdc,"QLine",pos,"");
 			b=true;
 				break;
-			case polybezier:
+			case menu_items::polybezier:
 				pDoc->m_objects->finaladd(hdc,"Bezier",pos,"");
 			b=true;
 				break;
-			case Circle:
+			case menu_items::Circle:
 				pDoc->m_objects->finaladd(hdc,"Circle",pos,"");
 			b=true;
 				break;
-			case circle2:
+			case menu_items::circle2:
 				{
 				pDoc->m_objects->finaladd(hdc,"2DotCircle",pos,"");
 			b=true;
 				break;
 				}
-			case circle3:
+			case menu_items::circle3:
 				{
 				pDoc->m_objects->finaladd(hdc,"3DotCircle",pos,"");
 			b=true;
 				break;
 				}
-			case ellipse:
+			case menu_items::ellipse:
 				{
 				pDoc->m_objects->finaladd(hdc,"Ellipse",pos,"");
 			b=true;
 				break;
 				}
-			case arc:
+			case menu_items::arc:
 				pDoc->m_objects->finaladd(hdc,"Arc",pos,"");
 			b=true;
 				break;
-			case arc2:
+			case menu_items::arc2:
 				pDoc->m_objects->finaladd(hdc,"2DotArc",pos,"");
 			b=true;
 				break;
-			case arc3:
+			case menu_items::arc3:
 				pDoc->m_objects->finaladd(hdc,"3DotArc",pos,"");
 			b=true;
 				break;
-			case arc32:
+			case menu_items::arc32:
 				pDoc->m_objects->finaladd(hdc,"3DotArc2",pos,"");
 			b=true;
 				break;
-			case Rectangle:
+			case menu_items::Rectangle:
 				pDoc->m_objects->finaladd(hdc,"Rectangle",pos,"stricte");
 			b=true;
 				break;
-			case select:
+			case menu_items::select:
 				{
 				pDoc->m_objects->finaladd(hdc,"select",pos,"");				
 			b=true;
 				break;
 				}
-			case spoint:
+			case menu_items::spoint:
 				{
 				pDoc->m_objects->finaladd(hdc,"spoint",pos,"");
 
 			b=true;
 				break;
 				}
-			case Rectanglefree:
+			case menu_items::Rectanglefree:
 				pDoc->m_objects->finaladd(hdc,"Rectangle",pos,"free");
 			b=true;
 				break;
-			case text:
+			case menu_items::text:
 				{
 				CTextDi dlg11;
 		//		if(dlg11.DoModal()==IDOK)
 				{
 				
 				pDoc->m_objects->finaladd(hdc,"Text",pos,dlg11.m_text);
-				menu=select;
+				menu = menu_items::select;
 				}
 			//	CNewText dlg;
 			//	pDoc->m_objects->GetTextrec(this,hdc);
@@ -2234,8 +2163,8 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 				
 				break;
 				}
-			case rotate:
-			case scale:
+			case menu_items::rotate:
+			case menu_items::scale:
 				pDoc->m_objects->SelectRotState(false);
 			b=true;
 				break;
@@ -2253,8 +2182,6 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 			
 			mouse.setLBdown(false); 
 			fPrevLine = FALSE;
-//			submenu=nothing;
-//			menu_edit=null;
             ClipCursor(NULL); 
             ReleaseCapture();
 
@@ -2268,7 +2195,7 @@ void CCadView::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CCadView::OnRectangle() 
 {
-	menu=Rectangle;	
+	menu = menu_items::Rectangle;	
 	CString input,output;
 	input="rect";
 	CCadDoc* pDoc = GetDocument();
@@ -2320,9 +2247,9 @@ void CCadView::OnSize(UINT nType, int cx, int cy)
 
 void CCadView::OnTbselect() 
 {
-	int prevmenu=menu;
-	menu=select;
-	submenu=nothing;
+	int prevmenu = static_cast<int>(menu);
+	menu = menu_items::select;
+	submenu= submenu_items::nothing;
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
  	CDC *hdc=GetDC();
@@ -2334,16 +2261,11 @@ void CCadView::OnTbselect()
  
 	pDoc->m_objects->setBmode(hdc);
 	ReleaseDC(hdc);
-//	if(prevmenu==polybezier||prevmenu==textselect)
-	{
-//	change=true;
-//	Invalidate();
-	}	
 }
 
 void CCadView::OnTbrotate() 
 {
-	menu=rotate;
+	menu = menu_items::rotate;
 		
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -2364,71 +2286,33 @@ void CCadView::OnTbrotate()
 void CCadView::OnTbmirror() 
 {
 	// TODO: Add your command handler code here
-	menu=mirror;
+	menu= menu_items::mirror;
 }
 
 void CCadView::OnTaddnode() 
 {
-	submenu=addnode;
+	submenu= submenu_items::addnode;
 }
 
 void CCadView::OnTdeletenode() 
 {
-	submenu=deletenode;	
+	submenu= submenu_items::deletenode;
 }
 
 void CCadView::OnTbreakcurve() 
 {
-	submenu=breakcurve;	
+	submenu= submenu_items::breakcurve;
 }
 
 void CCadView::OnTclosecurve() 
 {
-	submenu=closecurve;	
+	submenu= submenu_items::closecurve;
 }
 
 void CCadView::OnText() 
 {
-	menu=text;
-/*	CCadDoc* pDoc = GetDocument();
-	ASSERT_VALID(pDoc);
-
-	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-	
-	OnPrepareDC(hdc);
-	CPoint p;
-	p=pDoc->m_objects->movecurskb(hdc,"nil");
-		CreateSolidCaret(1,15);
-	SetCaretPos(p);
-	ShowCaret();
-	ReleaseDC(hdc);
-
-	/*
-	CNewText dlg;
-	dlg.DoModal();*/
-	
-	
-
-
+	menu = menu_items::text;
 }
-
-/*
-void CCadView::OnDimButtons(UINT uID)
-{
-
-	m_Dimselected = uID;
-
-}
-void CCadView::OnUpdateDimButtons(CCmdUI* pCmdUI)
-{
-	pCmdUI->SetRadio(pCmdUI->m_nID==m_Dimselected);
-}
-*/
-
 
 void CCadView::OnSnapButtons(UINT uID)
 
@@ -2447,7 +2331,7 @@ void CCadView::OnEditCopy()
 {
 	// TODO: Add your command handler code here
 	m_bpastenow = TRUE;
-	menu_edit=copy;
+	menu_edit= menu_edit_items::copy;
 
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -2481,7 +2365,7 @@ void CCadView::OnUpdateEditCut(CCmdUI* pCmdUI)
 
 void CCadView::OnEditPaste() 
 {
-	menu=paste;
+	menu = menu_items::paste;
 }
 
 DWORD WINAPI DrawSp(LPVOID l)
@@ -2516,8 +2400,6 @@ void CCadView::OnInitialUpdate()
 	mg->InitObjects();
 	mg->setInterestObject(pDoc->m_objects);
 	pDoc->m_parser->RegisterInterest(this);
-	
-//	mg->m_wndMyDialogBar.setparam(this,pDoc->m_objects);
  
 
 	CDC *hdc=GetDC();
@@ -2529,7 +2411,6 @@ void CCadView::OnInitialUpdate()
 
 	
 	
-//    SetScrollSizes(m_mode.map_mode, CSize (m_mode.Sg.cx,-m_mode.Sg.cy));
     CSize zs(m_mode.Sg.cx,-m_mode.Sg.cy);
 	
 	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
@@ -2627,30 +2508,13 @@ void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	hdc->RealizePalette();
 
 	
-/*	hdc->SetMapMode(MM_ISOTROPIC);
-	hdc->SetWindowExt(100,100);
-	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-	
-
-	/// partie pour permettre de centrer les dessin lors du rendu
-	CRect scr1;												
-															
-	GetClientRect(&scr1);
-
-	currentPosdev=currentPos;
-	hdc->LPtoDP(&currentPosdev);
-
-	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);
-	
-	hdc->SetWindowOrg(0,0);*/
-
 	OnPrepareDC(hdc);
 
-	if(menu!=init)
+	if(menu!= menu_items::init)
 	{
 		if(nChar==(UINT)(VK_RETURN))
 		{
-			if(menu==text){
+			if(menu== menu_items::text){
 				pDoc->m_objects->entertxt(hdc);
 			}else
 			{
@@ -2668,7 +2532,7 @@ void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				{
 				(*it)->SendNotify("View",pp);//mg->m_wndMyDialogBar.setmouse(p);
 				}
-				menu=init;
+				menu= menu_items::init;
 			}
 		}else
 		if(nChar==(UINT)(VK_ESCAPE))
@@ -2681,7 +2545,7 @@ void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 	}
 	BOOL processed;
-		if(menu==campad)
+		if(menu== menu_items::campad)
 		{
 				int sens=-1;
 				if(nChar==(UINT)(VK_LEFT))
@@ -2715,7 +2579,7 @@ void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				Invalidate();
 				}
 			}else
-		if(menu==camrot)
+		if(menu== menu_items::camrot)
 		{
 				int sens=-1;
 				if(nChar==(UINT)(VK_LEFT))
@@ -2750,7 +2614,7 @@ void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				}
 			}
 		else
-		if(menu==camsw)
+		if(menu== menu_items::camsw)
 		{
 				int sens=-1;
 				if(nChar==(UINT)(VK_LEFT))
@@ -2784,7 +2648,7 @@ void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				Invalidate();
 				}
 			}else
-		if(menu==select)
+		if(menu== menu_items::select)
 		{
 				int sens=0;
 				if(nChar==(UINT)(VK_LEFT))
@@ -2818,7 +2682,6 @@ void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 	ReleaseDC(hdc);
     change=true;
-//	Invalidate();
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
 
 }
@@ -2835,41 +2698,21 @@ void CCadView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	hdc->RealizePalette();
 
 	
-/*	hdc->SetMapMode(MM_ISOTROPIC);
-	hdc->SetWindowExt(100,100);
-	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-	
-
-	/// partie pour permettre de centrer les dessin lors du rendu
-	CRect scr1;												
-															
-	GetClientRect(&scr1);
-
-	currentPosdev=currentPos;
-	hdc->LPtoDP(&currentPosdev);
-
-	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);
-	
-	hdc->SetWindowOrg(0,0);
-*/
 	OnPrepareDC(hdc);
 
 
 	BOOL processed;
-	if(menu==text)
+	if(menu== menu_items::text)
 	{
 		if(nChar==VK_SHIFT)
 		{
 				pDoc->m_objects->movecurskb(hdc,"selStop");
- //               change=true;
-//				Invalidate();
 		}
 	}
 	else 
-	if(menu==select)
+	if(menu== menu_items::select)
 	{
 	change=true;
-//	Invalidate(TRUE);
 	}
 	ReleaseDC(hdc);
 	CView::OnKeyUp(nChar, nRepCnt, nFlags);
@@ -2910,7 +2753,6 @@ BOOL CCadView::KeyScroll(UINT nChar)
 
 void CCadView::OnEffectZoomin() 
 {
-	//menu=zoomin;
 
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -2935,7 +2777,7 @@ void CCadView::OnEffectZoomin()
 
 void CCadView::OnRectanglefree() 
 {
-	menu=Rectanglefree;
+	menu = menu_items::Rectanglefree;
 
 }
 
@@ -3029,15 +2871,12 @@ void CCadView::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	}
 	int c=GetScrollLimit(SB_VERT);
 	int cp=GetScrollPos(SB_VERT);
-//	if((cp>0)&&(cp<c))
-//	{
 	if(sens!=-1)
 	{
 	pDoc->m_objects->translatecam(sens,mouse.getPrevPos(),mouse.getPrevPos());
 	change=true;
 	Invalidate(FALSE);
 	}
-//	}
 	CScrollView::OnVScroll(nSBCode, nPos, pScrollBar);
 
 }
@@ -3072,15 +2911,12 @@ void CCadView::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	}
 	int c=GetScrollLimit(SB_HORZ);
 	int cp=GetScrollPos(SB_HORZ);
-//	if((cp>0)&&(cp<c))
-//	{
 	if(sens!=-1)
 	{
 	pDoc->m_objects->translatecam(sens,mouse.getPrevPos(),mouse.getPrevPos());
 	change=true;
 	Invalidate();
 	}
-//	}
 	CScrollView::OnHScroll(nSBCode, nPos, pScrollBar);
 
 }
@@ -3089,17 +2925,16 @@ void CCadView::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 
 void CCadView::OnCopyline() 
 {
-	menu=copyline;
+	menu=menu_items::copyline;
 
 }
 
 void CCadView::OnAngcopy() 
 {
-	menu=copyang;
+	menu=menu_items::copyang;
 	// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -3112,7 +2947,7 @@ void CCadView::OnAngcopy()
 	if(Adlg.DoModal()==IDOK)
 	{
 	pDoc->m_objects->copyRSparam(hdc,Adlg.m_anglrot,Adlg.m_nbcopy,Adlg.m_nblevel,Adlg.m_dlevel,false);
-	menu=select;
+	menu = menu_items::select;
 	}
 	ReleaseDC(hdc);
 	
@@ -3120,11 +2955,10 @@ void CCadView::OnAngcopy()
 
 void CCadView::OnCopyral() 
 {
-	menu=copyanglin;
+	menu=menu_items::copyanglin;
 	// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -3137,7 +2971,7 @@ void CCadView::OnCopyral()
 	if(Adlg.DoModal()==IDOK)
 	{
 	pDoc->m_objects->copyRSparam(hdc,Adlg.m_anglrot,Adlg.m_nbcopy,Adlg.m_nblevel,Adlg.m_dlevel,true);
-	menu=select;
+	menu = menu_items::select;
 	}
 	ReleaseDC(hdc);
 	
@@ -3145,10 +2979,9 @@ void CCadView::OnCopyral()
 
 void CCadView::OnCopybycenter() 
 {
-	menu=copybycenter;
+	menu=menu_items::copybycenter;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -3162,23 +2995,23 @@ void CCadView::OnCopybycenter()
 	{
 		pDoc->m_objects->Offset(offdlg.m_offset);
 	}
-	menu=select;
+	menu = menu_items::select;
 
 }
 
 void CCadView::OnAlignbyline() 
 {
-	menu=alignbyline;	
+	menu = menu_items::alignbyline;	
 }
 
 void CCadView::On2cercle() 
 {
-	menu=circle2;
+	menu=menu_items::circle2;
 }
 
 void CCadView::On3cercle() 
 {
-	menu=circle3;
+	menu=menu_items::circle3;
 	
 }
 
@@ -3186,21 +3019,15 @@ void CCadView::On3cercle()
 
 void CCadView::OnPolyb() 
 {
-	menu=polybezier;
+	menu = menu_items::polybezier;
 	CString input,output;
 	input="spline";
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	pDoc->m_parser->execute(input,output,NULL);
 
 	void* pp[2];
 	pp[0]=&input;
 	pp[1]=&output;
-
-//	for(vector<CObserver*>::iterator it=observers.begin();it!=observers.end();it++)
-//	{
-//	(*it)->SendNotify("View",pp);//mg->m_wndMyDialogBar.setmouse(p);
-//	}
 	
 }
 
@@ -3212,26 +3039,10 @@ void CCadView::OnLButtonDblClk(UINT nFlags, CPoint point)
 	OnPrepareDC(hdc);
 
     hdc->DPtoLP (&point);
-		if (menu==select)
+		if (menu== menu_items::select)
 		{				
 		pDoc->m_objects->editobj(point);
 		}
-
-/*	if(pDoc->m_objects->getselect())
-	{
-		pDoc->m_objects->editobj(hdc);
-	    change=true;
-		Invalidate(TRUE);
-
-/*		COBJEdit edt;
-		edt.setobj(pDoc->m_objects->getobif());
-		if(edt.DoModal()==IDOK)
-		{
-			pDoc->m_objects->setobjinfo(edt.m_auth,edt.m_descr,\
-										edt.m_name,edt.m_cost);
-
-		}*/
-//	}
 
 	ReleaseDC(hdc);
 	CView::OnLButtonDblClk(nFlags, point);
@@ -3240,7 +3051,7 @@ void CCadView::OnLButtonDblClk(UINT nFlags, CPoint point)
 void CCadView::OnSqline() 
 {
 	// TODO: Add your command handler code here
-	menu=sqline;
+	menu = menu_items::sqline;
 }
 
 void CCadView::OnRButtonDown(UINT nFlags, CPoint pos) 
@@ -3252,24 +3063,15 @@ void CCadView::OnRButtonDown(UINT nFlags, CPoint pos)
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
-/*	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-*/	OnPrepareDC(hdc);
+	OnPrepareDC(hdc);
 
     hdc->DPtoLP (&point);
 
 	bool tr=false;
-/*	if(menu==DimA)
-	{
-	//	tr=pDoc->m_objects->straightDimA(true);
-	//	Invalidate();
-	}
-	else
-	{*/
 		switch (menu)
 		{
 		
-		case select:
+		case menu_items::select:
 			{
 				
 				CMenu menu;
@@ -3288,7 +3090,7 @@ void CCadView::OnRButtonDown(UINT nFlags, CPoint pos)
 			
 				break;
 		}
-		case rotate:
+		case menu_items::rotate:
 			{
 				CMenu menu;
 				CMenu *ptrMenu;	
@@ -3322,62 +3124,38 @@ void CCadView::OnRButtonDown(UINT nFlags, CPoint pos)
 				);
 			}
 
-
-	//	}
-}
+	}
 	ReleaseDC(hdc);
 	CView::OnRButtonDown(nFlags, pos);
 }
 
 void CCadView::OnArc() 
 {
-	menu=arc;	
+	menu=menu_items::arc;	
 }
 
 void CCadView::On3arcclose() 
 {
-	menu=arc3;	
+	menu=menu_items::arc3;	
 }
 
 void CCadView::On3arcopen() 
 {
-	menu=arc2;// TODO: Add your command handler code here
+	menu=menu_items::arc2;// TODO: Add your command handler code here
 	
 }
-
-//DEL void CCadView::OnFreecirc() 
-//DEL {
-//DEL 	menu=freecirc;	
-//DEL }
-
-
-
 
 
 void CCadView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
  {
-	if(menu==text)
+	if(menu== menu_items::text)
 	{
 		CCadDoc* pDoc = GetDocument();
 		ASSERT_VALID(pDoc);
 
 	    CDC *hdc=GetDC();
 	
-/*		hdc->SetMapMode(MM_ISOTROPIC);
-		hdc->SetWindowExt(100,100);
-		hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-		hdc->SetWindowOrg(0,0);
-	
-		CRect scr1;;
-
-		GetClientRect(&scr1);
-
-		currentPosdev=currentPos;
-		hdc->LPtoDP(&currentPosdev);
-
-		hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);*/
 		OnPrepareDC(hdc);
-		//hdc->SelectObject(&pen);
 
 	switch(nChar)
 	{
@@ -3401,7 +3179,7 @@ void CCadView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			  {                  
 				HideCaret();
 				pDoc->m_objects->inittext();
-				menu=select;
+				menu = menu_items::select;
                break; 
 			  }
           case 0x09: 
@@ -3432,26 +3210,10 @@ void CCadView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			  }
 	}
 	ReleaseDC(hdc);
-//    change=true;
-//	Invalidate();
 	}
 	
  	CScrollView::OnChar(nChar, nRepCnt, nFlags);
 }
-
-
-
-
-
-/*void CCadView::OnUpdateEditCut(CCmdUI* pCmdUI) 
-{
-	// TODO: Add your command update UI handler code here
-	BOOL bEnable=TRUE;
-	if(bEnable=FALSE);
-	pCmdUI->Enable(bEnable);
-}
-
-*/
 
 BOOL CCadView::IsSelected(const CObject* pDocItem) const
 {
@@ -3460,88 +3222,11 @@ BOOL CCadView::IsSelected(const CObject* pDocItem) const
 	return CView::IsSelected(pDocItem);
 }
 
-/*
-void CCadView::OnAlignright() 
-{
-	// TODO: Add your command handler code here
-	
-}
-
-void CCadView::OnAlleft() 
-{
-	// TODO: Add your command handler code here
-	
-}
-
-void CCadView::OnAlcent() 
-{
-	// TODO: Add your command handler code here
-	
-}
-*/
-//DEL void CCadView::OnLbuttonColor() 
-//DEL {
-//DEL 	CCadDoc* pDoc = GetDocument();
-//DEL 	ASSERT_VALID(pDoc);
-//DEL //	CColorD colD;
-//DEL 	CDC *hdc=GetDC();
-//DEL 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-//DEL 
-//DEL 	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-//DEL 	hdc->RealizePalette();
-//DEL 
-//DEL 	hdc->SetMapMode(MM_ISOTROPIC);
-//DEL 	hdc->SetWindowExt(100,100);
-//DEL 	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-//DEL 	CRect scr1;												
-//DEL 															
-//DEL 	GetClientRect(&scr1);
-//DEL 	
-//DEL 	currentPosdev=currentPos;
-//DEL 	hdc->LPtoDP(&currentPosdev);
-//DEL 
-//DEL 	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);
-//DEL 	
-//DEL 	hdc->SetWindowOrg(0,0);
-//DEL 
-//DEL 	OnPrepareDC(hdc);
-//DEL 
-//DEL 
-//DEL 
-//DEL //	CRecColor rec;
-//DEL 	CRect v(0,0,0,0);
-//DEL //	rec.CreateEx(WS_EX_CLIENTEDGE,_T("BUTTON"),NULL,
-//DEL //			WS_CHILD,v,this,44500,NULL);
-//DEL 
-//DEL //	pDoc->m_objects->setLcolor(hdc,rec.ccolor,rec.bcolor);
-//DEL 	
-//DEL 	ReleaseDC(hdc);
-//DEL //	delete rec;
-//DEL 
-//DEL 
-//DEL }
-
-
 
 void CCadView::OnBpercent() 
 {
-	// TODO: Add your command handler code here
-
-	
 }
 
-/*void CCadView::OnBzoomminus() 
-{
-	// TODO: Add your command handler code here
-
-}
-
-void CCadView::OnBzoomplus() 
-{
-	// TODO: Add your command handler code here
-	
-
-}*/
 void CCadView::OnParaLeft()
 {
 	CCadDoc* pDoc = GetDocument();
@@ -3597,19 +3282,19 @@ void CCadView::OnParaRight()
 }
 void CCadView::OnUpdateParaRight(CCmdUI* pCmdUI)
 {
-	pCmdUI->SetRadio(menu==paraRight);	
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::paraRight));	
 }
 void CCadView::OnUpdateParaLeft(CCmdUI* pCmdUI)
 {
-	pCmdUI->SetRadio(menu==paraLeft);	
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::paraLeft));	
 }
 void CCadView::OnUpdateParaCenter(CCmdUI* pCmdUI)
 {
-	pCmdUI->SetRadio(menu==paraCenter);	
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::paraCenter));	
 }
 void CCadView::OnUpdateParaJustify(CCmdUI* pCmdUI)
 {
-	pCmdUI->SetRadio(menu==paraJustify);	
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::paraJustify));	
 }
 
 void CCadView::OnFitpage() 
@@ -3618,12 +3303,10 @@ void CCadView::OnFitpage()
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CDC *pDC=GetDC();
-//	OnPrepareDC(pDC);
 	zoom= false;
-	zmode = zoomin;
+	zmode = zmode_items::zoomin;
 	zoomrat=1/zoomrat;
 	pDoc->m_objects->setfitzoom(zoomrat);
-//	pDoc->m_objects->setPage(m_mode.Sg);
 	CRect page=pDoc->m_objects->getPage();
 
 	GetClientRect(&scr);
@@ -3644,18 +3327,13 @@ void CCadView::OnFitpage()
 void CCadView::OnNpage() 
 {
 	// TODO: Add your command handler code here
-
-	
-	// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CDC *pDC=GetDC();
-//	OnPrepareDC(pDC);
 	zoom= false;
-	zmode = zoomin;
+	zmode = zmode_items::zoomin;
 	zoomrat=1/zoomrat;
 	pDoc->m_objects->setinitzoom();
-//	pDoc->m_objects->setPage(m_mode.Sg);
 	CRect page=pDoc->m_objects->getPage();
 
 	GetClientRect(&scr);
@@ -3672,16 +3350,6 @@ void CCadView::OnNpage()
 	ReleaseDC(pDC);
 }
 
-
-
-/*void CCadView::OnPAtTERN() 
-{
-	CPattern  plg;
-	plg.DoModal();
-
-
-}*/
-
 BOOL CCadView::OnEraseBkgnd(CDC* pDC) 
 {
 	// TODO: Add your message handler code here and/or call default
@@ -3694,17 +3362,12 @@ void CCadView::OnEditUndo()
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-//	CDC *hdc=GetDC();
  	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-//	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-//	hdc->RealizePalette();
-
-//	OnPrepareDC(hdc);
-	string input;
-	pDoc->m_objects->undo(input);
-	if(input.empty()) return;
- 	pDoc->m_parser->execute(CString(input.c_str()),CString(""),NULL);
+	string input_str;
+	pDoc->m_objects->undo(input_str);
+	if(input_str.empty()) return;
+	CString outputString;
+ 	pDoc->m_parser->execute(CString(input_str.c_str()),outputString,NULL);
 	change=true;
 	Invalidate();
 
@@ -3717,10 +3380,12 @@ void CCadView::OnEditRedo()
 	CColorD colD;
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
-	string input;
-	pDoc->m_objects->redo(NULL,input);
-	if(input.empty()) return;
- 	pDoc->m_parser->execute(CString(input.c_str()),CString(""),NULL);
+	string input_str;
+	pDoc->m_objects->redo(NULL,input_str);
+	if(input_str.empty()) return;
+    CString currentCommand(input_str.c_str());
+    CString outputString;
+ 	pDoc->m_parser->execute(currentCommand,outputString,NULL);
 	change=true;
 	Invalidate();
 	
@@ -3729,7 +3394,7 @@ void CCadView::OnEditRedo()
 void CCadView::OnGroup() 
 {
 	m_grouped= true;
-	submenu=group;
+	submenu= submenu_items::group;
 
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -3747,14 +3412,14 @@ void CCadView::OnGroup()
 	ReleaseDC(hdc);
     change=true;
 	Invalidate();
-	submenu=nothing;
+	submenu= submenu_items::nothing;
 
 	
 }
 
 void CCadView::OnGroupup() 
 {
-	submenu=ungroup;
+	submenu= submenu_items::ungroup;
 	//	m_grouped=false;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -3785,77 +3450,54 @@ void CCadView::OnGroupup()
 	ReleaseDC(hdc);
     change=true;
 	Invalidate();
-	submenu=nothing;
+	submenu= submenu_items::nothing;
 	
 }
 
-/*void CCadView::OnLinesytle() 
-{
-	// TODO: Add your command handler code here
-	
-}
-*/
 void CCadView::OnDiml() 
 {
-	menu=DimL;	
-	//	m_Dimselected=ID_DIML;
+	menu=menu_items::DimL;	
 }
 void CCadView::OnLeader() 
 {
-	menu=leader;	
-	//	m_Dimselected=ID_DIML;
+	menu= menu_items::leader;
 }
 void CCadView::OnMultLine() 
 {
-	menu=multline;	
-	//	m_Dimselected=ID_DIML;
+	menu= menu_items::multline;
 }
 
 void CCadView::OnDimA() 
 {
-	menu=DimA;
-	//m_Dimselected=ID_DimA;
+	menu=menu_items::DimA;
 	
 }
 
 void CCadView::OnDimho() 
 {
-	menu = DimH;
-	//m_Dimselected=ID_DIMHO;
+	menu = menu_items::DimH;
 }
 
 void CCadView::OnDimvert() 
 {
-	menu=DimV;
-	//m_Dimselected=ID_DIMVERT;
+	menu=menu_items::DimV;
 }
 
 void CCadView::OnDim1free() 
 {
-	menu=DimF;
-	//m_Dimselected=ID_DIM1FREE;
+	menu=menu_items::DimF;
 }
 
 void CCadView::OnDimrad() 
 {
-	// TODO: Add your command handler code here
-	//m_Dimselected=ID_DIMRAD;
-	menu=DimR;
+	menu=menu_items::DimR;
 }
 
 void CCadView::OnDimcdia() 
 {
-	// TODO: Add your command handler code here
-	//m_Dimselected=ID_DIMCDIA;
-	menu=DimD;
+	menu=menu_items::DimD;
 }
 
-/*void CCadView::OnDimtxt() 
-{
-	//m_Dimselected=ID_DIMTXT;
-	menu=DimT;
-}
-*/
 void CCadView::OnIntersetpt() 
 {
 	// TODO: Add your command handler code here
@@ -3914,12 +3556,7 @@ void CCadView::OnSnapoff()
 
 void CCadView::OnSnapon() 
 {
-//	CToolBar snp;
-/*    if(!snap_menu) 
-		SetTimer(2, 50, NULL);
-	else
-		KillTimer(2);
-*/	snap_menu=!snap_menu;
+	snap_menu=!snap_menu;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	pDoc->m_objects->setsnap(snap_menu);
@@ -3932,8 +3569,6 @@ void CCadView::OnSnapon()
 		snap.display(v,hdc);
 		ReleaseDC(hdc);
 	}
-//	RegisterInterest(&snappy);
-//	snappy.setDraw(pDoc->m_objects);
 }
 
 void CCadView::OnSnappen() 
@@ -3956,8 +3591,6 @@ void CCadView::OnSnapendpoint()
 	
 }
 
-
-
 void CCadView::OnDialogFont() 
 {
 	CCadDoc* pDoc = GetDocument();
@@ -3978,7 +3611,6 @@ void CCadView::OnDialogFont()
 	COLORREF ccl;
 	TEXTMETRIC tm;
 	CHARFORMAT cf;
-	//CClientDC dc(NULL);
 	CFont *ptrFtOld;
 	dlg.m_cf.Flags|=CF_EFFECTS|CF_INITTOLOGFONTSTRUCT;
 	pDoc->m_objects->getfont(cf);
@@ -3988,11 +3620,7 @@ void CCadView::OnDialogFont()
 		dlg.GetCurrentFont(&lf);
 		ccl=dlg.GetColor();
 		dlg.GetCharFormat(cf);
-//		HideCaret();
 		CPoint p=pDoc->m_objects->setFont(hdc,lf,ccl,cf);
-//		CreateSolidCaret(1,15);
-//		SetCaretPos(p);
-//		ShowCaret();
 		if(p.x==0)
 		{
 			change=true;
@@ -4005,33 +3633,10 @@ void CCadView::OnDialogFont()
 
 void CCadView::OnSendtofront() 
 {
-//	menu=flipv;	
-	submenu=sendfront;
+	submenu= submenu_items::sendfront;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	hdc->SetMapMode(MM_ISOTROPIC);
-	hdc->SetWindowExt(100,100);
-	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-	CRect scr1;												
-															
-	GetClientRect(&scr1);
-	
-	currentPosdev=currentPos;
-	hdc->LPtoDP(&currentPosdev);
-
-	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);
-	
-	hdc->SetWindowOrg(0,0);
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->pos("front");
     change=true;
 	Invalidate();	// TODO: Add your command handler code here
@@ -4040,33 +3645,10 @@ void CCadView::OnSendtofront()
 
 void CCadView::OnSendtobackgrd() 
 {
-//	menu=flipv;
-	submenu=sendbgr;
+	submenu= submenu_items::sendbgr;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	hdc->SetMapMode(MM_ISOTROPIC);
-	hdc->SetWindowExt(100,100);
-	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-	CRect scr1;												
-															
-	GetClientRect(&scr1);
-	
-	currentPosdev=currentPos;
-	hdc->LPtoDP(&currentPosdev);
-
-	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);
-	
-	hdc->SetWindowOrg(0,0);
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->pos("back");
     change=true;
 	Invalidate();	// TODO: Add your command handler code here
@@ -4094,38 +3676,12 @@ void CCadView::OnChangeColor(COLORREF lc,COLORREF bc)
 	
 }
 
-
-
-
 void CCadView::OnSendforward() 
 {
-//	menu=flipv;	
-	submenu=sendforward;
+	submenu= submenu_items::sendforward;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	hdc->SetMapMode(MM_ISOTROPIC);
-	hdc->SetWindowExt(100,100);
-	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-	CRect scr1;												
-															
-	GetClientRect(&scr1);
-	
-	currentPosdev=currentPos;
-	hdc->LPtoDP(&currentPosdev);
-
-	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);
-	
-	hdc->SetWindowOrg(0,0);
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->pos("front1");
     change=true;
 	Invalidate();	// TODO: Add your command handler code here
@@ -4134,33 +3690,10 @@ void CCadView::OnSendforward()
 
 void CCadView::OnSendbackward() 
 {
-//	menu=flipv;	
-	submenu=sendbackward;
+	submenu= submenu_items::sendbackward;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	hdc->SetMapMode(MM_ISOTROPIC);
-	hdc->SetWindowExt(100,100);
-	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-	CRect scr1;												
-															
-	GetClientRect(&scr1);
-	
-	currentPosdev=currentPos;
-	hdc->LPtoDP(&currentPosdev);
-
-	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);
-	
-	hdc->SetWindowOrg(0,0);
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->pos("back1");
     change=true;
 	Invalidate();	// TODO: Add your command handler code here
@@ -4171,29 +3704,21 @@ void CCadView::OnSendbackward()
 void CCadView::OnEclipse() 
 {
 	// TODO: Add your command handler code here
-	menu=ellipse;
+	menu=menu_items::ellipse;
 }
 
 void CCadView::OnSlide() 
 {
-	menu=slide;	
+	menu= menu_items::slide;
 }
 
 void CCadView::OnPerp() 
 {
-	menu=perpline;
+	menu=menu_items::perpline;
 }
-
-//DEL void CCadView::OnTgline() 
-//DEL {
-//DEL 	menu=tangline;	
-//DEL }
 
 void CCadView::OnToolsGrid() 
 {
-//	CPGrid dlg;
-//	dlg.DoModal();
-	
 	CPen dot;
 	dot.CreatePen(PS_DOT,1,RGB(12,12,250));
 	CPen* pOldyPen2=hmdc->SelectObject(&dot);
@@ -4217,71 +3742,50 @@ void CCadView::OnToolsGrid()
 
 void CCadView::OnToolsPaper() 
 {
-/*	CCPaperSize pdlg;
-	pdlg.DoModal();	*/
-
 }
 
 void CCadView::OnFlih() 
 {
-	menu =fliph;
+	menu = menu_items::fliph;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	pDoc->m_objects->flip(false);
-	menu=select;
+	menu = menu_items::select;
     change=true;
 	Invalidate();
 }
 
 void CCadView::OnFilpvert() 
 {
-	menu=flipv;
+	menu= menu_items::flipv;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
 	pDoc->m_objects->flip(true);
-	menu=select;
+	menu = menu_items::select;
     change=true;
 	Invalidate();
 
 }
 
-
-
-//update button function for coppy paste undo redo.
-
-/*void CCadView::OnUpdateEditCut(CCmdUI* pCmdUI) 
-{
-	// TODO: Add your command update UI handler code here
-	
-}*/
-
 void CCadView::OnUpdateEditCopy(CCmdUI* pCmdUI) 
 {
-//	m_bpastenow = TRUE;
 	
 }
 
 void CCadView::OnUpdateEditPaste(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
 	pCmdUI->Enable(m_bpastenow);
 }
 
 
-//update button function for  undo redo.
-
 void CCadView::OnUpdateEditRedo(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-	//pCmdUI->
 }
 
 void CCadView::OnUpdateEditUndo(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-	
 }
 
 
@@ -4290,14 +3794,14 @@ void CCadView::OnUpdateEditUndo(CCmdUI* pCmdUI)
 void CCadView::OnUpdateGroup(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(submenu==group);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::group));
 }
 
 void CCadView::OnUpdateGroupup(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
 	pCmdUI->Enable(m_grouped);
-	pCmdUI->SetRadio(submenu==ungroup);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::ungroup));
 }
 
 
@@ -4307,24 +3811,24 @@ void CCadView::OnUpdateGroupup(CCmdUI* pCmdUI)
 void CCadView::OnUpdateSendbackward(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(submenu==sendbackward);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::sendbackward));
 }
 
 void CCadView::OnUpdateSendforward(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(submenu==sendforward);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::sendforward));
 	
 }
 
 void CCadView::OnUpdateSendtobackgrd(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(submenu==sendbgr);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::sendbgr));
 	
 }
 
 void CCadView::OnUpdateSendtofront(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(submenu==sendfront);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::sendfront));
 	
 }
 
@@ -4333,70 +3837,58 @@ void CCadView::OnUpdateSendtofront(CCmdUI* pCmdUI)
 
 void CCadView::OnUpdateSlide(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== slide);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::slide));
 	
 }
 
-
-
-//update button function grid
-/*void CCadView::OnUpdateToolsGrid(CCmdUI* pCmdUI) 
-{
-	// TODO: Add your command update UI handler code here
-	
-}*/
-
 void CCadView::OnUpdateDimho(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==DimH);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::DimH));
 	
 }
 
 void CCadView::OnUpdateDiml(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==DimL);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::DimL));
 }
 
 void CCadView::OnUpdateDimrad(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==DimR);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::DimR));
 	
 }
 
 void CCadView::OnUpdateDimtxt(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==DimT);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::DimT));
 	
 }
 
 void CCadView::OnUpdateDimvert(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== DimV);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::DimV));
 	
 }
 
 void CCadView::OnUpdateDimcdia(CCmdUI* pCmdUI) 
 {
-		pCmdUI->SetRadio(menu == DimD);
+		pCmdUI->SetRadio(static_cast<int>(menu) == static_cast<int>(menu_items::DimD));
 	
 }
 
 void CCadView::OnUpdateDimA(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==DimA);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::DimA));
 	
 }
 
 void CCadView::OnRecarraycopy() 
 {
 	// TODO: Add your command handler code here
-	menu=copyrec;
+	menu=menu_items::copyrec;
 
-	// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -4423,7 +3915,7 @@ void CCadView::OnRecarraycopy()
 	if(Adlg.DoModal()==IDOK)
 	{
 	pDoc->m_objects->pastearray(hdc,false,Adlg.m_rnb,Adlg.m_cnb,Adlg.m_dx,Adlg.m_dy,Adlg.m_nblevel,Adlg.m_lspacing);
-	menu=select;
+	menu = menu_items::select;
 	}
 	ReleaseDC(hdc);
 	
@@ -4431,127 +3923,126 @@ void CCadView::OnRecarraycopy()
 
 void CCadView::OnMirrornocopy() 
 {
-	// TODO: Add your command handler code here
-	menu=mirrornocopy;
+	menu= menu_items::mirrornocopy;
 }
 
 void CCadView::OnUpdateDim1free(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==DimF);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::DimF));
 	
 }
 
 void CCadView::OnUpdateTbselect(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==select);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::select));
 	
 }
 
 void CCadView::OnUpdateText(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==text);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::text));
 	
 }
 
 void CCadView::OnUpdateTbrotate(CCmdUI* pCmdUI) 
 {
-		pCmdUI->SetRadio(menu==rotate);
+		pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::rotate));
 }
 	
 void CCadView::OnUpdateTgline(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==tangline);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::tangline));
 	
 }
 
 void CCadView::OnUpdateTbmirror(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== mirror);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::mirror));
 	
 }
 
 void CCadView::OnUpdateSqline(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==sqline);//pCmdUI->m_nID == m_currentbtn);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::sqline));//pCmdUI->m_nID == m_currentbtn);
 	
 }
 
 void CCadView::OnUpdateRectangle(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==Rectangle);//pCmdUI->m_nID == m_currentbtn);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::Rectangle));//pCmdUI->m_nID == m_currentbtn);
 	
 }
 
 void CCadView::OnUpdateRectanglefree(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==Rectanglefree);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::Rectanglefree));
 	
 }
 
 void CCadView::OnUpdateLine(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==Line);	
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::Line));
 }
 
 void CCadView::OnUpdate2cercle(CCmdUI* pCmdUI) 
 {
-		pCmdUI->SetRadio(menu==circle2);
+		pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::circle2));
 	
 }
 
 void CCadView::OnUpdate3arcclose(CCmdUI* pCmdUI) 
 {
-		pCmdUI->SetRadio(menu==arc3);
+		pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::arc3));
 	
 }
 
 void CCadView::OnUpdate3arcopen(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==arc2);	
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::arc2));	
 }
 
 
 
 void CCadView::OnUpdate3cercle(CCmdUI* pCmdUI) 
 {
-		pCmdUI->SetRadio(menu==circle3);
+		pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::circle3));
 	
 }
 
 void CCadView::OnUpdateCercle(CCmdUI* pCmdUI) 
 {
-		pCmdUI->SetRadio(menu==Circle);
+		pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::Circle));
 	
 }
 
 void CCadView::OnUpdateCopyral(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==copyanglin);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::copyanglin));
 	
 }
 
 void CCadView::OnUpdateEclipse(CCmdUI* pCmdUI) 
 {
-		pCmdUI->SetRadio(menu==ellipse);
+		pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::ellipse));
 	
 }
 
 void CCadView::OnUpdatePerp(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== perpline);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::perpline));
 	
 }
 
 void CCadView::OnUpdateTaddnode(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(submenu== addnode);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::addnode));
 }
 
 void CCadView::OnUpdateTbreakcurve(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(submenu==breakcurve); 
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::breakcurve));
 }
 
 
@@ -4559,7 +4050,7 @@ void CCadView::OnUpdateTbreakcurve(CCmdUI* pCmdUI)
 void CCadView::OnUpdateTdeletenode(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(submenu== deletenode);
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::deletenode));
 }
 
 
@@ -4567,63 +4058,63 @@ void CCadView::OnUpdateTdeletenode(CCmdUI* pCmdUI)
 void CCadView::OnUpdateTclosecurve(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(submenu==closecurve );
+	pCmdUI->SetRadio(static_cast<int>(submenu)== static_cast<int>(submenu_items::closecurve ));
 }
 
 void CCadView::OnUpdatePolyb(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-		pCmdUI->SetRadio(menu== polybezier);
+		pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::polybezier));
 }
 
 
 void CCadView::OnUpdateArc(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==arc);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::arc));
 }
 
 void CCadView::OnUpdateMirrornocopy(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== mirrornocopy);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::mirrornocopy));
 	
 }
 
 void CCadView::OnUpdateAngcopy(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu== copyang);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::copyang));
 }
 
 
 
 void CCadView::OnUpdateCopybycenter(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== copybycenter);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::copybycenter));
 	
 }
 
 void CCadView::OnUpdateFilpvert(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== flipv);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::flipv));
 	
 }
 
 void CCadView::OnUpdateFlih(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== fliph);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::fliph));
 	
 }
 
 void CCadView::OnUpdateRecarraycopy(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu== copyrec);	
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::copyrec));
 }
 
 void CCadView::OnUpdateCopyline(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu== copyline);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::copyline));
 }
 void CCadView::OnPageSetup2(float paper_width,float paper_height) 
 {
@@ -4666,8 +4157,6 @@ void CCadView::OnPageSetup()
 		hdc->DPtoLP(&scr);
 		scr.NormalizeRect();
 		CSize z=scr.Size();
-//		pDoc->m_objects->setpixel(z.cx,z.cy);
-//		pDoc->m_objects->setPage(m_mode.Sg);
 		pDoc->m_objects->setdimL(papersize.length_type,papersize.length_subtype,papersize.length_prec);
 		pDoc->m_objects->setdimA(papersize.angle_type,papersize.angle_prec);
 
@@ -4701,14 +4190,6 @@ void CCadView::OnDash()
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->setlinestyle(PS_DASH);
 	change=true;
 	Invalidate();
@@ -4720,14 +4201,6 @@ void CCadView::OnDot()
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->setlinestyle(PS_DOT);
 	change=true;
 	Invalidate();
@@ -4735,18 +4208,9 @@ void CCadView::OnDot()
 }
 void CCadView::OnDashDot() 
 {
-	// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-//	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->setlinestyle(PS_DASHDOT);
 	change=true;
 	Invalidate();
@@ -4754,36 +4218,18 @@ void CCadView::OnDashDot()
 
 void CCadView::OnDashdotdot() 
 {
-	// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->setlinestyle(PS_DASHDOTDOT);
 	change=true;
 	Invalidate();
 }
 void CCadView::OnEeeSolid() 
 {
-	// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-//	hdc->RealizePalette();
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->setlinestyle(PS_SOLID);
 	change=true;
 	Invalidate();
@@ -4791,14 +4237,12 @@ void CCadView::OnEeeSolid()
 
 void CCadView::OnBl() 
 {
-	// TODO: Add your command handler code here
-	
+	// TODO: Add your command handler code here	
 }
 
 void CCadView::OnDoubledot() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnLinewidthCustom() 
@@ -4810,14 +4254,6 @@ void CCadView::OnLinewidthCustom()
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CColorD colD;
-/*	CDC *hdc=GetDC();
-	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-
-	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-	hdc->RealizePalette();
-
-	OnPrepareDC(hdc);
-*/
 	pDoc->m_objects->setlinewidth(dlg.m_cwidth);
 	change=true;
 	Invalidate();
@@ -4890,7 +4326,6 @@ void CCadView::OnLinewidthThin()
 
 void CCadView::OnToolCustom() 
 {
-	// TODO: Add your command handler code here
 	CPropertySheet dlgPropertySheet(AFX_IDS_APP_TITLE);
 	CGridPag  m_custgrid;
 	CPaperPag m_custpaper;
@@ -4907,7 +4342,6 @@ void CCadView::OnToolCustom()
 
 void CCadView::OnToolOption() 
 {
-	// TODO: Add your command handler code here
 	
 }
 
@@ -4938,126 +4372,50 @@ void CCadView::OnEffectZoomout()
 
 void CCadView::OnToolsLcolor() 
 {
-	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateSnapctr(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-	//pCmdUI->SetRadio(snap_menu == snapc);	
 }
 
 void CCadView::OnUpdateSnapendpoint(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-//	pCmdUI->SetRadio(snap_menu == snapbb);
 }
 
-/*void CCadView::OnUpdateSnapon(CCmdUI* pCmdUI) 
-{
-	// TODO: Add your command update UI handler code here
-	pCmdUI->SetCheck(snap_menu);
-	{/*
-		pCmdUI->Enable(snap_menu==snapp);
-		pCmdUI->Enable(snap_menu==snapq);
-		pCmdUI->Enable(snap_menu==snapmi);
-		pCmdUI->Enable(snap_menu==snapb);
-		pCmdUI->Enable(snap_menu==snapt);
-		pCmdUI->Enable(snap_menu==snapnear);
-		pCmdUI->Enable(snap_menu==snapc);
-		
-	}
-
-}*/
 void CCadView::OnUpdateSnapmidpoint(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-	//pCmdUI->SetRadio(snap_menu == snapmi);
 }
 
 void CCadView::OnUpdateSnapnear(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-//	pCmdUI->SetRadio(snap_menu == snapnear);
 }
 
 void CCadView::OnUpdateSnapoff(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-//	pCmdUI->SetRadio(snap_menu == snapoff);
 }
 
 void CCadView::OnUpdateSnappen(CCmdUI* pCmdUI) 
 {
-//	pCmdUI->SetRadio(snap_menu == snapp);
-	
 }
 
 void CCadView::OnUpdateSnapquad(CCmdUI* pCmdUI) 
 {
-//		pCmdUI->SetRadio(snap_menu == snapq);
 }
 
 void CCadView::OnUpdateSnaptan(CCmdUI* pCmdUI) 
 {
-//		pCmdUI->SetRadio(snap_menu == snapt);
 }
 
-/*
-void CCadView::OnGeometry() 
-
-{
-		CPropPage m_prop(_T ("Properties"));
-	//	m_prop.Create(this);
-		m_prop.DoModal();
-	//	m_prop.ShowWindow(SW_SHOW);
-	//	CLineProp ldlg;
-	//	ldlg.DoModal();
-		
-		switch (select)
-		case line:
-			CLineProp ldlg;
-			ldlg.DoModal();
-			break;
-		case spline:
-			CSplineProp sdlg;
-			sdlg.DoModal();
-			break;
-		case rectangle:
-			CLineProp ldlg;
-			ldlg.DoModal();
-			break;
-		case arc:
-			CArcProp adlg;
-			adlg.DoModal();
-			break;
-
-}
-*/
-/*void CCadView::OnCustomize() 
-{
-	// TODO: Add your command handler code here
-	
-}
-*/
 BOOL CCadView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt) 
 {
-	// TODO: Add your message handler code here and/or call default
-	
 	return CScrollView::OnMouseWheel(nFlags, zDelta, pt);
 }
 
 void CCadView::OnChamfer() 
 {
-	menu=chamf;// TODO: Add your command handler code here
-
-		// TODO: Add your command handler code here
-
-	// TODO: Add your command handler code here
+	menu= menu_items::chamf;// TODO: Add your command handler code here
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -5084,25 +4442,21 @@ void CCadView::OnChamfer()
 	if(Adlg.DoModal()==IDOK)
 	{
 	pDoc->m_objects->setChamfparam(Adlg.m_chlgth);
-//	menu=select;
 	}
 	ReleaseDC(hdc);
 }
 
 void CCadView::OnUpdateChamfer(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==chamf);	
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::chamf));
 	
 }
 
 void CCadView::OnFillet() 
 {
-	menu=filt;// TODO: Add your command handler code here
-
-	// TODO: Add your command handler code here
+	menu= menu_items::filt;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -5129,7 +4483,6 @@ void CCadView::OnFillet()
 	if(Adlg.DoModal()==IDOK)
 	{
 	pDoc->m_objects->setFiltparam(Adlg.m_chlgth);
-//	menu=select;
 	}
 	ReleaseDC(hdc);
 	
@@ -5137,51 +4490,44 @@ void CCadView::OnFillet()
 
 void CCadView::OnUpdateFillet(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==filt);	
-	
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::filt));
 }
 
 void CCadView::OnDimlv() 
 {
-	menu=DimLV;	
+	menu=menu_items::DimLV;	
 }
 
 void CCadView::OnUpdateDimlv(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==DimLV);	
-	
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::DimLV));
 }
 
 void CCadView::OnDimlh() 
 {
-	menu=DimLH;	
+	menu=menu_items::DimLH;	
 }
 
 void CCadView::OnUpdateDimlh(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==DimLH);	
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::DimLH));
 }
 
 void CCadView::OnCopylinenocopy() 
 {
-	menu=copylinenocopy;
-	
+	menu= menu_items::copylinenocopy;
 }
 
 void CCadView::OnUpdateCopylinenocopy(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==copylinenocopy);		
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::copylinenocopy));
 }
 
 void CCadView::OnOffset() 
 {
-	// TODO: Add your command handler code here
-	menu=offset;
-
-	// TODO: Add your command handler code here
+	menu= menu_items::offset;
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -5208,7 +4554,7 @@ void CCadView::OnOffset()
 	if(Adlg.DoModal()==IDOK)
 	{
 	pDoc->m_objects->pastearray(hdc,true,Adlg.m_rnb,Adlg.m_cnb,Adlg.m_dx,Adlg.m_dy,0,0);
-	menu=select;
+	menu = menu_items::select;
 	}
 	ReleaseDC(hdc);
 	
@@ -5216,24 +4562,23 @@ void CCadView::OnOffset()
 
 void CCadView::OnUpdateOffset(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==offset);		
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::offset));
 }
 
 void CCadView::OnTrim() 
 {
-	menu=trim;	
+	menu= menu_items::trim;
 }
 
 void CCadView::OnUpdateTrim(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==trim);		
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::trim));
 }
 
 void CCadView::OnEditAlayer() 
 {
 	CCadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-//	CColorD colD;
 	CDC *hdc=GetDC();
 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 
@@ -5256,91 +4601,27 @@ void CCadView::OnEditAlayer()
 
 	OnPrepareDC(hdc);
 
-//	pDoc->m_objects->grid(hdc,);
 	ReleaseDC(hdc);
 	change=true;
 	Invalidate();
 }
 
 
-
-
 void CCadView::OnImage() 
 {
-	menu=image;
-	// TODO: Add your command handler code here
+	menu= menu_items::image;
 }
 
 void CCadView::OnUpdateImage(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==image);		
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::image));
 }
 
-
-//DEL void CCadView::OnFileSaveAs() 
-//DEL {
-//DEL 	CCadDoc* pDoc = GetDocument();
-//DEL 	ASSERT_VALID(pDoc);
-//DEL //	CColorD colD;
-//DEL 	CDC *hdc=GetDC();
-//DEL 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
-//DEL 
-//DEL 	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
-//DEL 	hdc->RealizePalette();
-//DEL 	OnPrepareDC(hdc);
-//DEL 
-//DEL 
-//DEL 	CFileDialog dllg(FALSE);
-//DEL 	dllg.m_ofn.lpstrDefExt="deh";
-//DEL 	dllg.m_ofn.lpstrFilter="AndyCad Files(*.deh)\0*.deh\0DIB Files(*.BMP)\0*.BMP\0SVG Files(*.svg)\0*.svg\0";
-//DEL 	dllg.m_ofn.nFilterIndex=1;
-//DEL 
-//DEL 	if(dllg.DoModal()==IDOK)
-//DEL 	{
-//DEL 
-//DEL 		try
-//DEL 		{
-//DEL 			CFile file(dllg.GetPathName(),CFile::modeCreate | CFile::modeWrite);
-//DEL 
-//DEL 	
-//DEL 			if(dllg.m_ofn.nFilterIndex==1)//(dllg.GetFileExt()=="bmp")
-//DEL 			{
-//DEL 			pDoc->m_objects->save(hdc,file);
-//DEL 			}
-//DEL 			else
-//DEL 			if(dllg.m_ofn.nFilterIndex==2)//(dllg.GetFileExt()=="svg")
-//DEL 			{
-//DEL 				dllg.m_ofn.lpstrDefExt="bmp";
-//DEL 				pDoc->m_objects->saveBMP(hdc,file);
-//DEL      
-//DEL 			}
-//DEL 			else
-//DEL 			if(dllg.m_ofn.nFilterIndex==3)//(dllg.GetFileExt()=="deh")
-//DEL 			{
-//DEL 				dllg.m_ofn.lpstrDefExt="svg";
-//DEL 			}
-//DEL 			file.Close();
-//DEL 		}		
-//DEL 		catch(CFileException * fx)
-//DEL 		{
-//DEL 			 TCHAR buf[255];
-//DEL 			 fx->GetErrorMessage(buf, 255);
-//DEL 			 CString strPrompt(buf);
-//DEL 			 AfxMessageBox(strPrompt);
-//DEL 		}
-//DEL 
-//DEL 	}
-//DEL 
-//DEL 
-//DEL 	
-//DEL }
 
 void CCadView::Save(int fileindex, CStdioFile &file)
 {
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
-//	CColorD colD;
  	CDC *hdc=GetDC();
  	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
  
@@ -5374,7 +4655,6 @@ void CCadView::Save(int fileindex, CFile &file)
 {
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
-//	CColorD colD;
  	CDC *hdc=GetDC();
  	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
  
@@ -5391,9 +4671,6 @@ void CCadView::Save(int fileindex, CFile &file)
  	else
  	if((fileindex==5)||(fileindex==6))//(dllg.GetFileExt()=="svg")
  	{
-	//	change=true;
-	//	isSaving=true;
-	//	OnDraw(hdc);
 		
 		CSize p2=hdc->GetWindowExt();
 		pDoc->m_objects->setPrintPage(CRect(CPoint(0,0),p2),1);
@@ -5406,9 +4683,7 @@ void CCadView::Save(int fileindex, CFile &file)
 		double ytop=ra.top;
 		ra.top=ra.bottom;
 		ra.bottom=ytop;
-//		rall=ra;
 		CSize rss1=rall.Size();
-//		CPoint p00=rall.TopLeft();
 		CPoint p01=p00;
 		CBitmap bmp2,bmp3;
 		CBitmap* oldbmp2;
@@ -5420,9 +4695,7 @@ void CCadView::Save(int fileindex, CFile &file)
 		hmdc2.CreateCompatibleDC(hdc);
 	 	OnPrepareDC(&hmdc1);
  		OnPrepareDC(&hmdc2);
-//		bool rb1=bmp2.CreateCompatibleBitmap(hdc,rss1.cx,rss1.cy);//uz.cx+10,-(uz.cy+10));
 		bool rb1=bmp2.CreateCompatibleBitmap(hdc,rss.cx,-rss.cy);//uz.cx+10,-(uz.cy+10));
-//		bool rb2=bmp3.CreateCompatibleBitmap(hdc,rss1.cx,rss1.cy);//uz.cx+10,-(uz.cy+10));
 		bool rb2=bmp3.CreateCompatibleBitmap(hdc,rss.cx,-rss.cy);//uz.cx+10,-(uz.cy+10));
 		oldbmp=hmdc1.SelectObject(&bmp2);
 		oldbmp2=hmdc2.SelectObject(&bmp3);
@@ -5434,7 +4707,6 @@ void CCadView::Save(int fileindex, CFile &file)
 		HBRUSH br1=(HBRUSH)SelectObject(hmdc2.GetSafeHdc(),GetStockObject(GRAY_BRUSH));
 		hmdc2.Rectangle(t2);
 		pDoc->m_objects->drawforbmp(&hmdc1);		
-//		hmdc2.BitBlt(0,0,rss.cx,rss.cy,&hmdc1,p00.x,p00.y,SRCCOPY);
 		hmdc2.StretchBlt(0,0,rss1.cx,-rss1.cy,&hmdc1,0,0,/*p00.x,p00.y,*/rss1.cx,-rss1.cy,SRCCOPY);
 		if(fileindex==5)
 			pDoc->m_objects->savePNG(&hmdc1,&bmp3,file);
@@ -5457,7 +4729,6 @@ void CCadView::Save(int fileindex, CFile &file)
 		CSize sz(wcr.Size().cx,wcr.Size().cy);
 		pDoc->m_objects->setpixel0(sz.cx,sz.cy);
 		pDoc->m_objects->endPrint();
-	//	isSaving=false;
  	}
  	ReleaseDC(hdc);
 }
@@ -5467,7 +4738,6 @@ void CCadView::Open(int fileindex,CFile &file)
 	change=false;
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
-//	CColorD colD;
  	CDC *hdc=GetDC();
  	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
  
@@ -5520,7 +4790,6 @@ void CCadView::import(int fileindex, CStdioFile &file)
 {
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
-//	CColorD colD;
  	CDC *hdc=GetDC();
  	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
  
@@ -5553,7 +4822,6 @@ void CCadView::import(int fileindex, CFile &file)
 {
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
-//	CColorD colD;
  	CDC *hdc=GetDC();
  	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
  
@@ -5598,42 +4866,6 @@ void CCadView::OnHelpWwwandycadcom()
 	ShellExecute(0,NULL,site,NULL,NULL,SW_SHOWDEFAULT);
 }
 
-/*void CCadView::OnEditClear() 
-{
-	m_bpastenow = TRUE;
-
-    CDC *hdc=GetDC();
-	
-////  hdc->SetMapMode(MM_ISOTROPIC);
-	hdc->SetWindowExt(100,100);
-	hdc->SetViewportExt(100*zoomrat,100*zoomrat);
-	hdc->SetWindowOrg(0,0);
-	
-	CRect scr1;;
-
-	GetClientRect(&scr1);
-
-	currentPosdev=currentPos;
-	hdc->LPtoDP(&currentPosdev);
-
-	hdc->SetViewportOrg(scr1.Width()/2-currentPosdev.cx,scr1.Height()/2-currentPosdev.cy);//
-	OnPrepareDC(hdc);
-
-	CCadDoc* pDoc = GetDocument();
-	ASSERT_VALID(pDoc);
-
-	pDoc->m_objects->cut(hdc);
-    change=true;
-	Invalidate();
-	ReleaseDC(hdc);	
-}*/
-
-/*void CCadView::OnUpdateEditClear(CCmdUI* pCmdUI) 
-{
-	// TODO: Add your command update UI handler code here
-	
-}*/
-
 
 void CCadView::OnTblib() 
 {
@@ -5657,25 +4889,25 @@ void CCadView::libupdate()
 
 }
 
-void CCadView::draglib(CString &f, CString &l,CPoint point)
+void CCadView::draglib(const CString &f, const CString &l,CPoint point)
 {
 	mouse.setMove(false);
 	mouse.setLBdown(true);
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
- 	CDC *hdc=GetDC();
+ 	CDC *hdc=this->GetDC();
  	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
 	
-	menu=select;
+	this->menu = menu_items::select;
  	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
  	hdc->RealizePalette();
- 	OnPrepareDC(hdc);
+ 	this->OnPrepareDC(hdc);
 	hdc->DPtoLP(&point);
 	mouse.setPrevPos(point);
 	pDoc->m_objects->Insertlib(hdc,f,l,point);
-	change=true;
-	Invalidate();
-	ReleaseDC(hdc);
+	this->change=true;
+	this->Invalidate();
+	this->ReleaseDC(hdc);
 }
 
 
@@ -5763,9 +4995,7 @@ void CCadView::update()
 
 void CCadView::OnCampad() 
 {
-	menu=campad;
-	// TODO: Add your command handler code here
-	
+	menu= menu_items::campad;
 }
 
 void CCadView::OnUpdateCampad(CCmdUI* pCmdUI) 
@@ -5776,7 +5006,7 @@ void CCadView::OnUpdateCampad(CCmdUI* pCmdUI)
 
 void CCadView::OnCamrot() 
 {
-	menu=camrot;
+	menu= menu_items::camrot;
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
  	CDC *hdc=GetDC();
@@ -5846,7 +5076,6 @@ void CCadView::OnTdegp()
 void CCadView::OnUpdateTdegp(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::Onsurfrev() 
@@ -5879,7 +5108,6 @@ void CCadView::Onsurfrev()
 void CCadView::OnUpdatesurfrev(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::Onsurfext() 
@@ -5910,7 +5138,6 @@ void CCadView::Onsurfext()
 void CCadView::OnUpdatesurfext(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::Onsurfcoon() 
@@ -5941,7 +5168,6 @@ void CCadView::Onsurfcoon()
 void CCadView::OnUpdatesurfcoon(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnVol() 
@@ -5963,7 +5189,6 @@ void CCadView::OnVol()
 void CCadView::OnUpdateVol(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnButton40142() 
@@ -5986,8 +5211,8 @@ void CCadView::OnButton40142()
 
 void CCadView::OnPtselect() 
 {
-	menu=spoint;
-	submenu=nothing;
+	menu= menu_items::spoint;
+	submenu= submenu_items::nothing;
  	CCadDoc* pDoc = GetDocument();
  	ASSERT_VALID(pDoc);
  	CDC *hdc=GetDC();
@@ -6006,35 +5231,17 @@ void CCadView::OnPtselect()
 
 void CCadView::OnUpdatePtselect(CCmdUI* pCmdUI) 
 {
-	pCmdUI->SetRadio(menu==spoint);
-	
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::spoint));
 }
-/*
-void CCadView::OnFill() 
-{
-	// TODO: Add your command handler code here
-	menu=fill;	
-}
-
-void CCadView::OnUpdateFill(CCmdUI* pCmdUI) 
-{
-	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==fill);
-	
-}
-*/
 
 void CCadView::OnFreecamera() 
 {
-	menu=camrot;
-	// TODO: Add your command handler code here
-	
+	menu= menu_items::camrot;
 }
 
 void CCadView::OnUpdateFreecamera(CCmdUI* pCmdUI) 
 {
-	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==campad);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::campad));
 }
 
 void CCadView::OnFrontview() 
@@ -6195,139 +5402,116 @@ void CCadView::OnUpdateRightview(CCmdUI* pCmdUI)
 void CCadView::OnShape2dwired() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateShape2dwired(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnShape3dwire() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateShape3dwire(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnShapeflat() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateShapeflat(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnShapeflatedgeon() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateShapeflatedgeon(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnShapegourand() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateShapegourand(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnShapegourandedgeon() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateShapegourandedgeon(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnSolidbox() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateSolidbox(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnSolidcone() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateSolidcone(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnSolidcylinder() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateSolidcylinder(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnSolidrorus() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateSolidrorus(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnSolidshpere() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateSolidshpere(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnSolidwedge() 
 {
 	// TODO: Add your command handler code here
-	
 }
 
 void CCadView::OnUpdateSolidwedge(CCmdUI* pCmdUI) 
@@ -6681,26 +5865,26 @@ void CCadView::OnUpdateBottomview(CCmdUI* pCmdUI)
 void CCadView::OnCamerarotation() 
 {
 	// TODO: Add your command handler code here
-	menu=camrot;
+	menu= menu_items::camrot;
 }
 
 void CCadView::OnUpdateCamerarotation(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-   pCmdUI->SetRadio(menu==camrot);	
+   pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::camrot));
 }
 
 void CCadView::OnBucketfill() 
 {
 	// TODO: Add your command handler code here
-		menu=fill;
+		menu= menu_items::fill;
 	
 }
 
 void CCadView::OnUpdateBucketfill(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==fill);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::fill));
 }
 
 void CCadView::OnTopview() 
@@ -6753,21 +5937,11 @@ void CCadView::OnTransparency()
 
 void CCadView::OnUpdateTransparency(CCmdUI* pCmdUI) 
 {
-//	pCmdUI->SetRadio(menu==fill);
-	// TODO: Add your command update UI handler code here
-	
 }
-
-/*void CCadView::OnToolsGrid() 
-{
-	// TODO: Add your command handler code here
-	
-}*/
 
 void CCadView::OnUpdateToolsGrid(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnChangeTexture(CString s)
@@ -6880,13 +6054,13 @@ void CCadView::OnUpdateHelpFinder(CCmdUI* pCmdUI)
 void CCadView::OnDrawArcstartcenterend() 
 {
 	// TODO: Add your command handler code here
-	menu=arc32;
+	menu=menu_items::arc32;
 }
 
 void CCadView::OnUpdateDrawArcstartcenterend(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==arc32);
+	pCmdUI->SetRadio(static_cast<int>(menu)==static_cast<int>(menu_items::arc32));
 	
 }
 
@@ -7034,7 +6208,7 @@ void CCadView::OnRButtonDblClk(UINT nFlags, CPoint point)
 void CCadView::OnDrawBox() 
 {
 	// TODO: Add your command handler code here
-	menu=box;
+	menu= menu_items::box;
 }
 
 void CCadView::OnEditSmooth() 
@@ -7149,7 +6323,7 @@ void CCadView::OnEditCamera()
  	hdc->RealizePalette();
  	OnPrepareDC(hdc);
  
-	menu=camset;
+	menu= menu_items::camset;
 
 	void** param[3];
 	float pos[3];
@@ -7310,13 +6484,13 @@ void CCadView::OnUpdateGeometry(CCmdUI* pCmdUI)
 void CCadView::OnTbscale() 
 {
 	// TODO: Add your command handler code here
-	menu=scale;
+	menu = menu_items::scale;
 }
 
 void CCadView::OnUpdateTbscale(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	pCmdUI->SetRadio(menu==scale);
+	pCmdUI->SetRadio(static_cast<int>(menu)== static_cast<int>(menu_items::scale));
 	
 }
 
@@ -7419,39 +6593,24 @@ void CCadView::OnModifyJoin()
 
 	pDoc->m_objects->join(true,hdc);
 	ReleaseDC(hdc);*/
-	menu=extend;
+	menu= menu_items::extend;
 
 	
 }
 void CCadView::OnModifyClip() 
 {
-	// TODO: Add your command handler code here
-/* 	CCadDoc* pDoc = GetDocument();
- 	ASSERT_VALID(pDoc);
- 	CDC *hdc=GetDC();
- 	CMainFrame* mg=(CMainFrame*)::AfxGetMainWnd();
- 
- 	hdc->SelectPalette(&mg->colorToolBar.palette,FALSE);
- 	hdc->RealizePalette();
- 	OnPrepareDC(hdc);
-
-	pDoc->m_objects->join(true,hdc);
-	ReleaseDC(hdc);*/
-	menu=clip;
-
-	
+	menu= menu_items::clip;
 }
 
 void CCadView::OnUpdateModifyJoin(CCmdUI* pCmdUI) 
 {
 	// TODO: Add your command update UI handler code here
-	
 }
 
 void CCadView::OnCamswiv() 
 {
 	// TODO: Add your command handler code here
-menu=camsw;	
+menu= menu_items::camsw;
 }
 
 void CCadView::OnUpdateCamswiv(CCmdUI* pCmdUI) 
@@ -7483,32 +6642,12 @@ void CCadView::OnProperties()
 
 void CCadView::OnUpdateProperties(CCmdUI* pCmdUI) 
 {
-    /*CCadDoc* pDoc = GetDocument();
-	ASSERT_VALID(pDoc);
-	CDC *hdc=GetDC();
-	OnPrepareDC(hdc);
-
-	if(pDoc->m_objects->getselect())
-	{
-		COBJEdit edt;
-		edt.setobj(pDoc->m_objects->getobif());
-		edt.DoModal();
-
-		if(edt.DoModal()==IDOK)
-		{
-			pDoc->m_objects->setobjinfo(edt.m_auth,edt.m_descr,\
-										edt.m_name,edt.m_cost);
-
-		}
-	}
-*/
-	
 }
 
 void CCadView::OnViewPanDown() 
 {
-menu=select;		
-menu=campad;
+menu = menu_items::select;		
+menu= menu_items::campad;
 		// TODO: Add your command handler code here
 	
 }
@@ -7521,8 +6660,8 @@ void CCadView::OnUpdateViewPanDown(CCmdUI* pCmdUI)
 
 void CCadView::OnViewPanLeft() 
 {
-menu=select;		
-menu=campad;
+menu = menu_items::select;		
+menu= menu_items::campad;
 	
 }
 
@@ -7535,8 +6674,8 @@ void CCadView::OnUpdateViewPanLeft(CCmdUI* pCmdUI)
 void CCadView::OnViewPanRight() 
 {
 	// TODO: Add your command handler code here
-	menu=select;		
-menu=campad;
+	menu = menu_items::select;		
+menu= menu_items::campad;
 	
 }
 
@@ -7549,8 +6688,8 @@ void CCadView::OnUpdateViewPanRight(CCmdUI* pCmdUI)
 void CCadView::OnViewPanUp() 
 {
 	// TODO: Add your command handler code here
-	menu=select;		
-menu=campad;
+	menu = menu_items::select;		
+menu= menu_items::campad;
 	
 }
 
@@ -7599,13 +6738,13 @@ void CCadView::Close(CFigure *f)
 void CCadView::OnDrawSolidSphere() 
 {
 	// TODO: Add your command handler code here
-	menu=sphere;
+	menu= menu_items::sphere;
 }
 
 void CCadView::OnDrawPlane() 
 {
 	// TODO: Add your command handler code here
-	menu=plane;
+	menu= menu_items::plane;
 }
 
 void CCadView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo) 
@@ -7670,21 +6809,21 @@ void CCadView::SendNotify(CString s, void *param[])
 		input.MakeLower();
 		int i=output.Find("line");
 		if(i!=-1)
-			menu=Line;
+			menu = menu_items::Line;
 		 i=output.Find("rect");
 		if(i!=-1)
-			menu=Rectangle;
+			menu = menu_items::Rectangle;
 		 i=output.Find("spline");
 		if(i!=-1)
-			menu=polybezier;
+			menu = menu_items::polybezier;
 		 i=output.Find("circle");
 		if(i!=-1)
-			menu=Circle;
+			menu = menu_items::Circle;
 		i=input.Find("command:");
 		if(i!=-1)
 		{
-			menu=select;
-			submenu=nothing;
+			menu = menu_items::select;
+			submenu= submenu_items::nothing;
  			CCadDoc* pDoc = GetDocument();
  			ASSERT_VALID(pDoc);
  			CDC *hdc=GetDC();
@@ -7725,36 +6864,36 @@ void CCadView::OnFilePrintSetup()
 void CCadView::OnModifyPointconstraint() 
 {
 	// TODO: Add your command handler code here
-			submenu=pointconstraint;
-	pointconstraint_mode=pointconstraint_item;
+			submenu= submenu_items::pointconstraint;
+	pointconstraint_mode=pointconstraint_mode_items::pointconstraint_item;
 }
 void CCadView::OnModifyVectorconstraint() 
 {
 	// TODO: Add your command handler code here
-			submenu=vectorconstraint;
-		vectorconstraint_mode=vectorconstraint_item;
+			submenu= submenu_items::vectorconstraint;
+		vectorconstraint_mode= vectorconstraint_mode_items::vectorconstraint_item;
 }
 void CCadView::OnModifyVerticalconstraint() 
 {
 	// TODO: Add your command handler code here
-			submenu=vectorconstraint;
-		vectorconstraint_mode=vertical;
+			submenu= submenu_items::vectorconstraint;
+		vectorconstraint_mode= vectorconstraint_mode_items::vertical;
 }
 void CCadView::OnModifyHorizontalconstraint() 
 {
 	// TODO: Add your command handler code here
-			submenu=vectorconstraint;
-		vectorconstraint_mode=horizontal;
+			submenu= submenu_items::vectorconstraint;
+		vectorconstraint_mode= vectorconstraint_mode_items::horizontal;
 }
 void CCadView::OnModifyParallelconstraint() 
 {
 	// TODO: Add your command handler code here
-			submenu=vectorconstraint;
-		vectorconstraint_mode=parallel;
+			submenu= submenu_items::vectorconstraint;
+		vectorconstraint_mode= vectorconstraint_mode_items::parallel;
 }
 void CCadView::OnModifyPerpendicularconstraint() 
 {
 	// TODO: Add your command handler code here
-			submenu=vectorconstraint;
-		vectorconstraint_mode=perpendicular;
+			submenu= submenu_items::vectorconstraint;
+		vectorconstraint_mode= vectorconstraint_mode_items::perpendicular;
 }

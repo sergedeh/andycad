@@ -95,7 +95,7 @@ int nbline=0,nbspline=0;
 CStringArray sar;
 
 
-void yyerror (char* s)  /* Called by yyparse on error */
+void yyerror (const char* s)  /* Called by yyparse on error */
 {
  // printf ("%s\n", s);
   CString f(s);

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\aabb\CAABB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\bezier\CBezier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\cam\CAM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\circle\Cercle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\command\CCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\constraint\CConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\cvector\CCVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\dim\CDim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\dim\CDimArrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\dim\CDimText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\dima\CDimA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\diml\CDimL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\draw\Draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\edge\CEdge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\ffd\CFFD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\figure\CFigure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\font\CFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\image\CImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\inter\CInter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\inter\CIntp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\libs\CLibs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\line\CLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\matrix\CMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\memento\CMemento.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\mesh\CMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\mouse\CMouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\observer\CObserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\polygon\CPolygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\property\CProperty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\qline\CQLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\quadtree\CQuadTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\ray\CRay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\rectangle\CRectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\render\CRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapPara.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapcentp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapendp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapgridp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapintp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapmidp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapnearp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapparagrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnapperp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\snap\CSnappoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\subject\CSubject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\textcad\CTextCad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\triangle\CTriangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\tvector\CTVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\utils\CCadView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\utils\CPlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\utils\CRect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\vector\CVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\vectorm\CVectorm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\vertex\CVertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\core\ximage\CxImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\emuso\Documents\GitHub\andycad\AndyCADMFC\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{29E4A343-CF86-326F-BE41-C399E13FB7E4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

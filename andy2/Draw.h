@@ -179,14 +179,14 @@ public:
 	void setobjinfo(CString aut,CString desc,CString name, double cost);
 	void setcurlayer(CListCtrl& tcl,CString txt);
 	void setclayer(CString txt,int state);
-	void uplayer(CString &txt);
-	void downlayer(CString &txt);
-	void removelayer(CString& txt);
+	void uplayer(const CString &txt);
+	void downlayer(const CString &txt);
+	void removelayer(const CString& txt);
 	void addlayer(CListCtrl &tcl,CString ltext);
 	void initlayer(CListCtrl &tcl);
 	void setsnap(bool b);
 	void unfill(CDC *hdc);
-	void Insertlib(CDC *hdc,CString& f,CString& l,CVector pos);
+	void Insertlib(CDC *hdc,const CString& f,const CString& l,CVector pos);
 	void Initlib(CLibdialog& tctl);
 	void InitlibDxf(CLibdialog& lbtctl,CFile& file);
 	void InitlibAff(CLibdialog& lbtctl,CFile& file);
@@ -235,7 +235,7 @@ public:
 	void group(CDC *hdc);
 	CRect grid(CDC *rhdc,CDC *hdc,CSize cp);
 	void redo(CDC *hdc,string& cmd);
-	void undo(string& cmd,bool rdo=true);
+	void undo(const string& cmd,bool rdo=true);
 	void redoc(CDC *hdc);
 	void undoc(bool rdo=true);
 	void forundo(CWnd* wnd,CDC *hdc);

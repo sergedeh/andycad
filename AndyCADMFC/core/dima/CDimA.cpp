@@ -10,7 +10,7 @@
 // DimA.cpp: implementation of the CDimA class.
 //
 //////////////////////////////////////////////////////////////////////
-#include "cray.h"
+#include "CRay.h"
 
 double CDimA::la,CDimA::ra;
 

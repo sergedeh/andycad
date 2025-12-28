@@ -15,7 +15,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
-#include "cLine.h"
+#include "CLine.h"
 using namespace std;
 class CQLine : public CLine
 {
