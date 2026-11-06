@@ -2,6 +2,7 @@
 
 #include "D2DRenderer.h"
 
+#include <cmath>
 #include <vector>
 
 #pragma comment(lib, "d2d1.lib")
@@ -68,6 +69,27 @@ D2DRenderer::D2DRenderer(HWND hwnd) : m_hwnd(hwnd) {
     m_cur = D2D1::Matrix3x2F::Identity();
 }
 
+D2DRenderer::D2DRenderer() : m_hwnd(nullptr) {
+    D2D1_FACTORY_OPTIONS opts = {};
+    D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, opts, &m_factory);
+    DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory),
+                        reinterpret_cast<IUnknown**>(&m_dwrite));
+    m_cur = D2D1::Matrix3x2F::Identity();
+}
+
+void D2DRenderer::SetAntialias(bool on) {
+    if (m_rt)
+        m_rt->SetAntialiasMode(on ? D2D1_ANTIALIAS_MODE_PER_PRIMITIVE : D2D1_ANTIALIAS_MODE_ALIASED);
+}
+
+bool D2DRenderer::BindDC(HDC hdc, const RECT& rc) {
+    if (!m_hwnd && !m_dcRt) {
+        if (!CreateDeviceResources()) return false;
+    }
+    if (!m_dcRt) return false;
+    return SUCCEEDED(m_dcRt->BindDC(hdc, &rc));
+}
+
 D2DRenderer::~D2DRenderer() {
     DiscardDeviceResources();
     for (auto& kv : m_formats) kv.second->Release();
@@ -78,6 +100,17 @@ D2DRenderer::~D2DRenderer() {
 }
 
 bool D2DRenderer::CreateDeviceResources() {
+    if (!m_factory) return false;
+    if (!m_hwnd) {
+        // DC render target: GDI-compatible, so it can draw into the view's
+        // memory DC and keep whatever GDI already painted there.
+        D2D1_RENDER_TARGET_PROPERTIES dcp = D2D1::RenderTargetProperties(
+            D2D1_RENDER_TARGET_TYPE_DEFAULT,
+            D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_IGNORE),
+            0, 0, D2D1_RENDER_TARGET_USAGE_NONE, D2D1_FEATURE_LEVEL_DEFAULT);
+        if (FAILED(m_factory->CreateDCRenderTarget(&dcp, &m_dcRt))) return false;
+        m_rt = m_dcRt;
+    } else {
     RECT rc; GetClientRect(m_hwnd, &rc);
     if (rc.right == 0) rc.right = 1;
     if (rc.bottom == 0) rc.bottom = 1;
@@ -85,8 +118,10 @@ bool D2DRenderer::CreateDeviceResources() {
     D2D1_RENDER_TARGET_PROPERTIES rtp = D2D1::RenderTargetProperties();
     D2D1_HWND_RENDER_TARGET_PROPERTIES htp =
         D2D1::HwndRenderTargetProperties(m_hwnd, D2D1::SizeU(rc.right, rc.bottom));
-    HRESULT hr = m_factory->CreateHwndRenderTarget(rtp, htp, &m_rt);
+    HRESULT hr = m_factory->CreateHwndRenderTarget(rtp, htp, &m_hwndRt);
     if (FAILED(hr)) return false;
+    m_rt = m_hwndRt;
+    }
 
     if (m_dwrite && !m_fmt) {
         m_dwrite->CreateTextFormat(L"Segoe UI", nullptr, DWRITE_FONT_WEIGHT_NORMAL,
@@ -103,7 +138,9 @@ void D2DRenderer::DiscardDeviceResources() {
     m_brushes.clear();
     for (auto& kv : m_styles) kv.second->Release();
     m_styles.clear();
-    if (m_rt) { m_rt->Release(); m_rt = nullptr; }
+    if (m_hwndRt) { m_hwndRt->Release(); m_hwndRt = nullptr; }
+    if (m_dcRt) { m_dcRt->Release(); m_dcRt = nullptr; }
+    m_rt = nullptr;
 }
 
 bool D2DRenderer::BeginFrame() {
@@ -113,8 +150,14 @@ bool D2DRenderer::BeginFrame() {
 }
 
 bool D2DRenderer::EndFrame() {
+    if (!m_rt) return false;
     HRESULT hr = m_rt->EndDraw();
-    if (hr == (HRESULT)D2DERR_RECREATE_TARGET) return false;
+    if (hr == (HRESULT)D2DERR_RECREATE_TARGET) {
+        // Device lost: drop device-dependent resources; they are rebuilt on
+        // the next BindDC()/CreateDeviceResources().
+        DiscardDeviceResources();
+        return false;
+    }
     return SUCCEEDED(hr);
 }
 
@@ -212,9 +255,30 @@ void D2DRenderer::FillPath(const Path& p, const Fill& f) {
 void D2DRenderer::StrokePath(const Path& p, const Stroke& s) {
     if (p.Empty() || !m_rt) return;
     ID2D1PathGeometry* g = GeometryFor(p, false, D2D1_FILL_MODE_ALTERNATE);
-    if (g)
-        m_rt->DrawGeometry(g, BrushFor(s.color), (FLOAT)(s.width > 0 ? s.width : 1.0),
-                           StyleFor(s));
+    if (g) DrawStrokeGeometry(g, s);
+}
+
+double D2DRenderer::WorldStrokeWidth(const Stroke& s) const {
+    if (!s.cosmetic && s.width > 0) return s.width;
+    // One device pixel, expressed in world units of the current transform.
+    double det = (double)m_cur._11 * m_cur._22 - (double)m_cur._12 * m_cur._21;
+    double scale = det < 0 ? -det : det;
+    scale = scale > 0 ? sqrt(scale) : 1.0;
+    return 1.0 / scale;
+}
+
+void D2DRenderer::DrawStrokeGeometry(ID2D1Geometry* g, const Stroke& s) {
+    double w = WorldStrokeWidth(s);
+    ID2D1StrokeStyle* style = nullptr;
+    if (!s.dash.empty()) {
+        // GDI user-style dash lengths are absolute; Direct2D custom dashes are
+        // multiples of the stroke width, so normalise them.
+        Stroke norm = s;
+        norm.width = w;
+        for (double& d : norm.dash) d = w > 0 ? d / w : d;
+        style = StyleFor(norm);
+    }
+    m_rt->DrawGeometry(g, BrushFor(s.color), (FLOAT)w, style);
 }
 
 Rect2 D2DRenderer::MeasureText(const std::wstring& text, const TextStyle& ts) {

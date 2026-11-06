@@ -177,20 +177,19 @@ void CFigure::draw(acr::IRenderer* r)
 
 void CFigure::updateRenderCache()
 {
-	// Retained tessellation cache: rebuild the neutral fill/stroke paths only when
-	// the mesh topology changes, so zoom/pan redraws reuse cached geometry.
-	int key = mesh.Vcount() * 1000003 + mesh.Ecount();
-	if (key == m_rkey)
-		return;
-	m_rkey = key;
-
+	// Project through the same CVector -> CPoint camera transform that the GDI
+	// path uses, so both paths agree on where a figure lands on screen.
 	m_rfill.Clear();
 	vector<CVector> pts = mesh.getVectors();
 	if (!pts.empty())
 	{
-		m_rfill.MoveTo(acr::Vec2(pts[0].x, pts[0].y));
+		CPoint p0 = pts[0];
+		m_rfill.MoveTo(acr::Vec2(p0.x, p0.y));
 		for (size_t i = 1; i < pts.size(); ++i)
-			m_rfill.LineTo(acr::Vec2(pts[i].x, pts[i].y));
+		{
+			CPoint pi = pts[i];
+			m_rfill.LineTo(acr::Vec2(pi.x, pi.y));
+		}
 		m_rfill.Close();
 	}
 
@@ -198,8 +197,8 @@ void CFigure::updateRenderCache()
 	vector<CEdge*> edges = mesh.getEdgeList();
 	for (size_t i = 0; i < edges.size(); ++i)
 	{
-		CVector a = edges[i]->VertexPos(0);
-		CVector b = edges[i]->VertexPos(1);
+		CPoint a = edges[i]->VertexPos(0);
+		CPoint b = edges[i]->VertexPos(1);
 		m_rstroke.MoveTo(acr::Vec2(a.x, a.y));
 		m_rstroke.LineTo(acr::Vec2(b.x, b.y));
 	}

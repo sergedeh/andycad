@@ -9,6 +9,8 @@
 #include "dimtext.h"
 #include "render.h"
 #include "spline.h"
+#include "render/D2DRenderer.h"
+#include "render/ViewRenderer.h"
 #include <algorithm>
 #include <string>
 
@@ -219,6 +221,27 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
     sc_box.add(r.getbox(hdc));
     DWORD tick = GetTickCount();
     int j = 0;
+
+    // Opt-in Direct2D path (ANDYCAD_RENDERER=d2d): consecutive figures that
+    // support IRenderer are drawn in one Direct2D batch into this same DC;
+    // everything else, and the GDI-only selection overlays, stay on GDI.
+    acr::D2DRenderer *d2d = acr::ViewRenderer();
+    vector<CFigure *> batch;
+    bool inBatch = false;
+    auto flushBatch = [&]() {
+      if (!inBatch)
+        return;
+      bool ok = acr::EndViewBatch(d2d);
+      inBatch = false;
+      for (size_t b = 0; b < batch.size(); b++) {
+        if (ok)
+          batch[b]->drawOverlay(hdc);
+        else
+          batch[b]->draw(hdc); // Direct2D failed: redraw this batch with GDI
+      }
+      batch.clear();
+    };
+
     for (vector<FLAYER>::iterator it = veclayer.begin(); it < veclayer.end();
          it++) {
       if (!it->clear) {
@@ -227,6 +250,18 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
           if (fig[i]->getLayer().name == it->name) {
             if (!sc_box.intersectAABB2(fig[i]->box) /*getbox(hdc))*/)
               continue;
+            if (d2d && fig[i]->canRender()) {
+              if (!inBatch)
+                inBatch = acr::BeginViewBatch(d2d, hdc->GetSafeHdc());
+              if (inBatch) {
+                fig[i]->draw(d2d);
+                batch.push_back(fig[i]);
+                box.add(fig[i]->box);
+                j++;
+                continue;
+              }
+            }
+            flushBatch();
             // if(fig[i]->ptbegin.size()!=0)
             //{
             fig[i]->draw(hdc);
@@ -237,6 +272,7 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
         }
       }
     }
+    flushBatch();
     DWORD ptick = GetTickCount() - tick;
     CString s;
     s.Format("time spend to Display:%d for %d number of elements\n", ptick, j);
@@ -5547,8 +5583,10 @@ void CDraw::drawforbmp(acr::IRenderer* r) {
   // Same dispatch as drawforbmp(CDC*), but through the backend-neutral seam so
   // the view can render with a Direct2D (or GDI) backend. The per-figure style
   // and fill decisions live in each figure's draw(IRenderer*) override.
+  // Only figures that support the IRenderer path; callers draw the rest
+  // (text, images, dims, 3D surfaces, ...) through drawforbmp(CDC*).
   for (int i = 0; i < fit; i++) {
-    if (!(fig[i]->getLayer().clear)) {
+    if (!(fig[i]->getLayer().clear) && fig[i]->canRender()) {
       fig[i]->draw(r);
     }
   }

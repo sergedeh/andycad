@@ -275,6 +275,9 @@
     <ClCompile Include="render\D2DRenderer.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="render\ViewRenderer.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\grace\ParticleTest\memdc.h" />
@@ -453,6 +456,7 @@
     <ClInclude Include="render\RenderCompat.h" />
     <ClInclude Include="render\GdiRenderer.h" />
     <ClInclude Include="render\D2DRenderer.h" />
+    <ClInclude Include="render\ViewRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

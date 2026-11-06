@@ -16,6 +16,7 @@
 #include "Cadview.h"
 #include "rectangle.h"
 #include "render/RenderCompat.h"
+#include <typeinfo>
 //#include "cximage/ximage.h"
 
 
@@ -276,6 +277,27 @@ void CLine::draw(acr::IRenderer* r)
 		r->FillPath(m_rfill, fill);
 	if (edge_on && !(move && getLibstatus()))
 		r->StrokePath(m_rstroke, stroke);
+}
+
+bool CLine::canRender() const
+{
+	// Only plain lines/polylines: subclasses (text, rectangle, qline, dim
+	// arrows) customise draw(CDC*). Textured or clipped fills stay on GDI.
+	return typeid(*this) == typeid(CLine) && texture_file.IsEmpty() && clipshape.empty();
+}
+
+void CLine::drawOverlay(CDC *hdc)
+{
+	if(!getLibstatus())
+		selectSM(hdc);
+	if (getRotstate())
+	{
+	CPoint r(rotateCenter);
+	hdc->MoveTo(r.x,r.y-15);
+	hdc->LineTo(r.x,r.y+15);
+	hdc->MoveTo(r.x-15,r.y);
+	hdc->LineTo(r.x+15,r.y);
+	}
 }
 
 void CLine::drawinit(CDC *hdc,CVector begin, CVector end)

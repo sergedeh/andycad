@@ -19,6 +19,8 @@
 #include "cam.h"
 #include "geometry.h"
 #include "render/RenderCompat.h"
+#include "Cercle.h"
+#include <typeinfo>
 #include <stdlib.h>
 #include "image.h"
 
@@ -1970,6 +1972,28 @@ void CBezier::draw(acr::IRenderer* r)
 	if (cl)
 		r->FillPath(m_rfill, fill);
 	r->StrokePath(m_rstroke, stroke);
+}
+
+bool CBezier::canRender() const
+{
+	// Plain 2D curves and circles. 3D surfaces/volumes, FFD editing boxes,
+	// textured or clipped fills, and text subclasses stay on GDI.
+	bool plainType = typeid(*this) == typeid(CBezier) || typeid(*this) == typeid(CCercle);
+	return plainType && !surf && !vol && !ffd && texture_file.IsEmpty() && clipshape.empty();
+}
+
+void CBezier::drawOverlay(CDC *hdc)
+{
+	if(!getLibstatus())
+		selectSM(hdc);
+	if (getRotstate())
+	{
+	CPoint r(rotateCenter);
+	hdc->MoveTo(r.x,r.y-15);
+	hdc->LineTo(r.x,r.y+15);
+	hdc->MoveTo(r.x-15,r.y);
+	hdc->LineTo(r.x+15,r.y);
+	}
 }
 
 void CBezier::drawinit(CDC *hdc,CVector begin,CVector end)

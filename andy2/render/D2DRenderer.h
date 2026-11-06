@@ -23,7 +23,21 @@ namespace acr {
 class D2DRenderer : public IRenderer {
 public:
     explicit D2DRenderer(HWND hwnd);
+    // DC mode: no window target. Call BindDC() before each frame to render
+    // into an existing GDI device context (memory DC / back buffer), so
+    // Direct2D output composes with GDI drawing on the same surface.
+    D2DRenderer();
     ~D2DRenderer() override;
+
+    // Bind the DC render target to `hdc` covering `rc` (device pixels).
+    // Creates the DC render target on first use. Returns false on failure.
+    bool BindDC(HDC hdc, const RECT& rc);
+    bool IsDCMode() const { return m_hwnd == nullptr; }
+
+    // Antialiasing on (default) or off. Off gives crisp 1px lines that match
+    // GDI output pixel for pixel, which the view uses while it mixes GDI and
+    // Direct2D on the same surface.
+    void SetAntialias(bool on);
 
     bool CreateDeviceResources();
     void DiscardDeviceResources();
@@ -52,7 +66,9 @@ public:
 private:
     HWND                 m_hwnd = nullptr;
     ID2D1Factory*        m_factory = nullptr;
-    ID2D1HwndRenderTarget* m_rt = nullptr;
+    ID2D1RenderTarget*   m_rt = nullptr;     // active target (HWND or DC)
+    ID2D1HwndRenderTarget* m_hwndRt = nullptr;
+    ID2D1DCRenderTarget* m_dcRt = nullptr;
     IDWriteFactory*      m_dwrite = nullptr;
     IDWriteTextFormat*   m_fmt = nullptr;
 
@@ -77,6 +93,11 @@ private:
     ID2D1PathGeometry*    GeometryFor(const Path& p, bool filled, D2D1_FILL_MODE mode);
 
     static uint32_t PackRgba(const Color& c);
+    // Effective stroke width in world units: cosmetic/zero-width strokes stay
+    // one device pixel wide regardless of the world->device scale (like GDI).
+    double WorldStrokeWidth(const Stroke& s) const;
+    void   DrawStrokeGeometry(ID2D1Geometry* g, const Stroke& s);
+
     static uint64_t StyleKey(const Stroke& s);
     static uint64_t FontKey(const TextStyle& ts);
     static D2D1_POINT_2F Pt(const Vec2& v);

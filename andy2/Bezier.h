@@ -126,6 +126,8 @@ public:
 	virtual void drawinit(CDC *hdc,CVector begin, CVector end);
 	void draw(CDC *hdc);
 	void draw(acr::IRenderer* r);   // backend-neutral (Direct2D/GDI) render path
+	bool canRender() const override;
+	void drawOverlay(CDC* hdc) override;
 	virtual bool draw(bool fPrevLine,CDC* hdc,CVector point);
 	virtual void translate(CWnd *wnd,CDC *hdc,CVector prevpos, CVector postpos);
 	bool PtinRegion(CVector point);

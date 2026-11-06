@@ -290,6 +290,15 @@ public:
 	virtual void draw(CDC* hdc);
 	// Backend-neutral rendering path (Direct2D / GDI via acr::IRenderer).
 	virtual void draw(acr::IRenderer* r);
+	// True when this figure can currently be drawn through draw(IRenderer*).
+	// Subclasses that customise draw(CDC*) (text, rectangles, dims, 3D
+	// surfaces, textured fills, clipped figures) must keep returning false so
+	// the view falls back to the GDI path for them.
+	virtual bool canRender() const { return false; }
+	// GDI-only decorations (selection handles, rotate cross) that the
+	// IRenderer path does not draw. Also advances the selection state machine
+	// exactly like draw(CDC*) does, so it must be called once per frame.
+	virtual void drawOverlay(CDC* hdc) { (void)hdc; }
 
 	virtual LONG Readfile(CFile& file);
 	virtual void openfile(CFile& file);
@@ -387,12 +396,12 @@ protected:
  
 protected:
 	CMesh mesh;
-	// Retained tessellation cache for the IRenderer path. Rebuilt only when the
-	// mesh topology changes; redraws (zoom/pan) reuse the cached paths.
+	// Geometry for the IRenderer path, in the same logical (post-camera) space
+	// the GDI path draws in. Rebuilt every draw: vertices move under the camera
+	// and under move/rotate edits without the vertex/edge count changing.
 	void updateRenderCache();
 	mutable acr::Path m_rfill;
 	mutable acr::Path m_rstroke;
-	mutable int m_rkey = -1;
 
 	int pheight;
 	int pwidth;
