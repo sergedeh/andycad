@@ -210,7 +210,7 @@ void CCadDoc::setcolor(COLORREF l, COLORREF b)
 
 		try
 		{
-			CFile file(dllg.GetPathName(),CFile::modeCreate | CFile::modeWrite);
+			CFile file(dllg.GetPathName(),CFile::modeCreate | CFile::modeReadWrite);
  		
  			if(dllg.m_ofn.nFilterIndex==2)//(dllg.GetFileExt()=="svg")
  			{
@@ -335,7 +335,7 @@ void CCadDoc::OnFileSave()
 
 		try
 		{
-			CFile file(dllg.GetPathName(),CFile::modeCreate | CFile::modeWrite);
+			CFile file(dllg.GetPathName(),CFile::modeCreate | CFile::modeReadWrite);
  		
  			if(dllg.m_ofn.nFilterIndex==2)//(dllg.GetFileExt()=="svg")
  			{
@@ -369,7 +369,7 @@ void CCadDoc::OnFileSave()
 		try
 		{
 
-			CFile file(fstr,CFile::modeCreate | CFile::modeWrite);
+			CFile file(fstr,CFile::modeCreate | CFile::modeReadWrite);
  			pView->Save(exti,file);
 			file.Close();
 		}		

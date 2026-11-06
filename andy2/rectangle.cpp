@@ -591,6 +591,16 @@ CRectangle::CRectangle(CVector b, CVector e)
 
 }
 
+void CRectangle::setCorners(CVector b, CVector e)
+{
+	ptbvir.clear();
+	ptevir.clear();
+	ptbvir.push_back(b);
+	ptevir.push_back(e);
+	cancharge=true;
+	getCharge();
+}
+
 void CRectangle::drawMesh(CDC *hdc,float r)
 {
 	CVector v=box.size();

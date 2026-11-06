@@ -708,6 +708,23 @@ bool CImage::getCharge()
 	else return false;
 }
 
+bool CImage::buildFromRect(CVector b, CVector e)
+{
+	rec.setCorners(b, e);
+	return getCharge();
+}
+
+void CImage::setGeneratedTexture(CDC* hdc, CBitmap* bmp, const CString& name,
+                                 bool tiled, COLORREF transparentColour)
+{
+	cl = true;
+	texture_file = name;
+	tex_vert_mode = image_texture;
+	mode_texture = tiled ? wrap : none;
+	trans_col = transparentColour;
+	UpdateTexture(hdc, bmp);
+}
+
 void CImage::initL()
 {
 	if(mytext!=NULL)
@@ -733,7 +750,9 @@ void CImage::savefile(CDC *hdc,CFile &file)
 
 void CImage::openfile(CDC *hdc,CFile &file)
 {
-	rec=CRectangle(file);
+	// Read in place: assigning a temporary CRectangle shallow-copies its mesh,
+	// and the temporary's destructor then frees edges rec still uses (crash).
+	rec.openfile(file);
 	CFigure::openfile(file);
 	updatecore();
 	name="CImage";

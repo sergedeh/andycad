@@ -160,6 +160,8 @@ public:
 	void smooth(int u,int v,int w);
 	void drawforbmp(CDC *hdc);
 	void drawforbmp(acr::IRenderer* r);   // backend-neutral render path (Direct2D/GDI)
+	// Add a ready-made figure to the drawing (used by the test-drawing generator).
+	void addFigure(CFigure* f) { create(f); }
 	void setWnd(CCadView * cad);
 	void setFFD(CString option);
 	void setsnapplane(CString plane);

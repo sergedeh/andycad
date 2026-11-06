@@ -31,7 +31,16 @@ public:
 	void setMove(bool mv,CVector pos);
 	void create(CVector pos);
     bool getCharge();
-	BOOL LoadBitmap(CDC *hdc); 
+	BOOL LoadBitmap(CDC *hdc);
+	// Build the image quad (corners + texture coordinates) from two opposite
+	// corners, as the interactive Image tool does. Used by the test-drawing
+	// generator.
+	bool buildFromRect(CVector b, CVector e);
+	// Use an in-memory bitmap as the texture (stretched or tiled), with an
+	// optional transparency key colour. `name` is stored as texture_file.
+	void setGeneratedTexture(CDC* hdc, CBitmap* bmp, const CString& name,
+	                         bool tiled, COLORREF transparentColour);
+ 
 	void initL();
 	void setPtsBegin(CVector point);
 	DWORD GetColorTableSize(WORD wBitCount);

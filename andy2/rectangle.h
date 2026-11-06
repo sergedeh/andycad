@@ -17,6 +17,8 @@ public:
 	virtual CFigure* generateCopy();
 	void drawMesh(CDC *hdc,float r);
 	CRectangle(CVector b,CVector e);
+	// Re-define this rectangle from two opposite corners (same as the constructor).
+	void setCorners(CVector b,CVector e);
 	void getchargeL();
 	void setstyle(int i);
 //	void translate(CWnd *wnd,CDC *hdc,CVector prevpos,CVector postpos);

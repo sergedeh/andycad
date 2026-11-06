@@ -13,6 +13,7 @@
 #include "mainfrm.h"
 #include "customwidth.h"
 #include "objedit.h"
+#include "TestDrawings.h"
 //#include "pgrid.h"
 #include "Cpapersize.h"
 #include "numcopy.h"
@@ -2494,6 +2495,9 @@ void CCadView::OnInitialUpdate()
 	(*it)->SendNotify("ViewInit",NULL);//mg->m_wndMyDialogBar.setmouse(p);
 	}
 	
+	// Test hook: ANDYCAD_MAKE_TEST_DRAWINGS=<folder> writes the image test
+	// drawings and closes the app (see TestDrawings.cpp).
+	MakeImageTestDrawingsIfRequested(this);
  }
 
 void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
