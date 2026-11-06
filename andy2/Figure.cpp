@@ -1257,9 +1257,8 @@ void CFigure::ScanPolygon(CDC *hdc, COLORREF rgba,CImagex *texture)
 	int bpp = 4 ;
 
 
-	BYTE* bits=new BYTE[d];
-	memset(bits,0,d);
-	bmp->GetBitmapBits(d,bits);
+	// (A full copy of the back buffer used to be taken here with
+	// GetBitmapBits; nothing read it, so it was removed.)
 		CSize bn=wcr.Size();
 
 //	int o=hdc->SetMapMode(MM_TEXT);
@@ -1682,7 +1681,6 @@ if(v.size()!=0)
 		delete hmdc;*/
 		
 
-	delete [] bits;
 	}catch(...)
 	{
 	CString sp;
@@ -1722,9 +1720,8 @@ void CFigure::Hatch(CDC *hdc)
 	int bpp = 4 ;
 
 
-	BYTE* bits=new BYTE[d];
-	memset(bits,0,d);
-	bmp->GetBitmapBits(d,bits);
+	// (A full copy of the back buffer used to be taken here with
+	// GetBitmapBits; nothing read it, so it was removed.)
 
 
 	int ar,ag,ab;
@@ -2003,7 +2000,6 @@ if(v.size()!=0)
 	hdc->SetMapMode(o);
 	}
 //	bmp->SetBitmapBits(d,bits);
-	delete [] bits;
 	_ps=true;
 	}catch(...)
 	{
