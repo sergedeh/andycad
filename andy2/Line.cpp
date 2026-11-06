@@ -17,6 +17,8 @@
 #include "rectangle.h"
 #include "render/RenderCompat.h"
 #include <typeinfo>
+#include "qline.h"
+#include "DimArrow.h"
 //#include "cximage/ximage.h"
 
 
@@ -281,9 +283,14 @@ void CLine::draw(acr::IRenderer* r)
 
 bool CLine::canRender() const
 {
-	// Only plain lines/polylines: subclasses (text, rectangle, qline, dim
-	// arrows) customise draw(CDC*). Textured or clipped fills stay on GDI.
-	return typeid(*this) == typeid(CLine) && texture_file.IsEmpty() && clipshape.empty();
+	// Lines/polylines plus the subclasses whose draw(CDC*) is exactly
+	// CLine::draw (rectangles, quick lines, dimension arrows). Text renders
+	// through an in-place RichEdit control and stays on GDI. Textured or
+	// clipped fills stay on GDI too.
+	const std::type_info& t = typeid(*this);
+	bool sameDrawAsLine = t == typeid(CLine) || t == typeid(CRectangle) ||
+		t == typeid(CQLine) || t == typeid(CDimArrow);
+	return sameDrawAsLine && texture_file.IsEmpty() && clipshape.empty();
 }
 
 void CLine::drawOverlay(CDC *hdc)
