@@ -15,6 +15,7 @@
 #include "mesh.h"
 #include "Cadview.h"
 #include "rectangle.h"
+#include "render/RenderCompat.h"
 //#include "cximage/ximage.h"
 
 
@@ -252,6 +253,29 @@ void CLine::draw(CDC *hdc)
 //	if(!colchange) setInit();
 
 
+}
+
+void CLine::draw(acr::IRenderer* r)
+{
+	if (!r)
+		return;
+	updateRenderCache();
+
+	acr::Stroke stroke;
+	stroke.color = acr::ColorFromColorref(lcolor);
+	stroke.cosmetic = (lstyle & PS_GEOMETRIC) == 0;
+	stroke.width = stroke.cosmetic ? 0.0 : (double)lwidth;
+	if (dwStyleCount > 0 && lpStyle)
+		stroke.dash.assign(lpStyle, lpStyle + dwStyleCount);
+
+	acr::Fill fill;
+	fill.rule = acr::FillRule::EvenOdd;
+	fill.color = acr::ColorFromColorref(bcolor);
+
+	if (cl && !move)
+		r->FillPath(m_rfill, fill);
+	if (edge_on && !(move && getLibstatus()))
+		r->StrokePath(m_rstroke, stroke);
 }
 
 void CLine::drawinit(CDC *hdc,CVector begin, CVector end)

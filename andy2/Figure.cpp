@@ -15,6 +15,7 @@
 //#include "cximage/ximage.h"
 #include "Cadview.h"
 #include "rectangle.h"
+#include "Edge.h"
 
 #include <set>
 
@@ -165,6 +166,43 @@ void CFigure::draw(CDC *hdc)
 	}
 */
 
+}
+
+void CFigure::draw(acr::IRenderer* r)
+{
+	// Base: figures that do not override render as nothing on the IRenderer path.
+	// CLine and CBezier (and CCercle via inheritance) provide real overrides.
+	(void)r;
+}
+
+void CFigure::updateRenderCache()
+{
+	// Retained tessellation cache: rebuild the neutral fill/stroke paths only when
+	// the mesh topology changes, so zoom/pan redraws reuse cached geometry.
+	int key = mesh.Vcount() * 1000003 + mesh.Ecount();
+	if (key == m_rkey)
+		return;
+	m_rkey = key;
+
+	m_rfill.Clear();
+	vector<CVector> pts = mesh.getVectors();
+	if (!pts.empty())
+	{
+		m_rfill.MoveTo(acr::Vec2(pts[0].x, pts[0].y));
+		for (size_t i = 1; i < pts.size(); ++i)
+			m_rfill.LineTo(acr::Vec2(pts[i].x, pts[i].y));
+		m_rfill.Close();
+	}
+
+	m_rstroke.Clear();
+	vector<CEdge*> edges = mesh.getEdgeList();
+	for (size_t i = 0; i < edges.size(); ++i)
+	{
+		CVector a = edges[i]->VertexPos(0);
+		CVector b = edges[i]->VertexPos(1);
+		m_rstroke.MoveTo(acr::Vec2(a.x, a.y));
+		m_rstroke.LineTo(acr::Vec2(b.x, b.y));
+	}
 }
 
 bool CFigure::PtinRegion(CVector point)

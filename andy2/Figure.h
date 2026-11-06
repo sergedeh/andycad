@@ -22,6 +22,7 @@
 #include "mesh.h"	// Added by ClassView
 //#include "cximage/ximage.h"
 #include "constraint.h"
+#include "render/IRenderer.h"   // backend-neutral rendering seam (acr::IRenderer)
 
 using namespace std;
 
@@ -287,6 +288,8 @@ public:
 	virtual bool PtinRegion(CVector point);
 	virtual bool draw(bool fPrevLine,CDC* hdc,CVector point);
 	virtual void draw(CDC* hdc);
+	// Backend-neutral rendering path (Direct2D / GDI via acr::IRenderer).
+	virtual void draw(acr::IRenderer* r);
 
 	virtual LONG Readfile(CFile& file);
 	virtual void openfile(CFile& file);
@@ -384,6 +387,13 @@ protected:
  
 protected:
 	CMesh mesh;
+	// Retained tessellation cache for the IRenderer path. Rebuilt only when the
+	// mesh topology changes; redraws (zoom/pan) reuse the cached paths.
+	void updateRenderCache();
+	mutable acr::Path m_rfill;
+	mutable acr::Path m_rstroke;
+	mutable int m_rkey = -1;
+
 	int pheight;
 	int pwidth;
 	col* mytext;

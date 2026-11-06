@@ -159,6 +159,7 @@ public:
 	void setgeneralInterest(CSubject* s);
 	void smooth(int u,int v,int w);
 	void drawforbmp(CDC *hdc);
+	void drawforbmp(acr::IRenderer* r);   // backend-neutral render path (Direct2D/GDI)
 	void setWnd(CCadView * cad);
 	void setFFD(CString option);
 	void setsnapplane(CString plane);

@@ -103,7 +103,7 @@
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>.\Release\andycad.pch</PrecompiledHeaderOutputFile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
@@ -129,8 +129,8 @@
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <OutputFile>.\Release\andycad.exe</OutputFile>
       <AdditionalLibraryDirectories>C:\Program Files\HTML Help Workshop\LIB;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>../cximage600_full/png/release/png.lib;../cximage600_full/jpeg/release/jpeg.lib;../cximage600_full/tiff/release/tiff.lib;../cximage600_full/cximage/release/cximage.lib;../cximage600_full/jasper/release/jasper.lib;../cximage600_full/mng/release/mng.lib;../cximage600_full/raw/release/libdcr.lib;../cximage600_full/zlib/release/zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions> /MAPINFO:LINES  /MAPINFO:EXPORTS </AdditionalOptions>
+      <AdditionalDependencies>./cximage/png.lib;./cximage/jpeg.lib;./cximage/tiff.lib;./cximage/cximage.lib;./cximage/jasper.lib;./cximage/mng.lib;./cximage/libdcr.lib;./cximage/zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions></AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,7 +147,7 @@
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>.\Release\andycad.pch</PrecompiledHeaderOutputFile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
@@ -172,8 +172,8 @@
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <OutputFile>.\Release\andycad.exe</OutputFile>
       <AdditionalLibraryDirectories>C:\Program Files\HTML Help Workshop\LIB;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>../cximage600_full/png/release/png.lib;../cximage600_full/jpeg/release/jpeg.lib;../cximage600_full/tiff/release/tiff.lib;../cximage600_full/cximage/release/cximage.lib;../cximage600_full/jasper/release/jasper.lib;../cximage600_full/mng/release/mng.lib;../cximage600_full/raw/release/libdcr.lib;../cximage600_full/zlib/release/zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions> /MAPINFO:LINES  /MAPINFO:EXPORTS </AdditionalOptions>
+      <AdditionalDependencies>./cximage/png.lib;./cximage/jpeg.lib;./cximage/tiff.lib;./cximage/cximage.lib;./cximage/jasper.lib;./cximage/mng.lib;./cximage/libdcr.lib;./cximage/zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions></AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -191,7 +191,7 @@
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>.\Debug\andycad.pch</PrecompiledHeaderOutputFile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ObjectFileName>.\Debug\</ObjectFileName>
       <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
@@ -235,7 +235,7 @@
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>.\Debug\andycad.pch</PrecompiledHeaderOutputFile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ObjectFileName>.\Debug\</ObjectFileName>
       <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
@@ -290,6 +290,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)\$(InputName).cnt;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="hlp\cad.hpj">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">start /wait hcw /C /E /M "hlp\%(Filename).hpj" 
 if errorlevel 1 goto :Error 
 if not exist "hlp\%(Filename).hlp" goto :Error 
@@ -338,6 +339,8 @@ type "hlp\%(Filename).log"
 	  </CustomBuild>
     <ProjectReference Include="andycad_lib.vcxproj">
       <Project>{a3d743a9-b1b3-4e8f-961e-3a81e48a2a56}</Project>
+      <SetConfiguration>Configuration=$(Configuration)</SetConfiguration>
+      <SetPlatform>Platform=$(Platform)</SetPlatform>
     </ProjectReference>
   </ItemGroup>
 

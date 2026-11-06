@@ -5541,6 +5541,19 @@ void CDraw::drawforbmp(CDC *hdc) {
           slib.draw(hdc);*/
 }
 
+void CDraw::drawforbmp(acr::IRenderer* r) {
+  if (!r)
+    return;
+  // Same dispatch as drawforbmp(CDC*), but through the backend-neutral seam so
+  // the view can render with a Direct2D (or GDI) backend. The per-figure style
+  // and fill decisions live in each figure's draw(IRenderer*) override.
+  for (int i = 0; i < fit; i++) {
+    if (!(fig[i]->getLayer().clear)) {
+      fig[i]->draw(r);
+    }
+  }
+}
+
 void CDraw::smooth(int u, int v, int w) {
   CTextCad textc;
   int g = vs.size();

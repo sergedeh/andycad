@@ -45,3 +45,17 @@
 /andy2/MFCAndyCADHandlers
 /andy2/x64/Debug
 /andy2/Debug2
+
+# Local build outputs and logs
+/andy2/x64/
+/andy2/render/x64/
+/poc/x64/
+/andy2/*.log
+/*.log
+/build_log.txt
+/build_release_log.txt
+/poc_build_log.txt
+/poc_results.txt
+/release_run.txt
+/crash_timing.txt
+/lib_preprocessed.xml
