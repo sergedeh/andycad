@@ -12,6 +12,7 @@
 #include "render/D2DRenderer.h"
 #include "render/ViewRenderer.h"
 #include <algorithm>
+#include <functional>
 #include <string>
 
 #define line 1
@@ -242,6 +243,32 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
       batch.clear();
     };
 
+    // Draw one figure through Direct2D when it supports it, expanding plain
+    // groups so their children can use Direct2D too; otherwise GDI.
+    std::function<void(CFigure *)> drawFigure = [&](CFigure *f) {
+      if (!f)
+        return;
+      if (d2d && f->canRender()) {
+        if (!inBatch)
+          inBatch = acr::BeginViewBatch(d2d, hdc->GetSafeHdc());
+        if (inBatch) {
+          f->draw(d2d);
+          batch.push_back(f);
+          return;
+        }
+      }
+      if (d2d && f->isRenderGroup()) {
+        int n = f->renderChildCount();
+        for (int c = 0; c < n; c++)
+          drawFigure(f->renderChild(c));
+        flushBatch();
+        f->drawOverlay(hdc);
+        return;
+      }
+      flushBatch();
+      f->draw(hdc);
+    };
+
     for (vector<FLAYER>::iterator it = veclayer.begin(); it < veclayer.end();
          it++) {
       if (!it->clear) {
@@ -250,24 +277,9 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
           if (fig[i]->getLayer().name == it->name) {
             if (!sc_box.intersectAABB2(fig[i]->box) /*getbox(hdc))*/)
               continue;
-            if (d2d && fig[i]->canRender()) {
-              if (!inBatch)
-                inBatch = acr::BeginViewBatch(d2d, hdc->GetSafeHdc());
-              if (inBatch) {
-                fig[i]->draw(d2d);
-                batch.push_back(fig[i]);
-                box.add(fig[i]->box);
-                j++;
-                continue;
-              }
-            }
-            flushBatch();
-            // if(fig[i]->ptbegin.size()!=0)
-            //{
-            fig[i]->draw(hdc);
+            drawFigure(fig[i]);
             box.add(fig[i]->box);
             j++;
-            //}
           }
         }
       }

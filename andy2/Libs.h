@@ -77,6 +77,10 @@ public:
 	void drawinit(CDC *hdc,CVector begin, CVector end);
 	virtual bool PtinRegion(CVector point);
 	void draw(CDC* hdc);
+	bool isRenderGroup() const override;
+	int renderChildCount() override { return iter; }
+	CFigure* renderChild(int i) override { return elem[i]; }
+	void drawOverlay(CDC* hdc) override;
 	virtual void createvec();
 	virtual void translate(CWnd *wnd,CDC *hdc,CVector prevpos, CVector postpos);
 	void setMultselect(bool mult);

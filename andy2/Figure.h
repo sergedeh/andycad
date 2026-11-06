@@ -299,6 +299,12 @@ public:
 	// IRenderer path does not draw. Also advances the selection state machine
 	// exactly like draw(CDC*) does, so it must be called once per frame.
 	virtual void drawOverlay(CDC* hdc) { (void)hdc; }
+	// Plain groups/blocks whose draw(CDC*) is just "draw each child, then the
+	// group's selection overlay". The view then routes each child through the
+	// Direct2D or GDI path on its own and calls drawOverlay for the group.
+	virtual bool isRenderGroup() const { return false; }
+	virtual int renderChildCount() { return 0; }
+	virtual CFigure* renderChild(int i) { (void)i; return nullptr; }
 
 	virtual LONG Readfile(CFile& file);
 	virtual void openfile(CFile& file);

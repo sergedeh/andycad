@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "Stdafx.h"
+#include <typeinfo>
 #include "cad.h"
 #include "LibS.h"
 #include "inter.h"
@@ -255,6 +256,29 @@ void CLibS::draw(CDC* hdc)
 	}
 	
 	
+}
+
+bool CLibS::isRenderGroup() const
+{
+	// Only plain blocks. Splines, dimensions and chamfer/fillet groups derive
+	// from CLibS but draw differently, so they stay on draw(CDC*).
+	return typeid(*this) == typeid(CLibS);
+}
+
+void CLibS::drawOverlay(CDC* hdc)
+{
+	// Same decorations draw(CDC*) adds after drawing the children.
+	if(!getLibstatus())
+	{
+	if(transselectedstate()) drawselect(hdc);
+	}
+	if (getRotstate())
+	{
+	hdc->MoveTo(CVector(rotateCenter.x,rotateCenter.y-15));
+	hdc->LineTo(CVector(rotateCenter.x,rotateCenter.y+15));
+	hdc->MoveTo(CVector(rotateCenter.x-15,rotateCenter.y));
+	hdc->LineTo(CVector(rotateCenter.x+15,rotateCenter.y));
+	}
 }
 
 void CLibS::createvec()
