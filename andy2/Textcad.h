@@ -172,6 +172,11 @@ private:
 	CStringA m_editSnapshot;      // RTF when the edit box opened (for cancel)
 	bool m_editing = false;
 	bool m_scaleChars = false;
+	// The text's own frame: x along the box's 0->1 edge, "down" along
+	// m_frameSign times its 0->3 edge. Fixed when the text is first laid out
+	// and saved, so transforms (including mirroring) carry it with the box.
+	// 0 = not known yet.
+	int m_frameSign = 0;
 	double m_charScale = 1.0;     // box scale since layout (artistic mode)
 	void bakeCharScale();
 	// Glyphs for the current view; M = view logical -> device (+0.5).

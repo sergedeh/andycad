@@ -1551,12 +1551,47 @@ void CTextCad::draw3D(CDC *hdc)
 		}
 		if(!m_layout.anchorsValid)
 		{
+			// The text frame in the drawing space of this code: x along the
+			// box's 0->1 edge, down along m_frameSign * the 0->3 edge (the
+			// layout offsets are measured right and down).
+			// For an unmirrored box this is the old rotation by `ang`; for a
+			// mirrored one it mirrors the layout instead of turning it over.
+			CVector ux, uyUp;
+			{
+				CVector w[3]={mesh.Vertex(0)->v, mesh.Vertex(1)->v, mesh.Vertex(3)->v};
+				CVector q[3];
+				for(int k=0;k<3;k++)
+				{
+					CPoint l=w[k];
+					double dx,dy,tx,ty;
+					apply(realMap,l.x,l.y,dx,dy);
+					invert(textMap,dx,dy,tx,ty);
+					q[k]=CPoint((int)lround(tx),(int)lround(ty));
+				}
+				if(m_frameSign==0)
+				{
+					// First layout: the box as created defines which way is down.
+					double a0x,a0y,a1x,a1y,a3x,a3y;
+					CPoint l0=w[0], l1=w[1], l3=w[2];
+					apply(realMap,l0.x,l0.y,a0x,a0y);
+					apply(realMap,l1.x,l1.y,a1x,a1y);
+					apply(realMap,l3.x,l3.y,a3x,a3y);
+					double xx=a1x-a0x, xy=a1y-a0y;
+					double d=(-xy)*(a3x-a0x)+xx*(a3y-a0y);   // vs clockwise perpendicular
+					m_frameSign = d<0 ? -1 : 1;
+				}
+				ux=q[1]-q[0];
+				uyUp=q[2]-q[0];
+				double lx=absc(ux), ly=absc(uyUp);
+				if(lx>0) ux=ux*(1.0/lx);
+				if(ly>0) uyUp=uyUp*((double)m_frameSign/ly);   // "down" in this space (layout offsets grow downward)
+			}
 			for(int i=0;i<length;i++)
 			{
-				// Where the old code put the character (text drawing space) ...
+				// Where the character goes in this code's drawing space ...
 				vpi2=pol;
 				vpi=m_layout.glyphs[i].off;
-				vpi=polarc(absc(vpi),argu(vpi)+ang);
+				vpi=ux*vpi.x+uyUp*vpi.y;
 				vpi=vpi2+vpi;
 				CPoint t=vpi;
 				m_layout.glyphs[i].placed=t;
@@ -1587,10 +1622,8 @@ void CTextCad::draw3D(CDC *hdc)
 				apply(realMap,l0.x,l0.y,a0x,a0y);
 				apply(realMap,l1.x,l1.y,a1x,a1y);
 				apply(realMap,l3.x,l3.y,a3x,a3y);
-				double xx=a1x-a0x, xy=a1y-a0y;
-				double yx=-xy, yy=xx;                  // clockwise perpendicular (y down)
-				double d=yx*(a3x-a0x)+yy*(a3y-a0y);
-				m_layout.sgnY = d<0 ? -1.0 : 1.0;
+				(void)a0x; (void)a0y; (void)a1x; (void)a1y; (void)a3x; (void)a3y;
+				m_layout.sgnY = m_frameSign<0 ? -1.0 : 1.0;
 			}
 			m_layout.anchorsMoved=false;
 			memcpy(m_layout.placedReal,realMap,sizeof(realMap));
@@ -1639,6 +1672,56 @@ void CTextCad::draw3D(CDC *hdc)
 			}
 			m_layout.fontAngle=u;
 			m_layout.fontScale=fontScale;
+		}
+		// Is the text frame mirrored on screen now? (x along 0->1, down along
+		// m_frameSign * 0->3; a normal frame turns clockwise from x to down.)
+		bool mirroredNow=false;
+		{
+			CPoint l0=mesh.Vertex(0)->v, l1=mesh.Vertex(1)->v, l3=mesh.Vertex(3)->v;
+			double a0x,a0y,a1x,a1y,a3x,a3y;
+			apply(realMap,l0.x,l0.y,a0x,a0y);
+			apply(realMap,l1.x,l1.y,a1x,a1y);
+			apply(realMap,l3.x,l3.y,a3x,a3y);
+			double cross=(a1x-a0x)*(a3y-a0y)*m_frameSign-(a1y-a0y)*(a3x-a0x)*m_frameSign;
+			mirroredNow = cross<0;
+		}
+		if(mirroredNow)
+		{
+			// GDI fonts can't be mirrored: fill the glyph outlines instead,
+			// laid out exactly like the Direct2D path.
+			acr::Mat3 M=acr::TransformFromMappedPoints(realMap[0],realMap[1],realMap[2]);
+			M.dx+=0.5; M.dy+=0.5;
+			std::vector<acr::GlyphDraw> gd;
+			buildGlyphs(M,gd);
+			std::vector<std::vector<std::vector<acr::Vec2>>> outl;
+			acr::GlyphOutlines(gd.data(),gd.size(),0.25,outl);
+			CPen* oldPen=(CPen*)hdc->SelectStockObject(NULL_PEN);
+			int oldFill=hdc->SetPolyFillMode(ALTERNATE);
+			for(size_t gi=0;gi<outl.size();++gi)
+			{
+				std::vector<POINT> pts;
+				std::vector<INT> counts;
+				for(size_t l=0;l<outl[gi].size();++l)
+				{
+					for(size_t k=0;k<outl[gi][l].size();++k)
+					{
+						double tx,ty;
+						invert(textMap,outl[gi][l][k].x,outl[gi][l][k].y,tx,ty);
+						POINT p={(LONG)lround(tx),(LONG)lround(ty)};
+						pts.push_back(p);
+					}
+					counts.push_back((INT)outl[gi][l].size());
+				}
+				if(counts.empty()) continue;
+				CBrush gb;
+				gb.CreateSolidBrush(m_layout.glyphs[gi].color);
+				CBrush* ob=hdc->SelectObject(&gb);
+				hdc->PolyPolygon(pts.data(),counts.data(),(int)counts.size());
+				hdc->SelectObject(ob);
+			}
+			hdc->SetPolyFillMode(oldFill);
+			hdc->SelectObject(oldPen);
+			length=0;      // skip the font loop below
 		}
 		for(int i=0;i<length;i++)
 		{
@@ -2415,6 +2498,10 @@ void CTextCad::savefile(CFile &file)
 	// box); lengths never get near it. Old builds can't read texts saved
 	// with the bit set.
 	long lengthField=length | (m_scaleChars ? 0x40000000L : 0);
+	// Bits 29/28: the text frame's direction is known / points against the
+	// box's 0->3 edge (see m_frameSign).
+	if(m_frameSign!=0) lengthField|=0x20000000L;
+	if(m_frameSign<0) lengthField|=0x10000000L;
 	file.Write(&lengthField,sizeof(long));
 	file.Write(&u_prev,sizeof(float));
 	file.Write(&z_prev,sizeof(float));
@@ -2481,7 +2568,9 @@ void CTextCad::openfile(CFile &file,CDC* hdc)
  	long length;
 	file.Read(&length,sizeof(long));
 	m_scaleChars=(length & 0x40000000L)!=0;
-	length&=~0x40000000L;
+	if(length & 0x20000000L)
+		m_frameSign=(length & 0x10000000L) ? -1 : 1;
+	length&=~(0x40000000L|0x20000000L|0x10000000L);
 	file.Read(&u_prev,sizeof(float));
 	file.Read(&z_prev,sizeof(float));
 	if(getMesh()->view->GetDocument()->m_objects->version>1)

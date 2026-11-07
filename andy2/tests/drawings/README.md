@@ -48,6 +48,6 @@ Direct2D draws the image straight, applies per-pixel alpha times the Transparenc
 
 `ANDYCAD_PERF_LOG=<file>` appends one line per display pass, and `ANDYCAD_PERF_REPEAT=<n>` redraws the same frame n extra times. On `text_many.deh` (GDI, 2026-11-07), a repeated redisplay took 2.5 to 4.5 s and grew each time before the text layout cache; with it, 150 ms and stable.
 
-`text_transforms.png` shows each transform drawing before and after. Mirroring is the one gap: GDI fonts can't be mirrored, so a mirrored text box shows its characters turned 180 degrees instead of reversed. True mirrored glyphs come with the Direct2D text drawing (plan step 3).
+`text_transforms.png` shows each transform drawing before and after. Mirrored text: GDI fonts cannot be mirrored, so GDI fills the glyph outlines for mirrored text; Direct2D mirrors the glyphs directly (`text_mirror_fixed.png`).
 
 `text_gdi_vs_d2d.png` compares GDI and Direct2D (DirectWrite) text on `text.deh`, `text_rotated.deh` and `text_mirror.deh`. Repeated redisplay of `text_many.deh` (2026-11-07): GDI about 49 ms, Direct2D about 25 ms.
