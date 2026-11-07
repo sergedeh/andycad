@@ -136,6 +136,8 @@ protected:
 	afx_msg void OnRectangle();
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnTbselect();
+	afx_msg void OnTextScaleChars();
+	afx_msg void OnUpdateTextScaleChars(CCmdUI* pCmdUI);
 	afx_msg void OnTbrotate();
 	afx_msg void OnTbmirror();
 	afx_msg void OnTaddnode();

@@ -836,6 +836,8 @@ BEGIN
     END
     POPUP "F&ormat"
     BEGIN
+        MENUITEM "Text Characters Scale With Box", ID_TEXT_SCALECHARS
+        MENUITEM SEPARATOR
         POPUP "&Line Style"
         BEGIN
             MENUITEM "Solid",                       ID_EEE_SOLID

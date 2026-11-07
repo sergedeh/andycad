@@ -1393,6 +1393,15 @@ void CTextCad::draw3D(CDC *hdc)
 		auto near1=[](double a,double b){ double d=a-b; if(d<0) d=-d; double m=(a>b?a:b); return d<=0.01*m+0.02; };
 		bool layoutValid = m_layout.valid && m_layout.rtf == rtf &&
 			near1(m_layout.wn, wn) && near1(m_layout.hn, hn);
+		m_charScale=1.0;
+		if(!layoutValid && m_scaleChars && m_layout.valid && m_layout.rtf == rtf &&
+		   m_layout.wn>0 && m_layout.hn>0)
+		{
+			// Artistic text: the box was scaled; keep the layout, the anchors
+			// were scaled by the transform, and the glyphs scale with them.
+			m_charScale=sqrt((wn/m_layout.wn)*(hn/m_layout.hn));
+			layoutValid=true;
+		}
 		if(!layoutValid && m_layout.valid && zoomedThisFrame)
 		{
 			// Only our own zoom rescale changed the edit box: same layout.
@@ -1582,7 +1591,7 @@ void CTextCad::draw3D(CDC *hdc)
 		}
 		// Fonts follow the zoom (pixels per world unit now vs at layout) and
 		// the rotation; they are rebuilt only when either changes.
-		double fontScale=m_layout.scale>0 ? projectedScale()/m_layout.scale : 1.0;
+		double fontScale=(m_layout.scale>0 ? projectedScale()/m_layout.scale : 1.0)*m_charScale;
 		if(m_layout.fonts.size()!=(size_t)length || m_layout.fontAngle!=u ||
 		   fabs(m_layout.fontScale-fontScale)>1e-6)
 		{
@@ -2373,8 +2382,13 @@ void CTextCad::savefiledxf(CStdioFile& file)
 void CTextCad::savefile(CFile &file)
 {
 	CLine::savefile(file);
+	bakeCharScale();
  	long length=rich->GetTextLength();
-	file.Write(&length,sizeof(long));
+	// Bit 30 of the length marks artistic text (characters scale with the
+	// box); lengths never get near it. Old builds can't read texts saved
+	// with the bit set.
+	long lengthField=length | (m_scaleChars ? 0x40000000L : 0);
+	file.Write(&lengthField,sizeof(long));
 	file.Write(&u_prev,sizeof(float));
 	file.Write(&z_prev,sizeof(float));
 	if(getMesh()->view->GetDocument()->m_objects->version>1)
@@ -2439,6 +2453,8 @@ void CTextCad::openfile(CFile &file,CDC* hdc)
 	draw3D(hdc);
  	long length;
 	file.Read(&length,sizeof(long));
+	m_scaleChars=(length & 0x40000000L)!=0;
+	length&=~0x40000000L;
 	file.Read(&u_prev,sizeof(float));
 	file.Read(&z_prev,sizeof(float));
 	if(getMesh()->view->GetDocument()->m_objects->version>1)
@@ -3077,12 +3093,53 @@ void CTextCad::redrawCanvas()
 	view->Invalidate();
 }
 
+void CTextCad::setScaleCharacters(bool on)
+{
+	if (m_scaleChars == on)
+		return;
+	bakeCharScale();               // keep what is on screen when switching
+	m_scaleChars = on;
+	redrawCanvas();
+}
+
+void CTextCad::bakeCharScale()
+{
+	// Artistic text scaled since its layout: write that scale into the edit
+	// box's character sizes, so editing, saving and reloading show the same
+	// size as the canvas. The next draw lays out again at the new size.
+	if (!m_scaleChars || !rich || !rich->m_hWnd)
+		return;
+	double s = m_charScale;
+	if (s > 0.999 && s < 1.001)
+		return;
+	long n = rich->GetTextLength();
+	CHARRANGE keep;
+	rich->GetSel(keep);
+	for (long i = 0; i < n; i++)
+	{
+		CHARFORMAT cf;
+		memset(&cf, 0, sizeof(cf));
+		cf.cbSize = sizeof(cf);
+		rich->SetSel(i, i + 1);
+		rich->GetSelectionCharFormat(cf);
+		cf.dwMask = CFM_SIZE;
+		cf.yHeight = (LONG)lround(cf.yHeight * s);
+		rich->SetSelectionCharFormat(cf);
+	}
+	rich->SetSel(keep);
+	m_charScale = 1.0;
+	m_layout.valid = false;
+}
+
 void CTextCad::beginEdit()
 {
 	if (!rich || !rich->m_hWnd)
 		return;
 	if (!m_editing)
+	{
+		bakeCharScale();           // the editor shows the size seen on canvas
 		m_editSnapshot = streamRichRtf();
+	}
 	m_editing = true;
 	rich->onEscape = [this]() { cancelEdit(); };
 	rich->ShowWindow(SW_SHOW);

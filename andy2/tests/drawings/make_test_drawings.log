@@ -10,5 +10,9 @@ OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\image_multiply.deh
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\image_backcolor.deh
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\block.deh
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text.deh
-OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_rotated.deh  (layouts before rotate=2 after=2; centre world (0.00,0.00,0.00) -> screen (1141,-556) -> world (0.00,0.00,0.00))
+OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_rotated.deh  (layouts before=2 after=2)
+OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_scale_rewrap.deh  (layouts before=2 after=3)
+OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_scale_chars.deh  (layouts before=2 after=2)
+OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_mirror.deh  (layouts before=2 after=3)
+OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_move.deh  (layouts before=2 after=2)
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_many.deh

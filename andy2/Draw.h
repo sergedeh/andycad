@@ -162,6 +162,10 @@ public:
 	void drawforbmp(acr::IRenderer* r);   // backend-neutral render path (Direct2D/GDI)
 	// Add a ready-made figure to the drawing (used by the test-drawing generator).
 	void addFigure(CFigure* f) { create(f); }
+	// Text scale mode for the selected texts. Returns false when no text is
+	// selected; `state` reports whether the first selected text scales its
+	// characters. With `toggle` it flips all selected texts.
+	bool textScaleMode(bool toggle, bool& state);
 	void setWnd(CCadView * cad);
 	void setFFD(CString option);
 	void setsnapplane(CString plane);

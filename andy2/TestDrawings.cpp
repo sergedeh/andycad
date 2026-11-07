@@ -129,6 +129,11 @@ struct Variant
 	bool        text = false;                   // a two-line text object
 	int         textCount = 1;                  // >1: a grid of small text objects (timing)
 	double      rotateDeg = 0;                  // rotate the text after layout (transform check)
+	// Other transform checks after layout (0 = none):
+	double      scaleBy = 0;                    // uniform scale
+	bool        artistic = false;               // characters scale with the box
+	bool        mirrorX = false;                // mirror left-right
+	double      moveX = 0;                      // translate along x
 };
 
 const Variant kVariants[] = {
@@ -145,6 +150,10 @@ const Variant kVariants[] = {
 	{ "block.deh",                     false, false, false, false, 0, RGB(255, 255, 255), 1.0, true },
 	{ "text.deh",                      false, false, false, true,  0, RGB(255, 255, 255), 1.0, false, true },
 	{ "text_rotated.deh",              false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 30 },
+	{ "text_scale_rewrap.deh",         false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 1.5, false },
+	{ "text_scale_chars.deh",          false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 1.5, true },
+	{ "text_mirror.deh",               false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, true },
+	{ "text_move.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, false, 120 },
 	{ "text_many.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 40 },
 };
 
@@ -209,7 +218,10 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 			t->getCharge();
 			draw->addFigure(t);
 			t->setTextForTest(hdc, _T("AndyCAD text\r\nDirect2D test 0123"), 7);
-			if (v.rotateDeg != 0)
+			bool transformCheck = v.rotateDeg != 0 || v.scaleBy != 0 || v.mirrorX || v.moveX != 0;
+			if (v.artistic)
+				t->setScaleCharacters(true);
+			if (transformCheck)
 			{
 				// Lay out once, rotate through the general figure transform, and
 				// check the characters followed without a new layout.
@@ -217,11 +229,18 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 				RenderFigureToBmp(view, hdc, t, base + _T("_before.bmp"));
 				int n0 = t->layoutCount();
 				t->setRotateCenter(t->getCenter());
-				t->rotate((float)(v.rotateDeg * 3.14159265358979 / 180.0), 0);
+				if (v.rotateDeg != 0)
+					t->rotate((float)(v.rotateDeg * 3.14159265358979 / 180.0), 0);
+				if (v.scaleBy != 0)
+					t->scale((float)v.scaleBy, 0);
+				if (v.mirrorX)
+					t->scale(-1.0f, 1);
+				if (v.moveX != 0)
+					t->Translate(CVector(v.moveX, 0, 0, 0));
 				RenderFigureToBmp(view, hdc, t, base + _T("_after.bmp"));
 				int n1 = t->layoutCount();
 				CString note;
-				note.Format(_T("layouts before rotate=%d after=%d"), n0, n1);
+				note.Format(_T("layouts before=%d after=%d"), n0, n1);
 				why = note;   // reported in the log line
 			}
 		}

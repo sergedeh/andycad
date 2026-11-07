@@ -7465,6 +7465,24 @@ void CDraw::editobj(CDC *hdc) {
     }
   }
 }
+bool CDraw::textScaleMode(bool toggle, bool &state) {
+  CTextCad textc;
+  bool found = false;
+  for (size_t j = 0; j < vs.size(); j++) {
+    if (vs[j]->getName() == textc.getName()) {
+      CTextCad *t = (CTextCad *)vs[j];
+      if (!found)
+        state = t->scaleCharacters();
+      found = true;
+      if (toggle)
+        t->setScaleCharacters(!state);
+    }
+  }
+  if (found && toggle)
+    state = !state;
+  return found;
+}
+
 void CDraw::editobj(CVector point) {
 
   for (int i = 0; i < fit; i++) {

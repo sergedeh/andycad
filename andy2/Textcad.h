@@ -64,6 +64,11 @@ public:
 	void commitEdit();
 	void cancelEdit();
 	bool isEditing() const { return m_editing; }
+	// Scale mode: false = scaling the box re-wraps the text (paragraph text,
+	// the existing behaviour); true = the characters scale with the box
+	// (artistic text). Saved with the text.
+	void setScaleCharacters(bool on);
+	bool scaleCharacters() const { return m_scaleChars; }
 	// How many times the character layout has been rebuilt (tests).
 	int layoutCount() const { return m_layout.count; }
 	void assign(CDC* hdc, CVector p);
@@ -156,6 +161,9 @@ private:
 	} m_ok;
 	CStringA m_editSnapshot;      // RTF when the edit box opened (for cancel)
 	bool m_editing = false;
+	bool m_scaleChars = false;
+	double m_charScale = 1.0;     // box scale since layout (artistic mode)
+	void bakeCharScale();
 	void positionOkButton();
 	void hideEditor();
 	void redrawCanvas();

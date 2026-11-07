@@ -24,6 +24,10 @@ The app writes the drawings and `make_test_drawings.log`, then closes. The textu
 | `block.deh` | Two rectangles grouped in a block |
 | `text.deh` | A two-line text object, first word bold red |
 | `text_rotated.deh` | Text laid out, then rotated 30 degrees through the figure transform; the generator also writes `text_rotated_before.bmp` / `_after.bmp` and logs the layout count (it must not change) |
+| `text_scale_rewrap.deh` | Text scaled 1.5x in re-wrap mode (default): new layout in the bigger box, same character size |
+| `text_scale_chars.deh` | Text scaled 1.5x with "Text Characters Scale With Box" on: characters 1.5x, no new layout |
+| `text_mirror.deh` | Text mirrored left-right (GDI can't draw mirrored glyphs; see the README note) |
+| `text_move.deh` | Text moved 120 units: no new layout |
 | `text_many.deh` | 40 small text objects, for timing |
 
 `baseline_gdi/` and `baseline_d2d/` hold crops of each drawing (window maximised, default zoom) drawn by the GDI rasterizer and by Direct2D (`ANDYCAD_RENDERER=d2d`), captured 2026-11-07. `gdi_vs_d2d.png` and `gdi_vs_d2d_modes.png` put them side by side.
@@ -42,3 +46,5 @@ Direct2D draws the image straight, applies per-pixel alpha times the Transparenc
 ## Timing redisplays
 
 `ANDYCAD_PERF_LOG=<file>` appends one line per display pass, and `ANDYCAD_PERF_REPEAT=<n>` redraws the same frame n extra times. On `text_many.deh` (GDI, 2026-11-07), a repeated redisplay took 2.5 to 4.5 s and grew each time before the text layout cache; with it, 150 ms and stable.
+
+`text_transforms.png` shows each transform drawing before and after. Mirroring is the one gap: GDI fonts can't be mirrored, so a mirrored text box shows its characters turned 180 degrees instead of reversed. True mirrored glyphs come with the Direct2D text drawing (plan step 3).

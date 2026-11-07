@@ -69,6 +69,8 @@ BEGIN_MESSAGE_MAP(CCadView, CScrollView)
 	ON_COMMAND(ID_RECTANGLE, OnRectangle)
 	ON_WM_SIZE()
 	ON_COMMAND(ID_TBSELECT, OnTbselect)
+	ON_COMMAND(ID_TEXT_SCALECHARS, OnTextScaleChars)
+	ON_UPDATE_COMMAND_UI(ID_TEXT_SCALECHARS, OnUpdateTextScaleChars)
 	ON_COMMAND(ID_TBROTATE, OnTbrotate)
 	ON_COMMAND(ID_TBMIRROR, OnTbmirror)
 	ON_COMMAND(ID_Taddnode, OnTaddnode)
@@ -2244,6 +2246,24 @@ void CCadView::OnSize(UINT nType, int cx, int cy)
 	}
 	bmp->CreateCompatibleBitmap(pDC,sz.cx,sz.cy);
 
+}
+
+void CCadView::OnTextScaleChars()
+{
+	bool state = false;
+	if (GetDocument()->m_objects->textScaleMode(true, state))
+	{
+		change = true;
+		Invalidate();
+	}
+}
+
+void CCadView::OnUpdateTextScaleChars(CCmdUI* pCmdUI)
+{
+	bool state = false;
+	bool any = GetDocument()->m_objects->textScaleMode(false, state);
+	pCmdUI->Enable(any);
+	pCmdUI->SetCheck(any && state ? 1 : 0);
 }
 
 void CCadView::OnTbselect() 

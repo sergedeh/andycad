@@ -651,10 +651,12 @@
 
 // Next default values for new objects
 // 
+#define ID_TEXT_SCALECHARS              40336
+
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        272
-#define _APS_NEXT_COMMAND_VALUE         40336
+#define _APS_NEXT_COMMAND_VALUE         40337
 #define _APS_NEXT_CONTROL_VALUE         1156
 #define _APS_NEXT_SYMED_VALUE           235
 #endif
