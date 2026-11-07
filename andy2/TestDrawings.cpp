@@ -71,6 +71,9 @@ struct Variant
 	bool        transparent;
 	bool        image = true;
 	bool        frame = true;
+	int         mode = 0;                       // see CImage::setBlendMode
+	COLORREF    fill = RGB(255, 255, 255);
+	double      level = 1.0;                    // Transparency level (alpha)
 };
 
 const Variant kVariants[] = {
@@ -80,6 +83,10 @@ const Variant kVariants[] = {
 	{ "image_tile_transparent.deh",    true,  true  },
 	{ "image_only.deh",                false, false, true,  false },
 	{ "frame_only.deh",                false, false, false, true  },
+	{ "image_replace.deh",             false, false, true,  true, 1 },
+	{ "image_decal.deh",               false, false, true,  true, 2, RGB(255, 255, 255), 0.5 },
+	{ "image_multiply.deh",            false, false, true,  true, 3, RGB(255, 160, 0) },
+	{ "image_backcolor.deh",           false, false, true,  true, 4, RGB(40, 90, 200), 0.5 },
 };
 
 bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
@@ -101,7 +108,9 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 	// Transparent variants: the magenta block has alpha 0 in the image, and
 	// the shape's Transparency level is 60%.
 	img->setGeneratedTexture(hdc, v.transparent ? &holed : &texture, "generated:checker64",
-	                         v.tiled, RGB(255, 255, 255), v.transparent ? 0.6 : 1.0);
+	                         v.tiled, RGB(255, 255, 255), v.transparent ? 0.6 : v.level);
+	if (v.mode != 0)
+		img->setBlendMode(v.mode, v.fill);
 	draw->addFigure(img);
 	}
 

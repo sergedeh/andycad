@@ -735,19 +735,37 @@ void CImage::setGeneratedTexture(CDC* hdc, CBitmap* bmp, const CString& name,
 	UpdateTexture(hdc, bmp);
 }
 
+void CImage::setBlendMode(int mode, COLORREF fill)
+{
+	switch (mode)
+	{
+	case 1: tex_vert_mode = replace; break;
+	case 2: tex_vert_mode = decal; break;
+	case 3: tex_vert_mode = multiply; break;
+	case 4: tex_vert_mode = backcolor; break;
+	default: tex_vert_mode = image_texture; break;
+	}
+	bcolor = fill;
+}
+
 bool CImage::canRender() const
 {
 	if (typeid(*this) != typeid(CImage)) return false;
-	if (!mytext || pwidth <= 0 || pheight <= 0) return false;
-	if (tex_vert_mode != image_texture) return false;   // other blend modes: later step
 	if (!clipshape.empty()) return false;
-	return true;
+	if (tex_vert_mode == backcolor) return true;   // solid fill, no texture
+	if (tex_vert_mode != image_texture && tex_vert_mode != replace &&
+	    tex_vert_mode != decal && tex_vert_mode != multiply)
+		return false;
+	return mytext && pwidth > 0 && pheight > 0;
 }
 
 void CImage::updateTexturePixels()
 {
-	// Cheap change detection: UpdateTexture/openfile reallocate mytext.
-	uint64_t rev = (uint64_t)(uintptr_t)mytext ^ ((uint64_t)pwidth << 40) ^ ((uint64_t)pheight << 20);
+	// Cheap change detection: UpdateTexture/openfile reallocate mytext; the
+	// blend mode, fill colour and level are baked in, so they are part of it.
+	uint64_t a8 = (uint64_t)(alpha * 255.0 + 0.5) & 0xFF;
+	uint64_t rev = (uint64_t)(uintptr_t)mytext ^ ((uint64_t)pwidth << 40) ^ ((uint64_t)pheight << 20)
+	             ^ ((uint64_t)tex_vert_mode << 56) ^ ((uint64_t)(bcolor & 0xFFFFFF) << 8) ^ (a8 << 32);
 	size_t n = (size_t)pwidth * pheight;
 	if (rev == m_texRev && m_texPixels.size() == n)
 		return;
@@ -759,11 +777,34 @@ void CImage::updateTexturePixels()
 	for (size_t i = 0; i < n && !anyAlpha; ++i)
 		anyAlpha = mytext[i].a > 0.5f;
 	auto byte = [](float v) { int i = (int)(v + 0.5f); return (uint32_t)(i < 0 ? 0 : (i > 255 ? 255 : i)); };
+	// Blend modes are fixed per shape, so they are baked into the pixels
+	// once, using the same formulas as CFigure::ScanPolygon.
+	const float fr = GetRValue(bcolor), fg = GetGValue(bcolor), fb = GetBValue(bcolor);
+	const float k = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
 	for (size_t i = 0; i < n; ++i)
 	{
 		const col& c = mytext[i];
+		float r = c.r, g = c.g, b = c.b;
 		uint32_t a = anyAlpha ? byte(c.a) : 255u;
-		m_texPixels[i] = (a << 24) | (byte(c.r) << 16) | (byte(c.g) << 8) | byte(c.b);
+		if (tex_vert_mode == replace)
+		{
+			a = 255u;                               // texel as is
+		}
+		else if (tex_vert_mode == decal)
+		{
+			r = (1 - k) * r + k * fr;               // texel mixed with the fill colour
+			g = (1 - k) * g + k * fg;
+			b = (1 - k) * b + k * fb;
+			a = 255u;
+		}
+		else if (tex_vert_mode == multiply)
+		{
+			r = (r / 255 * fr / 255) * 255;         // texel times the fill colour
+			g = (g / 255 * fg / 255) * 255;
+			b = (b / 255 * fb / 255) * 255;
+			a = 255u;
+		}
+		m_texPixels[i] = (a << 24) | (byte(r) << 16) | (byte(g) << 8) | byte(b);
 	}
 }
 
@@ -772,6 +813,18 @@ void CImage::draw(acr::IRenderer* r)
 	if (!r || mesh.Vcount() < 3)
 		return;
 	updateRenderCache();
+
+	if (tex_vert_mode == backcolor)
+	{
+		// No texture: the fill colour at the Transparency level.
+		acr::Fill fill;
+		fill.rule = acr::FillRule::EvenOdd;
+		fill.color = acr::ColorFromColorref(bcolor);
+		fill.color.a = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
+		r->FillPath(m_rfill, fill);
+	}
+	else
+	{
 	updateTexturePixels();
 
 	// Map texel space onto the quad from three corners' texture coordinates.
@@ -807,7 +860,11 @@ void CImage::draw(acr::IRenderer* r)
 	tex.pixels = m_texPixels.data();
 	tex.width = pwidth;
 	tex.height = pheight;
-	r->FillPathWithTexture(m_rfill, tex, t2w, layout, (float)alpha);
+	// Only image_texture applies the level as opacity; the other modes have
+	// it baked in (decal) or ignore it (replace, multiply), as in GDI.
+	float opacity = tex_vert_mode == image_texture ? (float)alpha : 1.0f;
+	r->FillPathWithTexture(m_rfill, tex, t2w, layout, opacity);
+	}
 
 	if (edge_on && !(move && getLibstatus()))
 	{

@@ -49,6 +49,9 @@ public:
 	void setGeneratedTexture(CDC* hdc, CBitmap* bmp, const CString& name,
 	                         bool tiled, COLORREF transparentColour,
 	                         double opacity = 1.0);
+	// Blend mode for the generator: 0 image_texture, 1 replace, 2 decal,
+	// 3 multiply, 4 backcolor (matches CFigure::tex_vert_mode names).
+	void setBlendMode(int mode, COLORREF fill);
  
 	void initL();
 	void setPtsBegin(CVector point);

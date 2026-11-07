@@ -274,6 +274,10 @@ void CLine::draw(acr::IRenderer* r)
 	acr::Fill fill;
 	fill.rule = acr::FillRule::EvenOdd;
 	fill.color = acr::ColorFromColorref(bcolor);
+	// GDI fills with (1-alpha)*background + alpha*fill (backcolor mode), so
+	// the Transparency level is the fill's opacity.
+	if (tex_vert_mode == backcolor)
+		fill.color.a = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
 
 	if (cl && !move)
 		r->FillPath(m_rfill, fill);

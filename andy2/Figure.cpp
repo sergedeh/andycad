@@ -2162,7 +2162,7 @@ void CFigure::savefile(CFile& file)
 		file.Write(&mode_texture, sizeof(mode_texture));
 		file.Write(&spline, sizeof(spline));
 
-		if(tex_vert_mode==image_texture)
+		if(hasTexturePixels())
 		{
 			file.Write(&pheight, sizeof(pheight));
 			file.Write(&pwidth, sizeof(pheight));
@@ -2175,7 +2175,7 @@ void CFigure::savefile(CFile& file)
 			}
 		}
 		int i=texture_file.GetLength();
-		if(tex_vert_mode==image_texture)
+		if(hasTexturePixels())
 		{
 		file.Write(&i,sizeof(i));
 		for(int j=0;j<i;j++)
@@ -2296,7 +2296,7 @@ void CFigure::openfile(CFile& file)
 		file.Read(&spline, sizeof(spline));
 
 //		file.Read(&ci, sizeof(int));
-		if(tex_vert_mode==image_texture)
+		if(hasTexturePixels())
 		{
 			file.Read(&pheight, sizeof(int));
 			file.Read(&pwidth, sizeof(int));
@@ -2311,7 +2311,7 @@ void CFigure::openfile(CFile& file)
 		
 		int text;
 //		file.Read(&text, sizeof(texture_file));
-		if(tex_vert_mode==image_texture)
+		if(hasTexturePixels())
 		{
 		texture_file="";
 		int i;//=texture_file.GetLength();

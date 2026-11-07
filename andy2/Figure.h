@@ -295,6 +295,11 @@ public:
 	// surfaces, textured fills, clipped figures) must keep returning false so
 	// the view falls back to the GDI path for them.
 	virtual bool canRender() const { return false; }
+	// Texture modes whose pixels are stored in the file (and must be read back).
+	bool hasTexturePixels() const {
+		return tex_vert_mode == image_texture || tex_vert_mode == replace ||
+		       tex_vert_mode == decal || tex_vert_mode == multiply;
+	}
 	// GDI-only decorations (selection handles, rotate cross) that the
 	// IRenderer path does not draw. Also advances the selection state machine
 	// exactly like draw(CDC*) does, so it must be called once per frame.
