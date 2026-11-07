@@ -262,6 +262,28 @@ void CLibS::draw(CDC* hdc)
 	
 }
 
+void CLibS::setTexture(CString s, CDC* hdc)
+{
+	for (int i = 0; i < iter; i++)
+		elem[i]->setTexture(s, hdc);
+	CFigure::setTexture(s, hdc);
+}
+
+void CLibS::setTiled(bool tiled)
+{
+	for (int i = 0; i < iter; i++)
+		elem[i]->setTiled(tiled);
+	CFigure::setTiled(tiled);
+}
+
+void CLibS::SendNotify(CString s, void* param[7])
+{
+	if (s == "Transparency")
+		for (int i = 0; i < iter; i++)
+			elem[i]->SendNotify(s, param);
+	CFigure::SendNotify(s, param);
+}
+
 bool CLibS::isRenderGroup() const
 {
 	// Blocks plus the subclasses whose draw(CDC*) is exactly CLibS::draw:

@@ -276,6 +276,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestDrawings.cpp" />
+    <ClCompile Include="RenderTests.cpp" />
     <ClCompile Include="ImageFile.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -466,6 +467,7 @@
     <ClInclude Include="render\ViewRenderer.h" />
     <ClInclude Include="render\GlyphOutline.h" />
     <ClInclude Include="TestDrawings.h" />
+    <ClInclude Include="RenderTests.h" />
     <ClInclude Include="ImageFile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

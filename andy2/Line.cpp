@@ -201,7 +201,11 @@ void CLine::draw(CDC *hdc)
 		{
 //	hdc->BeginPath();
 //			Fill(hdc,fill_p,bcolor);
-			if(texture_file!="")
+			if(texture_file!="" && fillTexturedGDI(hdc))
+			{
+				// textured fill done (same sampling as Direct2D)
+			}
+			else if(texture_file!="")
 			{
 			CImagex texture;//(hdc->GetSafeHdc(),texture_file.GetBuffer(10));
 				updatevcore();
@@ -326,6 +330,7 @@ void CLine::setFromLoops(const std::vector<std::vector<CVector>>& loops, COLORRE
 	lplb.lbColor = fill;
 	edge_on = false;
 	updatecore();
+	mesh.updateBoxUV(box);   // texture coordinates over the bounding box, as for other shapes
 }
 
 bool CLine::canRender() const

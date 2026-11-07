@@ -77,6 +77,10 @@ public:
 	void drawinit(CDC *hdc,CVector begin, CVector end);
 	virtual bool PtinRegion(CVector point);
 	void draw(CDC* hdc);
+	// A block's fill settings apply to the shapes inside it.
+	void setTexture(CString s, CDC* hdc) override;
+	void setTiled(bool tiled) override;
+	void SendNotify(CString s, void* param[7]) override;
 	bool isRenderGroup() const override;
 	int renderChildCount() override { return iter; }
 	CFigure* renderChild(int i) override { return elem[i]; }

@@ -14,6 +14,7 @@
 #include "customwidth.h"
 #include "objedit.h"
 #include "TestDrawings.h"
+#include "RenderTests.h"
 //#include "pgrid.h"
 #include "Cpapersize.h"
 #include "numcopy.h"
@@ -2539,7 +2540,8 @@ void CCadView::OnInitialUpdate()
 	
 	// Test hook: ANDYCAD_MAKE_TEST_DRAWINGS=<folder> writes the image test
 	// drawings and closes the app (see TestDrawings.cpp).
-	MakeImageTestDrawingsIfRequested(this);
+	if (!MakeImageTestDrawingsIfRequested(this))
+		RunRenderTestsIfRequested(this);   // ANDYCAD_RUN_RENDER_TESTS=<folder>
  }
 
 void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 

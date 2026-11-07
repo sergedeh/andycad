@@ -187,6 +187,11 @@ bool CFigure::canFillForRenderer() const
 		return false;
 	if (!mytext || pwidth <= 0 || pheight <= 0)
 		return false;
+	return hasTextureCoords();
+}
+
+bool CFigure::hasTextureCoords() const
+{
 	// Texture coordinates must span an area (set by updateBoxUV).
 	CMesh& m = const_cast<CMesh&>(mesh);
 	int n = m.Vcount();
@@ -199,6 +204,132 @@ bool CFigure::canFillForRenderer() const
 		vmin = min(vmin, (double)v->pvn); vmax = max(vmax, (double)v->pvn);
 	}
 	return n >= 3 && umax - umin > 1e-6 && vmax - vmin > 1e-6;
+}
+
+#pragma comment(lib, "msimg32.lib")
+
+bool CFigure::fillTexturedGDI(CDC* hdc)
+{
+	if (!hdc || texture_file.IsEmpty() || tex_vert_mode == backcolor || !mytext)
+		return false;
+	if (tex_vert_mode != image_texture && tex_vert_mode != replace &&
+	    tex_vert_mode != decal && tex_vert_mode != multiply)
+		return false;
+	acr::Mat3 t2l;
+	if (!hasTextureCoords() || !textureMap(t2l))
+		return false;
+	updateTexturePixels();
+	std::vector<std::vector<CPoint>> loops;
+	if (edgeLoops(loops) == 0)
+		return false;
+
+	// logical -> device, and texel -> device = L2D(t2l(t)).
+	POINT mp[3] = { {0,0}, {1000,0}, {0,1000} };
+	hdc->LPtoDP(mp, 3);
+	double a = (mp[1].x - mp[0].x) / 1000.0, b = (mp[2].x - mp[0].x) / 1000.0;
+	double c = (mp[1].y - mp[0].y) / 1000.0, d = (mp[2].y - mp[0].y) / 1000.0;
+	double ox = mp[0].x, oy = mp[0].y;
+	// texel (u,v) -> logical: x = u*m11 + v*m21 + dx, y = u*m12 + v*m22 + dy
+	double tx_u = a * t2l.m11 + b * t2l.m12, tx_v = a * t2l.m21 + b * t2l.m22, tx_0 = a * t2l.dx + b * t2l.dy + ox;
+	double ty_u = c * t2l.m11 + d * t2l.m12, ty_v = c * t2l.m21 + d * t2l.m22, ty_0 = c * t2l.dx + d * t2l.dy + oy;
+	double det = tx_u * ty_v - tx_v * ty_u;
+	if (fabs(det) < 1e-12)
+		return false;
+
+	// Polygon in device pixels, and its bounds.
+	std::vector<POINT> pts;
+	std::vector<INT> counts;
+	LONG l = LONG_MAX, t = LONG_MAX, r = LONG_MIN, btm = LONG_MIN;
+	for (auto& loop : loops)
+	{
+		if (loop.size() < 3) continue;
+		for (CPoint p : loop)
+		{
+			POINT q = p;
+			hdc->LPtoDP(&q, 1);
+			pts.push_back(q);
+			l = min(l, q.x); t = min(t, q.y); r = max(r, q.x); btm = max(btm, q.y);
+		}
+		counts.push_back((INT)loop.size());
+	}
+	if (counts.empty())
+		return false;
+
+	int saved = hdc->SaveDC();
+	hdc->SetMapMode(MM_TEXT);
+	hdc->SetViewportOrg(0, 0);
+	hdc->SetWindowOrg(0, 0);
+	CRect clip;
+	hdc->GetClipBox(&clip);
+	l = max(l, clip.left); t = max(t, clip.top); r = min(r, clip.right); btm = min(btm, clip.bottom);
+	int w = r - l, h = btm - t;
+	if (w <= 0 || h <= 0) { hdc->RestoreDC(saved); return true; }
+
+	BITMAPINFO bi = {};
+	bi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+	bi.bmiHeader.biWidth = w;
+	bi.bmiHeader.biHeight = -h;
+	bi.bmiHeader.biPlanes = 1;
+	bi.bmiHeader.biBitCount = 32;
+	bi.bmiHeader.biCompression = BI_RGB;
+	void* bits = NULL;
+	HBITMAP dib = CreateDIBSection(hdc->GetSafeHdc(), &bi, DIB_RGB_COLORS, &bits, NULL, 0);
+	if (!dib || !bits) { hdc->RestoreDC(saved); return false; }
+
+	const bool tile = mode_texture == wrap;
+	const float opacity = tex_vert_mode == image_texture ? (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha)) : 1.0f;
+	const int W = pwidth, H = pheight;
+	const uint32_t* tex = m_texPixels.data();
+	auto texel = [&](int x, int y) -> uint32_t {
+		if (tile) { x %= W; if (x < 0) x += W; y %= H; if (y < 0) y += H; }
+		else { x = x < 0 ? 0 : (x >= W ? W - 1 : x); y = y < 0 ? 0 : (y >= H ? H - 1 : y); }
+		return tex[(size_t)y * W + x];
+	};
+	uint32_t* out = (uint32_t*)bits;
+	for (int y = 0; y < h; ++y)
+	{
+		for (int x = 0; x < w; ++x)
+		{
+			// device pixel centre -> texel space (inverse of texel -> device)
+			double px = l + x + 0.5 - tx_0, py = t + y + 0.5 - ty_0;
+			double u = ( ty_v * px - tx_v * py) / det;
+			double v = (-ty_u * px + tx_u * py) / det;
+			// bilinear between texel centres, like Direct2D
+			double fu = u - 0.5, fv = v - 0.5;
+			int x0 = (int)floor(fu), y0 = (int)floor(fv);
+			double ax = fu - x0, ay = fv - y0;
+			uint32_t p00 = texel(x0, y0), p10 = texel(x0 + 1, y0), p01 = texel(x0, y0 + 1), p11 = texel(x0 + 1, y0 + 1);
+			double acc[4] = { 0, 0, 0, 0 };     // premultiplied b, g, r, a
+			const uint32_t ps[4] = { p00, p10, p01, p11 };
+			const double ws[4] = { (1 - ax) * (1 - ay), ax * (1 - ay), (1 - ax) * ay, ax * ay };
+			for (int k = 0; k < 4; ++k)
+			{
+				double pa = (ps[k] >> 24) / 255.0;
+				acc[0] += ws[k] * (ps[k] & 0xFF) * pa;
+				acc[1] += ws[k] * ((ps[k] >> 8) & 0xFF) * pa;
+				acc[2] += ws[k] * ((ps[k] >> 16) & 0xFF) * pa;
+				acc[3] += ws[k] * pa;
+			}
+			auto ch = [](double v) { int i = (int)(v + 0.5); return (uint32_t)(i < 0 ? 0 : (i > 255 ? 255 : i)); };
+			out[(size_t)y * w + x] = (ch(acc[3] * 255 * opacity) << 24) | (ch(acc[2] * opacity) << 16) |
+			                         (ch(acc[1] * opacity) << 8) | ch(acc[0] * opacity);
+		}
+	}
+
+	// Clip to the shape (even-odd, so holes stay open) and blend.
+	HRGN rgn = CreatePolyPolygonRgn(pts.data(), counts.data(), (int)counts.size(), ALTERNATE);
+	if (rgn)
+		ExtSelectClipRgn(hdc->GetSafeHdc(), rgn, RGN_AND);
+	HDC src = CreateCompatibleDC(hdc->GetSafeHdc());
+	HGDIOBJ oldBmp = SelectObject(src, dib);
+	BLENDFUNCTION bf = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
+	AlphaBlend(hdc->GetSafeHdc(), l, t, w, h, src, 0, 0, w, h, bf);
+	SelectObject(src, oldBmp);
+	DeleteDC(src);
+	DeleteObject(dib);
+	if (rgn) DeleteObject(rgn);
+	hdc->RestoreDC(saved);
+	return true;
 }
 
 void CFigure::updateTexturePixels()
@@ -1778,9 +1909,23 @@ if(v.size()!=0)
 		pw=(pwidth-1)*uleft;
 		yt=ph*pwidth+pw;
 //		yt=floor((pheight-1)*vleft)*pwidth+floor((pwidth-1)*uleft);
-		r=hatch[(y-ybottom)*width+x-ixleft].r;
-		g=hatch[(y-ybottom)*width+x-ixleft].g;
-		b=hatch[(y-ybottom)*width+x-ixleft].b;
+		long hi=(long)(y-ybottom)*width+x-ixleft;
+		if(hatch && hi>=0 && hi<m_hatchSize)
+		{
+		r=hatch[hi].r;
+		g=hatch[hi].g;
+		b=hatch[hi].b;
+		}
+		else if(mytext && yt>=0 && yt<pwidth*pheight)
+		{
+			// No (or too small a) tiling buffer: sample the texture directly.
+			float _alpha=(float)mytext[yt].a/255;
+			r=(1-_alpha)*br+_alpha*mytext[yt].r;
+			g=(1-_alpha)*bg+_alpha*mytext[yt].g;
+			b=(1-_alpha)*bb+_alpha*mytext[yt].b;
+		}
+		else
+			continue;
 //		r=mytext[(y-ybottom)*width+x-ixleft].r;
 //		g=mytext[(y-ybottom)*width+x-ixleft].g;
 //		b=mytext[(y-ybottom)*width+x-ixleft].b;
@@ -1789,6 +1934,8 @@ if(v.size()!=0)
 		ph=(pheight-1)*vleft;
 		pw=(pwidth-1)*uleft;
 		yt=ph*pwidth+pw;
+		if(!mytext || yt<0 || yt>=pwidth*pheight)
+			continue;
 
 		if ((mytext[yt].r== ar) && (mytext[yt].g== ag) && (mytext[yt].b== ab))
 		{
@@ -2093,9 +2240,11 @@ if(v.size()!=0)
 	{
 		delete []hatch;
 		hatch=NULL;
+		m_hatchSize=0;
 	}
 
 	hatch= new col[height*width];
+	m_hatchSize=(long)height*width;
 	int gb=pheight*pwidth;
 
 /*	text=new col[gb];
@@ -2175,10 +2324,15 @@ if(v.size()!=0)
 //		yt=(x-xleft)+(y-ybottom)*(xright-xleft);
 //		if(!_ps)
 		{
+		// Guard both buffers: the span can run past the hatch buffer and
+		// the texture index past the image (this crashed on tiled shapes).
+		long hi=(long)(y-ybottom)*_w+x-xleft;
+		if(yt<0 || yt>=pwidth*pheight || hi<0 || hi>=(long)height*width)
+			continue;
 		float _alpha=(float)mytext[yt].a/255;
-		r=hatch[(y-ybottom)*_w+x-xleft].r=(1-_alpha)*br+_alpha*mytext[yt].r;
-		g=hatch[(y-ybottom)*_w+x-xleft].g=(1-_alpha)*bg+_alpha*mytext[yt].g;
-		b=hatch[(y-ybottom)*_w+x-xleft].b=(1-_alpha)*bb+_alpha*mytext[yt].b;
+		r=hatch[hi].r=(1-_alpha)*br+_alpha*mytext[yt].r;
+		g=hatch[hi].g=(1-_alpha)*bg+_alpha*mytext[yt].g;
+		b=hatch[hi].b=(1-_alpha)*bb+_alpha*mytext[yt].b;
 		}
 /*		else
 		{
@@ -5066,6 +5220,13 @@ void CFigure::setTexture(CString s,CDC* hdc)
  tex_vert_mode=image_texture;
  if(s!="")
 	 UpdateTexture(hdc);
+ // Shapes built without texture coordinates (circles, curves) get them over
+ // their bounding box, as rectangles and images have.
+ if(!hasTextureCoords())
+ {
+	 updatecore();
+	 mesh.updateBoxUV(box);
+ }
 }
 
 //DEL void CFigure::setclickstate(CState *s)

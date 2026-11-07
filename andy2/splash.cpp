@@ -94,7 +94,10 @@ void CSplashWnd::HideSplashScreen()
 {
 	// Destroy the window, and update the mainframe.
 	DestroyWindow();
-	AfxGetMainWnd()->UpdateWindow();
+	// The main window may not exist (yet / anymore) when the timer fires.
+	CWnd* mainWnd = AfxGetMainWnd();
+	if (mainWnd && ::IsWindow(mainWnd->GetSafeHwnd()))
+		mainWnd->UpdateWindow();
 }
 
 void CSplashWnd::PostNcDestroy()

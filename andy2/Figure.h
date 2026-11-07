@@ -177,9 +177,9 @@ public:
 	CRay getRefRay();
 //	void selectMP(CVector point);
 	void sendclickNotify();
-	void setTexture(CString s,CDC* hdc);
+	virtual void setTexture(CString s,CDC* hdc);
 	// Repeat the texture (true) or stretch it over the figure (false).
-	void setTiled(bool tiled) { mode_texture = tiled ? wrap : none; }
+	virtual void setTiled(bool tiled) { mode_texture = tiled ? wrap : none; }
 	virtual void SendNotify(CString s, void* param[7]);
 	void setInterest(CSubject *sub);
 	CDC* getDC();
@@ -313,6 +313,13 @@ public:
 	// texture (image_texture, replace, decal, multiply; stretched or tiled).
 	// canFillForRenderer says whether this figure's fill is supported.
 	bool canFillForRenderer() const;
+	// GDI counterpart of the textured fill: samples the same texture with the
+	// same mapping (bilinear, tiling, per-pixel alpha x Transparency level)
+	// into a bitmap and alpha-blends it clipped to the shape. Returns false
+	// if the figure has no supported texture (the caller then falls back).
+	bool fillTexturedGDI(CDC* hdc);
+	// True if the mesh's texture coordinates span an area.
+	bool hasTextureCoords() const;
 	void fillForRenderer(acr::IRenderer* r);
 	// The mesh's edges grouped into loops (edge order; a new loop starts where
 	// an edge does not continue the previous one), as logical points.
@@ -452,6 +459,7 @@ protected:
 	int pwidth;
 	col* mytext;
 	col* hatch;
+	long m_hatchSize = 0;     // entries in hatch
 
 	vector<float> refl;
 

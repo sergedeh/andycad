@@ -1787,7 +1787,11 @@ void CBezier::draw(CDC *hdc)
 	TRACE(scc);
 	   if (cl)
 	   {
-		if(texture_file!="")
+		if(texture_file!="" && fillTexturedGDI(hdc))
+		{
+			// textured fill done (same sampling as Direct2D)
+		}
+		else if(texture_file!="")
 		{
 			CImagex texture;//(hdc->GetSafeHdc(),texture_file.GetBuffer(10));
 			if(mode_texture==wrap)
