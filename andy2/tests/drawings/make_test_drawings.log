@@ -15,4 +15,5 @@ OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_scale_rewrap.deh  (
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_scale_chars.deh  (layouts before=2 after=2)
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_mirror.deh  (layouts before=2 after=3)
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_move.deh  (layouts before=2 after=2)
+OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_curves.deh  (curve figures=27)
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_many.deh

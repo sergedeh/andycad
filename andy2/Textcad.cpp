@@ -6,6 +6,8 @@
 #include "cad.h"
 #include "TextCad.h"
 #include "render/RenderCompat.h"
+#include "render/GlyphOutline.h"
+#include "render/ViewRenderer.h"
 #include <typeinfo>
 #include "bezier.h"
 #include "textdi.h"
@@ -1280,6 +1282,12 @@ void CTextCad::draw3D(CDC *hdc)
 	l2.setRotateCenter(box.center());
 	l2.rotate(ang,-1);
 	CRect* rt2= new CRect(l2.getMesh()->Vector(0),l2.getMesh()->Vector(2));
+	// A mirrored text box gives a reversed rectangle (negative width or
+	// height on screen), which made the edit box zero-wide and the text wrap
+	// to one line. Keep the edit box's usual orientation: left < right and,
+	// as for an unmirrored box in this y-up view, top > bottom.
+	if(rt2->left>rt2->right) { int t=rt2->left; rt2->left=rt2->right; rt2->right=t; }
+	if(rt2->top<rt2->bottom) { int t=rt2->top; rt2->top=rt2->bottom; rt2->bottom=t; }
 //	rt2->
 	CRect rt20(getMesh()->Vector(0),getMesh()->Vector(2));
 //	hdc->Rectangle(*rt2);
@@ -3135,11 +3143,11 @@ void CTextCad::drawOverlay(CDC* hdc)
 	if (transselectedstate()) CLine::drawselect(hdc);
 }
 
-void CTextCad::draw(acr::IRenderer* r)
+void CTextCad::buildGlyphs(const acr::Mat3& M, std::vector<acr::GlyphDraw>& glyphs)
 {
-	if (!r || !canRender())
+	glyphs.clear();
+	if (mesh.Vcount() < 4)
 		return;
-	const acr::Mat3 M = r->GetTransform();     // view logical -> device (+0.5)
 	auto dev = [&](const CVector& w) {
 		CVector ww = w;
 		CPoint l = ww;
@@ -3160,7 +3168,6 @@ void CTextCad::draw(acr::IRenderer* r)
 		charScale = sqrt((absc(w1 - w0) / m_layout.boxW0) * (absc(w3 - w0) / m_layout.boxH0));
 	double fontScale = (m_layout.scale > 0 ? projectedScale() / m_layout.scale : 1.0) * charScale;
 
-	std::vector<acr::GlyphDraw> glyphs;
 	glyphs.reserve(m_layout.glyphs.size());
 	for (size_t i = 0; i < m_layout.glyphs.size(); ++i)
 	{
@@ -3186,7 +3193,66 @@ void CTextCad::draw(acr::IRenderer* r)
 		g.color = acr::ColorFromColorref(gl.color);
 		glyphs.push_back(g);
 	}
+}
+
+void CTextCad::draw(acr::IRenderer* r)
+{
+	if (!r || !canRender())
+		return;
+	std::vector<acr::GlyphDraw> glyphs;
+	buildGlyphs(r->GetTransform(), glyphs);
 	r->DrawGlyphs(glyphs.data(), glyphs.size());
+}
+
+std::vector<CFigure*> CTextCad::toCurves(CDC* hdc)
+{
+	std::vector<CFigure*> result;
+	if (!hdc || !m_layout.valid || !m_layout.anchorsValid || m_layout.glyphs.empty())
+		return result;
+	// The view mapping, logical -> device, and its inverse.
+	POINT mp[3] = { {0,0}, {1000,0}, {0,1000} };
+	hdc->LPtoDP(mp, 3);
+	acr::Mat3 M = acr::TransformFromMappedPoints(mp[0], mp[1], mp[2]);
+	M.dx += 0.5; M.dy += 0.5;          // same convention as the Direct2D batch
+	std::vector<acr::GlyphDraw> glyphs;
+	buildGlyphs(M, glyphs);
+	std::vector<std::vector<std::vector<acr::Vec2>>> outlines;
+	if (!acr::GlyphOutlines(glyphs.data(), glyphs.size(), 0.25, outlines))
+		return result;
+	double a = (mp[1].x - mp[0].x) / 1000.0, b = (mp[2].x - mp[0].x) / 1000.0;
+	double c = (mp[1].y - mp[0].y) / 1000.0, d = (mp[2].y - mp[0].y) / 1000.0;
+	double det = a * d - b * c;
+	if (det == 0)
+		return result;
+	// Logical -> world through the projection (affine here), sub-pixel.
+	CVector wo = CPoint(0, 0);
+	CVector wx = CPoint(1000, 0);
+	CVector wy = CPoint(0, 1000);
+	wx = wx - wo; wy = wy - wo;
+	for (size_t i = 0; i < outlines.size(); ++i)
+	{
+		if (outlines[i].empty())
+			continue;
+		std::vector<std::vector<CVector>> loops;
+		for (const auto& loop : outlines[i])
+		{
+			std::vector<CVector> w;
+			w.reserve(loop.size());
+			for (const acr::Vec2& p : loop)
+			{
+				double dx = p.x - mp[0].x, dy = p.y - mp[0].y;   // device (GDI pixels) -> logical
+				double lx = (d * dx - b * dy) / det, ly = (-c * dx + a * dy) / det;
+				w.push_back(wo + wx * (lx / 1000.0) + wy * (ly / 1000.0));
+			}
+			loops.push_back(std::move(w));
+		}
+		CLine* glyph = new CLine;
+		glyph->setFromLoops(loops, m_layout.glyphs[i].color);
+		FLAYER layerCopy = getLayer();
+		glyph->setLayer(layerCopy);
+		result.push_back(glyph);
+	}
+	return result;
 }
 
 void CTextCad::setScaleCharacters(bool on)

@@ -146,6 +146,10 @@ public:
 	void draw(CDC *hdc);
 	void draw(acr::IRenderer* r);   // backend-neutral (Direct2D/GDI) render path
 	bool canRender() const override;
+	// Replace this figure's geometry with closed loops (world points), filled
+	// with `fill` using the even-odd rule (holes stay open). Used by
+	// "convert text to curves".
+	void setFromLoops(const std::vector<std::vector<CVector>>& loops, COLORREF fill);
 	void drawOverlay(CDC* hdc) override;
 	virtual bool draw(bool fPrevLine,CDC* hdc,CVector point);
 	double pointtoVector(CVector line,CVector Point);

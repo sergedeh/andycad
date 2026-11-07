@@ -137,6 +137,8 @@ protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnTbselect();
 	afx_msg void OnTextScaleChars();
+	afx_msg void OnTextToCurves();
+	afx_msg void OnUpdateTextToCurves(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateTextScaleChars(CCmdUI* pCmdUI);
 	afx_msg void OnTbrotate();
 	afx_msg void OnTbmirror();

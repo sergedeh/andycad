@@ -295,6 +295,10 @@ public:
 	// surfaces, textured fills, clipped figures) must keep returning false so
 	// the view falls back to the GDI path for them.
 	virtual bool canRender() const { return false; }
+	// The mesh's edges grouped into loops (edge order; a new loop starts where
+	// an edge does not continue the previous one), as logical points.
+	// Returns the number of loops.
+	int edgeLoops(std::vector<std::vector<CPoint>>& loops);
 	// Texture modes whose pixels are stored in the file (and must be read back).
 	bool hasTexturePixels() const {
 		return tex_vert_mode == image_texture || tex_vert_mode == replace ||

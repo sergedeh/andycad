@@ -75,6 +75,10 @@ public:
 	bool canRender() const override;
 	void draw(acr::IRenderer* r) override;
 	void drawOverlay(CDC* hdc) override;
+	// Convert to curves: one filled CLine per character (glyph outlines,
+	// holes kept), in world space, matching what is on screen. Empty if the
+	// text has not been laid out yet.
+	std::vector<CFigure*> toCurves(CDC* hdc);
 	// How many times the character layout has been rebuilt (tests).
 	int layoutCount() const { return m_layout.count; }
 	void assign(CDC* hdc, CVector p);
@@ -170,6 +174,8 @@ private:
 	bool m_scaleChars = false;
 	double m_charScale = 1.0;     // box scale since layout (artistic mode)
 	void bakeCharScale();
+	// Glyphs for the current view; M = view logical -> device (+0.5).
+	void buildGlyphs(const acr::Mat3& M, std::vector<acr::GlyphDraw>& out);
 	void positionOkButton();
 	void hideEditor();
 	void redrawCanvas();

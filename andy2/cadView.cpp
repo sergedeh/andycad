@@ -70,6 +70,8 @@ BEGIN_MESSAGE_MAP(CCadView, CScrollView)
 	ON_WM_SIZE()
 	ON_COMMAND(ID_TBSELECT, OnTbselect)
 	ON_COMMAND(ID_TEXT_SCALECHARS, OnTextScaleChars)
+	ON_COMMAND(ID_TEXT_TOCURVES, OnTextToCurves)
+	ON_UPDATE_COMMAND_UI(ID_TEXT_TOCURVES, OnUpdateTextToCurves)
 	ON_UPDATE_COMMAND_UI(ID_TEXT_SCALECHARS, OnUpdateTextScaleChars)
 	ON_COMMAND(ID_TBROTATE, OnTbrotate)
 	ON_COMMAND(ID_TBMIRROR, OnTbmirror)
@@ -2246,6 +2248,26 @@ void CCadView::OnSize(UINT nType, int cx, int cy)
 	}
 	bmp->CreateCompatibleBitmap(pDC,sz.cx,sz.cy);
 
+}
+
+void CCadView::OnTextToCurves()
+{
+	CDC* hdc = GetDC();
+	OnPrepareDC(hdc);
+	int n = GetDocument()->m_objects->convertTextToCurves(hdc);
+	ReleaseDC(hdc);
+	if (n > 0)
+	{
+		GetDocument()->SetModifiedFlag(TRUE);
+		change = true;
+		Invalidate();
+	}
+}
+
+void CCadView::OnUpdateTextToCurves(CCmdUI* pCmdUI)
+{
+	bool state = false;
+	pCmdUI->Enable(GetDocument()->m_objects->textScaleMode(false, state));
 }
 
 void CCadView::OnTextScaleChars()

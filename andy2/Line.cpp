@@ -217,6 +217,27 @@ void CLine::draw(CDC *hdc)
 			else
 			{
 
+			std::vector<std::vector<CPoint>> loops;
+			if(edgeLoops(loops)>1)
+			{
+				// Several closed loops (e.g. converted glyphs with holes): fill
+				// them together with the even-odd rule.
+				std::vector<POINT> pts;
+				std::vector<INT> counts;
+				for(size_t l=0;l<loops.size();++l)
+				{
+					if(loops[l].size()<3) continue;
+					for(size_t k=0;k<loops[l].size();++k) pts.push_back(loops[l][k]);
+					counts.push_back((INT)loops[l].size());
+				}
+				CPen* noPen=(CPen*)hdc->SelectStockObject(NULL_PEN);
+				int oldMode=hdc->SetPolyFillMode(ALTERNATE);
+				if(!counts.empty())
+					hdc->PolyPolygon(pts.data(),counts.data(),(int)counts.size());
+				hdc->SetPolyFillMode(oldMode);
+				hdc->SelectObject(noPen);
+			}
+			else
 			f->ScanPolygon(hdc,bcolor,NULL);
 //			f->Fill(hdc,box.center(),bcolor);
 			}
@@ -283,6 +304,36 @@ void CLine::draw(acr::IRenderer* r)
 		r->FillPath(m_rfill, fill);
 	if (edge_on && !(move && getLibstatus()))
 		r->StrokePath(m_rstroke, stroke);
+}
+
+void CLine::setFromLoops(const std::vector<std::vector<CVector>>& loops, COLORREF fill)
+{
+	mesh.empty();
+	ptbegin.clear();
+	ptend.clear();
+	for (size_t l = 0; l < loops.size(); ++l)
+	{
+		const std::vector<CVector>& loop = loops[l];
+		if (loop.size() < 3)
+			continue;
+		int first = mesh.Vcount();
+		for (size_t i = 0; i < loop.size(); ++i)
+			mesh.addVertex(new CVertex(loop[i], 0, 0));
+		int count = (int)loop.size();
+		for (int i = 0; i < count; ++i)
+		{
+			CVertex* a = mesh.Vertex(first + i);
+			CVertex* b = mesh.Vertex(first + (i + 1) % count);
+			new CEdge(a, b, mesh.Ecount());
+			ptbegin.push_back(loop[i]);
+			ptend.push_back(loop[(i + 1) % count]);
+		}
+	}
+	cl = true;
+	bcolor = fill;
+	lplb.lbColor = fill;
+	edge_on = false;
+	updatecore();
 }
 
 bool CLine::canRender() const

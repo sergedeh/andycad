@@ -837,6 +837,7 @@ BEGIN
     POPUP "F&ormat"
     BEGIN
         MENUITEM "Text Characters Scale With Box", ID_TEXT_SCALECHARS
+        MENUITEM "Convert Text to Curves",      ID_TEXT_TOCURVES
         MENUITEM SEPARATOR
         POPUP "&Line Style"
         BEGIN

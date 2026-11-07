@@ -55,6 +55,23 @@ bool SaveBitmapFile(HDC ref, HBITMAP bmp, const CString& path)
 	return true;
 }
 
+bool RenderFiguresToBmp(CCadView* view, CDC* ref, const std::vector<CFigure*>& figs, const CString& path)
+{
+	CDC mem;
+	mem.CreateCompatibleDC(ref);
+	CBitmap bmp;
+	CRect rc;
+	view->GetClientRect(&rc);
+	bmp.CreateCompatibleBitmap(ref, rc.Width(), rc.Height());
+	CBitmap* old = mem.SelectObject(&bmp);
+	mem.FillSolidRect(0, 0, rc.Width(), rc.Height(), RGB(255, 255, 255));
+	view->OnPrepareDC(&mem);
+	for (CFigure* f : figs)
+		f->draw(&mem);
+	mem.SelectObject(old);
+	return SaveBitmapFile(ref->GetSafeHdc(), (HBITMAP)bmp.GetSafeHandle(), path);
+}
+
 // Draw one figure into an off-screen bitmap with the view's mapping and save it.
 bool RenderFigureToBmp(CCadView* view, CDC* ref, CFigure* f, const CString& path)
 {
@@ -134,6 +151,7 @@ struct Variant
 	bool        artistic = false;               // characters scale with the box
 	bool        mirrorX = false;                // mirror left-right
 	double      moveX = 0;                      // translate along x
+	bool        toCurves = false;               // convert the text to curves
 };
 
 const Variant kVariants[] = {
@@ -154,6 +172,7 @@ const Variant kVariants[] = {
 	{ "text_scale_chars.deh",          false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 1.5, true },
 	{ "text_mirror.deh",               false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, true },
 	{ "text_move.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, false, 120 },
+	{ "text_curves.deh",               false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, false, 0, true },
 	{ "text_many.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 40 },
 };
 
@@ -218,6 +237,22 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 			t->getCharge();
 			draw->addFigure(t);
 			t->setTextForTest(hdc, _T("AndyCAD text\r\nDirect2D test 0123"), 7);
+			if (v.toCurves)
+			{
+				// Lay the text out, convert it, and render text and curves
+				// separately so they can be compared pixel by pixel.
+				CString base = path.Left(path.GetLength() - 4);
+				RenderFigureToBmp(view, hdc, t, base + _T("_text.bmp"));
+				std::vector<CFigure*> curves = t->toCurves(hdc);
+				for (CFigure* c : curves)
+					draw->addFigure(c);
+				RenderFiguresToBmp(view, hdc, curves, base + _T("_curves.bmp"));
+				draw->removeFigure(t);
+				CString note;
+				note.Format(_T("curve figures=%d"), (int)curves.size());
+				why = note;
+				continue;
+			}
 			bool transformCheck = v.rotateDeg != 0 || v.scaleBy != 0 || v.mirrorX || v.moveX != 0;
 			if (v.artistic)
 				t->setScaleCharacters(true);

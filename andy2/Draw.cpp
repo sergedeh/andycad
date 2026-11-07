@@ -7465,6 +7465,42 @@ void CDraw::editobj(CDC *hdc) {
     }
   }
 }
+int CDraw::convertTextToCurves(CDC *hdc) {
+  CTextCad textc;
+  int converted = 0;
+  vector<CFigure *> keep;
+  for (size_t j = 0; j < vs.size(); j++) {
+    if (vs[j]->getName() != textc.getName()) {
+      keep.push_back(vs[j]);
+      continue;
+    }
+    CTextCad *t = (CTextCad *)vs[j];
+    vector<CFigure *> curves = t->toCurves(hdc);
+    if (curves.empty()) {
+      keep.push_back(vs[j]);
+      continue;
+    }
+    for (size_t k = 0; k < curves.size(); k++)
+      create(curves[k]);
+    // Remove the text the same way deleteObject does (undoable).
+    CMemento *m = new CMemento(t);
+    vmemento.push_back(m);
+    undoList.push("delete");
+    vhan.push_back(t->gethandle());
+    sfit++;
+    vector<CFigure *>::iterator iter = find(fig.begin(), fig.end(), (CFigure *)t);
+    if (iter != fig.end()) {
+      delete *iter;
+      fig.erase(iter);
+      fit--;
+    }
+    converted++;
+  }
+  vs = keep;
+  candraw = true;
+  return converted;
+}
+
 bool CDraw::textScaleMode(bool toggle, bool &state) {
   CTextCad textc;
   bool found = false;

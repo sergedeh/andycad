@@ -175,12 +175,71 @@ void CFigure::draw(acr::IRenderer* r)
 	(void)r;
 }
 
+int CFigure::edgeLoops(std::vector<std::vector<CPoint>>& loops)
+{
+	loops.clear();
+	vector<CEdge*> edges = mesh.getEdgeList();
+	CVector prevEnd;
+	bool have = false;
+	for (size_t i = 0; i < edges.size(); ++i)
+	{
+		CVector a = edges[i]->VertexPos(0);
+		CVector b = edges[i]->VertexPos(1);
+		if (!have || absc(a - prevEnd) > 1e-9)
+		{
+			loops.emplace_back();
+			CPoint pa = a;
+			loops.back().push_back(pa);
+		}
+		CPoint pb = b;
+		loops.back().push_back(pb);
+		prevEnd = b;
+		have = true;
+	}
+	return (int)loops.size();
+}
+
 void CFigure::updateRenderCache()
 {
 	// Project through the same CVector -> CPoint camera transform that the GDI
 	// path uses, so both paths agree on where a figure lands on screen.
 	m_rfill.Clear();
-	vector<CVector> pts = mesh.getVectors();
+	vector<CEdge*> fillEdges = mesh.getEdgeList();
+	// Count the loops in edge order; a mesh made of several closed loops
+	// (e.g. converted glyphs with holes) is filled loop by loop, even-odd.
+	int loops = 0;
+	{
+		CVector prevEnd;
+		bool have = false;
+		for (size_t i = 0; i < fillEdges.size(); ++i)
+		{
+			CVector a = fillEdges[i]->VertexPos(0);
+			if (!have || absc(a - prevEnd) > 1e-9) loops++;
+			prevEnd = fillEdges[i]->VertexPos(1);
+			have = true;
+		}
+	}
+	if (loops > 1)
+	{
+		CVector prevEnd;
+		bool have = false;
+		for (size_t i = 0; i < fillEdges.size(); ++i)
+		{
+			CVector a = fillEdges[i]->VertexPos(0);
+			CVector b = fillEdges[i]->VertexPos(1);
+			CPoint pa = a, pb = b;
+			if (!have || absc(a - prevEnd) > 1e-9)
+			{
+				if (have) m_rfill.Close();
+				m_rfill.MoveTo(acr::Vec2(pa.x, pa.y));
+			}
+			m_rfill.LineTo(acr::Vec2(pb.x, pb.y));
+			prevEnd = b;
+			have = true;
+		}
+		if (have) m_rfill.Close();
+	}
+	vector<CVector> pts = loops > 1 ? vector<CVector>() : mesh.getVectors();
 	if (!pts.empty())
 	{
 		CPoint p0 = pts[0];

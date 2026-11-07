@@ -28,6 +28,7 @@ The app writes the drawings and `make_test_drawings.log`, then closes. The textu
 | `text_scale_chars.deh` | Text scaled 1.5x with "Text Characters Scale With Box" on: characters 1.5x, no new layout |
 | `text_mirror.deh` | Text mirrored left-right (GDI can't draw mirrored glyphs; see the README note) |
 | `text_move.deh` | Text moved 120 units: no new layout |
+| `text_curves.deh` | The two-line text converted to curves: 27 filled glyph figures (holes kept); `text_curves_compare.png` overlays text (red) and curves (blue), black where they agree |
 | `text_many.deh` | 40 small text objects, for timing |
 
 `baseline_gdi/` and `baseline_d2d/` hold crops of each drawing (window maximised, default zoom) drawn by the GDI rasterizer and by Direct2D (`ANDYCAD_RENDERER=d2d`), captured 2026-11-07. `gdi_vs_d2d.png` and `gdi_vs_d2d_modes.png` put them side by side.

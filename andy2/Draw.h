@@ -162,10 +162,18 @@ public:
 	void drawforbmp(acr::IRenderer* r);   // backend-neutral render path (Direct2D/GDI)
 	// Add a ready-made figure to the drawing (used by the test-drawing generator).
 	void addFigure(CFigure* f) { create(f); }
+	// Remove and delete a figure (test-drawing generator).
+	void removeFigure(CFigure* f) {
+		for (size_t i = 0; i < fig.size(); ++i)
+			if (fig[i] == f) { delete f; fig.erase(fig.begin() + i); fit--; break; }
+	}
 	// Text scale mode for the selected texts. Returns false when no text is
 	// selected; `state` reports whether the first selected text scales its
 	// characters. With `toggle` it flips all selected texts.
 	bool textScaleMode(bool toggle, bool& state);
+	// Replace the selected texts with filled curve figures (one per
+	// character). Returns how many texts were converted.
+	int convertTextToCurves(CDC* hdc);
 	void setWnd(CCadView * cad);
 	void setFFD(CString option);
 	void setsnapplane(CString plane);
