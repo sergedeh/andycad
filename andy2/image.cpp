@@ -47,7 +47,15 @@ BOOL CImage::LoadBitmap(CDC *hdc)
 { 
 	CFileDialog fl(true);
 	
-	fl.m_ofn.lpstrFilter="JPEG Files(*.jpg)\0*.jpg\0JPEG Files(*.jpeg)\0*.jpeg\0)PNG Files(*.png)\0*.png\0TIFF Files(*.tiff)\0*.tiff\0";
+	// Everything CImageFile can read (WIC). "All images" comes first.
+	fl.m_ofn.lpstrFilter="All images\0*.png;*.jpg;*.jpeg;*.bmp;*.dib;*.gif;*.tif;*.tiff;*.ico\0"
+		"PNG Files (*.png)\0*.png\0"
+		"JPEG Files (*.jpg, *.jpeg)\0*.jpg;*.jpeg\0"
+		"Bitmap Files (*.bmp, *.dib)\0*.bmp;*.dib\0"
+		"GIF Files (*.gif)\0*.gif\0"
+		"TIFF Files (*.tif, *.tiff)\0*.tif;*.tiff\0"
+		"Icon Files (*.ico)\0*.ico\0"
+		"All Files (*.*)\0*.*\0";
 	fl.m_ofn.nFilterIndex=1;
 	if(fl.DoModal()==IDOK)
 	{
