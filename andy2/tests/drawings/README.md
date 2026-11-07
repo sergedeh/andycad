@@ -21,6 +21,9 @@ The app writes the drawings and `make_test_drawings.log`, then closes. The textu
 | `image_decal.deh` | Blend mode `decal`: the image mixed 50% with white (Transparency level 50%) |
 | `image_multiply.deh` | Blend mode `multiply`: the image times orange |
 | `image_backcolor.deh` | Blend mode `backcolor`: blue fill at a 50% Transparency level, no image |
+| `block.deh` | Two rectangles grouped in a block |
+| `text.deh` | A two-line text object, first word bold red |
+| `text_many.deh` | 40 small text objects, for timing |
 
 `baseline_gdi/` and `baseline_d2d/` hold crops of each drawing (window maximised, default zoom) drawn by the GDI rasterizer and by Direct2D (`ANDYCAD_RENDERER=d2d`), captured 2026-11-07. `gdi_vs_d2d.png` and `gdi_vs_d2d_modes.png` put them side by side.
 
@@ -28,10 +31,13 @@ What the GDI rasterizer does today:
 
 - skews the stretched image into diagonal bands,
 - ignores both the per-pixel alpha and the Transparency level when stretching (that line is commented out in `CFigure::ScanPolygon`),
-- honours per-pixel alpha when repeating (the `Hatch()` pass), but not the Transparency level.
-
+- honours per-pixel alpha when repeating (the `Hatch()` pass), but not the Transparency level,
 - for `replace`, `decal` and `multiply`, samples a single texel, so the whole shape comes out one flat colour (the texel index is only computed in the `image_texture` branch). `backcolor` is correct.
 
 No code path in the current app sets `replace`, `decal` or `multiply`; only the generator does. Their pixels are now saved and reloaded like `image_texture`.
 
 Direct2D draws the image straight, applies per-pixel alpha times the Transparency level in both layouts, and smooths when zoomed.
+
+## Timing redisplays
+
+`ANDYCAD_PERF_LOG=<file>` appends one line per display pass, and `ANDYCAD_PERF_REPEAT=<n>` redraws the same frame n extra times. On `text_many.deh` (GDI, 2026-11-07), a repeated redisplay took 2.5 to 4.5 s and grew each time before the text layout cache; with it, 150 ms and stable.

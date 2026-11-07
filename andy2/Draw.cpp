@@ -276,6 +276,29 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
       f->draw(hdc);
     };
 
+    // Optional timing: ANDYCAD_PERF_LOG=<file> logs each display pass;
+    // ANDYCAD_PERF_REPEAT=<n> redraws the same frame n extra times so the
+    // cost of repeated redisplays can be measured.
+    static char *perfPath = nullptr;
+    static int perfRepeat = 0;
+    static bool perfChecked = false;
+    if (!perfChecked) {
+      perfChecked = true;
+      size_t n = 0;
+      if (_dupenv_s(&perfPath, &n, "ANDYCAD_PERF_LOG") != 0)
+        perfPath = nullptr;
+      char *rep = nullptr;
+      if (_dupenv_s(&rep, &n, "ANDYCAD_PERF_REPEAT") == 0 && rep) {
+        perfRepeat = atoi(rep);
+        free(rep);
+      }
+    }
+    DWORD ptick = 0;
+    for (int pass = 0; pass <= perfRepeat; pass++) {
+    LARGE_INTEGER qf, q0, q1;
+    QueryPerformanceFrequency(&qf);
+    QueryPerformanceCounter(&q0);
+    j = 0;
     for (vector<FLAYER>::iterator it = veclayer.begin(); it < veclayer.end();
          it++) {
       if (!it->clear) {
@@ -292,7 +315,18 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
       }
     }
     flushBatch();
-    DWORD ptick = GetTickCount() - tick;
+    QueryPerformanceCounter(&q1);
+    double passMs = (q1.QuadPart - q0.QuadPart) * 1000.0 / qf.QuadPart;
+    if (pass == 0)
+      ptick = GetTickCount() - tick;
+    if (perfPath && *perfPath) {
+      FILE *pf = nullptr;
+      if (fopen_s(&pf, perfPath, "a") == 0 && pf) {
+        fprintf(pf, "display_ms=%.2f pass=%d figures=%d d2d=%d\n", passMs, pass, j, d2d ? 1 : 0);
+        fclose(pf);
+      }
+    }
+    }
     CString s;
     s.Format("time spend to Display:%d for %d number of elements\n", ptick, j);
     TRACE(s);

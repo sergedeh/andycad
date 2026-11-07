@@ -1354,17 +1354,71 @@ void CTextCad::draw3D(CDC *hdc)
 	long length=rich->GetTextLength();
 	if(!rich->IsWindowVisible())
 	{
+		// Character layout cache: asking the RichEdit for every character's
+		// position and format costs several window messages per character, so
+		// it is done only when the content (RTF) or the box size changes.
+		// Painting from the cache gives the same output as the old loops.
+		CRect devRect(*rt2);
+		hdc->LPtoDP(&devRect);
+		CStringA rtf = streamRichRtf();
+		bool layoutValid = m_layout.valid && m_layout.rtf == rtf &&
+			m_layout.w == devRect.Width() && m_layout.h == devRect.Height();
+
+		if(!layoutValid)
+		{
 		rich->ShowWindow(TRUE);
 		hdc->LPtoDP(rt2);
-		rich->MoveWindow(rt2);	
+		rich->MoveWindow(rt2);
 		hdc->DPtoLP(rt2);
 		rich->ShowWindow(FALSE);
 		int ti=rich->GetLineCount();
-		
+
 		CHARFORMAT cf;
 		rich->SetSel(0,-1);
 		CString ci=rich->GetSelText();
 		length=ci.GetLength();
+
+		CDC* rhdc=rich->GetDC();
+		m_layout.richMapMode=rhdc->GetMapMode();
+		rich->ReleaseDC(rhdc);
+
+		vector<long> line;
+		line.resize(rich->GetLineCount()+1);
+		m_layout.glyphs.clear();
+		m_layout.glyphs.resize(length);
+		for(int i=0;i<length;i++)
+		{
+			rich->SetSel(i,i+1);
+			rich->GetSelectionCharFormat(cf);
+			dlg.FillInLogFont(cf);
+			m_layout.glyphs[i].lf=dlg.m_lf;
+			m_layout.glyphs[i].color=cf.crTextColor;
+			m_layout.glyphs[i].ch=ci[i];
+			long ln=rich->LineFromChar(i);
+			m_layout.glyphs[i].line=ln;
+			line[ln]=(line[ln]<dlg.m_lf.lfHeight?line[ln]:dlg.m_lf.lfHeight);
+		}
+		for(int i=0;i<length;i++)
+		{
+			rich->SetSel(i,i+1);
+			CPoint _pi=rich->GetCharPos(i);
+			_pi.y-=line[m_layout.glyphs[i].line]-1;
+			m_layout.glyphs[i].dev=_pi;
+		}
+		m_layout.rtf=rtf;
+		m_layout.w=devRect.Width();
+		m_layout.h=devRect.Height();
+		m_layout.valid=true;
+		m_layout.fonts.clear();
+		}
+		else
+		{
+			// Keep the hidden edit box over the text, as before.
+			hdc->LPtoDP(rt2);
+			rich->MoveWindow(rt2, FALSE);
+			hdc->DPtoLP(rt2);
+		}
+		length=(long)m_layout.glyphs.size();
 
 		hdc->LPtoDP(rt2);
 		CPoint pol=mesh.Vertex(0)->v;
@@ -1372,33 +1426,16 @@ void CTextCad::draw3D(CDC *hdc)
 		CPoint po=mesh.Vertex(0)->v;//rt2->TopLeft()
 		hdc->LPtoDP(&po);
 
-		LONG um=hdc->GetMapMode();
-		CDC* rhdc=rich->GetDC();
-
-		um=hdc->SetMapMode(rhdc->GetMapMode());
-		//rich->
-		vector<long> line;
-		line.resize(rich->GetLineCount()+1);
-		for(int i=0;i<length;i++)
-		{
-			rich->SetSel(i,i+1);
-			rich->GetSelectionCharFormat(cf);
-			dlg.FillInLogFont(cf);
-			CFont ffont;
-			ffont.CreateFontIndirect(&dlg.m_lf);
-			line[rich->LineFromChar(i)]=(line[rich->LineFromChar(i)]<dlg.m_lf.lfHeight?line[rich->LineFromChar(i)]:dlg.m_lf.lfHeight);
-		}
+		LONG um=hdc->SetMapMode(m_layout.richMapMode);
 		CPoint _pi;
 		CVector vpi,vpi2;
 		vector<CVector> mvec;
 		double u=-ang*1800/pi;
 		pol=po;
 		hdc->DPtoLP(&pol);
-		for(i=0;i<length;i++)
+		for(int i=0;i<length;i++)
 		{
-			rich->SetSel(i,i+1);
-			_pi=rich->GetCharPos(i);
-			_pi.y-=line[rich->LineFromChar(i)]-1;
+			_pi=m_layout.glyphs[i].dev;
 			hdc->DPtoLP(&_pi);
 			vpi2=pol;
 			vpi=_pi;
@@ -1407,46 +1444,45 @@ void CTextCad::draw3D(CDC *hdc)
 			vpi=vpi2+vpi;
 			mvec.push_back(vpi);
 		}
-		CVector v00,v01;
-		CTVector vt;
-//		hdc->BeginPath();
-		for(i=0;i<length;i++)
+		// Rotated fonts are rebuilt only when the angle changes.
+		if(m_layout.fonts.size()!=(size_t)length || m_layout.fontAngle!=u)
+		{
+			m_layout.fonts.clear();
+			m_layout.fonts.reserve(length);
+			for(int i=0;i<length;i++)
+			{
+				LOGFONT lf=m_layout.glyphs[i].lf;
+				lf.lfQuality=DRAFT_QUALITY;
+				lf.lfClipPrecision=CLIP_STROKE_PRECIS;
+				lf.lfOutPrecision=OUT_STROKE_PRECIS;
+				lf.lfOrientation=(LONG)u;
+				lf.lfEscapement=(LONG)u;
+				HFONT hf=::CreateFontIndirect(&lf);
+				m_layout.fonts.push_back(std::shared_ptr<void>(hf, [](void* h){ if(h) ::DeleteObject((HGDIOBJ)h); }));
+			}
+			m_layout.fontAngle=u;
+		}
+		for(int i=0;i<length;i++)
 		{
 			vpi=mvec[i];
 			_pi=vpi;
-			char cc=ci[i];
-			rich->SetSel(i,i+1);
-			rich->GetSelectionCharFormat(cf);
-			dlg.FillInLogFont(cf);
-//			dlg.m_lf.lfHeight-=1;
-			dlg.m_lf.lfQuality=DRAFT_QUALITY;
-//			dlg.m_lf.lfWeight=FW_NORMAL;
-			dlg.m_lf.lfClipPrecision=CLIP_STROKE_PRECIS;
-			dlg.m_lf.lfOutPrecision=OUT_STROKE_PRECIS;
-//			dlg.m_lf.lfOrientation+=uprev;
-//			dlg.m_lf.lfEscapement+=uprev;
-			dlg.m_lf.lfOrientation=u;
-			dlg.m_lf.lfEscapement=u;
-			CFont ffont;
-			ffont.CreateFontIndirect(&dlg.m_lf);
-			CFont *oldfont=(CFont*)hdc->SelectObject(&ffont);
+			char cc=m_layout.glyphs[i].ch;
+			COLORREF tc=m_layout.glyphs[i].color;
+			HGDIOBJ oldfont=::SelectObject(hdc->GetSafeHdc(),(HGDIOBJ)m_layout.fonts[i].get());
 			hdc->SetTextAlign(TA_BASELINE);
 			hdc->SetBkMode(TRANSPARENT);
-			hdc->SetBkColor(cf.crTextColor);
-			hdc->SetTextColor(cf.crTextColor);
+			hdc->SetBkColor(tc);
+			hdc->SetTextColor(tc);
 			CBrush brush;
 			CBrush *ob;
-			brush.CreateSolidBrush(cf.crTextColor);
+			brush.CreateSolidBrush(tc);
 			ob=hdc->SelectObject(&brush);
-			
-			hdc->TextOut(_pi.x,_pi.y,&cc,1);//&cc,1);
-			hdc->SelectObject(oldfont);
+
+			hdc->TextOut(_pi.x,_pi.y,&cc,1);
+			::SelectObject(hdc->GetSafeHdc(),oldfont);
 			hdc->SelectObject(ob);
 		}
 		hdc->SetMapMode(um);
-//		hdc->EndPath();
-
-//		hdc->StrokeAndFillPath();
 
 	}
 		z_prev=zm;
@@ -2801,6 +2837,46 @@ void CTextCad::InitZoom()
 {
 	z_prev=-1;
 }
+static DWORD CALLBACK AppendRtf(DWORD_PTR cookie, LPBYTE buf, LONG cb, LONG* pcb)
+{
+	((CStringA*)cookie)->Append((const char*)buf, cb);
+	*pcb = cb;
+	return 0;
+}
+
+CStringA CTextCad::streamRichRtf()
+{
+	CStringA out;
+	if (!rich || !rich->m_hWnd)
+		return out;
+	EDITSTREAM es = {};
+	es.dwCookie = (DWORD_PTR)&out;
+	es.pfnCallback = AppendRtf;
+	rich->StreamOut(SF_RTF, es);
+	return out;
+}
+
+void CTextCad::setTextForTest(CDC* hdc, const CString& s, int boldRedChars)
+{
+	draw(hdc);                       // creates the RichEdit window
+	if (!rich || !rich->m_hWnd)
+		return;
+	rich->SetWindowText(s);
+	if (boldRedChars > 0)
+	{
+		CHARFORMAT cf;
+		memset(&cf, 0, sizeof(cf));
+		cf.cbSize = sizeof(cf);
+		cf.dwMask = CFM_BOLD | CFM_COLOR;
+		cf.dwEffects = CFE_BOLD;
+		cf.crTextColor = RGB(200, 0, 0);
+		rich->SetSel(0, boldRedChars);
+		rich->SetSelectionCharFormat(cf);
+		rich->SetSel(-1, -1);
+	}
+	rich->ShowWindow(SW_HIDE);
+}
+
 void CTextCad::setWnd(CWnd *cad)
 {
   wd=cad;

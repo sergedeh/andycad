@@ -18,6 +18,7 @@
 #include "Image.h"
 #include "line.h"
 #include "Libs.h"
+#include "TextCad.h"
 #include "TestDrawings.h"
 
 namespace {
@@ -76,6 +77,8 @@ struct Variant
 	COLORREF    fill = RGB(255, 255, 255);
 	double      level = 1.0;                    // Transparency level (alpha)
 	bool        block = false;                  // two rectangles grouped in a block
+	bool        text = false;                   // a two-line text object
+	int         textCount = 1;                  // >1: a grid of small text objects (timing)
 };
 
 const Variant kVariants[] = {
@@ -90,6 +93,8 @@ const Variant kVariants[] = {
 	{ "image_multiply.deh",            false, false, true,  true, 3, RGB(255, 160, 0) },
 	{ "image_backcolor.deh",           false, false, true,  true, 4, RGB(40, 90, 200), 0.5 },
 	{ "block.deh",                     false, false, false, false, 0, RGB(255, 255, 255), 1.0, true },
+	{ "text.deh",                      false, false, false, true,  0, RGB(255, 255, 255), 1.0, false, true },
+	{ "text_many.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 40 },
 };
 
 bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
@@ -137,6 +142,23 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 		lib->add(&b);
 		lib->updatecore();
 		draw->addFigure(lib);
+	}
+
+	if (v.text)
+	{
+		for (int k = 0; k < v.textCount; ++k)
+		{
+			bool grid = v.textCount > 1;
+			double ox = grid ? -400 + (k % 8) * 110 : 0;
+			double oy = grid ? 200 - (k / 8) * 90 : 0;
+			double hw = grid ? 50 : 150, hh = grid ? 40 : 80;
+			CTextCad* t = new CTextCad;
+			t->setPtsBegin(CVector(ox - hw, oy + hh, 0, 1));
+			t->create(CVector(ox + hw, oy - hh, 0, 1));
+			t->getCharge();
+			draw->addFigure(t);
+			t->setTextForTest(hdc, _T("AndyCAD text\r\nDirect2D test 0123"), 7);
+		}
 	}
 
 	CFile file;
