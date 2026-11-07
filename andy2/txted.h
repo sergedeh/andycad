@@ -10,11 +10,15 @@
 /////////////////////////////////////////////////////////////////////////////
 // CTxtED window
 
+#include <functional>
+
 class CTxtED : public CRichEditCtrl
 {
 // Construction
 public:
 	CTxtED();
+	// Called when Escape is pressed in the edit box (cancels the edit).
+	std::function<void()> onEscape;
 
 // Attributes
 public:
@@ -38,8 +42,19 @@ public:
 protected:
 	//{{AFX_MSG(CTxtED)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	//}}AFX_MSG
 
+	DECLARE_MESSAGE_MAP()
+};
+
+// OK button shown under the text edit box; clicking it commits the edit.
+class CTextOkButton : public CButton
+{
+public:
+	std::function<void()> onClick;
+protected:
+	afx_msg void OnClicked();
 	DECLARE_MESSAGE_MAP()
 };
 

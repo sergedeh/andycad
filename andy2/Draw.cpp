@@ -5871,7 +5871,13 @@ void CDraw::setBmode(CDC *hdc) {
   int g = vs.size();
 
   if (fig[fit - 1]->getName() == textc.getName()) {
-    ((CTextCad *)fig[fit - 1])->PtinRegion(CVector(-1E100, -1E100));
+    // Switching tools right after typing a new text keeps it (as before);
+    // only a click outside an open edit box cancels.
+    CTextCad *tc = (CTextCad *)fig[fit - 1];
+    if (tc->isEditing())
+      tc->commitEdit();
+    else
+      tc->PtinRegion(CVector(-1E100, -1E100));
   }
   if (g == 0 && endDraw) {
     if (fig[fit - 1]->getName() == pB.getName()) {

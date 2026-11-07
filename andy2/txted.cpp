@@ -26,8 +26,29 @@ CTxtED::~CTxtED()
 BEGIN_MESSAGE_MAP(CTxtED, CRichEditCtrl)
 	//{{AFX_MSG_MAP(CTxtED)
 	ON_WM_CREATE()
+	ON_WM_KEYDOWN()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
+
+BEGIN_MESSAGE_MAP(CTextOkButton, CButton)
+	ON_CONTROL_REFLECT(BN_CLICKED, OnClicked)
+END_MESSAGE_MAP()
+
+void CTextOkButton::OnClicked()
+{
+	if (onClick)
+		onClick();
+}
+
+void CTxtED::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	if (nChar == VK_ESCAPE && onEscape)
+	{
+		onEscape();
+		return;
+	}
+	CRichEditCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
+}
 
 /////////////////////////////////////////////////////////////////////////////
 // CTxtED message handlers

@@ -56,6 +56,14 @@ public:
 	// Test-drawing generator: create the edit control (by drawing once), set
 	// the text, and make the first `boldRedChars` characters bold red.
 	void setTextForTest(CDC* hdc, const CString& s, int boldRedChars);
+	// Editing in the RichEdit box: beginEdit shows it upright over the text
+	// with an OK button; commitEdit (OK) keeps the changes and puts the text
+	// back on the canvas; cancelEdit (click outside, Escape) restores the
+	// content from when the box opened.
+	void beginEdit();
+	void commitEdit();
+	void cancelEdit();
+	bool isEditing() const { return m_editing; }
 	// How many times the character layout has been rebuilt (tests).
 	int layoutCount() const { return m_layout.count; }
 	void assign(CDC* hdc, CVector p);
@@ -138,6 +146,19 @@ private:
 	map<char,ABC> cmap; //Contain detail about the font dimmensions
 	map<CFont*,myfont> fmap,pfmap; // map between a font name and its details
     CTxtED* rich;
+	// The OK button belongs to this text only: copies start without one.
+	struct OkButtonHolder {
+		CTextOkButton* p = nullptr;
+		OkButtonHolder() = default;
+		OkButtonHolder(const OkButtonHolder&) {}
+		OkButtonHolder& operator=(const OkButtonHolder&) { return *this; }
+		~OkButtonHolder() { if (p) { if (p->m_hWnd) p->DestroyWindow(); delete p; } }
+	} m_ok;
+	CStringA m_editSnapshot;      // RTF when the edit box opened (for cancel)
+	bool m_editing = false;
+	void positionOkButton();
+	void hideEditor();
+	void redrawCanvas();
 	// Character layout cache for draw3D (see Textcad.cpp).
 	struct LayoutCache {
 		struct Glyph {

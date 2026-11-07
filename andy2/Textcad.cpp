@@ -1319,6 +1319,13 @@ void CTextCad::draw3D(CDC *hdc)
 		u_prev=sqrt(pyheight.x*pyheight.x+pyheight.y+pyheight.y);
 		rich->SetFocus();
 		zm=1;
+		m_editing=false;
+		// A brand-new (empty) text opens for typing; text loaded from a file
+		// only creates its edit box here and stays on the canvas.
+		if(rich->GetTextLength()==0)
+			beginEdit();
+		else
+			rich->ShowWindow(SW_HIDE);
 		m_layout.editorScale=projectedScale();
 		createdThisFrame=true;
 		hdc->DPtoLP(rt2);
@@ -1350,7 +1357,8 @@ void CTextCad::draw3D(CDC *hdc)
 		rich->SetSel(-1,-1);
 		rich->RequestResize();
 		rich->Invalidate(TRUE);
-		rich->ShowWindow(FALSE);
+		if(!m_editing) rich->ShowWindow(FALSE);   // stay open while editing
+		if(m_editing) positionOkButton();
 		int ti=rich->GetLineCount();
 		hdc->DPtoLP(rt2);
 		m_layout.editorScale=projectedScale();
@@ -1359,6 +1367,7 @@ void CTextCad::draw3D(CDC *hdc)
 		rich->MoveWindow(rt2);	
 		hdc->DPtoLP(rt2);
 		rich->SetFocus();	
+		if(m_editing) positionOkButton();
 	}
 	if(transselectedstate()) CLine::drawselect(hdc);
 	long length=rich->GetTextLength();
@@ -1994,7 +2003,10 @@ bool CTextCad::PtinRegion(CVector point)
 		return true;
 	}
 	if(rich->m_hWnd!=NULL){
-		rich->ShowWindow(SW_HIDE);
+		if(m_editing)
+			cancelEdit();          // a click outside cancels the edit
+		else
+			rich->ShowWindow(SW_HIDE);
 	}
 	click=false;
 	select=null;
@@ -2470,7 +2482,7 @@ void CTextCad::openfile(CFile &file,CDC* hdc)
 		rich->SetSelectionCharFormat(cf);
 	}
 	rich->SetParaFormat(m_paraformat);
-	rich->ShowWindow(SW_HIDE);
+	hideEditor();   // loading/assigning content is not an edit session
 }
 class _afxRichEditCookie
 {
@@ -2680,7 +2692,7 @@ void CTextCad::assign(CDC *hdc,CVector p,CString s,CHARFORMAT* _cf)
 	rich->SetSel(0,-1);
 	rich->ReplaceSel(mtext);
 //	rich->RequestResize();
-	rich->ShowWindow(SW_HIDE);
+	hideEditor();   // loading/assigning content is not an edit session
 	CCAM cam;
 	z_prev=cam.getzoom();
 	z_prev=1/z_prev;
@@ -2722,7 +2734,10 @@ bool CTextCad::inRegion(CVector point)
 		return true;
 	}
 	if(rich->m_hWnd!=NULL){
-		rich->ShowWindow(SW_HIDE);
+		if(m_editing)
+			cancelEdit();          // a click outside cancels the edit
+		else
+			rich->ShowWindow(SW_HIDE);
 	}
 	return false;
 
@@ -2872,9 +2887,7 @@ void CTextCad::editobj(CVector point)
 	if(inRegion(point))
 	{
  	if(rich->m_hWnd!=NULL){
-		rich->ShowWindow(SW_SHOW);
-		rich->SetFocus();
-		rich->Invalidate();
+		beginEdit();
 	}
 	}
 
@@ -3017,6 +3030,95 @@ CStringA CTextCad::streamRichRtf()
 	return out;
 }
 
+static DWORD CALLBACK ReadRtf(DWORD_PTR cookie, LPBYTE buf, LONG cb, LONG* pcb)
+{
+	CStringA* s = (CStringA*)cookie;
+	LONG n = min(cb, (LONG)s->GetLength());
+	memcpy(buf, s->GetString(), n);
+	*s = s->Mid(n);
+	*pcb = n;
+	return 0;
+}
+
+void CTextCad::positionOkButton()
+{
+	if (!rich || !rich->m_hWnd || !wd)
+		return;
+	CRect r;
+	rich->GetWindowRect(&r);
+	wd->ScreenToClient(&r);
+	CRect b(r.right - 64, r.bottom + 4, r.right, r.bottom + 28);
+	if (!m_ok.p)
+	{
+		m_ok.p = new CTextOkButton;
+		m_ok.p->Create(_T("OK"), WS_CHILD | BS_PUSHBUTTON, b, wd, ID_RICHT + 1);
+		m_ok.p->SetFont(CFont::FromHandle((HFONT)GetStockObject(DEFAULT_GUI_FONT)));
+		m_ok.p->onClick = [this]() { commitEdit(); };
+	}
+	m_ok.p->MoveWindow(&b);
+}
+
+void CTextCad::hideEditor()
+{
+	if (rich && rich->m_hWnd)
+		rich->ShowWindow(SW_HIDE);
+	if (m_ok.p && m_ok.p->m_hWnd)
+		m_ok.p->ShowWindow(SW_HIDE);
+	m_editing = false;
+}
+
+void CTextCad::redrawCanvas()
+{
+	CCadView* view = mesh.view;
+	if (!view)
+		return;
+	view->GetDocument()->m_objects->candraw = true;
+	view->change = true;
+	view->Invalidate();
+}
+
+void CTextCad::beginEdit()
+{
+	if (!rich || !rich->m_hWnd)
+		return;
+	if (!m_editing)
+		m_editSnapshot = streamRichRtf();
+	m_editing = true;
+	rich->onEscape = [this]() { cancelEdit(); };
+	rich->ShowWindow(SW_SHOW);
+	positionOkButton();
+	if (m_ok.p)
+		m_ok.p->ShowWindow(SW_SHOW);
+	rich->SetFocus();
+	rich->Invalidate();
+	redrawCanvas();               // take the canvas copy away while editing
+}
+
+void CTextCad::commitEdit()
+{
+	if (!m_editing)
+		return;
+	hideEditor();
+	m_layout.valid = false;        // lay out the committed content once
+	redrawCanvas();
+}
+
+void CTextCad::cancelEdit()
+{
+	if (!m_editing)
+		return;
+	if (rich && rich->m_hWnd)
+	{
+		CStringA rtf = m_editSnapshot;
+		EDITSTREAM es = {};
+		es.dwCookie = (DWORD_PTR)&rtf;
+		es.pfnCallback = ReadRtf;
+		rich->StreamIn(SF_RTF, es);
+	}
+	hideEditor();
+	redrawCanvas();
+}
+
 void CTextCad::setTextForTest(CDC* hdc, const CString& s, int boldRedChars)
 {
 	draw(hdc);                       // creates the RichEdit window
@@ -3035,7 +3137,7 @@ void CTextCad::setTextForTest(CDC* hdc, const CString& s, int boldRedChars)
 		rich->SetSelectionCharFormat(cf);
 		rich->SetSel(-1, -1);
 	}
-	rich->ShowWindow(SW_HIDE);
+	hideEditor();
 }
 
 void CTextCad::setWnd(CWnd *cad)
