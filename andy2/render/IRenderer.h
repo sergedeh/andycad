@@ -64,6 +64,13 @@ public:
     }
     // Drop any cached data for `key` (call when the owner is destroyed).
     virtual void ForgetTexture(const void* key) { (void)key; }
+
+    // The current world->device transform (as set by SetTransform).
+    virtual Mat3 GetTransform() const { return Mat3(); }
+
+    // Draw individually placed characters (see GlyphDraw). Default:
+    // unsupported, draws nothing.
+    virtual void DrawGlyphs(const GlyphDraw* glyphs, size_t n) { (void)glyphs; (void)n; }
 };
 
 } // namespace acr

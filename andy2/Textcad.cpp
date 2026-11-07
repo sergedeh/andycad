@@ -5,6 +5,8 @@
 #include "Stdafx.h"
 #include "cad.h"
 #include "TextCad.h"
+#include "render/RenderCompat.h"
+#include <typeinfo>
 #include "bezier.h"
 #include "textdi.h"
 #include "cam.h"
@@ -1565,6 +1567,23 @@ void CTextCad::draw3D(CDC *hdc)
 			}
 			m_layout.anchorOrigin=mesh.Vertex(0)->v;
 			m_layout.anchorsValid=true;
+			{
+				CVector w0=mesh.Vertex(0)->v, w1=mesh.Vertex(1)->v, w3=mesh.Vertex(3)->v;
+				m_layout.boxW0=absc(w1-w0);
+				m_layout.boxH0=absc(w3-w0);
+				// Device-space frame: x along the box's 0->1 edge; "down" is the
+				// perpendicular clockwise of it. Remember which way the 0->3 edge
+				// points relative to that, so a mirrored box flips the glyphs.
+				CPoint l0=w0, l1=w1, l3=w3;
+				double a0x,a0y,a1x,a1y,a3x,a3y;
+				apply(realMap,l0.x,l0.y,a0x,a0y);
+				apply(realMap,l1.x,l1.y,a1x,a1y);
+				apply(realMap,l3.x,l3.y,a3x,a3y);
+				double xx=a1x-a0x, xy=a1y-a0y;
+				double yx=-xy, yy=xx;                  // clockwise perpendicular (y down)
+				double d=yx*(a3x-a0x)+yy*(a3y-a0y);
+				m_layout.sgnY = d<0 ? -1.0 : 1.0;
+			}
 			m_layout.anchorsMoved=false;
 			memcpy(m_layout.placedReal,realMap,sizeof(realMap));
 			memcpy(m_layout.placedText,textMap,sizeof(textMap));
@@ -3091,6 +3110,83 @@ void CTextCad::redrawCanvas()
 	view->GetDocument()->m_objects->candraw = true;
 	view->change = true;
 	view->Invalidate();
+}
+
+bool CTextCad::canRender() const
+{
+	if (typeid(*this) != typeid(CTextCad)) return false;
+	if (m_editing || !rich || !rich->m_hWnd || rich->IsWindowVisible()) return false;
+	if (!m_layout.valid || !m_layout.anchorsValid || m_layout.glyphs.empty()) return false;
+	CMesh& m = const_cast<CMesh&>(mesh);
+	if (m.Vcount() < 4) return false;
+	CVector w0 = m.Vertex(0)->v, w1 = m.Vertex(1)->v, w3 = m.Vertex(3)->v;
+	CVector d = w0 - m_layout.anchorOrigin;
+	if (absc(d) > 1e-3) return false;                 // needs re-anchoring (GDI path does it)
+	if (!m_scaleChars && m_layout.boxW0 > 0 && m_layout.boxH0 > 0)
+	{
+		double wr = absc(w1 - w0) / m_layout.boxW0, hr = absc(w3 - w0) / m_layout.boxH0;
+		if (fabs(wr - 1) > 0.005 || fabs(hr - 1) > 0.005) return false;   // re-wrap first
+	}
+	return true;
+}
+
+void CTextCad::drawOverlay(CDC* hdc)
+{
+	if (transselectedstate()) CLine::drawselect(hdc);
+}
+
+void CTextCad::draw(acr::IRenderer* r)
+{
+	if (!r || !canRender())
+		return;
+	const acr::Mat3 M = r->GetTransform();     // view logical -> device (+0.5)
+	auto dev = [&](const CVector& w) {
+		CVector ww = w;
+		CPoint l = ww;
+		acr::Vec2 p = M.Transform(acr::Vec2(l.x, l.y));
+		return acr::Vec2(p.x - 0.5, p.y - 0.5);  // GDI pixel origin, like TextOut
+	};
+	CVector w0 = mesh.Vertex(0)->v, w1 = mesh.Vertex(1)->v, w3 = mesh.Vertex(3)->v;
+	acr::Vec2 v0 = dev(w0), v1 = dev(w1), v3 = dev(w3);
+	double xx = v1.x - v0.x, xy = v1.y - v0.y, xl = sqrt(xx * xx + xy * xy);
+	double yx = v3.x - v0.x, yy = v3.y - v0.y, yl = sqrt(yx * yx + yy * yy);
+	if (xl <= 0 || yl <= 0)
+		return;
+	xx /= xl; xy /= xl;
+	yx = yx / yl * m_layout.sgnY; yy = yy / yl * m_layout.sgnY;
+
+	double charScale = 1.0;
+	if (m_scaleChars && m_layout.boxW0 > 0 && m_layout.boxH0 > 0)
+		charScale = sqrt((absc(w1 - w0) / m_layout.boxW0) * (absc(w3 - w0) / m_layout.boxH0));
+	double fontScale = (m_layout.scale > 0 ? projectedScale() / m_layout.scale : 1.0) * charScale;
+
+	std::vector<acr::GlyphDraw> glyphs;
+	glyphs.reserve(m_layout.glyphs.size());
+	for (size_t i = 0; i < m_layout.glyphs.size(); ++i)
+	{
+		const LayoutCache::Glyph& gl = m_layout.glyphs[i];
+		acr::GlyphDraw g;
+		char c = gl.ch;
+		wchar_t wc = 0;
+		MultiByteToWideChar(CP_ACP, 0, &c, 1, &wc, 1);
+		g.ch = wc;
+		acr::Vec2 p = dev(gl.anchor);
+		g.deviceMatrix.m11 = xx; g.deviceMatrix.m12 = xy;
+		g.deviceMatrix.m21 = yx; g.deviceMatrix.m22 = yy;
+		g.deviceMatrix.dx = p.x; g.deviceMatrix.dy = p.y;
+		wchar_t face[LF_FACESIZE] = {};
+		MultiByteToWideChar(CP_ACP, 0, gl.lf.lfFaceName, -1, face, LF_FACESIZE);
+		g.family = face;
+		// GDI: negative height = em height; positive = cell height (~1.2 em).
+		double h = gl.lf.lfHeight < 0 ? -gl.lf.lfHeight : gl.lf.lfHeight / 1.2;
+		g.emPixels = h * fontScale;
+		g.weight = gl.lf.lfWeight > 0 ? gl.lf.lfWeight : 400;
+		g.italic = gl.lf.lfItalic != 0;
+		g.underline = gl.lf.lfUnderline != 0;
+		g.color = acr::ColorFromColorref(gl.color);
+		glyphs.push_back(g);
+	}
+	r->DrawGlyphs(glyphs.data(), glyphs.size());
 }
 
 void CTextCad::setScaleCharacters(bool on)

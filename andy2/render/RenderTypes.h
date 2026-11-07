@@ -127,6 +127,23 @@ struct Mat3 {
 };
 
 // ---------------------------------------------------------------------------
+// One positioned character for DrawGlyphs. `deviceMatrix` maps the glyph's
+// own space (x along the baseline, y down, origin on the baseline, 1 unit =
+// 1 device pixel) to device pixels; it carries position, rotation and
+// mirroring, so the glyph is drawn exactly where the caller placed it.
+// ---------------------------------------------------------------------------
+struct GlyphDraw {
+    wchar_t      ch = 0;
+    Mat3         deviceMatrix;
+    std::wstring family;
+    double       emPixels = 12.0;   // em size in device pixels
+    int          weight = 400;      // 100..900 (FW_*)
+    bool         italic = false;
+    bool         underline = false;
+    Color        color;
+};
+
+// ---------------------------------------------------------------------------
 // Texture source for FillPathWithTexture: straight-alpha pixels, 0xAARRGGBB,
 // top row first. `key` identifies the owner (the figure) and `revision`
 // changes whenever the pixels change, so backends can upload once and cache.

@@ -91,6 +91,8 @@ bool D2DRenderer::BindDC(HDC hdc, const RECT& rc) {
 }
 
 D2DRenderer::~D2DRenderer() {
+    for (auto& kv : m_faces) if (kv.second) kv.second->Release();
+    m_faces.clear();
     DiscardDeviceResources();
     for (auto& kv : m_formats) kv.second->Release();
     m_formats.clear();
@@ -307,6 +309,80 @@ void D2DRenderer::FillPathWithTexture(const Path& outline, const TextureSource& 
     if (FAILED(hr) || !brush) return;
     m_rt->FillGeometry(g, brush);
     brush->Release();
+}
+
+Mat3 D2DRenderer::GetTransform() const {
+    Mat3 m;
+    m.m11 = m_cur._11; m.m12 = m_cur._12;
+    m.m21 = m_cur._21; m.m22 = m_cur._22;
+    m.dx = m_cur._31;  m.dy = m_cur._32;
+    return m;
+}
+
+IDWriteFontFace* D2DRenderer::FaceFor(const std::wstring& family, int weight, bool italic) {
+    if (!m_dwrite) return nullptr;
+    std::wstring key = family + L"|" + std::to_wstring(weight) + (italic ? L"|i" : L"|n");
+    auto it = m_faces.find(key);
+    if (it != m_faces.end()) return it->second;
+
+    IDWriteFontFace* face = nullptr;
+    IDWriteFontCollection* fonts = nullptr;
+    if (SUCCEEDED(m_dwrite->GetSystemFontCollection(&fonts, FALSE)) && fonts) {
+        UINT32 index = 0;
+        BOOL exists = FALSE;
+        fonts->FindFamilyName(family.c_str(), &index, &exists);
+        if (!exists)
+            fonts->FindFamilyName(L"Arial", &index, &exists);   // missing font: fall back
+        IDWriteFontFamily* fam = nullptr;
+        if (exists && SUCCEEDED(fonts->GetFontFamily(index, &fam)) && fam) {
+            IDWriteFont* font = nullptr;
+            if (SUCCEEDED(fam->GetFirstMatchingFont((DWRITE_FONT_WEIGHT)weight,
+                                                    DWRITE_FONT_STRETCH_NORMAL,
+                                                    italic ? DWRITE_FONT_STYLE_ITALIC : DWRITE_FONT_STYLE_NORMAL,
+                                                    &font)) && font) {
+                font->CreateFontFace(&face);
+                font->Release();
+            }
+            fam->Release();
+        }
+        fonts->Release();
+    }
+    m_faces[key] = face;   // cache misses too
+    return face;
+}
+
+void D2DRenderer::DrawGlyphs(const GlyphDraw* glyphs, size_t n) {
+    if (!m_rt || !glyphs || n == 0) return;
+    D2D1_MATRIX_3X2_F saved = m_cur;
+    for (size_t i = 0; i < n; ++i) {
+        const GlyphDraw& g = glyphs[i];
+        if (g.ch == 0 || g.ch == L' ' || g.ch == L'\r' || g.ch == L'\n' || g.emPixels <= 0) continue;
+        IDWriteFontFace* face = FaceFor(g.family, g.weight, g.italic);
+        if (!face) continue;
+        UINT32 cp = (UINT32)g.ch;
+        UINT16 index = 0;
+        if (FAILED(face->GetGlyphIndices(&cp, 1, &index))) continue;
+        DWRITE_GLYPH_RUN run = {};
+        run.fontFace = face;
+        run.fontEmSize = (FLOAT)g.emPixels;
+        run.glyphCount = 1;
+        run.glyphIndices = &index;
+        m_rt->SetTransform(Mat(g.deviceMatrix));
+        m_rt->DrawGlyphRun(D2D1::Point2F(0, 0), &run, BrushFor(g.color));
+        if (g.underline) {
+            DWRITE_FONT_METRICS fm = {};
+            face->GetMetrics(&fm);
+            double k = g.emPixels / fm.designUnitsPerEm;
+            DWRITE_GLYPH_METRICS gm = {};
+            face->GetDesignGlyphMetrics(&index, 1, &gm, FALSE);
+            FLOAT y = (FLOAT)(-fm.underlinePosition * k);
+            FLOAT w = (FLOAT)(gm.advanceWidth * k);
+            FLOAT t = (FLOAT)(fm.underlineThickness * k);
+            m_rt->FillRectangle(D2D1::RectF(0, y, w, y + (t > 1 ? t : 1)), BrushFor(g.color));
+        }
+    }
+    m_cur = saved;
+    m_rt->SetTransform(m_cur);
 }
 
 void D2DRenderer::ForgetTexture(const void* key) {

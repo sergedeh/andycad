@@ -67,6 +67,8 @@ public:
                              const Mat3& texelToWorld, TextureLayout layout,
                              float opacity) override;
     void ForgetTexture(const void* key) override;
+    Mat3 GetTransform() const override;
+    void DrawGlyphs(const GlyphDraw* glyphs, size_t n) override;
 
 private:
     HWND                 m_hwnd = nullptr;
@@ -94,6 +96,10 @@ private:
         ID2D1Bitmap* bitmap = nullptr;
     };
     std::map<const void*, TexEntry> m_textures;
+
+    // DirectWrite font faces by family/weight/italic (device independent).
+    std::map<std::wstring, IDWriteFontFace*> m_faces;
+    IDWriteFontFace* FaceFor(const std::wstring& family, int weight, bool italic);
     ID2D1Bitmap* TextureFor(const TextureSource& tex);
 
     std::vector<D2D1_MATRIX_3X2_F> m_stack;

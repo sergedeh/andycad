@@ -69,6 +69,12 @@ public:
 	// (artistic text). Saved with the text.
 	void setScaleCharacters(bool on);
 	bool scaleCharacters() const { return m_scaleChars; }
+	// Direct2D path: DirectWrite glyphs at the projected anchors, oriented by
+	// the text box itself (so rotation and mirroring follow the figure).
+	// Available once the text has been laid out and is not being edited.
+	bool canRender() const override;
+	void draw(acr::IRenderer* r) override;
+	void drawOverlay(CDC* hdc) override;
 	// How many times the character layout has been rebuilt (tests).
 	int layoutCount() const { return m_layout.count; }
 	void assign(CDC* hdc, CVector p);
@@ -178,6 +184,8 @@ private:
 			LOGFONT lf = {}; COLORREF color = 0;
 		};
 		bool anchorsValid = false;
+		double boxW0 = 0, boxH0 = 0;   // world box size when anchors were placed
+		double sgnY = 1;               // glyph "down" relative to the box's 0->3 edge
 		bool anchorsMoved = false;      // a transform moved the anchors since placing
 		POINT placedReal[3] = {}, placedText[3] = {};
 		CPoint placedProj;
