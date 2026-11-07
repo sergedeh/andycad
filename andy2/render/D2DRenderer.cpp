@@ -132,6 +132,8 @@ bool D2DRenderer::CreateDeviceResources() {
 }
 
 void D2DRenderer::DiscardDeviceResources() {
+    for (auto& kv : m_textures) if (kv.second.bitmap) kv.second.bitmap->Release();
+    m_textures.clear();
     for (auto& kv : m_geoms) if (kv.second.geom) kv.second.geom->Release();
     m_geoms.clear();
     for (auto& kv : m_brushes) kv.second->Release();
@@ -258,13 +260,72 @@ void D2DRenderer::StrokePath(const Path& p, const Stroke& s) {
     if (g) DrawStrokeGeometry(g, s);
 }
 
+ID2D1Bitmap* D2DRenderer::TextureFor(const TextureSource& tex) {
+    if (!m_rt || !tex.pixels || tex.width <= 0 || tex.height <= 0) return nullptr;
+    auto it = m_textures.find(tex.key);
+    if (it != m_textures.end() && it->second.revision == tex.revision && it->second.bitmap)
+        return it->second.bitmap;
+
+    // Direct2D wants premultiplied alpha.
+    std::vector<uint32_t> pm((size_t)tex.width * tex.height);
+    for (size_t i = 0; i < pm.size(); ++i) {
+        uint32_t p = tex.pixels[i];
+        uint32_t a = p >> 24;
+        uint32_t r = ((p >> 16) & 0xFF) * a / 255;
+        uint32_t g = ((p >> 8) & 0xFF) * a / 255;
+        uint32_t b = (p & 0xFF) * a / 255;
+        pm[i] = (a << 24) | (r << 16) | (g << 8) | b;
+    }
+    D2D1_BITMAP_PROPERTIES props = D2D1::BitmapProperties(
+        D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED));
+    ID2D1Bitmap* bmp = nullptr;
+    if (FAILED(m_rt->CreateBitmap(D2D1::SizeU(tex.width, tex.height), pm.data(),
+                                  tex.width * 4, props, &bmp)))
+        return nullptr;   // e.g. larger than the device's maximum bitmap size
+    if (it != m_textures.end() && it->second.bitmap) it->second.bitmap->Release();
+    m_textures[tex.key] = TexEntry{ tex.revision, bmp };
+    return bmp;
+}
+
+void D2DRenderer::FillPathWithTexture(const Path& outline, const TextureSource& tex,
+                                      const Mat3& texelToWorld, TextureLayout layout,
+                                      float opacity) {
+    if (outline.Empty() || !m_rt) return;
+    ID2D1Bitmap* bmp = TextureFor(tex);
+    if (!bmp) return;
+    ID2D1PathGeometry* g = GeometryFor(outline, true, D2D1_FILL_MODE_ALTERNATE);
+    if (!g) return;
+    D2D1_EXTEND_MODE ext = layout == TextureLayout::Tile ? D2D1_EXTEND_MODE_WRAP
+                                                         : D2D1_EXTEND_MODE_CLAMP;
+    float op = opacity < 0 ? 0.0f : (opacity > 1 ? 1.0f : opacity);
+    ID2D1BitmapBrush* brush = nullptr;
+    HRESULT hr = m_rt->CreateBitmapBrush(
+        bmp,
+        D2D1::BitmapBrushProperties(ext, ext, D2D1_BITMAP_INTERPOLATION_MODE_LINEAR),
+        D2D1::BrushProperties(op, Mat(texelToWorld)),
+        &brush);
+    if (FAILED(hr) || !brush) return;
+    m_rt->FillGeometry(g, brush);
+    brush->Release();
+}
+
+void D2DRenderer::ForgetTexture(const void* key) {
+    auto it = m_textures.find(key);
+    if (it == m_textures.end()) return;
+    if (it->second.bitmap) it->second.bitmap->Release();
+    m_textures.erase(it);
+}
+
 double D2DRenderer::WorldStrokeWidth(const Stroke& s) const {
-    if (!s.cosmetic && s.width > 0) return s.width;
     // One device pixel, expressed in world units of the current transform.
     double det = (double)m_cur._11 * m_cur._22 - (double)m_cur._12 * m_cur._21;
     double scale = det < 0 ? -det : det;
     scale = scale > 0 ? sqrt(scale) : 1.0;
-    return 1.0 / scale;
+    double onePixel = 1.0 / scale;
+    if (s.cosmetic || s.width <= 0) return onePixel;
+    // Like GDI geometric pens, never thinner than one device pixel (thinner
+    // aliased lines drop out entirely when zoomed out).
+    return s.width > onePixel ? s.width : onePixel;
 }
 
 void D2DRenderer::DrawStrokeGeometry(ID2D1Geometry* g, const Stroke& s) {

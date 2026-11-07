@@ -63,6 +63,11 @@ public:
     Rect2 MeasureText(const std::wstring& text, const TextStyle& ts) override;
     void  DrawTextAt (const Vec2& at, const std::wstring& text, const TextStyle& ts) override;
 
+    void FillPathWithTexture(const Path& outline, const TextureSource& tex,
+                             const Mat3& texelToWorld, TextureLayout layout,
+                             float opacity) override;
+    void ForgetTexture(const void* key) override;
+
 private:
     HWND                 m_hwnd = nullptr;
     ID2D1Factory*        m_factory = nullptr;
@@ -83,6 +88,13 @@ private:
         ID2D1PathGeometry* geom = nullptr;
     };
     std::map<const Path*, GeomEntry> m_geoms;
+
+    struct TexEntry {
+        uint64_t     revision = 0;
+        ID2D1Bitmap* bitmap = nullptr;
+    };
+    std::map<const void*, TexEntry> m_textures;
+    ID2D1Bitmap* TextureFor(const TextureSource& tex);
 
     std::vector<D2D1_MATRIX_3X2_F> m_stack;
     D2D1_MATRIX_3X2_F m_cur;

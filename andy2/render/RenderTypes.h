@@ -68,7 +68,10 @@ struct TextStyle {
 };
 
 // ---------------------------------------------------------------------------
-// 3x2 affine transform (device = M * point), matching D2D1::Matrix3x2F layout.
+// 3x2 affine transform, matching D2D1::Matrix3x2F / GDI XFORM layout:
+//   x' = x*m11 + y*m21 + dx,   y' = x*m12 + y*m22 + dy
+// (operator* is only exact for scale/translate; use FromTriangles for
+// general affines.)
 // ---------------------------------------------------------------------------
 struct Mat3 {
     double m11 = 1.0, m12 = 0.0;
@@ -99,9 +102,43 @@ struct Mat3 {
     }
 
     Vec2 Transform(const Vec2& p) const {
-        return Vec2(m11 * p.x + m12 * p.y + dx,
-                    m21 * p.x + m22 * p.y + dy);
+        return Vec2(p.x * m11 + p.y * m21 + dx,
+                    p.x * m12 + p.y * m22 + dy);
     }
+
+    // The affine map taking src[i] to dst[i] for three points. Returns false
+    // when the source points are collinear (no unique map).
+    static bool FromTriangles(const Vec2 src[3], const Vec2 dst[3], Mat3& out) {
+        double ux = src[1].x - src[0].x, uy = src[1].y - src[0].y;
+        double vx = src[2].x - src[0].x, vy = src[2].y - src[0].y;
+        double det = ux * vy - uy * vx;
+        if (det > -1e-12 && det < 1e-12) return false;
+        double ax = dst[1].x - dst[0].x, ay = dst[1].y - dst[0].y;
+        double bx = dst[2].x - dst[0].x, by = dst[2].y - dst[0].y;
+        // Solve [ux uy; vx vy] * [m11 m12; m21 m22] = [ax ay; bx by].
+        out.m11 = ( vy * ax - uy * bx) / det;
+        out.m12 = ( vy * ay - uy * by) / det;
+        out.m21 = (-vx * ax + ux * bx) / det;
+        out.m22 = (-vx * ay + ux * by) / det;
+        out.dx = dst[0].x - (src[0].x * out.m11 + src[0].y * out.m21);
+        out.dy = dst[0].y - (src[0].x * out.m12 + src[0].y * out.m22);
+        return true;
+    }
+};
+
+// ---------------------------------------------------------------------------
+// Texture source for FillPathWithTexture: straight-alpha pixels, 0xAARRGGBB,
+// top row first. `key` identifies the owner (the figure) and `revision`
+// changes whenever the pixels change, so backends can upload once and cache.
+// ---------------------------------------------------------------------------
+enum class TextureLayout { Stretch, Tile };
+
+struct TextureSource {
+    const void*          key = nullptr;
+    std::uint64_t        revision = 0;
+    const std::uint32_t* pixels = nullptr;
+    int                  width = 0;
+    int                  height = 0;
 };
 
 // ---------------------------------------------------------------------------

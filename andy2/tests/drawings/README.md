@@ -7,19 +7,23 @@ set ANDYCAD_MAKE_TEST_DRAWINGS=C:\path\to\andy2\tests\drawings
 Release\andycad.exe
 ```
 
-The app writes the drawings and `make_test_drawings.log`, then closes. The texture is a generated 64x64 checker (red/blue top half, green/yellow bottom half) with a 16x16 magenta block in the middle. Magenta is the transparency key in the `_transparent` variants. The pixels are stored inside each `.deh`, so no external image is needed.
+The app writes the drawings and `make_test_drawings.log`, then closes. The texture is a generated 64x64 checker (red/blue top half, green/yellow bottom half) with a 16x16 magenta block in the middle. The pixels are stored inside each `.deh`, so no external image is needed.
 
 | File | Contents |
 | --- | --- |
 | `image_stretch.deh` | Image stretched over a 300x200 quad, plus an outline rectangle |
-| `image_stretch_transparent.deh` | Same, with magenta as the transparency colour |
-| `image_tile.deh` | Image tiled (wrap mode), plus an outline rectangle |
-| `image_tile_transparent.deh` | Same, with magenta as the transparency colour |
+| `image_stretch_transparent.deh` | Same, but the magenta block has alpha 0 and the shape's Transparency level is 60% |
+| `image_tile.deh` | Image repeated (wrap mode), plus an outline rectangle |
+| `image_tile_transparent.deh` | Repeated, with the same alpha hole and 60% Transparency level |
 | `image_only.deh` | The stretched image alone |
 | `frame_only.deh` | The outline rectangle alone |
 
-`baseline_gdi/` holds crops of how the current GDI rasterizer draws each file (window maximised, default zoom), captured 2026-11-07. Today's rasterizer:
+`baseline_gdi/` and `baseline_d2d/` hold crops of each drawing (window maximised, default zoom) drawn by the GDI rasterizer and by Direct2D (`ANDYCAD_RENDERER=d2d`), captured 2026-11-07. `gdi_vs_d2d.png` puts them side by side.
 
-- skews the stretched checker into diagonal bands and smears the magenta block across the row,
-- draws nothing inside tiled (wrap) images,
-- ignores the transparency colour (the magenta still shows).
+What the GDI rasterizer does today:
+
+- skews the stretched image into diagonal bands,
+- ignores both the per-pixel alpha and the Transparency level when stretching (that line is commented out in `CFigure::ScanPolygon`),
+- honours per-pixel alpha when repeating (the `Hatch()` pass), but not the Transparency level.
+
+Direct2D draws the image straight, applies per-pixel alpha times the Transparency level in both layouts, and smooths when zoomed.

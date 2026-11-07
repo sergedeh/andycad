@@ -265,7 +265,7 @@ void CLine::draw(acr::IRenderer* r)
 	updateRenderCache();
 
 	acr::Stroke stroke;
-	stroke.color = acr::ColorFromColorref(lcolor);
+	stroke.color = acr::ColorFromColorref(lplb.lbColor);   // the GDI pen colour
 	stroke.cosmetic = (lstyle & PS_GEOMETRIC) == 0;
 	stroke.width = stroke.cosmetic ? 0.0 : (double)lwidth;
 	if (dwStyleCount > 0 && lpStyle)

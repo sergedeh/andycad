@@ -51,6 +51,19 @@ public:
     // (Named DrawTextAt to avoid the DrawText macro defined by <windows.h>.)
     virtual Rect2 MeasureText(const std::wstring&, const TextStyle&) = 0;
     virtual void  DrawTextAt (const Vec2& at, const std::wstring&, const TextStyle&) = 0;
+
+    // Fill `outline` with an image. `texelToWorld` maps texel coordinates
+    // (0..width, 0..height, top-left origin) into world space; Tile repeats
+    // the image beyond its edges, Stretch clamps. `opacity` (0..1) multiplies
+    // the image's own per-pixel alpha. Smooth (bilinear) sampling.
+    // Default: unsupported (draws nothing); backends override.
+    virtual void FillPathWithTexture(const Path& outline, const TextureSource& tex,
+                                     const Mat3& texelToWorld, TextureLayout layout,
+                                     float opacity) {
+        (void)outline; (void)tex; (void)texelToWorld; (void)layout; (void)opacity;
+    }
+    // Drop any cached data for `key` (call when the owner is destroyed).
+    virtual void ForgetTexture(const void* key) { (void)key; }
 };
 
 } // namespace acr

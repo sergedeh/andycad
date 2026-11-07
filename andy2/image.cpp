@@ -5,6 +5,11 @@
 #include "Stdafx.h"
 #include "cad.h"
 #include "Image.h"
+#include "render/RenderCompat.h"
+#include "render/D2DRenderer.h"
+#include "render/ViewRenderer.h"
+#include <cmath>
+#include <typeinfo>
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -26,6 +31,9 @@ CImage::CImage()
 
 CImage::~CImage()
 {
+	// Release this image's cached GPU bitmap, if Direct2D is in use.
+	if (acr::D2DRenderer* r = acr::ViewRenderer())
+		r->ForgetTexture(this);
 
 }
 CImage::CImage(CDC *hdc,CFile &file)
@@ -715,14 +723,102 @@ bool CImage::buildFromRect(CVector b, CVector e)
 }
 
 void CImage::setGeneratedTexture(CDC* hdc, CBitmap* bmp, const CString& name,
-                                 bool tiled, COLORREF transparentColour)
+                                 bool tiled, COLORREF transparentColour,
+                                 double opacity)
 {
+	alpha = opacity;
 	cl = true;
 	texture_file = name;
 	tex_vert_mode = image_texture;
 	mode_texture = tiled ? wrap : none;
 	trans_col = transparentColour;
 	UpdateTexture(hdc, bmp);
+}
+
+bool CImage::canRender() const
+{
+	if (typeid(*this) != typeid(CImage)) return false;
+	if (!mytext || pwidth <= 0 || pheight <= 0) return false;
+	if (tex_vert_mode != image_texture) return false;   // other blend modes: later step
+	if (!clipshape.empty()) return false;
+	return true;
+}
+
+void CImage::updateTexturePixels()
+{
+	// Cheap change detection: UpdateTexture/openfile reallocate mytext.
+	uint64_t rev = (uint64_t)(uintptr_t)mytext ^ ((uint64_t)pwidth << 40) ^ ((uint64_t)pheight << 20);
+	size_t n = (size_t)pwidth * pheight;
+	if (rev == m_texRev && m_texPixels.size() == n)
+		return;
+	m_texRev = rev;
+	m_texPixels.resize(n);
+	// 32-bit images without an alpha channel arrive with alpha 0 everywhere;
+	// treat that as opaque, like a picture with no transparency.
+	bool anyAlpha = false;
+	for (size_t i = 0; i < n && !anyAlpha; ++i)
+		anyAlpha = mytext[i].a > 0.5f;
+	auto byte = [](float v) { int i = (int)(v + 0.5f); return (uint32_t)(i < 0 ? 0 : (i > 255 ? 255 : i)); };
+	for (size_t i = 0; i < n; ++i)
+	{
+		const col& c = mytext[i];
+		uint32_t a = anyAlpha ? byte(c.a) : 255u;
+		m_texPixels[i] = (a << 24) | (byte(c.r) << 16) | (byte(c.g) << 8) | byte(c.b);
+	}
+}
+
+void CImage::draw(acr::IRenderer* r)
+{
+	if (!r || mesh.Vcount() < 3)
+		return;
+	updateRenderCache();
+	updateTexturePixels();
+
+	// Map texel space onto the quad from three corners' texture coordinates.
+	acr::Vec2 src[3], dst[3];
+	for (int i = 0; i < 3; ++i)
+	{
+		CVertex* v = mesh.Vertex(i);
+		CPoint p = v->v;
+		src[i] = acr::Vec2(v->pun * pwidth, v->pvn * pheight);
+		dst[i] = acr::Vec2(p.x, p.y);
+	}
+	acr::Mat3 t2w;
+	if (!acr::Mat3::FromTriangles(src, dst, t2w))
+		return;
+
+	acr::TextureLayout layout = acr::TextureLayout::Stretch;
+	if (mode_texture == wrap)
+	{
+		// Repeat at the image's own size: one texel per logical unit along
+		// each edge of the quad (keeps its rotation).
+		layout = acr::TextureLayout::Tile;
+		double lx = sqrt(t2w.m11 * t2w.m11 + t2w.m12 * t2w.m12);
+		double ly = sqrt(t2w.m21 * t2w.m21 + t2w.m22 * t2w.m22);
+		if (lx > 0) { t2w.m11 /= lx; t2w.m12 /= lx; }
+		if (ly > 0) { t2w.m21 /= ly; t2w.m22 /= ly; }
+		t2w.dx = dst[0].x - (src[0].x * t2w.m11 + src[0].y * t2w.m21);
+		t2w.dy = dst[0].y - (src[0].x * t2w.m12 + src[0].y * t2w.m22);
+	}
+
+	acr::TextureSource tex;
+	tex.key = this;
+	tex.revision = m_texRev;
+	tex.pixels = m_texPixels.data();
+	tex.width = pwidth;
+	tex.height = pheight;
+	r->FillPathWithTexture(m_rfill, tex, t2w, layout, (float)alpha);
+
+	if (edge_on && !(move && getLibstatus()))
+	{
+		acr::Stroke stroke;
+		stroke.color = acr::ColorFromColorref(lplb.lbColor);   // the GDI pen colour
+		stroke.cosmetic = (lstyle & PS_GEOMETRIC) == 0;
+		stroke.width = stroke.cosmetic ? 0.0 : (double)lwidth;
+		if (dwStyleCount > 0 && lpStyle)
+			stroke.dash.assign(lpStyle, lpStyle + dwStyleCount);
+		r->StrokePath(m_rstroke, stroke);
+	}
 }
 
 void CImage::initL()

@@ -25,7 +25,7 @@ const COLORREF kKeyColour = RGB(255, 0, 255);   // transparency key (magenta)
 
 // 64x64 32bpp DIB: 8x8 checker of red/blue over green/yellow halves, plus a
 // 16x16 magenta block in the middle that the transparent variants drop.
-HBITMAP MakeCheckerBitmap(HDC ref)
+HBITMAP MakeCheckerBitmap(HDC ref, bool withHole)
 {
 	const int W = 64, H = 64;
 	BITMAPINFO bi = {};
@@ -50,10 +50,15 @@ HBITMAP MakeCheckerBitmap(HDC ref)
 				c = odd ? RGB(220, 30, 30) : RGB(30, 60, 220);
 			else
 				c = odd ? RGB(30, 170, 60) : RGB(240, 210, 40);
+			DWORD a = 0xFF;
 			if (x >= 24 && x < 40 && y >= 24 && y < 40)
+			{
 				c = kKeyColour;
-			// DIB pixels are 0x00RRGGBB (BGRA in memory).
-			px[y * W + x] = (GetRValue(c) << 16) | (GetGValue(c) << 8) | GetBValue(c);
+				if (withHole)
+					a = 0;   // per-pixel transparency: a see-through hole
+			}
+			// DIB pixels are 0xAARRGGBB (BGRA in memory).
+			px[y * W + x] = (a << 24) | (GetRValue(c) << 16) | (GetGValue(c) << 8) | GetBValue(c);
 		}
 	}
 	return bmp;
@@ -78,7 +83,7 @@ const Variant kVariants[] = {
 };
 
 bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
-                  const Variant& v, const CString& path, CString& why)
+                  CBitmap& holed, const Variant& v, const CString& path, CString& why)
 {
 	CDraw* draw = doc->m_objects;
 	draw->Init();
@@ -93,8 +98,10 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 		why = _T("image quad not built");
 		return false;
 	}
-	img->setGeneratedTexture(hdc, &texture, "generated:checker64",
-	                         v.tiled, v.transparent ? kKeyColour : RGB(255, 255, 255));
+	// Transparent variants: the magenta block has alpha 0 in the image, and
+	// the shape's Transparency level is 60%.
+	img->setGeneratedTexture(hdc, v.transparent ? &holed : &texture, "generated:checker64",
+	                         v.tiled, RGB(255, 255, 255), v.transparent ? 0.6 : 1.0);
 	draw->addFigure(img);
 	}
 
@@ -139,17 +146,19 @@ bool MakeImageTestDrawingsIfRequested(CCadView* view)
 	view->OnPrepareDC(hdc);
 
 	CString log;
-	HBITMAP raw = MakeCheckerBitmap(hdc->GetSafeHdc());
-	if (raw)
+	HBITMAP raw = MakeCheckerBitmap(hdc->GetSafeHdc(), false);
+	HBITMAP rawHoled = MakeCheckerBitmap(hdc->GetSafeHdc(), true);
+	if (raw && rawHoled)
 	{
-		CBitmap texture;
+		CBitmap texture, holed;
 		texture.Attach(raw);
+		holed.Attach(rawHoled);
 		for (const Variant& v : kVariants)
 		{
 			CString path = outDir + _T("\\") + v.file;
 			bool ok = false;
 			CString why;
-			try { ok = WriteDrawing(view, doc, hdc, texture, v, path, why); }
+			try { ok = WriteDrawing(view, doc, hdc, texture, holed, v, path, why); }
 			catch (CException* e) { TCHAR m[256] = {}; e->GetErrorMessage(m, 255); why = CString(_T("exception: ")) + m; e->Delete(); }
 			catch (...) { why = _T("unknown exception"); }
 			log += (ok ? _T("OK   ") : _T("FAIL ")) + path;

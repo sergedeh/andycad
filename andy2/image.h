@@ -11,6 +11,8 @@
 
 #include "Figure.h"
 #include "rectangle.h"
+#include <cstdint>
+#include <vector>
 
 class CImage :/*public CxImage,*/ public CLine
 {
@@ -28,6 +30,12 @@ public:
 	virtual ~CImage();
 	bool draw(bool fPrevLine, CDC *hdc,CVector point);
 	void draw(CDC *hdc);
+	// Direct2D path: the image as a bitmap brush (smooth sampling), with the
+	// Transparency level (alpha) times each pixel's own alpha, and repeat
+	// mode as brush wrapping. Only for image_texture shapes with no clipping;
+	// everything else stays on draw(CDC*).
+	void draw(acr::IRenderer* r) override;
+	bool canRender() const override;
 	void setMove(bool mv,CVector pos);
 	void create(CVector pos);
     bool getCharge();
@@ -39,7 +47,8 @@ public:
 	// Use an in-memory bitmap as the texture (stretched or tiled), with an
 	// optional transparency key colour. `name` is stored as texture_file.
 	void setGeneratedTexture(CDC* hdc, CBitmap* bmp, const CString& name,
-	                         bool tiled, COLORREF transparentColour);
+	                         bool tiled, COLORREF transparentColour,
+	                         double opacity = 1.0);
  
 	void initL();
 	void setPtsBegin(CVector point);
@@ -52,6 +61,10 @@ private:
 	BITMAP bm;
 	HBITMAP hBitmap;
 	float prevu;
+	// Texture pixels for the IRenderer path (0xAARRGGBB), rebuilt from mytext.
+	std::vector<uint32_t> m_texPixels;
+	uint64_t m_texRev = 0;
+	void updateTexturePixels();
 
 };
 
