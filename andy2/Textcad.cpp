@@ -1286,6 +1286,10 @@ void CTextCad::draw3D(CDC *hdc)
 	CRect rt3;
 	rt3=*rt2;
 	
+	// Set when this call rescales the edit box's fonts for a new zoom; that
+	// changes the RTF and box size but not the text's world-space layout.
+	bool zoomedThisFrame=false;
+	bool createdThisFrame=false;
 	if(rich->m_hWnd==NULL){
 		hdc->LPtoDP(rt2);
 		b1=rich->Create(ES_LEFT|ES_MULTILINE|ES_WANTRETURN|WS_VISIBLE|WS_BORDER|WS_OVERLAPPED|WS_CHILD,*rt2,wd,ID_RICHT);
@@ -1315,9 +1319,14 @@ void CTextCad::draw3D(CDC *hdc)
 		u_prev=sqrt(pyheight.x*pyheight.x+pyheight.y+pyheight.y);
 		rich->SetFocus();
 		zm=1;
+		m_layout.editorScale=projectedScale();
+		createdThisFrame=true;
 		hdc->DPtoLP(rt2);
 	}
-		else if((zm!=z_prev)){//&&(rich->IsWindowVisible())){
+		else if((zm!=z_prev)&&(rich->IsWindowVisible())){
+		// The edit box is only resized/re-fonted for zoom while it is being
+		// used; when hidden, the vector layout handles zoom on its own.
+		zoomedThisFrame=true;
 		
 		hdc->LPtoDP(rt2);
 		long length=rich->GetTextLength();
@@ -1344,6 +1353,7 @@ void CTextCad::draw3D(CDC *hdc)
 		rich->ShowWindow(FALSE);
 		int ti=rich->GetLineCount();
 		hdc->DPtoLP(rt2);
+		m_layout.editorScale=projectedScale();
 	}else if(rich->IsWindowVisible()){
 		hdc->LPtoDP(rt2);
 		rich->MoveWindow(rt2);	
@@ -1354,21 +1364,47 @@ void CTextCad::draw3D(CDC *hdc)
 	long length=rich->GetTextLength();
 	if(!rich->IsWindowVisible())
 	{
-		// Character layout cache: asking the RichEdit for every character's
-		// position and format costs several window messages per character, so
-		// it is done only when the content (RTF) or the box size changes.
-		// Painting from the cache gives the same output as the old loops.
+		// Vector layout: each character is stored once as a world-space vector
+		// from the text origin (plus its font at the layout scale). Every draw
+		// maps those vectors through the text's position, rotation and the
+		// current projection, and scales the fonts by the zoom, so pan, zoom
+		// and rotation never re-lay out the text. The layout is rebuilt only
+		// when the content or formatting (RTF) or the box size changes for a
+		// reason other than zoom.
 		CRect devRect(*rt2);
 		hdc->LPtoDP(&devRect);
 		CStringA rtf = streamRichRtf();
+		const double sNow=projectedScale();
+		if(m_layout.editorScale<=0)
+			m_layout.editorScale=sNow;
+		// The box size in world terms (pixels / pixels-per-unit) does not
+		// change with zoom, only when the text box itself is resized.
+		const double wn=sNow>0 ? devRect.Width()/sNow : 0;
+		const double hn=sNow>0 ? devRect.Height()/sNow : 0;
+		auto near1=[](double a,double b){ double d=a-b; if(d<0) d=-d; double m=(a>b?a:b); return d<=0.01*m+0.02; };
 		bool layoutValid = m_layout.valid && m_layout.rtf == rtf &&
-			m_layout.w == devRect.Width() && m_layout.h == devRect.Height();
+			near1(m_layout.wn, wn) && near1(m_layout.hn, hn);
+		if(!layoutValid && m_layout.valid && zoomedThisFrame)
+		{
+			// Only our own zoom rescale changed the edit box: same layout.
+			m_layout.rtf=rtf;
+			m_layout.wn=wn;
+			m_layout.hn=hn;
+			layoutValid=true;
+		}
 
 		if(!layoutValid)
 		{
+		// The edit box's fonts are at editorScale; size the box to match so
+		// the text wraps exactly as it will look.
+		const double k=sNow>0 ? m_layout.editorScale/sNow : 1.0;
 		rich->ShowWindow(TRUE);
 		hdc->LPtoDP(rt2);
-		rich->MoveWindow(rt2);
+		CRect richRect(*rt2);
+		richRect.NormalizeRect();
+		richRect.right=richRect.left+(LONG)lround(richRect.Width()*k);
+		richRect.bottom=richRect.top+(LONG)lround(richRect.Height()*k);
+		rich->MoveWindow(k==1.0 ? rt2 : &richRect);
 		hdc->DPtoLP(rt2);
 		rich->ShowWindow(FALSE);
 		int ti=rich->GetLineCount();
@@ -1405,9 +1441,27 @@ void CTextCad::draw3D(CDC *hdc)
 			_pi.y-=line[m_layout.glyphs[i].line]-1;
 			m_layout.glyphs[i].dev=_pi;
 		}
+		// Convert to world-space offsets from the text origin, exactly as the
+		// old per-frame code did (MM_TEXT, then back through the projection).
+		{
+			LONG um0=hdc->SetMapMode(m_layout.richMapMode);
+			CVector origin0=CVector(CPoint(0,0));
+			for(int i=0;i<length;i++)
+			{
+				CPoint p=m_layout.glyphs[i].dev;
+				hdc->DPtoLP(&p);
+				CVector v=p;
+				m_layout.glyphs[i].off=v-origin0;
+				// Editor pixels -> world: undo the editor/projection scale gap.
+				if(k!=1.0)
+					m_layout.glyphs[i].off=m_layout.glyphs[i].off*(1.0/k);
+			}
+			hdc->SetMapMode(um0);
+		}
+		m_layout.scale=m_layout.editorScale;
 		m_layout.rtf=rtf;
-		m_layout.w=devRect.Width();
-		m_layout.h=devRect.Height();
+		m_layout.wn=wn;
+		m_layout.hn=hn;
 		m_layout.valid=true;
 		m_layout.fonts.clear();
 		}
@@ -1435,23 +1489,26 @@ void CTextCad::draw3D(CDC *hdc)
 		hdc->DPtoLP(&pol);
 		for(int i=0;i<length;i++)
 		{
-			_pi=m_layout.glyphs[i].dev;
-			hdc->DPtoLP(&_pi);
+			// position = text origin + rotation * stored world vector
 			vpi2=pol;
-			vpi=_pi;
-			vpi=vpi-CVector(CPoint(0,0));
+			vpi=m_layout.glyphs[i].off;
 			vpi=polarc(absc(vpi),argu(vpi)+ang);
 			vpi=vpi2+vpi;
 			mvec.push_back(vpi);
 		}
-		// Rotated fonts are rebuilt only when the angle changes.
-		if(m_layout.fonts.size()!=(size_t)length || m_layout.fontAngle!=u)
+		// Fonts follow the zoom (pixels per world unit now vs at layout) and
+		// the rotation; they are rebuilt only when either changes.
+		double fontScale=m_layout.scale>0 ? projectedScale()/m_layout.scale : 1.0;
+		if(m_layout.fonts.size()!=(size_t)length || m_layout.fontAngle!=u ||
+		   fabs(m_layout.fontScale-fontScale)>1e-6)
 		{
 			m_layout.fonts.clear();
 			m_layout.fonts.reserve(length);
 			for(int i=0;i<length;i++)
 			{
 				LOGFONT lf=m_layout.glyphs[i].lf;
+				lf.lfHeight=(LONG)lround(lf.lfHeight*fontScale);
+				lf.lfWidth=(LONG)lround(lf.lfWidth*fontScale);
 				lf.lfQuality=DRAFT_QUALITY;
 				lf.lfClipPrecision=CLIP_STROKE_PRECIS;
 				lf.lfOutPrecision=OUT_STROKE_PRECIS;
@@ -1461,6 +1518,7 @@ void CTextCad::draw3D(CDC *hdc)
 				m_layout.fonts.push_back(std::shared_ptr<void>(hf, [](void* h){ if(h) ::DeleteObject((HGDIOBJ)h); }));
 			}
 			m_layout.fontAngle=u;
+			m_layout.fontScale=fontScale;
 		}
 		for(int i=0;i<length;i++)
 		{
@@ -1485,7 +1543,8 @@ void CTextCad::draw3D(CDC *hdc)
 		hdc->SetMapMode(um);
 
 	}
-		z_prev=zm;
+		if(createdThisFrame || zoomedThisFrame || rich->IsWindowVisible())
+			z_prev=zm;
 //		uprev=u;
 	delete rt2;
 	rt2=NULL;
@@ -2842,6 +2901,19 @@ static DWORD CALLBACK AppendRtf(DWORD_PTR cookie, LPBYTE buf, LONG cb, LONG* pcb
 	((CStringA*)cookie)->Append((const char*)buf, cb);
 	*pcb = cb;
 	return 0;
+}
+
+double CTextCad::projectedScale()
+{
+	// Screen pixels per 100 world units along x at the world origin, through
+	// the current camera/projection (the zoom the text should follow).
+	CVector o(0,0,0,1);
+	CVector x(100,0,0,0);
+	CPoint a=o;
+	CVector ox=o+x;
+	CPoint b=ox;
+	double dx=b.x-a.x, dy=b.y-a.y;
+	return sqrt(dx*dx+dy*dy);
 }
 
 CStringA CTextCad::streamRichRtf()

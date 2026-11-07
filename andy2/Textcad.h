@@ -138,16 +138,20 @@ private:
     CTxtED* rich;
 	// Character layout cache for draw3D (see Textcad.cpp).
 	struct LayoutCache {
-		struct Glyph { char ch = 0; long line = 0; CPoint dev; LOGFONT lf = {}; COLORREF color = 0; };
+		struct Glyph { char ch = 0; long line = 0; CPoint dev; CVector off; LOGFONT lf = {}; COLORREF color = 0; };
 		CStringA rtf;
-		int w = 0, h = 0;
+		double wn = 0, hn = 0;     // box size / projectedScale() at layout
+		double editorScale = 0;    // projectedScale() the edit box's fonts match
 		int richMapMode = MM_TEXT;
 		bool valid = false;
 		std::vector<Glyph> glyphs;
+		double scale = 0;          // projectedScale() when laid out
 		double fontAngle = 1e300;
+		double fontScale = 0;
 		std::vector<std::shared_ptr<void>> fonts;   // HFONTs, rotated
 	} m_layout;
 	CStringA streamRichRtf();
+	static double projectedScale();
 	CVector ppvlo;
 	int width; 
 	float z_prev,u_prev;
