@@ -746,14 +746,7 @@ void CImage::setGeneratedTexture(CDC* hdc, CBitmap* bmp, const CString& name,
 
 void CImage::setBlendMode(int mode, COLORREF fill)
 {
-	switch (mode)
-	{
-	case 1: tex_vert_mode = replace; break;
-	case 2: tex_vert_mode = decal; break;
-	case 3: tex_vert_mode = multiply; break;
-	case 4: tex_vert_mode = backcolor; break;
-	default: tex_vert_mode = image_texture; break;
-	}
+	setTextureBlend(mode);
 	bcolor = fill;
 }
 

@@ -173,6 +173,10 @@ public:
 	// selected; `state` reports whether the first selected text scales its
 	// characters. With `toggle` it flips all selected texts.
 	bool textScaleMode(bool toggle, bool& state);
+	// Format > Texture on the selected (textured) figures. Return false when
+	// none is selected; `state`/`mode` report the first one.
+	bool textureTile(bool toggle, bool& state);
+	bool textureBlendMode(int set, int& mode);   // set < 0: query only
 	// Replace the selected texts with filled curve figures (one per
 	// character). Returns how many texts were converted.
 	int convertTextToCurves(CDC* hdc);

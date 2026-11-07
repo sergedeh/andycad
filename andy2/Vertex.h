@@ -136,7 +136,7 @@ public:
   CVector n;
   CPoint p;
   float un, vn;
-  float pun, pvn;
+  float pun = 0, pvn = 0;   // texture coordinates; 0 until a figure sets them
   CCVector vc;
   col rgbdiff, rgbspec;
   float alpha;

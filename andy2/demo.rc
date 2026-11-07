@@ -839,6 +839,18 @@ BEGIN
         MENUITEM "Text Characters Scale With Box", ID_TEXT_SCALECHARS
         MENUITEM "Convert Text to Curves",      ID_TEXT_TOCURVES
         MENUITEM SEPARATOR
+        MENUITEM "&Transparency...",            ID_TRANSPARENCY
+        POPUP "Te&xture"
+        BEGIN
+            MENUITEM "&Tile (Repeat)",              ID_TEXTURE_TILE
+            MENUITEM SEPARATOR
+            MENUITEM "&Normal",                     ID_TEXTURE_NORMAL
+            MENUITEM "&Replace (Ignore Alpha)",     ID_TEXTURE_REPLACE
+            MENUITEM "&Decal (Tint with Fill Colour)", ID_TEXTURE_DECAL
+            MENUITEM "&Multiply with Fill Colour",  ID_TEXTURE_MULTIPLY
+            MENUITEM "&Fill Colour Only",           ID_TEXTURE_FILLONLY
+        END
+        MENUITEM SEPARATOR
         POPUP "&Line Style"
         BEGIN
             MENUITEM "Solid",                       ID_EEE_SOLID
@@ -3198,6 +3210,12 @@ BEGIN
     ID_CAMERAROTATION       "Camera Rotate\nCamera Rotate"
     ID_BUCKETFILL           "Fill \nFill"
     ID_TRANSPARENCY         "Transparency\nTransparency"
+    ID_TEXTURE_TILE         "Repeat the texture at the image's size instead of stretching it\nTile Texture"
+    ID_TEXTURE_NORMAL       "Draw the texture over the background (transparency level and image alpha)\nNormal"
+    ID_TEXTURE_REPLACE      "Draw the texture opaque, ignoring its alpha\nReplace"
+    ID_TEXTURE_DECAL        "Tint the texture toward the fill colour by the transparency level\nDecal"
+    ID_TEXTURE_MULTIPLY     "Multiply the texture by the fill colour\nMultiply"
+    ID_TEXTURE_FILLONLY     "Show the fill colour instead of the texture\nFill Colour Only"
     ID_RENDER               "Render\nRender"
     ID_LIGHT                "Light\nLight"
     ID_FOG                  "Fog\nFog"

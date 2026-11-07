@@ -190,6 +190,30 @@ bool CFigure::canFillForRenderer() const
 	return hasTextureCoords();
 }
 
+void CFigure::setTextureBlend(int mode)
+{
+	switch (mode)
+	{
+	case 1: tex_vert_mode = replace; break;
+	case 2: tex_vert_mode = decal; break;
+	case 3: tex_vert_mode = multiply; break;
+	case 4: tex_vert_mode = backcolor; break;
+	default: tex_vert_mode = image_texture; break;
+	}
+}
+
+int CFigure::textureBlend() const
+{
+	switch (tex_vert_mode)
+	{
+	case replace: return 1;
+	case decal: return 2;
+	case multiply: return 3;
+	case backcolor: return 4;
+	default: return 0;
+	}
+}
+
 bool CFigure::hasTextureCoords() const
 {
 	// Texture coordinates must span an area (set by updateBoxUV).

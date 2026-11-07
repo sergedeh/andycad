@@ -653,11 +653,17 @@
 // 
 #define ID_TEXT_SCALECHARS              40336
 #define ID_TEXT_TOCURVES                40337
+#define ID_TEXTURE_TILE                 40338
+#define ID_TEXTURE_NORMAL               40339
+#define ID_TEXTURE_REPLACE              40340
+#define ID_TEXTURE_DECAL                40341
+#define ID_TEXTURE_MULTIPLY             40342
+#define ID_TEXTURE_FILLONLY             40343
 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        272
-#define _APS_NEXT_COMMAND_VALUE         40338
+#define _APS_NEXT_COMMAND_VALUE         40344
 #define _APS_NEXT_CONTROL_VALUE         1156
 #define _APS_NEXT_SYMED_VALUE           235
 #endif

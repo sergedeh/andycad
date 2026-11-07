@@ -276,6 +276,13 @@ void CLibS::setTiled(bool tiled)
 	CFigure::setTiled(tiled);
 }
 
+void CLibS::setTextureBlend(int mode)
+{
+	for (int i = 0; i < iter; i++)
+		elem[i]->setTextureBlend(mode);
+	CFigure::setTextureBlend(mode);
+}
+
 void CLibS::SendNotify(CString s, void* param[7])
 {
 	if (s == "Transparency")

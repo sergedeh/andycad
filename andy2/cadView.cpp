@@ -71,6 +71,10 @@ BEGIN_MESSAGE_MAP(CCadView, CScrollView)
 	ON_WM_SIZE()
 	ON_COMMAND(ID_TBSELECT, OnTbselect)
 	ON_COMMAND(ID_TEXT_SCALECHARS, OnTextScaleChars)
+	ON_COMMAND(ID_TEXTURE_TILE, OnTextureTile)
+	ON_UPDATE_COMMAND_UI(ID_TEXTURE_TILE, OnUpdateTextureTile)
+	ON_COMMAND_RANGE(ID_TEXTURE_NORMAL, ID_TEXTURE_FILLONLY, OnTextureBlend)
+	ON_UPDATE_COMMAND_UI_RANGE(ID_TEXTURE_NORMAL, ID_TEXTURE_FILLONLY, OnUpdateTextureBlend)
 	ON_COMMAND(ID_TEXT_TOCURVES, OnTextToCurves)
 	ON_UPDATE_COMMAND_UI(ID_TEXT_TOCURVES, OnUpdateTextToCurves)
 	ON_UPDATE_COMMAND_UI(ID_TEXT_SCALECHARS, OnUpdateTextScaleChars)
@@ -2279,6 +2283,44 @@ void CCadView::OnTextScaleChars()
 		change = true;
 		Invalidate();
 	}
+}
+
+void CCadView::OnTextureTile()
+{
+	bool state = false;
+	if (GetDocument()->m_objects->textureTile(true, state))
+	{
+		GetDocument()->SetModifiedFlag();
+		change = true;
+		Invalidate();
+	}
+}
+
+void CCadView::OnUpdateTextureTile(CCmdUI* pCmdUI)
+{
+	bool state = false;
+	bool any = GetDocument()->m_objects->textureTile(false, state);
+	pCmdUI->Enable(any);
+	pCmdUI->SetCheck(any && state ? 1 : 0);
+}
+
+void CCadView::OnTextureBlend(UINT id)
+{
+	int mode = 0;
+	if (GetDocument()->m_objects->textureBlendMode((int)(id - ID_TEXTURE_NORMAL), mode))
+	{
+		GetDocument()->SetModifiedFlag();
+		change = true;
+		Invalidate();
+	}
+}
+
+void CCadView::OnUpdateTextureBlend(CCmdUI* pCmdUI)
+{
+	int mode = -1;
+	bool any = GetDocument()->m_objects->textureBlendMode(-1, mode);
+	pCmdUI->Enable(any);
+	pCmdUI->SetRadio(any && mode == (int)(pCmdUI->m_nID - ID_TEXTURE_NORMAL));
 }
 
 void CCadView::OnUpdateTextScaleChars(CCmdUI* pCmdUI)

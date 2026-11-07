@@ -180,6 +180,14 @@ public:
 	virtual void setTexture(CString s,CDC* hdc);
 	// Repeat the texture (true) or stretch it over the figure (false).
 	virtual void setTiled(bool tiled) { mode_texture = tiled ? wrap : none; }
+	bool isTiled() const { return mode_texture == wrap; }
+	// Texture blend mode, as in Format > Texture: 0 normal (image over the
+	// background, Transparency level x per-pixel alpha), 1 replace (ignore
+	// alpha), 2 decal (image tinted toward the fill colour by the level),
+	// 3 multiply (image x fill colour), 4 fill colour only.
+	virtual void setTextureBlend(int mode);
+	int textureBlend() const;
+	bool hasTexture() const { return !texture_file.IsEmpty(); }
 	virtual void SendNotify(CString s, void* param[7]);
 	void setInterest(CSubject *sub);
 	CDC* getDC();

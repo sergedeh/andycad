@@ -137,6 +137,10 @@ protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnTbselect();
 	afx_msg void OnTextScaleChars();
+	afx_msg void OnTextureTile();
+	afx_msg void OnUpdateTextureTile(CCmdUI* pCmdUI);
+	afx_msg void OnTextureBlend(UINT id);
+	afx_msg void OnUpdateTextureBlend(CCmdUI* pCmdUI);
 	afx_msg void OnTextToCurves();
 	afx_msg void OnUpdateTextToCurves(CCmdUI* pCmdUI);
 	afx_msg void OnUpdateTextScaleChars(CCmdUI* pCmdUI);

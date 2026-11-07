@@ -7,7 +7,7 @@ inside) and checks pixels against what the fill should look like on white.
 ## Automated (`ANDYCAD_RUN_RENDER_TESTS`)
 
 Calls the figure methods the UI ends up in (`setLcolor`, `setTexture`, the
-"Transparency" notification at 50%, `setTiled`) and draws each case off-screen
+"Transparency" notification at 50%, `setTiled`, `setTextureBlend`) and draws each case off-screen
 with GDI and with Direct2D. Writes `report.md`, `results.csv` and
 `<object>_<case>_<gdi|d2d>.png`.
 
@@ -21,7 +21,9 @@ Release\andycad.exe
 Drives the running app with window messages: Select tool, a mouse click on the
 object's outline, a right click on a colour-bar swatch (fill colour), a click on
 a pattern-bar button (texture; its source is pointed at `texture_checker.png`),
-and Format > Transparency with the slider dragged to 50 and OK. Pixels are read
+Format > Texture > Tile / Multiply / Decal / Fill Colour Only (the test checks the
+menu item is enabled for the selection first), and Format > Transparency with the
+slider dragged to 50 and OK. Pixels are read
 back from the window. Uses the renderer the app was started with, so run it twice:
 
 ```
@@ -35,5 +37,5 @@ Writes `ui_gdi.md` / `ui_d2d.md`, matching `.csv` files and `ui_*.png`. Keep the
 window visible while it runs (about 20 seconds); it closes itself.
 
 Case numbers in the PNG names: 0 solid colour, 1 colour at 50%, 2 texture,
-3 texture at 50%, 4 tiled texture (automated only: there is no UI command for
-tiling yet).
+3 texture at 50%, 4 tiled texture, 5 texture multiplied by the fill colour,
+6 decal at 50%, 7 fill colour only.

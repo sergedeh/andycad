@@ -64,8 +64,17 @@ struct Shape {
 	bool textured = true;           // texture cases apply
 };
 
-enum Case { Solid, Solid50, Tex, Tex50, Tile, CaseCount };
-const char* kCaseName[] = { "solid colour", "colour, 50% transparency", "texture", "texture, 50% transparency", "tiled texture" };
+enum Case { Solid, Solid50, Tex, Tex50, Tile, Multiply, Decal50, FillOnly, CaseCount };
+const char* kCaseName[] = { "solid colour", "colour, 50% transparency", "texture", "texture, 50% transparency", "tiled texture",
+                            "texture, multiply with fill colour", "texture, decal at 50%", "texture, fill colour only" };
+// Texture blend mode per case (Format > Texture), -1 = leave as set by setTexture.
+int CaseBlend(Case c) { return c == Multiply ? 3 : c == Decal50 ? 2 : c == FillOnly ? 4 : -1; }
+bool CaseHas50(Case c) { return c == Solid50 || c == Tex50 || c == Decal50; }
+bool CaseTextured(Case c) { return c != Solid && c != Solid50; }
+
+COLORREF Mul(COLORREF a, COLORREF b) {
+	return RGB(GetRValue(a) * GetRValue(b) / 255, GetGValue(a) * GetGValue(b) / 255, GetBValue(a) * GetBValue(b) / 255);
+}
 
 struct Result { CString status; CString detail; };
 
@@ -132,13 +141,14 @@ struct Canvas {
 };
 
 void ApplyCase(CFigure* f, Case c, CDC* hdc, const CString& texture) {
-	if (c == Solid || c == Solid50)
-		f->setLcolor(hdc, kLine, kFill);                 // colour toolbar
-	else
+	f->setLcolor(hdc, kLine, kFill);                     // colour toolbar
+	if (CaseTextured(c))
 		f->setTexture(texture, hdc);                     // pattern buttons
 	if (c == Tile)
-		f->setTiled(true);
-	if (c == Solid50 || c == Tex50) {                    // Transparency dialog, 50%
+		f->setTiled(true);                               // Format > Texture > Tile
+	if (CaseBlend(c) >= 0)
+		f->setTextureBlend(CaseBlend(c));                // Format > Texture > blend mode
+	if (CaseHas50(c)) {                                  // Transparency dialog, 50%
 		float level = 0.5f;
 		void* param[7] = { &level };
 		f->SendNotify(_T("Transparency"), param);
@@ -155,8 +165,16 @@ Result Check(Canvas& cv, const Shape& s, Case c, COLORREF fill = kFill) {
 	Result r;
 	std::vector<Sample> samples;
 	double cx = (s.x0 + s.x1) / 2, cy = (s.y0 + s.y1) / 2;
-	if (c == Solid || c == Solid50) {
-		COLORREF want = c == Solid ? fill : Blend(fill, kWhite, 0.5);
+	if (c == Multiply) {
+		samples.push_back({ 20, 20, Mul(kBlue, fill), "blue texel x fill" });
+		samples.push_back({ 44, 20, Mul(kRed, fill), "red texel x fill" });
+		samples.push_back({ 20, 44, Mul(kGreen, fill), "green texel x fill" });
+	} else if (c == Decal50) {
+		samples.push_back({ 20, 20, Blend(fill, kBlue, 0.5), "blue texel half fill" });
+		samples.push_back({ 44, 20, Blend(fill, kRed, 0.5), "red texel half fill" });
+		samples.push_back({ 20, 44, Blend(fill, kGreen, 0.5), "green texel half fill" });
+	} else if (c == Solid || c == Solid50 || c == FillOnly) {
+		COLORREF want = c == Solid50 ? Blend(fill, kWhite, 0.5) : fill;
 		samples.push_back({ -1, -1, want, "centre" });
 		samples.push_back({ -2, -2, want, "off-centre" });
 	} else if (c == Tex || c == Tex50) {
@@ -486,14 +504,14 @@ void RunUITests() {
 	md.Format(_T("# UI tests: colour, texture, transparency (%s)\r\n\r\n"), d2d ? _T("Direct2D") : _T("GDI"));
 	md += _T("Each object is added to an empty drawing, selected with a mouse click on its outline (Select tool), ")
 	      _T("then: fill colour = right click on a colour-bar swatch; texture = click on a pattern-bar button (its source set to the test checker); ")
-	      _T("transparency = Format > Transparency, slider dragged to 50, OK. Pixels are read back from the window.\r\n\r\n");
+	      _T("tiling and blend modes = Format > Texture menu items (checked enabled first); transparency = Format > Transparency, slider dragged to 50, OK. Pixels are read back from the window.\r\n\r\n");
 	CString sw;
 	sw.Format(_T("Colour-bar swatch used: %s. Pattern button: %s.\r\n\r\n"),
 	          swatch ? (LPCTSTR)Hex(swatch->color) : _T("none found"), patBtn ? _T("found") : _T("none found"));
 	md += sw;
 	md += _T("| Object | Case | Result |\r\n| --- | --- | --- |\r\n");
 	int pass = 0, total = 0;
-	const Case cases[] = { Solid, Solid50, Tex, Tex50 };
+	const Case cases[] = { Solid, Solid50, Tex, Tex50, Tile, Multiply, Decal50, FillOnly };
 	for (const Shape& s : shapes) {
 		for (Case c : cases) {
 			Result res;
@@ -511,16 +529,30 @@ void RunUITests() {
 			bool ok = doc->m_objects->selectedCount() == 1;
 			if (!ok) steps += _T("click did not select it; ");
 			COLORREF fill = swatch ? swatch->color : 0;
-			if (ok && (c == Solid || c == Solid50)) {
+			if (ok) {
 				if (!swatch) { ok = false; steps += _T("no colour swatch; "); }
 				else Click(swatch->GetSafeHwnd(), CPoint(5, 5), WM_RBUTTONDOWN, WM_RBUTTONUP, MK_RBUTTON);
 			}
-			if (ok && (c == Tex || c == Tex50)) {
+			if (ok && CaseTextured(c)) {
 				if (!patBtn) { ok = false; steps += _T("no pattern button; "); }
 				else { patBtn->patsource = texture; Click(patBtn->GetSafeHwnd(), CPoint(5, 5)); }
 			}
 			Pump();
-			if (ok && (c == Solid50 || c == Tex50)) {
+			// Format > Texture: the menu item must be enabled for the selection.
+			auto menuCommand = [&](UINT id, const TCHAR* what) {
+				struct Probe : CCmdUI { bool en = false; void Enable(BOOL b) override { en = b != 0; m_bEnableChanged = TRUE; }
+					void SetCheck(int) override {} void SetRadio(BOOL) override {} void SetText(LPCTSTR) override {} } pr;
+				pr.m_nID = id;
+				pr.DoUpdate(frame, FALSE);
+				if (!pr.en) { ok = false; CString e; e.Format(_T("menu %s disabled; "), what); steps += e; return; }
+				frame->SendMessage(WM_COMMAND, id);
+			};
+			if (ok && c == Tile) menuCommand(ID_TEXTURE_TILE, _T("Tile"));
+			if (ok && c == Multiply) menuCommand(ID_TEXTURE_MULTIPLY, _T("Multiply"));
+			if (ok && c == Decal50) menuCommand(ID_TEXTURE_DECAL, _T("Decal"));
+			if (ok && c == FillOnly) menuCommand(ID_TEXTURE_FILLONLY, _T("Fill Colour Only"));
+			Pump();
+			if (ok && CaseHas50(c)) {
 				g_transTicks = 0; g_transDone = false;
 				SetTimer(NULL, 0, 50, TransparencyDialogDriver);
 				frame->SendMessage(WM_COMMAND, ID_TRANSPARENCY);   // modal; the driver answers it
@@ -563,7 +595,7 @@ void RunUITests() {
 		}
 	}
 	CString sum;
-	sum.Format(_T("\r\n%d of %d pass. Tiling has no UI command (only the image file loader and code set it), so it is covered by the automated tests only.\r\n"), pass, total);
+	sum.Format(_T("\r\n%d of %d pass.\r\n"), pass, total);
 	md += sum;
 	auto write = [](const CString& path, const CString& text) {
 		CFile f;

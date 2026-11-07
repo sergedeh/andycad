@@ -7519,6 +7519,44 @@ bool CDraw::textScaleMode(bool toggle, bool &state) {
   return found;
 }
 
+bool CDraw::textureTile(bool toggle, bool &state) {
+  CTextCad textc;
+  bool found = false;
+  for (size_t j = 0; j < vs.size(); j++) {
+    if (vs[j]->getName() == textc.getName() || !vs[j]->hasTexture())
+      continue;
+    if (!found)
+      state = vs[j]->isTiled();
+    found = true;
+    if (toggle)
+      vs[j]->setTiled(!state);
+  }
+  if (found && toggle) {
+    state = !state;
+    candraw = true;
+  }
+  return found;
+}
+
+bool CDraw::textureBlendMode(int set, int &mode) {
+  CTextCad textc;
+  bool found = false;
+  for (size_t j = 0; j < vs.size(); j++) {
+    if (vs[j]->getName() == textc.getName() || !vs[j]->hasTexture())
+      continue;
+    if (!found)
+      mode = vs[j]->textureBlend();
+    found = true;
+    if (set >= 0)
+      vs[j]->setTextureBlend(set);
+  }
+  if (found && set >= 0) {
+    mode = set;
+    candraw = true;
+  }
+  return found;
+}
+
 void CDraw::editobj(CVector point) {
 
   for (int i = 0; i < fit; i++) {

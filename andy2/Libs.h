@@ -80,6 +80,7 @@ public:
 	// A block's fill settings apply to the shapes inside it.
 	void setTexture(CString s, CDC* hdc) override;
 	void setTiled(bool tiled) override;
+	void setTextureBlend(int mode) override;
 	void SendNotify(CString s, void* param[7]) override;
 	bool isRenderGroup() const override;
 	int renderChildCount() override { return iter; }
