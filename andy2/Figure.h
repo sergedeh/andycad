@@ -310,6 +310,9 @@ public:
 	virtual bool isRenderGroup() const { return false; }
 	virtual int renderChildCount() { return 0; }
 	virtual CFigure* renderChild(int i) { (void)i; return nullptr; }
+	// Drawn through the renderer before a group's children (e.g. a spline's
+	// fill). Default: nothing.
+	virtual void drawGroupBackground(acr::IRenderer* r) { (void)r; }
 
 	virtual LONG Readfile(CFile& file);
 	virtual void openfile(CFile& file);

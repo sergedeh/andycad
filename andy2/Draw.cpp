@@ -258,6 +258,13 @@ void CDraw::display(CDC *rhdc, CDC *hdc) {
         }
       }
       if (d2d && f->isRenderGroup()) {
+        if (!inBatch)
+          inBatch = acr::BeginViewBatch(d2d, hdc->GetSafeHdc());
+        if (!inBatch) {
+          f->draw(hdc); // Direct2D unavailable for this frame: all GDI
+          return;
+        }
+        f->drawGroupBackground(d2d);
         int n = f->renderChildCount();
         for (int c = 0; c < n; c++)
           drawFigure(f->renderChild(c));

@@ -17,6 +17,10 @@ class CSpline : public CLibS
 {
 public:
 	void draw(CDC* hdc);
+	// Direct2D: the closed-spline fill as the group background, then the
+	// children route individually (see CDraw::display).
+	bool isRenderGroup() const override;
+	void drawGroupBackground(acr::IRenderer* r) override;
 	void closecurve(CVector point,CDC *hdc);
 	void drawselect(CDC* hdc);
 	bool PtinRegion(CVector point);

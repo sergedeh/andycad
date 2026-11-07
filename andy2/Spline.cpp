@@ -5,6 +5,8 @@
 #include "Stdafx.h"
 #include "cad.h"
 #include "Spline.h"
+#include "render/RenderCompat.h"
+#include <typeinfo>
 
 
 #ifdef _DEBUG
@@ -228,6 +230,46 @@ void CSpline::closecurve(CVector point, CDC *hdc)
 	cl=true;
 	draw(hdc);
 
+}
+
+bool CSpline::isRenderGroup() const
+{
+	// Textured spline fills stay on the GDI rasterizer.
+	return typeid(*this) == typeid(CSpline) && !(cl && !texture_file.IsEmpty());
+}
+
+void CSpline::drawGroupBackground(acr::IRenderer* r)
+{
+	if (!r || !cl)
+		return;
+	// Same outline GDI fills: every child's points, in order.
+	acr::Path path;
+	bool first = true;
+	CVector c;
+	for (int i = 0; i < iter; i++)
+	{
+		CVector* M1 = elem[i]->getVector();
+		if (!M1)
+			continue;
+		int m = (int)(_msize(M1) / sizeof(c));
+		for (int jj = 0; jj < m; jj++)
+		{
+			CPoint p = M1[jj];
+			if (first) { path.MoveTo(acr::Vec2(p.x, p.y)); first = false; }
+			else path.LineTo(acr::Vec2(p.x, p.y));
+		}
+		free(M1);
+	}
+	if (first)
+		return;
+	path.Close();
+	acr::Fill fill;
+	fill.rule = acr::FillRule::EvenOdd;
+	fill.color = acr::ColorFromColorref(bcolor);
+	if (tex_vert_mode == backcolor)
+		fill.color.a = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
+	// The path is rebuilt each frame, so it is not cached by the backend.
+	r->FillPath(path, fill);
 }
 
 void CSpline::draw(CDC *hdc)

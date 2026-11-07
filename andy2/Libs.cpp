@@ -4,6 +4,10 @@
 
 #include "Stdafx.h"
 #include <typeinfo>
+#include "chfi.h"
+#include "dim.h"
+#include "diml.h"
+#include "dima.h"
 #include "cad.h"
 #include "LibS.h"
 #include "inter.h"
@@ -260,9 +264,12 @@ void CLibS::draw(CDC* hdc)
 
 bool CLibS::isRenderGroup() const
 {
-	// Only plain blocks. Splines, dimensions and chamfer/fillet groups derive
-	// from CLibS but draw differently, so they stay on draw(CDC*).
-	return typeid(*this) == typeid(CLibS);
+	// Blocks plus the subclasses whose draw(CDC*) is exactly CLibS::draw:
+	// chamfer/fillet groups and all three dimension kinds. (CSpline adds a
+	// fill and overrides this itself.)
+	const std::type_info& t = typeid(*this);
+	return t == typeid(CLibS) || t == typeid(CChFi) || t == typeid(CDim) ||
+	       t == typeid(CDimL) || t == typeid(CDimA);
 }
 
 void CLibS::drawOverlay(CDC* hdc)

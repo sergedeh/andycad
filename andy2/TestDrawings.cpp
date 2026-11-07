@@ -17,6 +17,7 @@
 #include "Draw.h"
 #include "Image.h"
 #include "line.h"
+#include "Libs.h"
 #include "TestDrawings.h"
 
 namespace {
@@ -74,6 +75,7 @@ struct Variant
 	int         mode = 0;                       // see CImage::setBlendMode
 	COLORREF    fill = RGB(255, 255, 255);
 	double      level = 1.0;                    // Transparency level (alpha)
+	bool        block = false;                  // two rectangles grouped in a block
 };
 
 const Variant kVariants[] = {
@@ -87,6 +89,7 @@ const Variant kVariants[] = {
 	{ "image_decal.deh",               false, false, true,  true, 2, RGB(255, 255, 255), 0.5 },
 	{ "image_multiply.deh",            false, false, true,  true, 3, RGB(255, 160, 0) },
 	{ "image_backcolor.deh",           false, false, true,  true, 4, RGB(40, 90, 200), 0.5 },
+	{ "block.deh",                     false, false, false, false, 0, RGB(255, 255, 255), 1.0, true },
 };
 
 bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
@@ -122,6 +125,18 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 		CRectangle* frame = new CRectangle;
 		frame->setCorners(CVector(-170, -120, 0, 1), CVector(170, 120, 0, 1));
 		draw->addFigure(frame);
+	}
+
+	if (v.block)
+	{
+		CLibS* lib = new CLibS;
+		CRectangle a, b;
+		a.setCorners(CVector(-150, -100, 0, 1), CVector(-10, 100, 0, 1));
+		b.setCorners(CVector(10, -100, 0, 1), CVector(150, 100, 0, 1));
+		lib->add(&a);
+		lib->add(&b);
+		lib->updatecore();
+		draw->addFigure(lib);
 	}
 
 	CFile file;
