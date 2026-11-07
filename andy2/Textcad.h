@@ -12,6 +12,8 @@
 #include "Bezier.h"
 #include "txted.h"
 
+#include <memory>
+#include <vector>
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -51,6 +53,9 @@ public:
 	void setpara(CString l);
 	bool WndVisible();
 	void setWnd(CWnd* cad);
+	// Test-drawing generator: create the edit control (by drawing once), set
+	// the text, and make the first `boldRedChars` characters bold red.
+	void setTextForTest(CDC* hdc, const CString& s, int boldRedChars);
 	void assign(CDC* hdc, CVector p);
 	CFigure* generateCopy();
 	void Rotate(int sens,CVector prevpoint,CVector postpoint);
@@ -131,6 +136,18 @@ private:
 	map<char,ABC> cmap; //Contain detail about the font dimmensions
 	map<CFont*,myfont> fmap,pfmap; // map between a font name and its details
     CTxtED* rich;
+	// Character layout cache for draw3D (see Textcad.cpp).
+	struct LayoutCache {
+		struct Glyph { char ch = 0; long line = 0; CPoint dev; LOGFONT lf = {}; COLORREF color = 0; };
+		CStringA rtf;
+		int w = 0, h = 0;
+		int richMapMode = MM_TEXT;
+		bool valid = false;
+		std::vector<Glyph> glyphs;
+		double fontAngle = 1e300;
+		std::vector<std::shared_ptr<void>> fonts;   // HFONTs, rotated
+	} m_layout;
+	CStringA streamRichRtf();
 	CVector ppvlo;
 	int width; 
 	float z_prev,u_prev;
