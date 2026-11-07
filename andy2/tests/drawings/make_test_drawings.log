@@ -1,3 +1,4 @@
+image file round trip: load=1 save=1 reload=1 identical=1 size=64x64 alpha=1
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\image_stretch.deh
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\image_stretch_transparent.deh
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\image_tile.deh

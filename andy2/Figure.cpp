@@ -5416,58 +5416,65 @@ lstate=L1; down=false;Up=false;
 }
 
 
-#include <wincodec.h>
-#pragma comment(lib, "windowscodecs.lib")
 
 bool CFigure::loadTextureFile(const CString& path)
 {
-	if (mytext) { delete[] mytext; mytext = NULL; }
-	pwidth = pheight = 0;
-	HRESULT init = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
-	bool ok = false;
-	IWICImagingFactory* wic = NULL;
-	if (SUCCEEDED(CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER,
-	                               IID_PPV_ARGS(&wic))) && wic)
+	auto image = std::make_shared<CImageFile>();
+	CStringW wpath(path);
+	if (!image->Load(std::wstring(wpath)))
 	{
-		CStringW wpath(path);
-		IWICBitmapDecoder* dec = NULL;
-		IWICBitmapFrameDecode* frame = NULL;
-		IWICFormatConverter* conv = NULL;
-		if (SUCCEEDED(wic->CreateDecoderFromFilename(wpath, NULL, GENERIC_READ,
-		                                             WICDecodeMetadataCacheOnDemand, &dec)) &&
-		    SUCCEEDED(dec->GetFrame(0, &frame)) &&
-		    SUCCEEDED(wic->CreateFormatConverter(&conv)) &&
-		    SUCCEEDED(conv->Initialize(frame, GUID_WICPixelFormat32bppBGRA, WICBitmapDitherTypeNone,
-		                               NULL, 0.0, WICBitmapPaletteTypeCustom)))
-		{
-			UINT w = 0, h = 0;
-			conv->GetSize(&w, &h);
-			if (w > 0 && h > 0 && (UINT64)w * h < 64ull * 1024 * 1024)
-			{
-				std::vector<BYTE> px((size_t)w * h * 4);
-				if (SUCCEEDED(conv->CopyPixels(NULL, w * 4, (UINT)px.size(), px.data())))
-				{
-					mytext = new col[(size_t)w * h];
-					for (size_t q = 0; q < (size_t)w * h; ++q)
-					{
-						mytext[q].b = px[q * 4 + 0];
-						mytext[q].g = px[q * 4 + 1];
-						mytext[q].r = px[q * 4 + 2];
-						mytext[q].a = px[q * 4 + 3];
-					}
-					pwidth = (int)w;
-					pheight = (int)h;
-					ok = true;
-				}
-			}
-		}
-		if (conv) conv->Release();
-		if (frame) frame->Release();
-		if (dec) dec->Release();
-		wic->Release();
+		if (mytext) { delete[] mytext; mytext = NULL; }
+		pwidth = pheight = 0;
+		m_textureImage.reset();
+		return false;
 	}
-	if (SUCCEEDED(init)) CoUninitialize();
-	return ok;
+	m_textureImage = image;
+	pixelsFromImage(*image);
+	return true;
+}
+
+void CFigure::pixelsFromImage(const CImageFile& image)
+{
+	if (mytext) { delete[] mytext; mytext = NULL; }
+	pwidth = image.Width();
+	pheight = image.Height();
+	size_t n = (size_t)pwidth * pheight;
+	if (n == 0)
+		return;
+	mytext = new col[n];
+	const uint32_t* px = image.Pixels();
+	for (size_t q = 0; q < n; ++q)
+	{
+		uint32_t p = px[q];
+		mytext[q].a = (float)(p >> 24);
+		mytext[q].r = (float)((p >> 16) & 0xFF);
+		mytext[q].g = (float)((p >> 8) & 0xFF);
+		mytext[q].b = (float)(p & 0xFF);
+	}
+}
+
+void CFigure::setTextureImage(const CImageFile& image)
+{
+	m_textureImage = std::make_shared<CImageFile>(image);
+	pixelsFromImage(image);
+}
+
+const CImageFile* CFigure::textureImage()
+{
+	if (!mytext || pwidth <= 0 || pheight <= 0)
+		return nullptr;
+	if (!m_textureImage || m_textureImage->Width() != pwidth || m_textureImage->Height() != pheight)
+	{
+		// Pixels came from a .deh file (or another path): wrap them.
+		std::vector<uint32_t> px((size_t)pwidth * pheight);
+		auto byte = [](float v) { int i = (int)(v + 0.5f); return (uint32_t)(i < 0 ? 0 : (i > 255 ? 255 : i)); };
+		for (size_t q = 0; q < px.size(); ++q)
+			px[q] = (byte(mytext[q].a) << 24) | (byte(mytext[q].r) << 16) | (byte(mytext[q].g) << 8) | byte(mytext[q].b);
+		auto image = std::make_shared<CImageFile>();
+		image->Assign(pwidth, pheight, px.data());
+		m_textureImage = image;
+	}
+	return m_textureImage.get();
 }
 
 void CFigure::UpdateTexture(CDC* hdc)

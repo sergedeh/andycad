@@ -20,6 +20,7 @@
 #include "Libs.h"
 #include "TextCad.h"
 #include "TestDrawings.h"
+#include "ImageFile.h"
 
 namespace {
 
@@ -328,6 +329,20 @@ bool MakeImageTestDrawingsIfRequested(CCadView* view)
 		return false;
 	}
 	CString outDir(dir);
+	// CImageFile round trip: load the test PNG, save it, load it again.
+	CString roundTripNote;
+	{
+		CImageFile a, b;
+		CString src = outDir + _T("\\texture_checker.png");
+		CString dst = outDir + _T("\\texture_roundtrip.png");
+		bool la = a.Load(std::wstring(CStringW(src)));
+		bool sv = la && a.Save(std::wstring(CStringW(dst)));
+		bool lb = sv && b.Load(std::wstring(CStringW(dst)));
+		bool same = lb && a.Width() == b.Width() && a.Height() == b.Height() &&
+			memcmp(a.Pixels(), b.Pixels(), (size_t)a.Width() * a.Height() * 4) == 0;
+		roundTripNote.Format(_T("image file round trip: load=%d save=%d reload=%d identical=%d size=%dx%d alpha=%d\r\n"),
+			(int)la, (int)sv, (int)lb, (int)same, a.Width(), a.Height(), (int)a.HasAlpha());
+	}
 	g_textureFile = outDir + _T("\\texture_checker.png");
 	free(dir);
 	CreateDirectory(outDir, nullptr);
@@ -336,7 +351,7 @@ bool MakeImageTestDrawingsIfRequested(CCadView* view)
 	CDC* hdc = view->GetDC();
 	view->OnPrepareDC(hdc);
 
-	CString log;
+	CString log = roundTripNote;
 	HBITMAP raw = MakeCheckerBitmap(hdc->GetSafeHdc(), false);
 	HBITMAP rawHoled = MakeCheckerBitmap(hdc->GetSafeHdc(), true);
 	if (raw && rawHoled)

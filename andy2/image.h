@@ -36,6 +36,8 @@ public:
 	// everything else stays on draw(CDC*).
 	void draw(acr::IRenderer* r) override;
 	bool canRender() const override;
+	// The image file this shape shows (pixels, size, alpha; can be saved).
+	const CImageFile* image() { return textureImage(); }
 	void setMove(bool mv,CVector pos);
 	void create(CVector pos);
     bool getCharge();

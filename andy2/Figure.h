@@ -24,7 +24,9 @@
 #include "constraint.h"
 #include "render/IRenderer.h"   // backend-neutral rendering seam (acr::IRenderer)
 #include <cstdint>
+#include <memory>
 #include <vector>
+#include "ImageFile.h"
 
 using namespace std;
 
@@ -152,8 +154,13 @@ public:
 	virtual void Scale(int sens,CVector prevpoint,CVector postpoint);
 	virtual const CAABB getbox(CDC* hdc=NULL);
 	virtual void UpdateTexture(CDC* hdc);
-	// Load texture_file's pixels into mytext (WIC: BMP, PNG, JPEG, TIFF, GIF).
+	// Load texture_file into the figure's image object and its pixels
+	// (CImageFile: BMP, PNG, JPEG, TIFF, GIF, ICO).
 	bool loadTextureFile(const CString& path);
+	// The figure's texture as an image object (built from the stored pixels
+	// when the drawing was loaded from a file). Null when there is none.
+	const CImageFile* textureImage();
+	void setTextureImage(const CImageFile& image);
 	void init();
 	bool isInside(CVector v,bool t=false);
 	vector<CVector>* getpt();
@@ -433,6 +440,8 @@ protected:
 	mutable acr::Path m_rfill;
 	// Texture pixels for the IRenderer path (0xAARRGGBB), rebuilt from
 	// mytext when the pixels, blend mode, fill colour or level change.
+	std::shared_ptr<CImageFile> m_textureImage;   // shared by copies
+	void pixelsFromImage(const CImageFile& image);
 	std::vector<uint32_t> m_texPixels;
 	uint64_t m_texRev = 0;
 	void updateTexturePixels();
