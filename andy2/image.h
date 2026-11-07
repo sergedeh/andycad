@@ -64,10 +64,6 @@ private:
 	BITMAP bm;
 	HBITMAP hBitmap;
 	float prevu;
-	// Texture pixels for the IRenderer path (0xAARRGGBB), rebuilt from mytext.
-	std::vector<uint32_t> m_texPixels;
-	uint64_t m_texRev = 0;
-	void updateTexturePixels();
 
 };
 

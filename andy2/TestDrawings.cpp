@@ -152,7 +152,12 @@ struct Variant
 	bool        mirrorX = false;                // mirror left-right
 	double      moveX = 0;                      // translate along x
 	bool        toCurves = false;               // convert the text to curves
+	// Shapes textured from texture_checker.png (an image file next to the
+	// drawings), loaded through CFigure::setTexture like the Texture command.
+	int         texturedShape = 0;              // 1 rectangle, 2 image, 3 tiled rectangle
 };
+
+CString g_textureFile;   // full path of texture_checker.png
 
 const Variant kVariants[] = {
 	{ "image_stretch.deh",             false, false },
@@ -173,6 +178,9 @@ const Variant kVariants[] = {
 	{ "text_mirror.deh",               false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, true },
 	{ "text_move.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, false, 120 },
 	{ "text_curves.deh",               false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 0, 0, false, false, 0, true },
+	{ "rect_textured.deh",             false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, false, 1, 0, 0, false, false, 0, false, 1 },
+	{ "rect_textured_tiled.deh",       false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, false, 1, 0, 0, false, false, 0, false, 3 },
+	{ "image_from_png.deh",            false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, false, 1, 0, 0, false, false, 0, false, 2 },
 	{ "text_many.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 40 },
 };
 
@@ -211,6 +219,22 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 		draw->addFigure(frame);
 	}
 
+	if (v.texturedShape == 1 || v.texturedShape == 3)
+	{
+		CRectangle* r = new CRectangle;
+		r->setCorners(CVector(-150, -100, 0, 1), CVector(150, 100, 0, 1));
+		r->setTexture(g_textureFile, hdc);
+		if (v.texturedShape == 3)
+			r->setTiled(true);
+		draw->addFigure(r);
+	}
+	if (v.texturedShape == 2)
+	{
+		CImage* img = new CImage;
+		img->buildFromRect(CVector(-150, -100, 0, 1), CVector(150, 100, 0, 1));
+		img->setTexture(g_textureFile, hdc);
+		draw->addFigure(img);
+	}
 	if (v.block)
 	{
 		CLibS* lib = new CLibS;
@@ -304,6 +328,7 @@ bool MakeImageTestDrawingsIfRequested(CCadView* view)
 		return false;
 	}
 	CString outDir(dir);
+	g_textureFile = outDir + _T("\\texture_checker.png");
 	free(dir);
 	CreateDirectory(outDir, nullptr);
 

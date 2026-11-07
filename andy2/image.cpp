@@ -204,6 +204,7 @@ BOOL CImage::LoadBitmap(CDC *hdc)
 */				tex_vert_mode=image_texture;
 //				mode_texture=wrap;
 				mode_texture=none;
+				loadTextureFile(texture_file);   // the picked file's pixels
 
 				closecurve(CVector(1,1),hdc);
 				draw(hdc);
@@ -752,60 +753,7 @@ bool CImage::canRender() const
 {
 	if (typeid(*this) != typeid(CImage)) return false;
 	if (!clipshape.empty()) return false;
-	if (tex_vert_mode == backcolor) return true;   // solid fill, no texture
-	if (tex_vert_mode != image_texture && tex_vert_mode != replace &&
-	    tex_vert_mode != decal && tex_vert_mode != multiply)
-		return false;
-	return mytext && pwidth > 0 && pheight > 0;
-}
-
-void CImage::updateTexturePixels()
-{
-	// Cheap change detection: UpdateTexture/openfile reallocate mytext; the
-	// blend mode, fill colour and level are baked in, so they are part of it.
-	uint64_t a8 = (uint64_t)(alpha * 255.0 + 0.5) & 0xFF;
-	uint64_t rev = (uint64_t)(uintptr_t)mytext ^ ((uint64_t)pwidth << 40) ^ ((uint64_t)pheight << 20)
-	             ^ ((uint64_t)tex_vert_mode << 56) ^ ((uint64_t)(bcolor & 0xFFFFFF) << 8) ^ (a8 << 32);
-	size_t n = (size_t)pwidth * pheight;
-	if (rev == m_texRev && m_texPixels.size() == n)
-		return;
-	m_texRev = rev;
-	m_texPixels.resize(n);
-	// 32-bit images without an alpha channel arrive with alpha 0 everywhere;
-	// treat that as opaque, like a picture with no transparency.
-	bool anyAlpha = false;
-	for (size_t i = 0; i < n && !anyAlpha; ++i)
-		anyAlpha = mytext[i].a > 0.5f;
-	auto byte = [](float v) { int i = (int)(v + 0.5f); return (uint32_t)(i < 0 ? 0 : (i > 255 ? 255 : i)); };
-	// Blend modes are fixed per shape, so they are baked into the pixels
-	// once, using the same formulas as CFigure::ScanPolygon.
-	const float fr = GetRValue(bcolor), fg = GetGValue(bcolor), fb = GetBValue(bcolor);
-	const float k = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
-	for (size_t i = 0; i < n; ++i)
-	{
-		const col& c = mytext[i];
-		float r = c.r, g = c.g, b = c.b;
-		uint32_t a = anyAlpha ? byte(c.a) : 255u;
-		if (tex_vert_mode == replace)
-		{
-			a = 255u;                               // texel as is
-		}
-		else if (tex_vert_mode == decal)
-		{
-			r = (1 - k) * r + k * fr;               // texel mixed with the fill colour
-			g = (1 - k) * g + k * fg;
-			b = (1 - k) * b + k * fb;
-			a = 255u;
-		}
-		else if (tex_vert_mode == multiply)
-		{
-			r = (r / 255 * fr / 255) * 255;         // texel times the fill colour
-			g = (g / 255 * fg / 255) * 255;
-			b = (b / 255 * fb / 255) * 255;
-			a = 255u;
-		}
-		m_texPixels[i] = (a << 24) | (byte(r) << 16) | (byte(g) << 8) | byte(b);
-	}
+	return canFillForRenderer();
 }
 
 void CImage::draw(acr::IRenderer* r)
@@ -813,59 +761,7 @@ void CImage::draw(acr::IRenderer* r)
 	if (!r || mesh.Vcount() < 3)
 		return;
 	updateRenderCache();
-
-	if (tex_vert_mode == backcolor)
-	{
-		// No texture: the fill colour at the Transparency level.
-		acr::Fill fill;
-		fill.rule = acr::FillRule::EvenOdd;
-		fill.color = acr::ColorFromColorref(bcolor);
-		fill.color.a = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
-		r->FillPath(m_rfill, fill);
-	}
-	else
-	{
-	updateTexturePixels();
-
-	// Map texel space onto the quad from three corners' texture coordinates.
-	acr::Vec2 src[3], dst[3];
-	for (int i = 0; i < 3; ++i)
-	{
-		CVertex* v = mesh.Vertex(i);
-		CPoint p = v->v;
-		src[i] = acr::Vec2(v->pun * pwidth, v->pvn * pheight);
-		dst[i] = acr::Vec2(p.x, p.y);
-	}
-	acr::Mat3 t2w;
-	if (!acr::Mat3::FromTriangles(src, dst, t2w))
-		return;
-
-	acr::TextureLayout layout = acr::TextureLayout::Stretch;
-	if (mode_texture == wrap)
-	{
-		// Repeat at the image's own size: one texel per logical unit along
-		// each edge of the quad (keeps its rotation).
-		layout = acr::TextureLayout::Tile;
-		double lx = sqrt(t2w.m11 * t2w.m11 + t2w.m12 * t2w.m12);
-		double ly = sqrt(t2w.m21 * t2w.m21 + t2w.m22 * t2w.m22);
-		if (lx > 0) { t2w.m11 /= lx; t2w.m12 /= lx; }
-		if (ly > 0) { t2w.m21 /= ly; t2w.m22 /= ly; }
-		t2w.dx = dst[0].x - (src[0].x * t2w.m11 + src[0].y * t2w.m21);
-		t2w.dy = dst[0].y - (src[0].x * t2w.m12 + src[0].y * t2w.m22);
-	}
-
-	acr::TextureSource tex;
-	tex.key = this;
-	tex.revision = m_texRev;
-	tex.pixels = m_texPixels.data();
-	tex.width = pwidth;
-	tex.height = pheight;
-	// Only image_texture applies the level as opacity; the other modes have
-	// it baked in (decal) or ignore it (replace, multiply), as in GDI.
-	float opacity = tex_vert_mode == image_texture ? (float)alpha : 1.0f;
-	r->FillPathWithTexture(m_rfill, tex, t2w, layout, opacity);
-	}
-
+	fillForRenderer(r);            // the image is the figure's texture
 	if (edge_on && !(move && getLibstatus()))
 	{
 		acr::Stroke stroke;

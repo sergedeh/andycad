@@ -1965,25 +1965,18 @@ void CBezier::draw(acr::IRenderer* r)
 	if (dwStyleCount > 0 && lpStyle)
 		stroke.dash.assign(lpStyle, lpStyle + dwStyleCount);
 
-	acr::Fill fill;
-	fill.rule = acr::FillRule::EvenOdd;
-	fill.color = acr::ColorFromColorref(bcolor);
-	// GDI fills with (1-alpha)*background + alpha*fill (backcolor mode), so
-	// the Transparency level is the fill's opacity.
-	if (tex_vert_mode == backcolor)
-		fill.color.a = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
-
 	if (cl)
-		r->FillPath(m_rfill, fill);
+		fillForRenderer(r);         // solid or textured, like ScanPolygon
 	r->StrokePath(m_rstroke, stroke);
 }
 
 bool CBezier::canRender() const
 {
-	// Plain 2D curves and circles. 3D surfaces/volumes, FFD editing boxes,
-	// textured or clipped fills, and text subclasses stay on GDI.
+	// Plain 2D curves and circles, solid or textured (shared fill). 3D
+	// surfaces/volumes, FFD editing boxes, clipped figures and text
+	// subclasses stay on GDI.
 	bool plainType = typeid(*this) == typeid(CBezier) || typeid(*this) == typeid(CCercle);
-	return plainType && !surf && !vol && !ffd && texture_file.IsEmpty() && clipshape.empty();
+	return plainType && !surf && !vol && !ffd && clipshape.empty() && canFillForRenderer();
 }
 
 void CBezier::drawOverlay(CDC *hdc)

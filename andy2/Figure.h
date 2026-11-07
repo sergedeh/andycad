@@ -23,6 +23,8 @@
 //#include "cximage/ximage.h"
 #include "constraint.h"
 #include "render/IRenderer.h"   // backend-neutral rendering seam (acr::IRenderer)
+#include <cstdint>
+#include <vector>
 
 using namespace std;
 
@@ -150,6 +152,8 @@ public:
 	virtual void Scale(int sens,CVector prevpoint,CVector postpoint);
 	virtual const CAABB getbox(CDC* hdc=NULL);
 	virtual void UpdateTexture(CDC* hdc);
+	// Load texture_file's pixels into mytext (WIC: BMP, PNG, JPEG, TIFF, GIF).
+	bool loadTextureFile(const CString& path);
 	void init();
 	bool isInside(CVector v,bool t=false);
 	vector<CVector>* getpt();
@@ -167,6 +171,8 @@ public:
 //	void selectMP(CVector point);
 	void sendclickNotify();
 	void setTexture(CString s,CDC* hdc);
+	// Repeat the texture (true) or stretch it over the figure (false).
+	void setTiled(bool tiled) { mode_texture = tiled ? wrap : none; }
 	virtual void SendNotify(CString s, void* param[7]);
 	void setInterest(CSubject *sub);
 	CDC* getDC();
@@ -295,6 +301,12 @@ public:
 	// surfaces, textured fills, clipped figures) must keep returning false so
 	// the view falls back to the GDI path for them.
 	virtual bool canRender() const { return false; }
+	// Shared fill for the IRenderer path, the counterpart of ScanPolygon:
+	// solid fill (backcolor mode, Transparency level as opacity) or the
+	// texture (image_texture, replace, decal, multiply; stretched or tiled).
+	// canFillForRenderer says whether this figure's fill is supported.
+	bool canFillForRenderer() const;
+	void fillForRenderer(acr::IRenderer* r);
 	// The mesh's edges grouped into loops (edge order; a new loop starts where
 	// an edge does not continue the previous one), as logical points.
 	// Returns the number of loops.
@@ -419,6 +431,12 @@ protected:
 	// and under move/rotate edits without the vertex/edge count changing.
 	void updateRenderCache();
 	mutable acr::Path m_rfill;
+	// Texture pixels for the IRenderer path (0xAARRGGBB), rebuilt from
+	// mytext when the pixels, blend mode, fill colour or level change.
+	std::vector<uint32_t> m_texPixels;
+	uint64_t m_texRev = 0;
+	void updateTexturePixels();
+	bool textureMap(acr::Mat3& texelToLogical);
 	mutable acr::Path m_rstroke;
 
 	int pheight;

@@ -29,6 +29,9 @@ The app writes the drawings and `make_test_drawings.log`, then closes. The textu
 | `text_mirror.deh` | Text mirrored left-right (GDI can't draw mirrored glyphs; see the README note) |
 | `text_move.deh` | Text moved 120 units: no new layout |
 | `text_curves.deh` | The two-line text converted to curves: 27 filled glyph figures (holes kept); `text_curves_compare.png` overlays text (red) and curves (blue), black where they agree |
+| `rect_textured.deh` | A rectangle textured from `texture_checker.png` (PNG with an alpha hole), through `setTexture` like the Texture command |
+| `rect_textured_tiled.deh` | The same, tiled |
+| `image_from_png.deh` | An image shape whose pixels come from `texture_checker.png` |
 | `text_many.deh` | 40 small text objects, for timing |
 
 `baseline_gdi/` and `baseline_d2d/` hold crops of each drawing (window maximised, default zoom) drawn by the GDI rasterizer and by Direct2D (`ANDYCAD_RENDERER=d2d`), captured 2026-11-07. `gdi_vs_d2d.png` and `gdi_vs_d2d_modes.png` put them side by side.
@@ -51,3 +54,5 @@ Direct2D draws the image straight, applies per-pixel alpha times the Transparenc
 `text_transforms.png` shows each transform drawing before and after. Mirrored text: GDI fonts cannot be mirrored, so GDI fills the glyph outlines for mirrored text; Direct2D mirrors the glyphs directly (`text_mirror_fixed.png`).
 
 `text_gdi_vs_d2d.png` compares GDI and Direct2D (DirectWrite) text on `text.deh`, `text_rotated.deh` and `text_mirror.deh`. Repeated redisplay of `text_many.deh` (2026-11-07): GDI about 49 ms, Direct2D about 25 ms.
+
+`textured_shapes.png` compares GDI and Direct2D for the textured shapes. GDI tiling is too slow at 4x zoom to capture.

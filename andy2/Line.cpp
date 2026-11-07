@@ -292,16 +292,8 @@ void CLine::draw(acr::IRenderer* r)
 	if (dwStyleCount > 0 && lpStyle)
 		stroke.dash.assign(lpStyle, lpStyle + dwStyleCount);
 
-	acr::Fill fill;
-	fill.rule = acr::FillRule::EvenOdd;
-	fill.color = acr::ColorFromColorref(bcolor);
-	// GDI fills with (1-alpha)*background + alpha*fill (backcolor mode), so
-	// the Transparency level is the fill's opacity.
-	if (tex_vert_mode == backcolor)
-		fill.color.a = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
-
 	if (cl && !move)
-		r->FillPath(m_rfill, fill);
+		fillForRenderer(r);         // solid or textured, like ScanPolygon
 	if (edge_on && !(move && getLibstatus()))
 		r->StrokePath(m_rstroke, stroke);
 }
@@ -340,12 +332,12 @@ bool CLine::canRender() const
 {
 	// Lines/polylines plus the subclasses whose draw(CDC*) is exactly
 	// CLine::draw (rectangles, quick lines, dimension arrows). Text renders
-	// through an in-place RichEdit control and stays on GDI. Textured or
-	// clipped fills stay on GDI too.
+	// through an in-place RichEdit control and stays on GDI. Clipped figures
+	// stay on GDI; textured fills use the shared CFigure::fillForRenderer.
 	const std::type_info& t = typeid(*this);
 	bool sameDrawAsLine = t == typeid(CLine) || t == typeid(CRectangle) ||
 		t == typeid(CQLine) || t == typeid(CDimArrow);
-	return sameDrawAsLine && texture_file.IsEmpty() && clipshape.empty();
+	return sameDrawAsLine && clipshape.empty() && canFillForRenderer();
 }
 
 void CLine::drawOverlay(CDC *hdc)

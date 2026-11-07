@@ -5,6 +5,9 @@
 #include "Stdafx.h"
 #include "cad.h"
 #include "Figure.h"
+#include "render/RenderCompat.h"
+#include <cmath>
+#include <cstdint>
 #include <algorithm>
 //#include <typeinfo.h>
 #include "unclick.h"
@@ -173,6 +176,157 @@ void CFigure::draw(acr::IRenderer* r)
 	// Base: figures that do not override render as nothing on the IRenderer path.
 	// CLine and CBezier (and CCercle via inheritance) provide real overrides.
 	(void)r;
+}
+
+bool CFigure::canFillForRenderer() const
+{
+	if (texture_file.IsEmpty() || tex_vert_mode == backcolor)
+		return true;                                   // solid fill
+	if (tex_vert_mode != image_texture && tex_vert_mode != replace &&
+	    tex_vert_mode != decal && tex_vert_mode != multiply)
+		return false;
+	if (!mytext || pwidth <= 0 || pheight <= 0)
+		return false;
+	// Texture coordinates must span an area (set by updateBoxUV).
+	CMesh& m = const_cast<CMesh&>(mesh);
+	int n = m.Vcount();
+	double umin = 1e30, umax = -1e30, vmin = 1e30, vmax = -1e30;
+	for (int i = 0; i < n; ++i)
+	{
+		CVertex* v = m.Vertex(i);
+		if (!v) continue;
+		umin = min(umin, (double)v->pun); umax = max(umax, (double)v->pun);
+		vmin = min(vmin, (double)v->pvn); vmax = max(vmax, (double)v->pvn);
+	}
+	return n >= 3 && umax - umin > 1e-6 && vmax - vmin > 1e-6;
+}
+
+void CFigure::updateTexturePixels()
+{
+	// Cheap change detection: UpdateTexture/openfile reallocate mytext; the
+	// blend mode, fill colour and level are baked in, so they are part of it.
+	uint64_t a8 = (uint64_t)(alpha * 255.0 + 0.5) & 0xFF;
+	uint64_t rev = (uint64_t)(uintptr_t)mytext ^ ((uint64_t)pwidth << 40) ^ ((uint64_t)pheight << 20)
+	             ^ ((uint64_t)tex_vert_mode << 56) ^ ((uint64_t)(bcolor & 0xFFFFFF) << 8) ^ (a8 << 32);
+	size_t n = (size_t)pwidth * pheight;
+	if (rev == m_texRev && m_texPixels.size() == n)
+		return;
+	m_texRev = rev;
+	m_texPixels.resize(n);
+	// 32-bit images without an alpha channel arrive with alpha 0 everywhere;
+	// treat that as opaque, like a picture with no transparency.
+	bool anyAlpha = false;
+	for (size_t i = 0; i < n && !anyAlpha; ++i)
+		anyAlpha = mytext[i].a > 0.5f;
+	auto byte = [](float v) { int i = (int)(v + 0.5f); return (uint32_t)(i < 0 ? 0 : (i > 255 ? 255 : i)); };
+	// Blend modes are fixed per figure, so they are baked into the pixels
+	// once, using the same formulas as CFigure::ScanPolygon.
+	const float fr = GetRValue(bcolor), fg = GetGValue(bcolor), fb = GetBValue(bcolor);
+	const float k = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
+	for (size_t i = 0; i < n; ++i)
+	{
+		const col& c = mytext[i];
+		float r = c.r, g = c.g, b = c.b;
+		uint32_t a = anyAlpha ? byte(c.a) : 255u;
+		if (tex_vert_mode == replace)
+			a = 255u;
+		else if (tex_vert_mode == decal)
+		{
+			r = (1 - k) * r + k * fr; g = (1 - k) * g + k * fg; b = (1 - k) * b + k * fb;
+			a = 255u;
+		}
+		else if (tex_vert_mode == multiply)
+		{
+			r = (r / 255 * fr / 255) * 255; g = (g / 255 * fg / 255) * 255; b = (b / 255 * fb / 255) * 255;
+			a = 255u;
+		}
+		m_texPixels[i] = (a << 24) | (byte(r) << 16) | (byte(g) << 8) | byte(b);
+	}
+}
+
+bool CFigure::textureMap(acr::Mat3& t2w)
+{
+	// The texel -> logical map from the mesh's texture coordinates: the
+	// three vertices spanning the largest area in texture space.
+	int n = mesh.Vcount();
+	if (n < 3)
+		return false;
+	int a = 0, b = -1, c = -1;
+	double best = -1;
+	for (int i = 1; i < n; ++i)
+	{
+		double du = mesh.Vertex(i)->pun - mesh.Vertex(a)->pun, dv = mesh.Vertex(i)->pvn - mesh.Vertex(a)->pvn;
+		double d = du * du + dv * dv;
+		if (d > best) { best = d; b = i; }
+	}
+	best = -1;
+	for (int i = 1; i < n; ++i)
+	{
+		if (i == b) continue;
+		double ux = mesh.Vertex(b)->pun - mesh.Vertex(a)->pun, uy = mesh.Vertex(b)->pvn - mesh.Vertex(a)->pvn;
+		double vx = mesh.Vertex(i)->pun - mesh.Vertex(a)->pun, vy = mesh.Vertex(i)->pvn - mesh.Vertex(a)->pvn;
+		double area = fabs(ux * vy - uy * vx);
+		if (area > best) { best = area; c = i; }
+	}
+	if (b < 0 || c < 0 || best < 1e-9)
+		return false;
+	int idx[3] = { a, b, c };
+	acr::Vec2 src[3], dst[3];
+	for (int i = 0; i < 3; ++i)
+	{
+		CVertex* v = mesh.Vertex(idx[i]);
+		CPoint p = v->v;
+		src[i] = acr::Vec2(v->pun * pwidth, v->pvn * pheight);
+		dst[i] = acr::Vec2(p.x, p.y);
+	}
+	if (!acr::Mat3::FromTriangles(src, dst, t2w))
+		return false;
+	if (mode_texture == wrap)
+	{
+		// Repeat at the image's own size: one texel per logical unit along
+		// the texture axes (keeps rotation).
+		double lx = sqrt(t2w.m11 * t2w.m11 + t2w.m12 * t2w.m12);
+		double ly = sqrt(t2w.m21 * t2w.m21 + t2w.m22 * t2w.m22);
+		if (lx > 0) { t2w.m11 /= lx; t2w.m12 /= lx; }
+		if (ly > 0) { t2w.m21 /= ly; t2w.m22 /= ly; }
+		t2w.dx = dst[0].x - (src[0].x * t2w.m11 + src[0].y * t2w.m21);
+		t2w.dy = dst[0].y - (src[0].x * t2w.m12 + src[0].y * t2w.m22);
+	}
+	return true;
+}
+
+void CFigure::fillForRenderer(acr::IRenderer* r)
+{
+	if (!r)
+		return;
+	if (texture_file.IsEmpty() || tex_vert_mode == backcolor || !mytext)
+	{
+		// Solid fill: GDI blends (1-alpha)*background + alpha*fill in
+		// backcolor mode, so the Transparency level is the opacity.
+		acr::Fill fill;
+		fill.rule = acr::FillRule::EvenOdd;
+		fill.color = acr::ColorFromColorref(bcolor);
+		if (tex_vert_mode == backcolor)
+			fill.color.a = (float)(alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha));
+		r->FillPath(m_rfill, fill);
+		return;
+	}
+	acr::Mat3 t2w;
+	if (!textureMap(t2w))
+		return;
+	updateTexturePixels();
+	acr::TextureSource tex;
+	tex.key = this;
+	tex.revision = m_texRev;
+	tex.pixels = m_texPixels.data();
+	tex.width = pwidth;
+	tex.height = pheight;
+	// Only image_texture applies the level as opacity; the other modes have
+	// it baked in (decal) or ignore it (replace, multiply), as in GDI.
+	float opacity = tex_vert_mode == image_texture ? (float)alpha : 1.0f;
+	r->FillPathWithTexture(m_rfill, tex, t2w,
+	                       mode_texture == wrap ? acr::TextureLayout::Tile : acr::TextureLayout::Stretch,
+	                       opacity);
 }
 
 int CFigure::edgeLoops(std::vector<std::vector<CPoint>>& loops)
@@ -5261,6 +5415,61 @@ lstate=L1; down=false;Up=false;
 
 }
 
+
+#include <wincodec.h>
+#pragma comment(lib, "windowscodecs.lib")
+
+bool CFigure::loadTextureFile(const CString& path)
+{
+	if (mytext) { delete[] mytext; mytext = NULL; }
+	pwidth = pheight = 0;
+	HRESULT init = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+	bool ok = false;
+	IWICImagingFactory* wic = NULL;
+	if (SUCCEEDED(CoCreateInstance(CLSID_WICImagingFactory, NULL, CLSCTX_INPROC_SERVER,
+	                               IID_PPV_ARGS(&wic))) && wic)
+	{
+		CStringW wpath(path);
+		IWICBitmapDecoder* dec = NULL;
+		IWICBitmapFrameDecode* frame = NULL;
+		IWICFormatConverter* conv = NULL;
+		if (SUCCEEDED(wic->CreateDecoderFromFilename(wpath, NULL, GENERIC_READ,
+		                                             WICDecodeMetadataCacheOnDemand, &dec)) &&
+		    SUCCEEDED(dec->GetFrame(0, &frame)) &&
+		    SUCCEEDED(wic->CreateFormatConverter(&conv)) &&
+		    SUCCEEDED(conv->Initialize(frame, GUID_WICPixelFormat32bppBGRA, WICBitmapDitherTypeNone,
+		                               NULL, 0.0, WICBitmapPaletteTypeCustom)))
+		{
+			UINT w = 0, h = 0;
+			conv->GetSize(&w, &h);
+			if (w > 0 && h > 0 && (UINT64)w * h < 64ull * 1024 * 1024)
+			{
+				std::vector<BYTE> px((size_t)w * h * 4);
+				if (SUCCEEDED(conv->CopyPixels(NULL, w * 4, (UINT)px.size(), px.data())))
+				{
+					mytext = new col[(size_t)w * h];
+					for (size_t q = 0; q < (size_t)w * h; ++q)
+					{
+						mytext[q].b = px[q * 4 + 0];
+						mytext[q].g = px[q * 4 + 1];
+						mytext[q].r = px[q * 4 + 2];
+						mytext[q].a = px[q * 4 + 3];
+					}
+					pwidth = (int)w;
+					pheight = (int)h;
+					ok = true;
+				}
+			}
+		}
+		if (conv) conv->Release();
+		if (frame) frame->Release();
+		if (dec) dec->Release();
+		wic->Release();
+	}
+	if (SUCCEEDED(init)) CoUninitialize();
+	return ok;
+}
+
 void CFigure::UpdateTexture(CDC* hdc)
 {
   //  mesh.updateTri();
@@ -5295,6 +5504,11 @@ void CFigure::UpdateTexture(CDC* hdc)
 	}
 	if(texture_file!="")
 	{
+		// Decode the image file with WIC (the CxImage loader below was
+		// switched off when CxImage was removed). Pixels go to mytext, top
+		// row first, with their alpha channel.
+		loadTextureFile(texture_file);
+
 /*	CxImage im;
 	im.Load(texture_file);
 	im.Flip();
