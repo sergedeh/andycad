@@ -234,6 +234,12 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 		CImage* img = new CImage;
 		img->buildFromRect(CVector(-150, -100, 0, 1), CVector(150, 100, 0, 1));
 		img->setTexture(g_textureFile, hdc);
+		// The shape is the image file: save it straight from the shape.
+		CImageFile& asFile = img->image();
+		CString saved = g_textureFile.Left(g_textureFile.ReverseFind(_T('\\')) + 1) + _T("image_shape_saved.png");
+		bool ok = asFile.Save(std::wstring(CStringW(saved)));
+		why.Format(_T("shape as image file: %dx%d alpha=%d saved=%d"), asFile.Width(), asFile.Height(),
+		           (int)asFile.HasAlpha(), (int)ok);
 		draw->addFigure(img);
 	}
 	if (v.block)

@@ -11,10 +11,13 @@
 
 #include "Figure.h"
 #include "rectangle.h"
+#include "ImageFile.h"
 #include <cstdint>
 #include <vector>
 
-class CImage :/*public CxImage,*/ public CLine
+// An image shape: a CLine figure (outline, transforms, selection, saving)
+// that is also the image file it shows, as it was with CxImage.
+class CImage : public CLine, public CImageFile
 {
 public:
 	bool Hatch(CDC* hdc);
@@ -36,8 +39,10 @@ public:
 	// everything else stays on draw(CDC*).
 	void draw(acr::IRenderer* r) override;
 	bool canRender() const override;
-	// The image file this shape shows (pixels, size, alpha; can be saved).
-	const CImageFile* image() { return textureImage(); }
+	// The image file this shape shows: the shape itself (pixels, size,
+	// alpha; can be saved). Kept in sync with the figure's texture.
+	CImageFile& image();
+	void setTextureImage(const CImageFile& img) override;
 	void setMove(bool mv,CVector pos);
 	void create(CVector pos);
     bool getCharge();

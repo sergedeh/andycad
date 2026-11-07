@@ -5428,8 +5428,7 @@ bool CFigure::loadTextureFile(const CString& path)
 		m_textureImage.reset();
 		return false;
 	}
-	m_textureImage = image;
-	pixelsFromImage(*image);
+	setTextureImage(*image);
 	return true;
 }
 

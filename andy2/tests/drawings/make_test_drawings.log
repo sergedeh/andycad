@@ -19,5 +19,5 @@ OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_move.deh  (layouts 
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_curves.deh  (curve figures=27)
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\rect_textured.deh
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\rect_textured_tiled.deh
-OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\image_from_png.deh
+OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\image_from_png.deh  (shape as image file: 64x64 alpha=1 saved=1)
 OK   C:\Users\emuso\source\andycad\andy2\tests\drawings\text_many.deh

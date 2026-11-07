@@ -160,7 +160,7 @@ public:
 	// The figure's texture as an image object (built from the stored pixels
 	// when the drawing was loaded from a file). Null when there is none.
 	const CImageFile* textureImage();
-	void setTextureImage(const CImageFile& image);
+	virtual void setTextureImage(const CImageFile& image);
 	void init();
 	bool isInside(CVector v,bool t=false);
 	vector<CVector>* getpt();

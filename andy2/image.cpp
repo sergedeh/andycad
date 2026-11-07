@@ -749,6 +749,21 @@ void CImage::setBlendMode(int mode, COLORREF fill)
 	bcolor = fill;
 }
 
+CImageFile& CImage::image()
+{
+	// After loading a .deh file the pixels live in the figure; mirror them.
+	const CImageFile* t = textureImage();
+	if (t && (Width() != t->Width() || Height() != t->Height()))
+		CImageFile::operator=(*t);
+	return *this;
+}
+
+void CImage::setTextureImage(const CImageFile& img)
+{
+	CImageFile::operator=(img);          // the shape is the image file
+	CFigure::setTextureImage(img);       // and the figure's texture
+}
+
 bool CImage::canRender() const
 {
 	if (typeid(*this) != typeid(CImage)) return false;
