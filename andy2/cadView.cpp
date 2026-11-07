@@ -2541,7 +2541,8 @@ void CCadView::OnInitialUpdate()
 	// Test hook: ANDYCAD_MAKE_TEST_DRAWINGS=<folder> writes the image test
 	// drawings and closes the app (see TestDrawings.cpp).
 	if (!MakeImageTestDrawingsIfRequested(this))
-		RunRenderTestsIfRequested(this);   // ANDYCAD_RUN_RENDER_TESTS=<folder>
+		if (!RunRenderTestsIfRequested(this))   // ANDYCAD_RUN_RENDER_TESTS=<folder>
+			RunUITestsIfRequested(this);        // ANDYCAD_RUN_UI_TESTS=<folder>
  }
 
 void CCadView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 

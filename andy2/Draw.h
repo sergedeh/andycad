@@ -162,6 +162,8 @@ public:
 	void drawforbmp(acr::IRenderer* r);   // backend-neutral render path (Direct2D/GDI)
 	// Add a ready-made figure to the drawing (used by the test-drawing generator).
 	void addFigure(CFigure* f) { create(f); }
+	// Number of selected figures (UI tests).
+	int selectedCount() const { return (int)vs.size(); }
 	// Remove and delete a figure (test-drawing generator).
 	void removeFigure(CFigure* f) {
 		for (size_t i = 0; i < fig.size(); ++i)

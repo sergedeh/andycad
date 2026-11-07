@@ -20,6 +20,9 @@
 #include "RenderTests.h"
 #include "render/D2DRenderer.h"
 #include "render/ViewRenderer.h"
+#include "MainFrm.h"
+#include "RecPattern.h"
+#include "resource.h"
 
 #include <cmath>
 #include <functional>
@@ -148,12 +151,12 @@ void TexelToWorld(const Shape& s, double tx, double ty, double& wx, double& wy) 
 	wy = s.y1 - (s.y1 - s.y0) * (ty + 0.5) / 64.0;
 }
 
-Result Check(Canvas& cv, const Shape& s, Case c) {
+Result Check(Canvas& cv, const Shape& s, Case c, COLORREF fill = kFill) {
 	Result r;
 	std::vector<Sample> samples;
 	double cx = (s.x0 + s.x1) / 2, cy = (s.y0 + s.y1) / 2;
 	if (c == Solid || c == Solid50) {
-		COLORREF want = c == Solid ? kFill : Blend(kFill, kWhite, 0.5);
+		COLORREF want = c == Solid ? fill : Blend(fill, kWhite, 0.5);
 		samples.push_back({ -1, -1, want, "centre" });
 		samples.push_back({ -2, -2, want, "off-centre" });
 	} else if (c == Tex || c == Tex50) {
@@ -335,5 +338,262 @@ bool RunRenderTestsIfRequested(CCadView* view)
 	write(outDir + _T("\\results.csv"), csv);
 	view->GetDocument()->SetModifiedFlag(FALSE);
 	AfxGetMainWnd()->PostMessage(WM_CLOSE);
+	return true;
+}
+
+
+// ---------------------------------------------------------------------------
+// UI-driven tests: the same objects and checks, but every step goes through
+// the window messages a user produces.
+
+namespace {
+
+CCadView* g_uiView = nullptr;
+CString g_uiDir;
+
+void Pump(int ms = 60) {
+	DWORD end = GetTickCount() + ms;
+	MSG m;
+	do {
+		while (PeekMessage(&m, NULL, 0, 0, PM_REMOVE)) {
+			if (m.message == WM_QUIT) { PostQuitMessage((int)m.wParam); return; }
+			if (!AfxGetApp()->PreTranslateMessage(&m)) { TranslateMessage(&m); DispatchMessage(&m); }
+		}
+		Sleep(5);
+	} while ((int)(end - GetTickCount()) > 0);
+}
+
+// Client pixel of a world point, as the view's mouse handlers map it.
+CPoint ClientPoint(CCadView* view, double wx, double wy) {
+	CDC* dc = view->GetDC();
+	view->OnPrepareDC(dc);
+	CPoint p = CVector(wx, wy, 0, 1);
+	dc->LPtoDP(&p, 1);
+	view->ReleaseDC(dc);
+	return p;
+}
+
+void Click(HWND w, CPoint p, UINT down = WM_LBUTTONDOWN, UINT up = WM_LBUTTONUP, WPARAM keys = MK_LBUTTON) {
+	LPARAM lp = MAKELPARAM(p.x, p.y);
+	SendMessage(w, WM_MOUSEMOVE, 0, lp);
+	SendMessage(w, down, keys, lp);
+	SendMessage(w, WM_MOUSEMOVE, keys, lp);
+	SendMessage(w, up, 0, lp);
+}
+
+template <class T> T* FindChildButton(CWnd* bar, std::function<bool(T*)> want) {
+	for (CWnd* c = bar->GetWindow(GW_CHILD); c; c = c->GetWindow(GW_HWNDNEXT)) {
+		T* b = dynamic_cast<T*>(CWnd::FromHandlePermanent(c->GetSafeHwnd()));
+		if (b && want(b)) return b;
+	}
+	return nullptr;
+}
+
+// Drives the modal Transparency dialog: drag the slider to 50%, press OK.
+int g_transTicks = 0;
+bool g_transDone = false;
+VOID CALLBACK TransparencyDialogDriver(HWND, UINT, UINT_PTR id, DWORD) {
+	HWND dlg = NULL;
+	EnumThreadWindows(GetCurrentThreadId(), [](HWND h, LPARAM lp) -> BOOL {
+		if (IsWindowVisible(h) && GetDlgItem(h, IDC_TSLIDER)) { *(HWND*)lp = h; return FALSE; }
+		return TRUE;
+	}, (LPARAM)&dlg);
+	if (!dlg) {
+		if (++g_transTicks > 100) KillTimer(NULL, id);   // give up after ~5 s
+		return;
+	}
+	KillTimer(NULL, id);
+	HWND slider = GetDlgItem(dlg, IDC_TSLIDER);
+	SendMessage(slider, TBM_SETPOS, TRUE, 50);
+	SendMessage(dlg, WM_HSCROLL, MAKEWPARAM(TB_THUMBTRACK, 50), (LPARAM)slider);
+	SendMessage(dlg, WM_HSCROLL, MAKEWPARAM(TB_ENDTRACK, 0), (LPARAM)slider);
+	g_transDone = true;
+	PostMessage(dlg, WM_COMMAND, MAKEWPARAM(IDOK, BN_CLICKED), (LPARAM)GetDlgItem(dlg, IDOK));
+}
+
+// Copy what the view shows into a Canvas (white bitmap with the view's mapping).
+void CaptureView(CCadView* view, Canvas& cv) {
+	view->change = true;
+	view->RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW | RDW_ERASE);
+	Pump(150);
+	CDC* src = view->GetDC();
+	int sm = cv.mem.SetMapMode(MM_TEXT);
+	CPoint vo = cv.mem.SetViewportOrg(0, 0), wo = cv.mem.SetWindowOrg(0, 0);
+	cv.mem.BitBlt(0, 0, cv.rc.Width(), cv.rc.Height(), src, 0, 0, SRCCOPY);
+	cv.mem.SetWindowOrg(wo); cv.mem.SetViewportOrg(vo); cv.mem.SetMapMode(sm);
+	view->ReleaseDC(src);
+}
+
+void RunUITests() {
+	CCadView* view = g_uiView;
+	CMainFrame* frame = (CMainFrame*)AfxGetMainWnd();
+	CCadDoc* doc = view->GetDocument();
+	CString outDir = g_uiDir;
+	CreateDirectory(outDir, nullptr);
+	frame->ShowWindow(SW_SHOWMAXIMIZED);
+	frame->SetForegroundWindow();
+	Pump(300);
+
+	// The checker texture (same pixels as the automated tests).
+	CString texture = outDir + _T("\\texture_checker.png");
+	if (GetFileAttributes(texture) == INVALID_FILE_ATTRIBUTES) {
+		std::vector<uint32_t> px(64 * 64);
+		for (int y = 0; y < 64; ++y)
+			for (int x = 0; x < 64; ++x) {
+				bool odd = ((x / 8) + (y / 8)) & 1;
+				COLORREF c = y < 32 ? (odd ? kRed : kBlue) : (odd ? kGreen : RGB(240, 210, 40));
+				uint32_t a = (x >= 24 && x < 40 && y >= 24 && y < 40) ? 0 : 0xFF;
+				px[y * 64 + x] = (a << 24) | (GetRValue(c) << 16) | (GetGValue(c) << 8) | GetBValue(c);
+			}
+		CImageFile f;
+		f.Assign(64, 64, px.data());
+		f.Save(std::wstring(CStringW(texture)));
+	}
+
+	const bool d2d = acr::ViewRenderer() != nullptr;
+	const CString rname = d2d ? _T("d2d") : _T("gdi");
+
+	// A saturated swatch on the colour bar to use as the fill colour.
+	CRecColor* swatch = FindChildButton<CRecColor>(&frame->colorToolBar, [](CRecColor* b) {
+		int r = GetRValue(b->color), g = GetGValue(b->color), bl = GetBValue(b->color);
+		return b->IsWindowVisible() && max(r, max(g, bl)) - min(r, min(g, bl)) > 120;
+	});
+	CRecPattern* patBtn = FindChildButton<CRecPattern>(&frame->patternBar, [](CRecPattern* b) { return b->IsWindowVisible() != 0; });
+
+	std::vector<Shape> shapes = {
+		{ "rectangle", []() { CRectangle* r = new CRectangle; r->setCorners(CVector(-150, -100, 0, 1), CVector(150, 100, 0, 1)); return (CFigure*)r; }, -150, -100, 150, 100 },
+		{ "circle", []() { return (CFigure*)new CCercle(CVector(0, 0, 0, 1), 100); }, -100, -100, 100, 100 },
+		{ "polygon", []() {
+			CLine* l = new CLine;
+			std::vector<std::vector<CVector>> loops(1);
+			for (int k = 0; k < 6; ++k) loops[0].push_back(CVector(110 * cos(k * 3.14159265 / 3), 110 * sin(k * 3.14159265 / 3), 0, 1));
+			l->setFromLoops(loops, kFill);
+			return (CFigure*)l; }, -110, -95.26, 110, 95.26 },
+		{ "image", []() { CImage* i = new CImage; i->buildFromRect(CVector(-150, -100, 0, 1), CVector(150, 100, 0, 1)); return (CFigure*)i; }, -150, -100, 150, 100 },
+		{ "block (rectangle inside)", []() {
+			CLibS* lib = new CLibS;
+			CRectangle r; r.setCorners(CVector(-150, -100, 0, 1), CVector(150, 100, 0, 1));
+			lib->add(&r); lib->updatecore(); return (CFigure*)lib; }, -150, -100, 150, 100 },
+	};
+	// A point on each outline the user clicks to select it.
+	auto pickPoint = [](const Shape& s, double& x, double& y) {
+		if (CString(s.name) == _T("circle")) { x = 100; y = 0; }
+		else if (CString(s.name) == _T("polygon")) { x = 110; y = 0; }
+		else { x = s.x1; y = s.y1; }
+	};
+
+	CString md, csv = _T("object,case,renderer,status,detail\r\n");
+	md.Format(_T("# UI tests: colour, texture, transparency (%s)\r\n\r\n"), d2d ? _T("Direct2D") : _T("GDI"));
+	md += _T("Each object is added to an empty drawing, selected with a mouse click on its outline (Select tool), ")
+	      _T("then: fill colour = right click on a colour-bar swatch; texture = click on a pattern-bar button (its source set to the test checker); ")
+	      _T("transparency = Format > Transparency, slider dragged to 50, OK. Pixels are read back from the window.\r\n\r\n");
+	CString sw;
+	sw.Format(_T("Colour-bar swatch used: %s. Pattern button: %s.\r\n\r\n"),
+	          swatch ? (LPCTSTR)Hex(swatch->color) : _T("none found"), patBtn ? _T("found") : _T("none found"));
+	md += sw;
+	md += _T("| Object | Case | Result |\r\n| --- | --- | --- |\r\n");
+	int pass = 0, total = 0;
+	const Case cases[] = { Solid, Solid50, Tex, Tex50 };
+	for (const Shape& s : shapes) {
+		for (Case c : cases) {
+			Result res;
+			CFigure* f = s.make();
+			doc->m_objects->addFigure(f);
+			frame->SendMessage(WM_COMMAND, ID_TBSELECT);
+			view->change = true;
+			view->RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_UPDATENOW);
+			Pump();
+			double px, py;
+			pickPoint(s, px, py);
+			Click(view->GetSafeHwnd(), ClientPoint(view, px, py));
+			Pump();
+			CString steps;
+			bool ok = doc->m_objects->selectedCount() == 1;
+			if (!ok) steps += _T("click did not select it; ");
+			COLORREF fill = swatch ? swatch->color : 0;
+			if (ok && (c == Solid || c == Solid50)) {
+				if (!swatch) { ok = false; steps += _T("no colour swatch; "); }
+				else Click(swatch->GetSafeHwnd(), CPoint(5, 5), WM_RBUTTONDOWN, WM_RBUTTONUP, MK_RBUTTON);
+			}
+			if (ok && (c == Tex || c == Tex50)) {
+				if (!patBtn) { ok = false; steps += _T("no pattern button; "); }
+				else { patBtn->patsource = texture; Click(patBtn->GetSafeHwnd(), CPoint(5, 5)); }
+			}
+			Pump();
+			if (ok && (c == Solid50 || c == Tex50)) {
+				g_transTicks = 0; g_transDone = false;
+				SetTimer(NULL, 0, 50, TransparencyDialogDriver);
+				frame->SendMessage(WM_COMMAND, ID_TRANSPARENCY);   // modal; the driver answers it
+				if (!g_transDone) { ok = false; steps += _T("Transparency dialog not driven; "); }
+			}
+			// Click on empty canvas to drop the selection (handles off the shape).
+			CRect cr; view->GetClientRect(&cr);
+			Click(view->GetSafeHwnd(), CPoint(cr.left + 15, cr.bottom - 15));
+			Pump();
+			{
+				CDC* ref = view->GetDC();
+				Canvas cv(view, ref);
+				view->ReleaseDC(ref);
+				CaptureView(view, cv);
+				if (ok) {
+					res = Check(cv, s, c, fill);
+				} else {
+					res.status = _T("FAIL");
+				}
+				res.detail = steps + res.detail;
+				CString png;
+				png.Format(_T("%s\\ui_%s_%d_%s.png"), (LPCTSTR)outDir, (LPCTSTR)CString(s.name).Left(5), (int)c, (LPCTSTR)rname);
+				png.Replace(_T(" "), _T("_"));
+				cv.SavePng(png, s);
+			}
+			if (doc->m_objects->selectedCount() == 0)
+				doc->m_objects->removeFigure(f);
+			else
+				res.detail += _T(" (still selected; left in the drawing)");
+			total++;
+			if (res.status == _T("PASS")) pass++;
+			CString row;
+			row.Format(_T("| %s | %s | %s |\r\n"), (LPCTSTR)CString(s.name), (LPCTSTR)CString(kCaseName[c]),
+			           res.status == _T("PASS") ? _T("PASS") : (LPCTSTR)(res.status + _T(": ") + res.detail));
+			md += row;
+			CString line;
+			line.Format(_T("%s,%s,%s,%s,\"%s\"\r\n"), (LPCTSTR)CString(s.name), (LPCTSTR)CString(kCaseName[c]),
+			            (LPCTSTR)rname, (LPCTSTR)res.status, (LPCTSTR)res.detail);
+			csv += line;
+		}
+	}
+	CString sum;
+	sum.Format(_T("\r\n%d of %d pass. Tiling has no UI command (only the image file loader and code set it), so it is covered by the automated tests only.\r\n"), pass, total);
+	md += sum;
+	auto write = [](const CString& path, const CString& text) {
+		CFile f;
+		if (f.Open(path, CFile::modeCreate | CFile::modeWrite)) {
+			CStringA a(text);
+			f.Write(a.GetString(), a.GetLength());
+			f.Close();
+		}
+	};
+	write(outDir + _T("\\ui_") + rname + _T(".md"), md);
+	write(outDir + _T("\\ui_") + rname + _T(".csv"), csv);
+	doc->SetModifiedFlag(FALSE);
+	frame->PostMessage(WM_CLOSE);
+}
+
+VOID CALLBACK StartUITests(HWND, UINT, UINT_PTR id, DWORD) {
+	KillTimer(NULL, id);
+	RunUITests();
+}
+
+} // namespace
+
+bool RunUITestsIfRequested(CCadView* view)
+{
+	char* dir = nullptr;
+	size_t n = 0;
+	if (_dupenv_s(&dir, &n, "ANDYCAD_RUN_UI_TESTS") != 0 || !dir || !*dir) { free(dir); return false; }
+	g_uiDir = dir;
+	free(dir);
+	g_uiView = view;
+	SetTimer(NULL, 0, 1500, StartUITests);
 	return true;
 }
