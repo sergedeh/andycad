@@ -20,28 +20,6 @@
 
 using namespace std;
 
-	struct mytext2
-		{
-		CFont* f;
-		CFont*pf;
-		char c;
-		CPoint v;
-		bool s;
-		};
-	struct myfont
-		{
-			TEXTMETRIC tm;
-			map<char,ABCFLOAT> abc;
-			LOGFONT* pf;
-			COLORREF col;
-		};
-
-typedef map<CVector*,mytext2> tmap;
-typedef tmap::value_type tpair;
-typedef tmap::iterator ti;
-typedef map<int,mytext2>::iterator itmap;
-typedef	map<CFont*,myfont>::iterator ifmap;
-
 class CTextCad : public CLine  
 {
 public:
@@ -98,18 +76,11 @@ public:
 	void savefile(CFile &file);
 	void savefiledxf(CStdioFile& file);
 	void setFStyle(FSTYLE* _fstyle);
-	CPoint textend(CDC *hdc);
-	CPoint deletetext(CDC *hdc);
-	CPoint texthome(CDC *hdc);
 	CPoint setfont(CDC *hdc,LOGFONT font,COLORREF ccl,CHARFORMAT cf);
 	bool PtinRegion(CVector point);
 	void drawTrans(CDC *hdc);
 	void translate(CWnd *wnd,CDC *hdc, CVector prevpos, CVector postpos);
 	void draw(CDC *hdc);
-	CPoint kbmovecurs(CDC *hdc,CString& d);
-	CPoint entertext(CDC *hdc);
-	CPoint deleteback(CDC *hdc);
-	CPoint drawtext(CDC *hdc, UINT nchar);
 	void create(CVector pos);
 //	CRect getTextrec(CDC *hdc);
 	void getTextrec(CWnd* wnd,CDC *hdc);
@@ -125,10 +96,6 @@ public:
 	virtual ~CTextCad();
 
 private:
-	CPoint updatecurs(int i);
-	void updatepos();
-	itmap uptext(int i);
-	itmap downtext(int i);
 
 	CVector vecsepos;
 	int iter,biter,sbiter,seiter,liter;
@@ -141,25 +108,12 @@ private:
 	bool selmode;
 	CFont* pfont,*tfont;
 	TEXTMETRIC textmet;
-	struct text
-	{
-	bool start;
-	CVector ltext;
-	UINT ptext;
-	};
 	CString *str;
 	static CWnd * wd;
 
 	CVector curspos;
-	vector<CVector> vecpos;
-	vector<vector<CVector*> > vlpos;
 	//vector<vector<CVector*> >::iterator liter;
 
-	vector<text> vectext;
-	vector<text>::iterator titer;
-	map<int,mytext2> ltext; //Contain the list of characters with font detils and positions
-	map<char,ABC> cmap; //Contain detail about the font dimmensions
-	map<CFont*,myfont> fmap,pfmap; // map between a font name and its details
     CTxtED* rich;
 	// The OK button belongs to this text only: copies start without one.
 	struct OkButtonHolder {
