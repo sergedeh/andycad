@@ -56,6 +56,8 @@ public:
 	// Test-drawing generator: create the edit control (by drawing once), set
 	// the text, and make the first `boldRedChars` characters bold red.
 	void setTextForTest(CDC* hdc, const CString& s, int boldRedChars);
+	// How many times the character layout has been rebuilt (tests).
+	int layoutCount() const { return m_layout.count; }
 	void assign(CDC* hdc, CVector p);
 	CFigure* generateCopy();
 	void Rotate(int sens,CVector prevpoint,CVector postpoint);
@@ -138,7 +140,21 @@ private:
     CTxtED* rich;
 	// Character layout cache for draw3D (see Textcad.cpp).
 	struct LayoutCache {
-		struct Glyph { char ch = 0; long line = 0; CPoint dev; CVector off; LOGFONT lf = {}; COLORREF color = 0; };
+		struct Glyph {
+			char ch = 0; long line = 0;
+			CPoint dev;        // edit-box position (layout input)
+			CVector off;       // world offset from the text origin, unrotated
+			CVector anchor;    // world position: figure geometry, transformed by UpdateMesh
+			CPoint placed;     // text-space position when the anchor was placed
+			LOGFONT lf = {}; COLORREF color = 0;
+		};
+		bool anchorsValid = false;
+		bool anchorsMoved = false;      // a transform moved the anchors since placing
+		POINT placedReal[3] = {}, placedText[3] = {};
+		CPoint placedProj;
+		double placedScale = 0;
+		int count = 0;
+		CVector anchorOrigin;  // mesh vertex 0 when the anchors were placed
 		CStringA rtf;
 		double wn = 0, hn = 0;     // box size / projectedScale() at layout
 		double editorScale = 0;    // projectedScale() the edit box's fonts match
@@ -152,6 +168,7 @@ private:
 	} m_layout;
 	CStringA streamRichRtf();
 	static double projectedScale();
+	void UpdateMesh() override;
 	CVector ppvlo;
 	int width; 
 	float z_prev,u_prev;

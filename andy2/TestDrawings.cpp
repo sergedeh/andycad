@@ -23,6 +23,55 @@
 
 namespace {
 
+// Write a 24-bit BMP of `bmp` (selected out of any DC) to `path`.
+bool SaveBitmapFile(HDC ref, HBITMAP bmp, const CString& path)
+{
+	BITMAP bm = {};
+	if (!GetObject(bmp, sizeof(bm), &bm))
+		return false;
+	BITMAPINFOHEADER bih = {};
+	bih.biSize = sizeof(bih);
+	bih.biWidth = bm.bmWidth;
+	bih.biHeight = bm.bmHeight;
+	bih.biPlanes = 1;
+	bih.biBitCount = 24;
+	bih.biCompression = BI_RGB;
+	DWORD stride = ((bm.bmWidth * 3 + 3) & ~3);
+	bih.biSizeImage = stride * bm.bmHeight;
+	std::vector<BYTE> bits(bih.biSizeImage);
+	if (!GetDIBits(ref, bmp, 0, bm.bmHeight, bits.data(), (BITMAPINFO*)&bih, DIB_RGB_COLORS))
+		return false;
+	BITMAPFILEHEADER bfh = {};
+	bfh.bfType = 0x4D42;
+	bfh.bfOffBits = sizeof(bfh) + sizeof(bih);
+	bfh.bfSize = bfh.bfOffBits + bih.biSizeImage;
+	CFile f;
+	if (!f.Open(path, CFile::modeCreate | CFile::modeWrite))
+		return false;
+	f.Write(&bfh, sizeof(bfh));
+	f.Write(&bih, sizeof(bih));
+	f.Write(bits.data(), bih.biSizeImage);
+	f.Close();
+	return true;
+}
+
+// Draw one figure into an off-screen bitmap with the view's mapping and save it.
+bool RenderFigureToBmp(CCadView* view, CDC* ref, CFigure* f, const CString& path)
+{
+	CDC mem;
+	mem.CreateCompatibleDC(ref);
+	CBitmap bmp;
+	CRect rc;
+	view->GetClientRect(&rc);
+	bmp.CreateCompatibleBitmap(ref, rc.Width(), rc.Height());
+	CBitmap* old = mem.SelectObject(&bmp);
+	mem.FillSolidRect(0, 0, rc.Width(), rc.Height(), RGB(255, 255, 255));
+	view->OnPrepareDC(&mem);
+	f->draw(&mem);
+	mem.SelectObject(old);
+	return SaveBitmapFile(ref->GetSafeHdc(), (HBITMAP)bmp.GetSafeHandle(), path);
+}
+
 const COLORREF kKeyColour = RGB(255, 0, 255);   // transparency key (magenta)
 
 // 64x64 32bpp DIB: 8x8 checker of red/blue over green/yellow halves, plus a
@@ -79,6 +128,7 @@ struct Variant
 	bool        block = false;                  // two rectangles grouped in a block
 	bool        text = false;                   // a two-line text object
 	int         textCount = 1;                  // >1: a grid of small text objects (timing)
+	double      rotateDeg = 0;                  // rotate the text after layout (transform check)
 };
 
 const Variant kVariants[] = {
@@ -94,6 +144,7 @@ const Variant kVariants[] = {
 	{ "image_backcolor.deh",           false, false, true,  true, 4, RGB(40, 90, 200), 0.5 },
 	{ "block.deh",                     false, false, false, false, 0, RGB(255, 255, 255), 1.0, true },
 	{ "text.deh",                      false, false, false, true,  0, RGB(255, 255, 255), 1.0, false, true },
+	{ "text_rotated.deh",              false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 1, 30 },
 	{ "text_many.deh",                 false, false, false, false, 0, RGB(255, 255, 255), 1.0, false, true, 40 },
 };
 
@@ -158,6 +209,21 @@ bool WriteDrawing(CCadView* view, CCadDoc* doc, CDC* hdc, CBitmap& texture,
 			t->getCharge();
 			draw->addFigure(t);
 			t->setTextForTest(hdc, _T("AndyCAD text\r\nDirect2D test 0123"), 7);
+			if (v.rotateDeg != 0)
+			{
+				// Lay out once, rotate through the general figure transform, and
+				// check the characters followed without a new layout.
+				CString base = path.Left(path.GetLength() - 4);
+				RenderFigureToBmp(view, hdc, t, base + _T("_before.bmp"));
+				int n0 = t->layoutCount();
+				t->setRotateCenter(t->getCenter());
+				t->rotate((float)(v.rotateDeg * 3.14159265358979 / 180.0), 0);
+				RenderFigureToBmp(view, hdc, t, base + _T("_after.bmp"));
+				int n1 = t->layoutCount();
+				CString note;
+				note.Format(_T("layouts before rotate=%d after=%d"), n0, n1);
+				why = note;   // reported in the log line
+			}
 		}
 	}
 
@@ -208,7 +274,7 @@ bool MakeImageTestDrawingsIfRequested(CCadView* view)
 			catch (CException* e) { TCHAR m[256] = {}; e->GetErrorMessage(m, 255); why = CString(_T("exception: ")) + m; e->Delete(); }
 			catch (...) { why = _T("unknown exception"); }
 			log += (ok ? _T("OK   ") : _T("FAIL ")) + path;
-			if (!ok) log += _T("  (") + why + _T(")");
+			if (!why.IsEmpty()) log += _T("  (") + why + _T(")");
 			log += _T("\r\n");
 		}
 	}

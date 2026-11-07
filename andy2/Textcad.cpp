@@ -1464,6 +1464,8 @@ void CTextCad::draw3D(CDC *hdc)
 		m_layout.hn=hn;
 		m_layout.valid=true;
 		m_layout.fonts.clear();
+		m_layout.anchorsValid=false;
+		m_layout.count++;
 		}
 		else
 		{
@@ -1480,21 +1482,94 @@ void CTextCad::draw3D(CDC *hdc)
 		CPoint po=mesh.Vertex(0)->v;//rt2->TopLeft()
 		hdc->LPtoDP(&po);
 
+		// The view's logical->device mapping (the one mesh vertices are drawn
+		// with), captured before switching to the text drawing mode.
+		POINT realMap[3]={{0,0},{1000,0},{0,1000}};
+		hdc->LPtoDP(realMap,3);
 		LONG um=hdc->SetMapMode(m_layout.richMapMode);
+		// The mapping the characters are drawn with (rich edit map mode).
+		POINT textMap[3]={{0,0},{1000,0},{0,1000}};
+		hdc->LPtoDP(textMap,3);
+		auto apply=[](const POINT* m, double x, double y, double& ox, double& oy) {
+			ox=m[0].x+x*(m[1].x-m[0].x)/1000.0+y*(m[2].x-m[0].x)/1000.0;
+			oy=m[0].y+x*(m[1].y-m[0].y)/1000.0+y*(m[2].y-m[0].y)/1000.0;
+		};
+		auto invert=[](const POINT* m, double dx, double dy, double& x, double& y) {
+			double a=(m[1].x-m[0].x)/1000.0, b=(m[2].x-m[0].x)/1000.0;
+			double c=(m[1].y-m[0].y)/1000.0, d=(m[2].y-m[0].y)/1000.0;
+			double det=a*d-b*c;
+			dx-=m[0].x; dy-=m[0].y;
+			if(det==0){ x=dx; y=dy; return; }
+			x=( d*dx-b*dy)/det;
+			y=(-c*dx+a*dy)/det;
+		};
 		CPoint _pi;
 		CVector vpi,vpi2;
-		vector<CVector> mvec;
+		vector<CPoint> mvec;
 		double u=-ang*1800/pi;
 		pol=po;
 		hdc->DPtoLP(&pol);
+		// Character anchors are figure geometry: world points that the general
+		// CTVector transforms move with the rest of the figure (see
+		// CTextCad::UpdateMesh). They are placed from the layout once, as
+		// origin + rotation * offset, and from then on only projected.
+		// Fallback: if a transform bypassed UpdateMesh, the tracked origin no
+		// longer matches the mesh and the anchors are placed again.
+		{
+			CVector o=mesh.Vertex(0)->v;
+			CVector d=o-m_layout.anchorOrigin;
+			if(m_layout.anchorsValid && absc(d)>1e-3)
+				m_layout.anchorsValid=false;
+		}
+		if(!m_layout.anchorsValid)
+		{
+			for(int i=0;i<length;i++)
+			{
+				// Where the old code put the character (text drawing space) ...
+				vpi2=pol;
+				vpi=m_layout.glyphs[i].off;
+				vpi=polarc(absc(vpi),argu(vpi)+ang);
+				vpi=vpi2+vpi;
+				CPoint t=vpi;
+				m_layout.glyphs[i].placed=t;
+				// ... -> device pixel -> the view's logical space -> world,
+				// i.e. the same space as the mesh vertices.
+				double dx,dy,lx,ly;
+				apply(textMap,t.x,t.y,dx,dy);
+				invert(realMap,dx,dy,lx,ly);
+				// Logical -> world through the projection, keeping sub-pixel
+				// precision (the projection is affine in x and y here).
+				CVector wo=CPoint(0,0);
+				CVector wx=CPoint(1000,0);
+				CVector wy=CPoint(0,1000);
+				wx=wx-wo; wy=wy-wo;
+				m_layout.glyphs[i].anchor=wo+wx*(lx/1000.0)+wy*(ly/1000.0);
+			}
+			m_layout.anchorOrigin=mesh.Vertex(0)->v;
+			m_layout.anchorsValid=true;
+			m_layout.anchorsMoved=false;
+			memcpy(m_layout.placedReal,realMap,sizeof(realMap));
+			memcpy(m_layout.placedText,textMap,sizeof(textMap));
+			m_layout.placedProj=CPoint(CVector(0,0,0,1));
+			m_layout.placedScale=projectedScale();
+		}
+		// While nothing has moved (no transform, same view and projection), the
+		// characters stay exactly where they were placed; projecting the
+		// anchors back would only add sub-pixel rounding.
+		bool samePlace=!m_layout.anchorsMoved &&
+			memcmp(m_layout.placedReal,realMap,sizeof(realMap))==0 &&
+			memcmp(m_layout.placedText,textMap,sizeof(textMap))==0 &&
+			m_layout.placedProj==CPoint(CVector(0,0,0,1)) &&
+			m_layout.placedScale==projectedScale();
+		// Every draw: world anchor -> logical (projection) -> device -> text space.
 		for(int i=0;i<length;i++)
 		{
-			// position = text origin + rotation * stored world vector
-			vpi2=pol;
-			vpi=m_layout.glyphs[i].off;
-			vpi=polarc(absc(vpi),argu(vpi)+ang);
-			vpi=vpi2+vpi;
-			mvec.push_back(vpi);
+			if(samePlace){ mvec.push_back(m_layout.glyphs[i].placed); continue; }
+			CPoint l=m_layout.glyphs[i].anchor;
+			double dx,dy,tx,ty;
+			apply(realMap,l.x,l.y,dx,dy);
+			invert(textMap,dx,dy,tx,ty);
+			mvec.push_back(CPoint((int)lround(tx),(int)lround(ty)));
 		}
 		// Fonts follow the zoom (pixels per world unit now vs at layout) and
 		// the rotation; they are rebuilt only when either changes.
@@ -1522,8 +1597,7 @@ void CTextCad::draw3D(CDC *hdc)
 		}
 		for(int i=0;i<length;i++)
 		{
-			vpi=mvec[i];
-			_pi=vpi;
+			_pi=mvec[i];
 			char cc=m_layout.glyphs[i].ch;
 			COLORREF tc=m_layout.glyphs[i].color;
 			HGDIOBJ oldfont=::SelectObject(hdc->GetSafeHdc(),(HGDIOBJ)m_layout.fonts[i].get());
@@ -2901,6 +2975,21 @@ static DWORD CALLBACK AppendRtf(DWORD_PTR cookie, LPBYTE buf, LONG cb, LONG* pcb
 	((CStringA*)cookie)->Append((const char*)buf, cb);
 	*pcb = cb;
 	return 0;
+}
+
+void CTextCad::UpdateMesh()
+{
+	// Apply the current CTVector transform to the box (mesh) as every figure
+	// does, and to the character anchors and their tracked origin, so moving,
+	// rotating or scaling the text moves its characters with it.
+	CFigure::UpdateMesh();
+	if(m_layout.anchorsValid)
+	{
+		for(size_t i=0;i<m_layout.glyphs.size();i++)
+			m_layout.glyphs[i].anchor.assign(m_layout.glyphs[i].anchor,true);
+		m_layout.anchorsMoved=true;
+		m_layout.anchorOrigin.assign(m_layout.anchorOrigin,true);
+	}
 }
 
 double CTextCad::projectedScale()
